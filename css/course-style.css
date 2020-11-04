@@ -1,0 +1,65 @@
+/*
+ * Course Handout Style
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+/* red and gray */
+body header { background: #055da9; }
+body footer { background: #999; }
+body .nav > li.active > a { background-color: #055da9; }
+body .remark-slide-content.chapter h1 { background: #055da9; }
+body .remark-slide-content.chapter p { color: #999; }
+
+/* typography */
+header, footer, h1, h2, h3, h4, h5, h6, nav {
+  font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+.remark-slide {
+  font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* tweak headers */
+h3 { font-size: 22px; }
+h4 { font-size: 17px; }
+.exercises h4 { text-transform: uppercase; }
+
+/* syntax highlighting with Eclipse colors */
+.hljs,
+.hljs-subst { color: #333; }
+.hljs-keyword { color: #f26728 }
+.hljs-attribute,
+.hljs-selector-tag,
+.hljs-meta-keyword,
+.hljs-doctag,
+.hljs-name { color: rgb(127,0,85); }
+.hljs-built_in,
+.hljs-bullet,
+.hljs-code,
+.hljs-addition { color: #2C6F2C; }
+.hljs-literal { color: #4D974D; }
+.hljs-regexp,
+.hljs-symbol,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-selector-attr,
+.hljs-selector-pseudo { color: #BC6060; }
+.hljs-type,
+.hljs-string { color: #008345}
+/* .hljs-number, */
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-quote,
+.hljs-template-tag,
+.hljs-deletion { color: rgb(41,0,255); }
+.hljs-title,
+.hljs-section { color: #333; }
+.hljs-comment { color: #ed1c24; }
+.hljs-meta { color: rgb(100,100,100); }
+/* .hljs-meta-string { color: #6CA8D6; } */
+.hljs-emphasis { font-style: italic; }
+.hljs-strong { font-weight: bold; }
+.handout-javadoc-comment { color: rgb(63,95,191); }
+.handout-javadoc-comment .hljs-doctag { color: rgb(127,159,191); }
