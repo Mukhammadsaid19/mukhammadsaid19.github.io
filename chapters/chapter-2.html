@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    2. Ma'lumotlar turlari va satrlar
+   </title>
+   <link href="../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <header>
+   <a href="../index.html">
+    Python Coding Club
+   </a>
+   |
+   <a href="#">
+    Mundarijaga qaytish
+   </a>
+   <div>
+    9-sinf
+   </div>
+  </header>
+  <nav class="table-of-contents col-sm-2">
+   <ul class="nav">
+    <li>
+     <a href="#pythonga_kirish">
+      2. Ma'lumotlar turlari va satrlar
+     </a>
+    </li>
+    <li><a href="#Sonlar_butun_haqiqiy_hamda_kompleks_sonlar_0">Sonlar: butun, haqiqiy hamda kompleks sonlar</a></li>
+    <li><a href="#Pythonda_satrlar_bilan_ishlash_literallar_0">Pythonda satrlar bilan ishlash literallar</a></li>
+    <li><a href="#Satrlarni_formatlash_format_metodi_0">Satrlarni formatlash. format metodi</a></li>
+    <!--  <li>
+     <a href="#summary">
+      Summary
+     </a>
+    </li>-->
+   </ul>
+  </nav>
+  <main class="container-fluid">
+   <h1 class="handout-title col-sm-8 col-sm-offset-2" id="pythonga_kirish">
+    2. Ma'lumotlar turlari va satrlar
+   </h1>
+   <div data-outline="pythonga_kirish">
+    <div class="markdown col-sm-8 col-sm-offset-2 converted">
+     <h4>
+        Bu bob quyidagilardan tashkil topgan:
+     </h4>
+     <p>
+      Mavzular:
+     </p>
+     <ul>
+      <li>
+        Sonlar: butun, haqiqiy hamda kompleks sonlar
+      </li>
+      <li>
+        Pythonda satrlar bilan ishlash: literallar
+      </li>
+      <li>
+        Satrlarni formatlash. <code>format</code> metodi 
+      </li>
+     </ul>
+
+
+     <h2 id="Sonlar_butun_haqiqiy_hamda_kompleks_sonlar_0">
+        Sonlar: butun, haqiqiy hamda kompleks sonlar
+     </h2>
+<div data-outline="Sonlar_butun_haqiqiy_hamda_kompleks_sonlar_0">
+<p class="has-line-data" data-line-start="2" data-line-end="3">Python 3 da quyidagi ko‘rinishdagi sonlar mavjud: <strong>butun</strong>, <strong>haqiqiy</strong> va <strong>kompleks</strong>. Sonlar bilan ishlash va ular ustida amallarni bajarish.</p>
+<h3 class="code-line" data-line-start=4 data-line-end=5 ><a id="Butun_sonlar_int_4"></a>Butun sonlar (int)</h3>
+<p class="has-line-data" data-line-start="6" data-line-end="7">Python 3 dagi sonlar boshqa sonlardan hech qanday farq qilmaydi. Ular ustida eng oddiy matematik amallarning barchasini bajarish mumkin:</p>
+<table class="table table-striped no-markdown">
+<thead>
+<tr>
+<th style="text-align:center"><strong>Operator</strong></th>
+<th style="text-align:center"><strong>Ma’nosi</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>x + y</code></td>
+<td style="text-align:center">qo‘shish</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>x – y</code></td>
+<td style="text-align:center">ayirish</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>x * y</code></td>
+<td style="text-align:center">ko‘paytirish</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>x / y</code></td>
+<td style="text-align:center">bo‘lish</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>x // y</code></td>
+<td style="text-align:center">bo‘lish natijasining butun qismi</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>x % y</code></td>
+<td style="text-align:center">bo‘lish natijasining qoldiq qismi</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>–x</code></td>
+<td style="text-align:center">sonning ishorasini almashtirish</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>abs(x)</code></td>
+<td style="text-align:center">sonning moduli</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>divmod(x, y)</code></td>
+<td style="text-align:center"><code>(x // y va x % y)</code> juftligi</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>x ** y</code></td>
+<td style="text-align:center">darajaga ko‘tarish</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>pow(x, y [, z])</code></td>
+<td style="text-align:center"><code>xy</code> modul bo‘yicha (modul ko‘rsatilgan bo‘lsa)</td>
+</tr>
+</tbody>
+</table>
+<p class="has-line-data" data-line-start="22" data-line-end="23">Bundan tashqari Python 3 da ko‘plab boshqa daturlash tillaridan farqli ravishda uzun sonlar arifmetikasi ham mavjud (lekin bu xotira sarfini oshiradi).</p>
+<pre><code class="has-line-data" data-line-start="25" data-line-end="42" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-number">5</span> * <span class="hljs-number">2</span>
+<span class="hljs-number">10</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-number">20</span> / <span class="hljs-number">3</span>
+<span class="hljs-number">6.666666666666667</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-number">20</span> // <span class="hljs-number">3</span>
+<span class="hljs-number">6</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-number">20</span> % <span class="hljs-number">3</span>
+<span class="hljs-number">2</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-number">3</span> ** <span class="hljs-number">4</span>
+<span class="hljs-number">81</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>pow(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
+<span class="hljs-number">81</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>pow(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">27</span>)
+<span class="hljs-number">0</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-number">3</span> ** <span class="hljs-number">150</span>
+<span class="hljs-number">369988485035126972924700782451696644186473100389722973815184405301748249</span>
+</code></pre>
+<h4 class="code-line" data-line-start=43 data-line-end=44 ><a id="Bitli_operatsiyalar_43"></a>Bitli operatsiyalar</h4>
+<p class="has-line-data" data-line-start="44" data-line-end="45">Bundan tashqari, butun sonlar ustida bitli amallarni ham bajarish mumkin:</p>
+<table class="table table-striped no-markdown">
+<thead>
+<tr>
+<th style="text-align:center"><strong>Operator</strong></th>
+<th style="text-align:center"><strong>Ma’nosi</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>x | y</code></td>
+<td style="text-align:center">bitli yoki</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>x ^ y</code></td>
+<td style="text-align:center">bitli boshqasini inkor etuvchi yoki</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>x &amp; y</code></td>
+<td style="text-align:center">bitli va</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>x &lt;&lt; y</code></td>
+<td style="text-align:center">bitli chapga siljish</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>x &gt;&gt; y</code></td>
+<td style="text-align:center">bitli o‘ngga siljish</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>~ x</code></td>
+<td style="text-align:center">bitlar inversiyasi</td>
+</tr>
+</tbody>
+</table>
+<h3 class="code-line" data-line-start=55 data-line-end=56 ><a id="Qosimcha_metodlar_55"></a>Qo‘simcha metodlar</h3>
+<p class="has-line-data" data-line-start="56" data-line-end="57"><code>int.bit_length()</code> — ishora va boshidagi nollarni hisobga olmagan holda sonni ikkilik sanoq tizimida tasvirlash uchun kerakli bitlar soni.</p>
+<pre><code class="has-line-data" data-line-start="59" data-line-end="66" class="language-python">&gt;&gt;&gt; <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-string">'hello world'</span>:
+            <span class="hljs-keyword">if</span> i == <span class="hljs-string">'o'</span>:
+                <span class="hljs-keyword">break</span>
+            print(i * <span class="hljs-number">2</span>, end=<span class="hljs-string">''</span>)
+
+hheellll
+</code></pre>
+<p class="has-line-data" data-line-start="66" data-line-end="67"><code>int.to_bytes(length, byteorder, *, signed=False)</code> – shu sonni tasvirlaydigan baytlar satrini qaytaradi.</p>
+<pre><code class="has-line-data" data-line-start="69" data-line-end="79" class="language-python">&gt;&gt;&gt; (<span class="hljs-number">1024</span>).to_bytes(<span class="hljs-number">2</span>, byteorder=<span class="hljs-string">'big'</span>)
+<span class="hljs-string">b'\x04\x00'</span>
+&gt;&gt;&gt; (<span class="hljs-number">1024</span>).to_bytes(<span class="hljs-number">10</span>, byteorder=<span class="hljs-string">'big'</span>)
+<span class="hljs-string">b'\x00\x00\x00\x00\x00\x00\x00\x00\x04\x00'</span>
+&gt;&gt;&gt; (-<span class="hljs-number">1024</span>).to_bytes(<span class="hljs-number">10</span>, byteorder=<span class="hljs-string">'big'</span>, signed=<span class="hljs-keyword">True</span>)
+<span class="hljs-string">b'\xff\xff\xff\xff\xff\xff\xff\xff\xfc\x00'</span>
+&gt;&gt;&gt; x = <span class="hljs-number">1000</span>
+&gt;&gt;&gt; x.to_bytes((x.bit_length() // <span class="hljs-number">8</span>) + <span class="hljs-number">1</span>, byteorder=<span class="hljs-string">'little'</span>)
+<span class="hljs-string">b'\xe8\x03'</span>
+</code></pre>
+<p class="has-line-data" data-line-start="80" data-line-end="81"><code>int.from_bytes(bytes, byteorder, *, signed=False)</code> classmetodi – shu baytlar satridagi sonni qaytaradi.</p>
+<pre><code class="has-line-data" data-line-start="83" data-line-end="94" class="language-python">&gt;&gt;&gt; int.from_bytes(<span class="hljs-string">b'\x00\x10'</span>, byteorder=<span class="hljs-string">'big'</span>)
+<span class="hljs-number">16</span>
+&gt;&gt;&gt; int.from_bytes(<span class="hljs-string">b'\x00\x10'</span>, byteorder=<span class="hljs-string">'little'</span>)
+<span class="hljs-number">4096</span>
+&gt;&gt;&gt; int.from_bytes(<span class="hljs-string">b'\xfc\x00'</span>, byteorder=<span class="hljs-string">'big'</span>, signed=<span class="hljs-keyword">True</span>)
+-<span class="hljs-number">1024</span>
+&gt;&gt;&gt; int.from_bytes(<span class="hljs-string">b'\xfc\x00'</span>, byteorder=<span class="hljs-string">'big'</span>, signed=<span class="hljs-keyword">False</span>)
+<span class="hljs-number">64512</span>
+&gt;&gt;&gt; int.from_bytes([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], byteorder=<span class="hljs-string">'big'</span>)
+<span class="hljs-number">16711680</span>
+</code></pre>
+<h4 class="code-line" data-line-start=95 data-line-end=96 ><a id="Sanoq_tizimlari_95"></a>Sanoq tizimlari</h4>
+<p class="has-line-data" data-line-start="96" data-line-end="97">Maktabda “Informatika” fanidan saboq olganlar sonlar 10 lik sanoq tizimidan boshqa tizimlarda ham tasvirlanishi mumkinligini yaxshi biladi. Masalan, kompyuterda 2 lik sanoq tizimidan foydalaniladi, masalan, 19 soni ikkilik sanoq tizimida 10011 ko‘rinishda bo‘ladi. Bundan tashqari, ba’zan sonlarni bir sanoq tizimidan boshqasiga o‘tkazishga ham to‘g‘ri kelishi mumkin. Pyhtonda buning uchun bir nechta funksiyalar mavjud:</p>
+<ul>
+<li class="has-line-data" data-line-start="97" data-line-end="98"><code>int([object], [sanoq tizimi asosi])</code> – 10 lik sanoq tizimidagi butun songa aylantirish. Boshqa ko‘rsatma berilmasa, sanoq tizimi 10 lik deb qaraladi, lekin, 2 likdan 36 lik sanoq tizimlarigacha ko‘rsatish ham mumkin.</li>
+<li class="has-line-data" data-line-start="98" data-line-end="99"><code>bin(x)</code> – butun sonni 2 lik sanoq tizimidagi satrga aylantirish.</li>
+<li class="has-line-data" data-line-start="99" data-line-end="100"><code>hex(x)</code> – butun sonni 16 lik sanoq tizimidagi satrga aylantirish.</li>
+<li class="has-line-data" data-line-start="100" data-line-end="102"><code>oct(x)</code> – butun sonni 8 lik sanoq tizimidagi satrga aylantirish.</li>
+</ul>
+<h4 class="code-line" data-line-start=102 data-line-end=103 ><a id="Misollar_102"></a>Misollar</h4>
+<pre><code class="has-line-data" data-line-start="104" data-line-end="127" class="language-python">&gt;&gt;&gt; a = int(<span class="hljs-string">'19'</span>) <span class="hljs-comment"># satrni songa aylantiramiz</span>
+&gt;&gt;&gt; b = int(<span class="hljs-string">'19.5'</span>) <span class="hljs-comment"># Satr butun son emas</span>
+Traceback (most recent call last):
+File <span class="hljs-string">""</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span>
+ValueError: invalid literal <span class="hljs-keyword">for</span> int() <span class="hljs-keyword">with</span> base <span class="hljs-number">10</span>: <span class="hljs-string">'19.5'</span>
+&gt;&gt;&gt; c = int(<span class="hljs-number">19.5</span>) <span class="hljs-comment"># Kasr songa nisbatan qo‘llanilganda uning kasr qismini kesib tashlaydi. </span>
+&gt;&gt;&gt; print(a, c)
+<span class="hljs-number">19</span> <span class="hljs-number">19</span>
+&gt;&gt;&gt; bin(<span class="hljs-number">19</span>)
+<span class="hljs-string">'0b10011'</span>
+&gt;&gt;&gt; oct(<span class="hljs-number">19</span>)
+<span class="hljs-string">'0o23'</span>
+&gt;&gt;&gt; hex(<span class="hljs-number">19</span>)
+<span class="hljs-string">'0x13'</span>
+&gt;&gt;&gt; <span class="hljs-number">0b10011</span> <span class="hljs-comment"># Sonli o‘zgarmaslar (konstantalar)ni shunday ko‘rinishda ham yozish mumkin</span>
+<span class="hljs-number">19</span>
+&gt;&gt;&gt; int(<span class="hljs-string">'10011'</span>, <span class="hljs-number">2</span>)
+<span class="hljs-number">19</span>
+&gt;&gt;&gt; int(<span class="hljs-string">'0b10011'</span>, <span class="hljs-number">2</span>)
+<span class="hljs-number">19</span>
+</code></pre>
+<h3 class="code-line" data-line-start=128 data-line-end=129 ><a id="Haqiqiy_sonlar_float_128"></a>Haqiqiy sonlar (float)</h3>
+<p class="has-line-data" data-line-start="129" data-line-end="130">Haqiqiy sonlar bilan ham butun sonlar bilan bajarish mumkin bo‘lgan barcha amallarni bajarish mumkin. Lekin (kompyuterda sonlarning tasvirlanish metodlari sababli) haqiqiy sonlar unchalik aniq emas va bunday holat ayrim xatoliklarga olib kelishi mumkin.</p>
+<pre><code class="has-line-data" data-line-start="131" data-line-end="134" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-number">0.1</span> + <span class="hljs-number">0.1</span> + <span class="hljs-number">0.1</span> + <span class="hljs-number">0.1</span> + <span class="hljs-number">0.1</span> + <span class="hljs-number">0.1</span> + <span class="hljs-number">0.1</span> + <span class="hljs-number">0.1</span> + <span class="hljs-number">0.1</span> + <span class="hljs-number">0.1</span>
+<span class="hljs-number">0.9999999999999999</span>
+</code></pre>
+<p class="has-line-data" data-line-start="135" data-line-end="136">Aniqroq hisob-kitoblar uchun boshqa obyektlar qo‘llaniladi (masalan, <code>Decimal</code> va <code>Fraction</code>). Bundan tashqari, haqiqiy sonlar bilan ishlaganda, uzun sonlar imkoniyati qollanilmaydi.</p>
+<pre><code class="has-line-data" data-line-start="138" data-line-end="144" class="language-python">&gt;&gt;&gt; a = <span class="hljs-number">3</span> ** <span class="hljs-number">1000</span>
+&gt;&gt;&gt; a + <span class="hljs-number">0.1</span>
+Traceback (most recent call last):
+    File <span class="hljs-string">""</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span>
+OverflowError: int too large to convert to float
+</code></pre>
+<h4 class="code-line" data-line-start=145 data-line-end=146 ><a id="Sonlar_bilan_ishlashga_oid_oddiy_misollar_145"></a>Sonlar bilan ishlashga oid oddiy misollar:</h4>
+<pre><code class="has-line-data" data-line-start="148" data-line-end="158" class="language-python">&gt;&gt;&gt; c = <span class="hljs-number">150</span>
+&gt;&gt;&gt; d = <span class="hljs-number">12.9</span>
+&gt;&gt;&gt; c + d
+<span class="hljs-number">162.9</span>
+&gt;&gt;&gt; p = abs(d - c) <span class="hljs-comment"># Sonning moduli</span>
+&gt;&gt;&gt; print(p)
+<span class="hljs-number">137.1</span>
+&gt;&gt;&gt; round(p) <span class="hljs-comment"># Yaxlitlash</span>
+<span class="hljs-number">137</span>
+</code></pre>
+<h3 class="code-line" data-line-start=159 data-line-end=160 ><a id="Qoshimcha_metodlar_159"></a>Qo‘shimcha metodlar</h3>
+<p class="has-line-data" data-line-start="160" data-line-end="164"><code>float.as_integer_ratio()</code> – nisbati shu songa teng bo‘lgan sonlar juftligi.<br>
+<code>float.is_integer()</code> – qiymat haqiqiy son ekanligini tekshiradi.<br>
+<code>float.hex()</code> – floatni hexga o‘tkazish (16 lik sanoq tizimiga).<br>
+<code>classmethod float.fromhex(s)</code> – 16 likdagi son satridan float (haqiqiy son)ga o‘tkazish.</p>
+<pre><code class="has-line-data" data-line-start="166" data-line-end="171" class="language-python">&gt;&gt;&gt; (<span class="hljs-number">10.5</span>).hex()
+<span class="hljs-string">'0x1.5000000000000p+3'</span>
+&gt;&gt;&gt; float.fromhex(<span class="hljs-string">'0x1.5000000000000p+3'</span>)
+<span class="hljs-number">10.5</span>
+</code></pre>
+<p class="has-line-data" data-line-start="172" data-line-end="174">Sonlar bilan ishlashga mo‘ljallangan standart imkoniyatlardan tashqari (Pythonda ularning soni unchalik ham ko‘p emas), Python tarkibida bir nechta foydali modullar ham mavjud.<br>
+<code>math</code> moduli murakkabroq matematik funksiyalardan foydalanish imkoniyatini beradi.</p>
+<pre><code class="has-line-data" data-line-start="176" data-line-end="182" class="language-python">&gt;&gt;&gt; <span class="hljs-keyword">import</span> math
+&gt;&gt;&gt; math.pi
+<span class="hljs-number">3.141592653589793</span>
+&gt;&gt;&gt; math.sqrt(<span class="hljs-number">85</span>)
+<span class="hljs-number">9.219544457292887</span>
+</code></pre>
+<p class="has-line-data" data-line-start="183" data-line-end="184"><code>random</code> moduli tasodifiy sonlar generatori hamda tasodifiy tanlovdan foydalanish imkoniyatini yaratadi.</p>
+<pre><code class="has-line-data" data-line-start="186" data-line-end="190" class="language-python">&gt;&gt;&gt; <span class="hljs-keyword">import</span> random
+&gt;&gt;&gt; random.random()
+<span class="hljs-number">0.15651968855132303</span>
+</code></pre>
+<h3 class="code-line" data-line-start=191 data-line-end=192 ><a id="Kompleks_sonlar_complex_191"></a>Kompleks sonlar (complex)</h3>
+<p class="has-line-data" data-line-start="193" data-line-end="194">Yuqoridagilardan tashqari, Python tarkibida <em>kompleks</em> sonlar ham mavjud:</p>
+<pre><code class="has-line-data" data-line-start="196" data-line-end="230" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>x = complex(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+<span class="hljs-prompt">&gt;&gt;&gt; </span>print(x)
+(<span class="hljs-number">1</span>+<span class="hljs-number">2j</span>)
+<span class="hljs-prompt">&gt;&gt;&gt; </span>y = complex(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
+<span class="hljs-prompt">&gt;&gt;&gt; </span>print(y)
+(<span class="hljs-number">3</span>+<span class="hljs-number">4j</span>)
+<span class="hljs-prompt">&gt;&gt;&gt; </span>z = x + y
+<span class="hljs-prompt">&gt;&gt;&gt; </span>print(x)
+(<span class="hljs-number">1</span>+<span class="hljs-number">2j</span>)
+<span class="hljs-prompt">&gt;&gt;&gt; </span>print(z)
+(<span class="hljs-number">4</span>+<span class="hljs-number">6j</span>)
+<span class="hljs-prompt">&gt;&gt;&gt; </span>z = x * y
+<span class="hljs-prompt">&gt;&gt;&gt; </span>print(z)
+(-<span class="hljs-number">5</span>+<span class="hljs-number">10j</span>)
+<span class="hljs-prompt">&gt;&gt;&gt; </span>z = x / y
+<span class="hljs-prompt">&gt;&gt;&gt; </span>print(z)
+(<span class="hljs-number">0.44</span>+<span class="hljs-number">0.08j</span>)
+<span class="hljs-prompt">&gt;&gt;&gt; </span>print(x.conjugate()) <span class="hljs-comment"># kompleks-qo‘shma son</span>
+(<span class="hljs-number">1</span>-<span class="hljs-number">2j</span>)
+<span class="hljs-prompt">&gt;&gt;&gt; </span>print(x.imag) <span class="hljs-comment"># Mavhum qismi</span>
+<span class="hljs-number">2.0</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>print(x.real) <span class="hljs-comment"># Haqiqiy qismi</span>
+<span class="hljs-number">1.0</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>print(x &gt; y) <span class="hljs-comment"># kompleks sonlarni taqqoslab bo‘lmaydi.</span>
+Traceback (most recent call last):
+File <span class="hljs-string">""</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span>
+TypeError: unorderable types: complex() &gt; complex()
+<span class="hljs-prompt">&gt;&gt;&gt; </span>print(x == y) <span class="hljs-comment"># lekin, ularning o‘zaro tengligini tekshirish mumkin</span>
+<span class="hljs-keyword">False</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>abs(<span class="hljs-number">3</span> + <span class="hljs-number">4j</span>) <span class="hljs-comment"># Kompleks sonning moduli</span>
+<span class="hljs-number">5.0</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>pow(<span class="hljs-number">3</span> + <span class="hljs-number">4j</span>, <span class="hljs-number">2</span>) <span class="hljs-comment"># Darajaga ko‘tarish</span>
+(-<span class="hljs-number">7</span>+<span class="hljs-number">24j</span>)
+</code></pre>
+<p class="has-line-data" data-line-start="231" data-line-end="232">Bundan tashqari, kompleks sonlar bilan ishlash uchun cmath modulidan ham foydalanish mumkin.</p>
+    
+</div>
+
+    <h2 id="Pythonda_satrlar_bilan_ishlash_literallar_0">
+        Pythonda satrlar bilan ishlash: literallar
+    </h2>
+
+<div data-outline="Pythonda_satrlar_bilan_ishlash_literallar_0">
+<p class="has-line-data" data-line-start="2" data-line-end="4">Pythonda <em>satrlar</em> bu – matnli axborotni saqlash va tasvirlash uchun ishlatiladigan simvollarning <strong>tartiblangan ketma-ketligi</strong>. Shuning uchun satrlar yordamida matnli ko‘rinishda tasvirlash mumkin bo‘lgan har qanday obyektlar bilan ishlash mumkin.<br>
+Ushbu birinchi qismimiz satrlar bilan, aynan, satr literallari bilan ishlashga bag‘ishlanadi.</p>
+<h3 class="code-line" data-line-start=5 data-line-end=6 ><a id="Satr_literallari_5"></a>Satr literallari</h3>
+<p class="has-line-data" data-line-start="6" data-line-end="7">Pythonda satrlar bilan ishlash juda ham qulay. Bir nechta satr literallari mavjud bo‘lib, biz hozir ularni ko‘rib chiqamiz.</p>
+<h4 class="code-line" data-line-start=8 data-line-end=9 ><a id="Apostrof_va_qoshtirnoqlar_ichidagi_satrlar_8"></a>Apostrof va qo‘shtirnoqlar ichidagi satrlar</h4>
+<pre><code class="has-line-data" data-line-start="11" data-line-end="14" class="language-python">S = <span class="hljs-string">'spam"s'</span>
+S = <span class="hljs-string">"spam's"</span>
+</code></pre>
+<p class="has-line-data" data-line-start="15" data-line-end="16">Apostrof va qo‘shtirnoqlar ichidagi satrlar bir-biridan <strong>farq qilmaydi</strong>. Bunday 2 xil variantning mavjudligiga sabab – satr literallarida qo‘shtirnoq yoki apostroflarni ekranlashtirish belgilarisiz qo‘llash imkonining mavjudligi.</p>
+<h4 class="code-line" data-line-start=17 data-line-end=18 ><a id="Ekranlashtirilgan_ketmaketliklar__xizmatchi_simvollar_17"></a>Ekranlashtirilgan ketma-ketliklar – xizmatchi simvollar</h4>
+<p class="has-line-data" data-line-start="19" data-line-end="20">Ekranlashtirilgan ketma-ketliklar klaviatura orqali kiritish qiyin bo‘lgan simvollarni kiritish imkoniyatini beradi.</p>
+<table class="table table-striped no-markdown">
+<thead>
+<tr>
+<th style="text-align:center"><strong>Operator</strong></th>
+<th style="text-align:center"><strong>Ma’nosi</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>\n</code></td>
+<td style="text-align:center">satrni ko‘chirish.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\a</code></td>
+<td style="text-align:center">qo‘ng‘iroq.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\b</code></td>
+<td style="text-align:center">zichlik.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\f</code></td>
+<td style="text-align:center">sahifani ko‘chirish.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\r</code></td>
+<td style="text-align:center">karetkani qaytarish.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\t</code></td>
+<td style="text-align:center">gorizontal tabulyatsiya.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\v</code></td>
+<td style="text-align:center">vertikal tabulyatsiya.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\N{id}</code></td>
+<td style="text-align:center">Yunikod ma’lumotlar ombori ID identifikatori.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\uhhhh</code></td>
+<td style="text-align:center">16 lik ko‘rinishdagi 16 lik Yunikod simvoli.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\Uhhhh…</code></td>
+<td style="text-align:center">32 lik ko‘rinishdagi 32 lik Yunikod simvoli.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\xhh</code></td>
+<td style="text-align:center">simvolning 16 likdagi qiymati.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\ooo</code></td>
+<td style="text-align:center">simvolning 8 likdagi qiymati.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\0</code></td>
+<td style="text-align:center">Null simvoli (satr yakuni belgisi hisoblanmaydi).</td>
+</tr>
+</tbody>
+</table>
+<h4 class="code-line" data-line-start=37 data-line-end=38 ><a id="Xom_satrlar_ekranlashtirishni_bekor_qiladi_37"></a>“Xom” satrlar ekranlashtirishni bekor qiladi</h4>
+<p class="has-line-data" data-line-start="38" data-line-end="39">Agar ochilayotgan qo‘shtirnoqdan oldin ‘r’ belgisi (har qanday registrda) turgan bo‘lsa, u holda ekranlashtirish mexanizmi o‘chiriladi.</p>
+<pre><code class="has-line-data" data-line-start="41" data-line-end="43">S = r'C:\newt.txt'
+</code></pre>
+<p class="has-line-data" data-line-start="44" data-line-end="45">Lekin, uning vazifasiga qaramasdan, “xom” satri teskari slesh belgisi bilan yakunlanishi mumkin emas. Bu muammoni hal etish yo‘llari:</p>
+<pre><code class="has-line-data" data-line-start="47" data-line-end="51" class="language-python">S = <span class="hljs-string">r'\n\n\\'</span>[:-<span class="hljs-number">1</span>]
+S = <span class="hljs-string">r'\n\n'</span> + <span class="hljs-string">'\\'</span>
+S = <span class="hljs-string">'\\n\\n'</span>
+</code></pre>
+<h4 class="code-line" data-line-start=52 data-line-end=53 ><a id="Uchtalik_apostroflar_yoki_qoshtirnoqlar_qollanilgan_satrlar_52"></a>Uchtalik apostroflar yoki qo‘shtirnoqlar qo‘llanilgan satrlar</h4>
+<p class="has-line-data" data-line-start="53" data-line-end="54">Uchtalik qo‘shtirnoqli satrlarning asosiy afzalliklari shundaki, ularni ko‘p qatorli matnlarning bloklarini kiritishda qo‘llash mumkin. Bunday satrlarning ichida apostroflar va qo‘shtirnoqlardan erkin foydalanish mumkin, asosiysi – uchta qo‘shtirnoq bo‘lmasa bo‘lgani.</p>
+<pre><code class="has-line-data" data-line-start="56" data-line-end="66" class="language-python">&gt;&gt;&gt; c = <span class="hljs-string">'''Bu juda ham katta
+... satr, ko‘p qatorli
+... matn bloki'''</span>
+&gt;&gt;&gt; c
+<span class="hljs-string">'Bu juda ham katta\nsatr, ko‘p qatorli\nmatn bloki'</span>
+&gt;&gt;&gt; print(c)
+Bu juda ham katta
+satr, ko‘p qatorli
+matn bloki
+</code></pre>
+<p class="has-line-data" data-line-start="66" data-line-end="67">Bular satr literallari va ular bilan ishlashga bag‘ishlangan ma’lumotlarimiz edi. Satrlarning funksiyalari hamda metodlari haqida keyingi bobda gaplashamiz.</p>
+<h2 class="code-line" data-line-start=68 data-line-end=69 ><a id="Satrlar_Satrlar_funksiya_va_metodlari_68"></a>Satrlar. Satrlar funksiya va metodlari</h2>
+<p class="has-line-data" data-line-start="70" data-line-end="72">Biz satrlar bilan ishlash borasida ozroq so‘z yuritgan edik. Endi esa satrlar bilan ishlashga mo‘ljallangan funksiyalar va metodlar haqida gaplashamiz.<br>
+Men bu yerda satrlar b ilan ishlashga mo‘ljallangan barcha metod va funksiyalarni jamlashga harakat qildim. Ammo nimanidir esdan chiqarib qoldirgan bo‘lsam, to‘g‘rilashingizga to‘g‘ri keladi.</p>
+<h3 class="code-line" data-line-start=73 data-line-end=74 ><a id="Asosiy_operatsiyalar_73"></a>Asosiy operatsiyalar</h3>
+<ul>
+<li class="has-line-data" data-line-start="75" data-line-end="82">
+<p class="has-line-data" data-line-start="75" data-line-end="76">Konkatenatsiya (ulash)</p>
+<pre><code class="has-line-data" data-line-start="77" data-line-end="82" class="language-python">&gt;&gt;&gt; S1 = <span class="hljs-string">'spam'</span>
+&gt;&gt;&gt; S2 = <span class="hljs-string">'eggs'</span>
+&gt;&gt;&gt; print(S1 + S2)
+<span class="hljs-string">'spameggs'</span>
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="82" data-line-end="87">
+<p class="has-line-data" data-line-start="82" data-line-end="83">Satrlarni ko‘paytirish</p>
+<pre><code class="has-line-data" data-line-start="84" data-line-end="87" class="language-python">&gt;&gt;&gt; print(<span class="hljs-string">'spam'</span> * <span class="hljs-number">3</span>)
+spamspamspam
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="87" data-line-end="92">
+<p class="has-line-data" data-line-start="87" data-line-end="88">Satr uzunligi (len funksiyasi)</p>
+<pre><code class="has-line-data" data-line-start="89" data-line-end="92" class="language-python">&gt;&gt;&gt; len(<span class="hljs-string">'spam'</span>)
+<span class="hljs-number">4</span>
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="92" data-line-end="104">
+<p class="has-line-data" data-line-start="92" data-line-end="93">Indeks bo‘yicha murojaat:</p>
+<pre><code class="has-line-data" data-line-start="94" data-line-end="102" class="language-python">&gt;&gt;&gt; S = <span class="hljs-string">'spam'</span>
+&gt;&gt;&gt; S[<span class="hljs-number">0</span>]
+<span class="hljs-string">'s'</span>
+&gt;&gt;&gt; S[<span class="hljs-number">2</span>]
+<span class="hljs-string">'a'</span>
+&gt;&gt;&gt; S[-<span class="hljs-number">2</span>]
+<span class="hljs-string">'a'</span>
+</code></pre>
+<p class="has-line-data" data-line-start="102" data-line-end="103">Misolda ko‘rinib turganidek, Pythonda manfiy indeks bo‘yicha ham murojaat qilish mumkin. Bunda sanoq satr oxiridan boshlanadi.</p>
+</li>
+<li class="has-line-data" data-line-start="104" data-line-end="122">
+<p class="has-line-data" data-line-start="104" data-line-end="107">Kesimni olish<br>
+Kesimni olish operatori : <code>[X:Y]</code>. <code>X</code> – kesimning boshlanishi, <code>Y</code> – kesimning yakunlanishi.<br>
+<code>Y</code> indeksli belgi kesimga kiritilmaydi. Boshqa holat ko‘rsatilmaganda, birinchi indeks <code>0</code>, ikkinchisi esa satr uzunligiga teng deb olinadi.</p>
+<pre><code class="has-line-data" data-line-start="109" data-line-end="121" class="language-python">&gt;&gt;&gt; s = <span class="hljs-string">'spameggs'</span>
+&gt;&gt;&gt; s[<span class="hljs-number">3</span>:<span class="hljs-number">5</span>]
+<span class="hljs-string">'me'</span>
+&gt;&gt;&gt; s[<span class="hljs-number">2</span>:-<span class="hljs-number">2</span>]
+<span class="hljs-string">'ameg'</span>
+&gt;&gt;&gt; s[:<span class="hljs-number">6</span>]
+<span class="hljs-string">'spameg'</span>
+&gt;&gt;&gt; s[<span class="hljs-number">1</span>:]
+<span class="hljs-string">'pameggs'</span>
+&gt;&gt;&gt; s[:]
+<span class="hljs-string">'spameggs'</span>
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="122" data-line-end="132">
+<p class="has-line-data" data-line-start="122" data-line-end="123">Bundan tashqari, kesimni olish qadamini ham ko‘rsatish mumkin.</p>
+<pre><code class="has-line-data" data-line-start="124" data-line-end="131">&gt;&gt;&gt; s[::-1]
+'sggemaps'
+&gt;&gt;&gt; s[3:5:-1]
+''
+&gt;&gt;&gt; s[2::2]
+'aeg'
+</code></pre>
+</li>
+</ul>
+<h3 class="code-line" data-line-start=132 data-line-end=133 ><a id="Satrlarning_boshqa_funksiya_va_metodlari_132"></a>Satrlarning boshqa funksiya va metodlari</h3>
+<p class="has-line-data" data-line-start="133" data-line-end="134">Metodlarga murojaat qilganda yodda tutishimiz kerakki, Pythonda satrlar o‘zgartirib bo‘lmaydigan ketma-ketliklar sirasiga kiradi, ya’ni barcha metod va funksiyalari faqatgina yangi satr yaratishi mumkin.</p>
+<pre><code class="has-line-data" data-line-start="136" data-line-end="146" class="language-python">&gt;&gt;&gt; s = <span class="hljs-string">'spam'</span>
+&gt;&gt;&gt; s[<span class="hljs-number">1</span>] = <span class="hljs-string">'b'</span>
+Traceback (most recent call last):
+File <span class="hljs-string">""</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span>
+s[<span class="hljs-number">1</span>] = <span class="hljs-string">'b'</span>
+TypeError: <span class="hljs-string">'str'</span> object does <span class="hljs-keyword">not</span> support item assignment
+&gt;&gt;&gt; s = s[<span class="hljs-number">0</span>] + <span class="hljs-string">'b'</span> + s[<span class="hljs-number">2</span>:]
+&gt;&gt;&gt; s
+<span class="hljs-string">'sbam'</span>
+</code></pre>
+<p class="has-line-data" data-line-start="146" data-line-end="147">Shuning uchun har bir satr metodlari keyinchalik o‘zgaruvchiga o‘zlashtirish kerak bo‘lgan yangi satrni qaytaradi.</p>
+<h3 class="code-line" data-line-start=148 data-line-end=149 ><a id="Satrlarning_funksiya_va_metodlari_jadvali_148"></a>“Satrlarning funksiya va metodlari” jadvali</h3>
+<table class="table table-striped no-markdown">
+<thead>
+<tr>
+<th style="text-align:center"><strong>Funksiya yoki metod</strong></th>
+<th style="text-align:center"><strong>Vazifasi</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>S = 'str'; S = &quot;str&quot;; S = '''str'''; S = &quot;&quot;&quot;str&quot;&quot;&quot;</code></td>
+<td style="text-align:center">satrlar literallari.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S = &quot;s\np\ta\nbbb&quot;</code></td>
+<td style="text-align:center">ekranlashtirilgan ketma-ketliklar.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S = r&quot;C:\temp\new&quot;</code></td>
+<td style="text-align:center">formatlanmagan “xom” satrlar (ekranlashtirishni bekor qiladi).</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S = b&quot;byte&quot;</code></td>
+<td style="text-align:center">baytlar satri.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S1 + S2</code></td>
+<td style="text-align:center">konkatenatsiya (satrlarni ulash).</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S1 * 3</code></td>
+<td style="text-align:center">satrlarni takrorlash.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S[i]</code></td>
+<td style="text-align:center">indeks bo‘yicha murojaat.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S[i:j:step]</code></td>
+<td style="text-align:center">kesimni olish.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>len(S)</code></td>
+<td style="text-align:center">satr uzunligi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.find(str, [start],[end])</code></td>
+<td style="text-align:center">satrdan satr ostini izlash. Birinchi uchragan raqamni yoki <code>–1</code> ni qaytaradi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.rfind(str, [start],[end])</code></td>
+<td style="text-align:center">satrdan satr ostini izlash. Oxirgi uchragan raqamni yoki <code>–1</code> ni qaytaradi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.index(str, [start],[end])</code></td>
+<td style="text-align:center">satrdan satr ostini izlash. Birinchi uchragan raqamni yoki <code>ValueError</code>ni qaytaradi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.rindex(str, [start],[end])</code></td>
+<td style="text-align:center">satrdan satr ostini izlash. Oxirgi uchragan raqamni yoki <code>ValueError</code>ni qaytaradi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.replace(shablon, o‘rniga)</code></td>
+<td style="text-align:center">shablonni almashtirish.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.split(simvol)</code></td>
+<td style="text-align:center">bo‘linish belgisi bo‘yicha satrni bo‘lish.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.isdigit()</code></td>
+<td style="text-align:center">satr faqat raqamlardan iboratligini tekshiradi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.isalpha()</code></td>
+<td style="text-align:center">satr faqat harflardan iboratligini tekshiradi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.isalnum()</code></td>
+<td style="text-align:center">satr faqat raqamlar va harflardan iboratligini tekshiradi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.islower()</code></td>
+<td style="text-align:center">satr faqat quyi registrdagi belgilardan iboratligini tekshiradi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.isupper()</code></td>
+<td style="text-align:center">satr faqat yuqori registrdagi belgilardan iboratligini tekshiradi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.isspace()</code></td>
+<td style="text-align:center">satr aks ettirilmaydigan simvollardan iboratligini tekshirish (bo‘sh joy, sahifa o‘tkazish belgisi <code>f</code>, “yangi satr” <code>\n</code>, “karetkani ko‘chirish” <code>\r</code>, “gorizontal tabulyatsiya” <code>\t</code> hamda “vertikal tabulyatsiya” <code>\v</code> ).</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.istitle()</code></td>
+<td style="text-align:center">satrdagi so‘zlarning bosh harflardan boshlanganligini tekshiradi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.upper()</code></td>
+<td style="text-align:center">satrni yuqori registrga aylantirish.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.lower()</code></td>
+<td style="text-align:center">satrni quyi registrga aylantirish.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.startswith(str)</code></td>
+<td style="text-align:center">S satrning str shablonidan boshlanganligini tekshirish.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.endswith(str)</code></td>
+<td style="text-align:center">S satrning str shabloni bilan yakunlanganligini tekshirish.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.join(ro'yxat)</code></td>
+<td style="text-align:center">S oraliq belgili ro’yxatdan satr tayyorlash.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>ord(simvol)</code></td>
+<td style="text-align:center">simvolning ASCII kodi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>chr(son)</code></td>
+<td style="text-align:center">ASCII kodni simvolga aylantirish.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.capitalize()</code></td>
+<td style="text-align:center">satrning birinchi belgisini yuqori registrga, qolganlarini esa quyi registrga aylantirish.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.center(width, [fill])</code></td>
+<td style="text-align:center">ikki chekkasida fill belgisi joylashgan va markazlashtirilgan satrni qaytaradi (boshqa ko‘rsatma berilmaganda fill bo‘sh joydan iborat bo‘ladi).</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.count(str, [start],[end])</code></td>
+<td style="text-align:center">ko‘rsatilgan [start], [end] diapazonda kesishmaydigan kirishlar sonini aniqlash (odatda, 0 va satr uzunligiga nisbatan olinadi).</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.expandtabs([tabsize])</code></td>
+<td style="text-align:center">joriy ustunga bog‘liq holda har bir tabulyatsiya belgisi bitta yoki bir nechta bo‘sh joy bilan almashtirilgan satr nusxasini qaytaradi. Agar tabsize ko‘rsatilmasa, tabulyatsiya o‘lchami 8 ta bosh joyga teng deb qaraladi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.lstrip([chars])</code></td>
+<td style="text-align:center">satr boshidagi bo‘sh joylarni o‘chirish.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.rstrip([chars])</code></td>
+<td style="text-align:center">satr oxiridagi bo‘sh joylarni o‘chirish.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.strip([chars])</code></td>
+<td style="text-align:center">satr boshidagi va oxiridagi bo‘sh joylarni o‘chirish.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.partition(shablon)</code></td>
+<td style="text-align:center">birinchi shablondan oldingi qism, shablonning o‘zi va shablondan keyingi qismdan iborat kortejni qaytaradi. Agar shablon topilmasa, u holda satrning o‘zi va ikkita bosh satrdan iborat kortejni qaytaradi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.rpartition(sep)</code></td>
+<td style="text-align:center">oxirgi shablondan oldingi qism, shablonning o‘zi va shablondan keyingi qismdan iborat kortejni qaytaradi. Agar shablon topilmasa, u holda ikkita bosh satr va satrning o‘zidan iborat kortejni qaytaradi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.swapcase()</code></td>
+<td style="text-align:center">quyi registr simvollarini yuqori registrga va aksincha, yuqori registr simvollarini quyi registrga aylantiradi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.title()</code></td>
+<td style="text-align:center">har bir so‘zning birinchi harfini yuqori registrga, qolganlarini esa quyi registrga o‘tkazadi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.z1ll(width)</code></td>
+<td style="text-align:center">satrning uzunligini satr boshiga keraklicha nollar bilan to‘ldirilgan holda widthdan kalta bo‘lmagan holatga o‘tkazadi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.ljust(width, fillchar=&quot; &quot;)</code></td>
+<td style="text-align:center">satrning uzunligini satr oxirida keraklicha fillchar belgilari bilan to‘ldirilgan holda widthdan kalta bo‘lmagan holatga o‘tkazadi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.rjust(width, fillchar=&quot; &quot;)</code></td>
+<td style="text-align:center">satrning uzunligini satr boshida keraklicha fillchar belgilari bilan to‘ldirilgan holda widthdan kalta bo‘lmagan holatga o‘tkazadi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>S.format(*args, **kwargs)</code></td>
+<td style="text-align:center">satrni formatlash.</td>
+</tr>
+</tbody>
+</table>        
+</div>
+
+
+     <h2 id="Satrlarni_formatlash_format_metodi_0">
+        Satrlarni formatlash. <code>format</code> metodi
+     </h2>
+<div data-outline="Satrlarni_formatlash_format_metodi_0">
+<p class="has-line-data" data-line-start="1" data-line-end="2">Ba’zan (aniqrog‘i, aksariyat hollarda) shunday holat yuzaga keladiki, satrga ba’zi ma’lumotlarni, masalan, foydalanuvchi tomonidan kiritilgan ma’lumotlar, hisoblashlar natijalari, fayllardan olingan ma’lumotlar va boshqalarni <strong>qo‘shgan holda shakllantirish</strong> kerak bo‘ladi. Satrlarni joylashtirishni satrlarni formatlash orqali amalga oshirish mumkin. Bunda formatlash <code>%</code> operatori yoki <code>format</code> metodi yordamida amalga oshiriladi.</p>
+<h3 class="code-line" data-line-start=3 data-line-end=4 ><a id="format_metodi_yordamida_satrlarni_formatlash_3"></a>format metodi yordamida satrlarni formatlash.</h3>
+<p class="has-line-data" data-line-start="4" data-line-end="5">Agar joylashtirish uchun faqat <code>1</code> ta argument talab etilsa, u holda qiymat shu argumentning o‘zi bo‘ladi.</p>
+<pre><code class="has-line-data" data-line-start="6" data-line-end="9" class="language-python">&gt;&gt;&gt; <span class="hljs-string">'Hello, {} !'</span>.format(<span class="hljs-string">'Sobir'</span>)
+<span class="hljs-string">'Hello, Sobir!'</span>
+</code></pre>
+<p class="has-line-data" data-line-start="9" data-line-end="11">Agar argumentlar bir nechta bo‘lsa, u holda har biri argument hisoblanadi.<br>
+<strong>Misollar:</strong></p>
+<pre><code class="has-line-data" data-line-start="12" data-line-end="29" class="language-python">&gt;&gt;&gt; '{0} , {1} , {2} '.format('a', 'b', 'c')
+'a, b, c'
+&gt;&gt;&gt; '{} , {} , {} '.format('a', 'b', 'c')
+'a, b, c'
+&gt;&gt;&gt; '{2} , {1} , {0} '.format('a', 'b', 'c')
+'c, b, a'
+&gt;&gt;&gt; '{2} , {1} , {0} '.format(*'abc')
+'c, b, a'
+&gt;&gt;&gt; '{0} {1} {0} '.format('abra', 'cad')
+'abracadabra'
+&gt;&gt;&gt; 'Coordinates: {latitude} , {longitude} '.format(latitude='37.24N', longitude='-115.81W')
+'Coordinates: 37.24N, -115.81W'
+&gt;&gt;&gt; coord = {'latitude': '37.24N', 'longitude': '-115.81W'}
+&gt;&gt;&gt; 'Coordinates: {latitude} , {longitude} '.format(**coord)
+'Coordinates: 37.24N, -115.81W'
+</code></pre>
+<p class="has-line-data" data-line-start="29" data-line-end="30">Lekin bu hali <code>format</code> metodi yordamida amalga oshirish mumkin bo‘lgan hamma ish emas. Bu metodning imkoniyatlari quyidagicha:</p>
+<pre><code class="has-line-data" data-line-start="31" data-line-end="36" class="language-python">almashtirish maydoni ::= <span class="hljs-string">"{"</span>[maydon nomi] [<span class="hljs-string">"!"</span> almashtirish] [<span class="hljs-string">":"</span> xususiyatlar]<span class="hljs-string">"}"</span>
+maydon nomi ::= arg_name (<span class="hljs-string">"."</span> Atribut nomi | <span class="hljs-string">"["</span> indeks <span class="hljs-string">"]"</span>)*
+almashtirish ::= <span class="hljs-string">"r"</span> (ichki tavsifi) | <span class="hljs-string">"s"</span> (inson tilidagi tavsifi)
+xususiyatlar ::= pastda qarang
+</code></pre>
+<p class="has-line-data" data-line-start="36" data-line-end="37"><strong>Misollar</strong></p>
+<pre><code class="has-line-data" data-line-start="38" data-line-end="43" class="language-python">&gt;&gt;&gt; "Units destroyed: {players[0]} ".format(players = [1, 2, 3])
+'Units destroyed: 1'
+&gt;&gt;&gt; "Units destroyed: {players[0]!r} " format(players = ['1', '2', '3'])
+"Units destroyed: '1'
+</code></pre>
+<p class="has-line-data" data-line-start="44" data-line-end="45">Endi esa format xususiyatlari:</p>
+<pre><code class="has-line-data" data-line-start="46" data-line-end="55" class="language-python">xususiyatlar ::= [[fill]align][sign][<span class="hljs-comment">#][0][width][,][.precision][type]</span>
+to‘ldiruvchi ::= <span class="hljs-string">'{'</span>  yoki <span class="hljs-string">'}'</span> belgilaridan tashqari
+tekislash    ::= <span class="hljs-string">"&lt;"</span> | <span class="hljs-string">"&gt;"</span> | <span class="hljs-string">"="</span> | <span class="hljs-string">"^"</span>
+belgi        ::= <span class="hljs-string">"+"</span> | <span class="hljs-string">"-"</span> | <span class="hljs-string">" "</span>
+kengligi     ::= integer
+aniqlik      ::= integer
+tip          ::= <span class="hljs-string">"b"</span> | <span class="hljs-string">"c"</span> | <span class="hljs-string">"d"</span> | <span class="hljs-string">"e"</span> | <span class="hljs-string">"E"</span> | <span class="hljs-string">"f"</span> | <span class="hljs-string">"F"</span> | <span class="hljs-string">"g"</span> | <span class="hljs-string">"G"</span> |
+                        <span class="hljs-string">"n"</span> | <span class="hljs-string">"o"</span> | <span class="hljs-string">"s"</span> | <span class="hljs-string">"x"</span> | <span class="hljs-string">"X"</span> | <span class="hljs-string">"%"</span>
+</code></pre>
+<p class="has-line-data" data-line-start="56" data-line-end="57">Tekislash to’ldiruvchi simvol yordamida amalga oshiriladi. Tekislashning quyidagicha variantlari mavjud:</p>
+<table class="table table-striped no-markdown">
+<thead>
+<tr>
+<th style="text-align:center"><strong>Belgi</strong></th>
+<th style="text-align:center"><strong>Vazifasi</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>'&lt;'</code></td>
+<td style="text-align:center">to’ldiruvchi belgilar o’ng tomonda joylashtiriladi (obyektning o’zi esa chapda) (odatiy holat).</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'&gt;'</code></td>
+<td style="text-align:center">obyektni o’ng tomonga tekislash.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'='</code></td>
+<td style="text-align:center">to’ldiruvchi belgidan keyin, lekin raqamlardan oldinda joylashadi. Faqat sonli tiplar bilan qo’llanilganda ishlaydi.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'^'</code></td>
+<td style="text-align:center">markaziy tekislash.</td>
+</tr>
+</tbody>
+</table>
+<p class="has-line-data" data-line-start="64" data-line-end="65">Belgi opsiyasi faqatgina sonlar uchun qo’llanilib, quyidagi qiymatlarni qabul qilishi mumkin:</p>
+<table class="table table-striped no-markdown">
+<thead>
+<tr>
+<th style="text-align:center"><strong>Belgi</strong></th>
+<th style="text-align:center"><strong>Vazifasi</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>'+'</code></td>
+<td style="text-align:center">belgi barcha sonlar uchun qo’llanilishi kerak.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'-'</code></td>
+<td style="text-align:center">‘-’ manfiylar uchun, hech narsa musbatlar uchun.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'Bo'sh joy'</code></td>
+<td style="text-align:center">‘-’ manfiylar uchun, bo’sh joy musbatlar uchun.</td>
+</tr>
+</tbody>
+</table>
+<p class="has-line-data" data-line-start="72" data-line-end="73">Tip maydoni quyidagicha qiymatlarni qabul qilishi mumkin:</p>
+<table class="table table-striped no-markdown">
+<thead>
+<tr>
+<th style="text-align:center"><strong>Belgi</strong></th>
+<th style="text-align:center"><strong>Vazifasi</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>'d'</code>, <code>'i'</code>, <code>'u'</code></td>
+<td style="text-align:center">o’nlik son.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'o'</code></td>
+<td style="text-align:center">sakkizlik sanoq tizimidagi son.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'x'</code></td>
+<td style="text-align:center">o’n oltilik sanoq tizimidagi son (harflar quyi registrda).</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'X'</code></td>
+<td style="text-align:center">o’n oltilik sanoq tizimidagi son (harflar yuqori registrda).</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'e'</code></td>
+<td style="text-align:center">eksponentali va siljuvchi nuqtali son (eksponenta quyi registrda).</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'E'</code></td>
+<td style="text-align:center">eksponentali va siljuvchi nuqtali so n(eksponenta yuqori registrda).</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'f'</code>, <code>'F'</code></td>
+<td style="text-align:center">siljuvchi nuqtali son (odatiy format).</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'g'</code></td>
+<td style="text-align:center">eksponentali va siljuvchi nuqtali son (eksponenta quyi registrda) agar u <code>–4</code> dan kichik yoki aniqlikda bo’lsa, aks holda odatiy format.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'G'</code></td>
+<td style="text-align:center">eksponentali va siljuvchi nuqtali son (eksponenta yuqori registrda) agar u <code>–4</code> dan kichik yoki aniqlikda bo’lsa, aks holda odatiy format.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'c'</code></td>
+<td style="text-align:center">Simvol (bir simvolli satr yoki simvol kodi bo’lgan son).</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'s'</code></td>
+<td style="text-align:center">satr.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'%'</code></td>
+<td style="text-align:center">son <code>100</code> ga ko’paytiriladi, siljuvchi nuqtali son ko’rsatiladi va undan keyin <code>%</code> belgisi qo’yiladi.</td>
+</tr>
+</tbody>
+</table>
+<p class="has-line-data" data-line-start="89" data-line-end="90">Yakunida esa bir nechta misol:</p>
+<pre><code class="has-line-data" data-line-start="92" data-line-end="122" class="language-python">&gt;&gt;&gt; coord = (<span class="hljs-number">3</span>, <span class="hljs-number">5</span>)
+&gt;&gt;&gt; <span class="hljs-string">'X: {0[0]} ; Y: {0[1]} '</span>.format(coord)
+<span class="hljs-string">'X: 3; Y: 5'</span>
+&gt;&gt;&gt; <span class="hljs-string">"repr() shows quotes: {!r} ; str() doesn't: {!s} "</span>.format(<span class="hljs-string">'test1'</span>, <span class="hljs-string">'test2'</span>)
+<span class="hljs-string">"repr() shows quotes: 'test1'; str() doesn't: test2"</span>
+&gt;&gt;&gt; <span class="hljs-string">'{:&lt;30} '</span>.format(<span class="hljs-string">'left aligned'</span>)
+<span class="hljs-string">'left aligned '</span>
+&gt;&gt;&gt; <span class="hljs-string">'{:&gt;30} '</span>.format(<span class="hljs-string">'right aligned'</span>)
+<span class="hljs-string">' right aligned'</span>
+&gt;&gt;&gt; <span class="hljs-string">'{:^30} '</span>.format(<span class="hljs-string">'centered'</span>)
+<span class="hljs-string">' centered '</span>
+&gt;&gt;&gt; <span class="hljs-string">'{:*^30} '</span>.format(<span class="hljs-string">'centered'</span>) <span class="hljs-comment"># use '*' as a fill char</span>
+<span class="hljs-string">'***********centered***********'</span>
+&gt;&gt;&gt; <span class="hljs-string">'{:+f} ; {:+f} '</span>.format(<span class="hljs-number">3.14</span>, -<span class="hljs-number">3.14</span>) <span class="hljs-comment"># show it always</span>
+<span class="hljs-string">'+3.140000; -3.140000'</span>
+&gt;&gt;&gt; <span class="hljs-string">'{: f} ; {: f} '</span>.format(<span class="hljs-number">3.14</span>, -<span class="hljs-number">3.14</span>) <span class="hljs-comment"># show a space for positive numbers</span>
+<span class="hljs-string">' 3.140000; -3.140000'</span>
+&gt;&gt;&gt; <span class="hljs-string">'{:-f} ; {:-f} '</span>.format(<span class="hljs-number">3.14</span>, -<span class="hljs-number">3.14</span>) <span class="hljs-comment"># show only the minus -- same as '{:f}; {:f}'</span>
+<span class="hljs-string">'3.140000; -3.140000'</span>
+&gt;&gt;&gt; <span class="hljs-comment"># format also supports binary numbers</span>
+&gt;&gt;&gt; <span class="hljs-string">"int: {0:d} ; hex: {0:x} ; oct: {0:o} ; bin: {0:b} "</span>.format(<span class="hljs-number">42</span>)
+<span class="hljs-string">'int: 42; hex: 2a; oct: 52; bin: 101010'</span>
+&gt;&gt;&gt; <span class="hljs-comment"># with 0x, 0o, or 0b as prefix:</span>
+&gt;&gt;&gt; <span class="hljs-string">"int: {0:d} ; hex: {0:#x} ; oct: {0:#o} ; bin: {0:#b} "</span>.format(<span class="hljs-number">42</span>)
+<span class="hljs-string">'int: 42; hex: 0x2a; oct: 0o52; bin: 0b101010'</span>
+&gt;&gt;&gt; points = <span class="hljs-number">19.5</span>
+&gt;&gt;&gt; total = <span class="hljs-number">22</span>
+&gt;&gt;&gt; <span class="hljs-string">'Correct answers: {:.2%} '</span>.format(points/total)
+<span class="hljs-string">'Correct answers: 88.64%'</span>
+</code></pre>
+</div>
+
+    </div>
+   </div>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript">
+  </script>
+  <script src="../js/handout-run.js" type="text/javascript">
+  </script>
+ </body>
+</html>

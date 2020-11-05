@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    2. Ma'lumotlar turlari va satrlar
+   </title>
+   <link href="../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <header>
+   <a href="../index.html">
+    Python Coding Club
+   </a>
+   |
+   <a href="#">
+    Mundarijaga qaytish
+   </a>
+   <div>
+    9-sinf
+   </div>
+  </header>
+  <nav class="table-of-contents col-sm-2">
+   <ul class="nav">
+    <li>
+     <a href="#pythonga_kirish">
+      3. if-else konstruksiyasi
+     </a>
+    </li>
+    <li><a href="#ifelifelse_konstruksiyasi_Rostlikka_tekshirish_ifelse_uch_boginli_qurilishi_0">if-elif-else konstruksiyasi. Rostlikka tekshirish. if/else uch bo‘ginli qurilishi</a></li>
+    <li><a href="#Biroz_None_null_yoki_NoneType_tipi_haqida_75">Biroz None (null) yoki NoneType tipi haqida</a></li>
+    <!--  <li>
+     <a href="#summary">
+      Summary
+     </a>
+    </li>-->
+   </ul>
+  </nav>
+  <main class="container-fluid">
+   <h1 class="handout-title col-sm-8 col-sm-offset-2" id="pythonga_kirish">
+    3. if-else konstruksiyasi
+   </h1>
+   <div data-outline="pythonga_kirish">
+    <div class="markdown col-sm-8 col-sm-offset-2 converted">
+     <h4>
+        Bu bob quyidagilardan tashkil topgan:
+     </h4>
+     <p>
+      Mavzular:
+     </p>
+     <ul>
+      <li>
+        if-elif-else konstruksiyasi. Rostlikka tekshirish. if/else uch bo‘ginli qurilishi
+      </li>
+      <li>
+        Biroz None (null) yoki NoneType tipi haqida
+      </li>
+     </ul>
+
+
+     <h2 id="ifelifelse_konstruksiyasi_Rostlikka_tekshirish_ifelse_uch_boginli_qurilishi_0">
+        if-elif-else konstruksiyasi. Rostlikka tekshirish. if/else uch bo‘ginli qurilishi
+     </h2>
+
+<div data-outline="ifelifelse_konstruksiyasi_Rostlikka_tekshirish_ifelse_uch_boginli_qurilishi_0">
+    <p class="has-line-data" data-line-start="1" data-line-end="2"><code>if-elif-else</code> <em>shartli konstruksiyasi</em> (uni ba’zan <em>tarmoqlanish operatori</em> deb ham atashadi) – Pythondagi asosiy tanlash qurilishidir. Boshqacha aytganda, u qaysi amalni bajarish kerakligini shartni tekshirish vaqtidagi o‘zgaruvchilar qiymatlaridan keyin chiqqan holda tanlaydi.</p>
+<h3 class="code-line" data-line-start=2 data-line-end=3 ><a id="if_instruksiyasining_sintaksisi_2"></a>if instruksiyasining sintaksisi</h3>
+<p class="has-line-data" data-line-start="3" data-line-end="4">Dastlab <code>if</code> ning shartli iborali qismi yoziladi, so‘ngra bitta yoki bir nechta majburiy bo‘lmagan <code>elif</code> qismlari va oxirida majburiy bo‘lmagan <code>else</code> qismi yoziladi. <code>if</code> shartli ko‘rsatmasining umumiy ko‘rinishi quyidagicha bo‘ladi:</p>
+<pre><code class="has-line-data" data-line-start="6" data-line-end="13" class="language-python"><span class="hljs-keyword">if</span> test1:
+    blok1
+<span class="hljs-keyword">elif</span> test2:
+    blok2
+<span class="hljs-keyword">else</span>:
+    blok3
+</code></pre>
+<p class="has-line-data" data-line-start="14" data-line-end="15">Oddiy misol (<code>true</code> ni chiqaradi, chunki <code>1</code> – rost):</p>
+<pre><code class="has-line-data" data-line-start="16" data-line-end="23" class="language-python">&gt;&gt;&gt; <span class="hljs-keyword">if</span> <span class="hljs-number">1</span>:
+...     print(<span class="hljs-string">'true'</span>)
+... <span class="hljs-keyword">else</span>:
+...     print(<span class="hljs-string">'false'</span>)
+...
+true
+</code></pre>
+<p class="has-line-data" data-line-start="23" data-line-end="24">Ozgina qiyinroq misol (uning natijasi foydalanuvchi nimani kiritishiga bog‘liq bo‘ladi):</p>
+<pre><code class="has-line-data" data-line-start="25" data-line-end="33" class="language-python">a = int(input())
+<span class="hljs-keyword">if</span> a &lt; -<span class="hljs-number">5</span>:
+    print(<span class="hljs-string">'Low'</span>)
+<span class="hljs-keyword">elif</span> -<span class="hljs-number">5</span> &lt;= a &lt;= <span class="hljs-number">5</span>:
+    print(<span class="hljs-string">'Mid'</span>)
+<span class="hljs-keyword">else</span>:
+    print(<span class="hljs-string">'High'</span>)
+</code></pre>
+<p class="has-line-data" data-line-start="33" data-line-end="34"><code>elif</code> ishtirok etgan konstruksiya boshqa dasturlash tillarida keng qo‘llaniladigan <code>swich-case</code> konstruksiyasining o‘rnida ham bemalol qo‘llanilishi mumkin.</p>
+<h3 class="code-line" data-line-start=35 data-line-end=36 ><a id="Pythonda_rostlikka_tekshirish_35"></a>Pythonda rostlikka tekshirish</h3>
+<ul>
+<li class="has-line-data" data-line-start="36" data-line-end="37"><code>0</code> ga teng bo‘lmagan har qanday son va bo‘sh bo‘lmagan ixtiyoriy obyekt – rostdir.</li>
+<li class="has-line-data" data-line-start="37" data-line-end="38"><code>0</code> ga teng sonlar, bo‘sh obyektlar va <code>None</code> qiymatlar – yolg‘on.</li>
+<li class="has-line-data" data-line-start="38" data-line-end="39">Solishtirish operatsiyalari ma’lumotlar strukturalariga nisbatan <strong>rekursiv</strong> tarzda qo‘laniladi.</li>
+<li class="has-line-data" data-line-start="39" data-line-end="40">Solishtirish operatsiyalari <code>True</code> yoki <code>False</code> dan birini qaytaradi.</li>
+<li class="has-line-data" data-line-start="40" data-line-end="42"><code>and</code> va <code>or</code> mantiqiy operatorlari rost yoki yolg‘on obyekt-operandni qaytaradi.</li>
+</ul>
+<h4 class="code-line" data-line-start=42 data-line-end=43 ><a id="Mantiriy_operatorlar_42"></a>Mantiriy operatorlar:</h4>
+<pre><code class="has-line-data" data-line-start="44" data-line-end="46" class="language-python">X <span class="hljs-keyword">and</span> Y
+</code></pre>
+<p class="has-line-data" data-line-start="46" data-line-end="47"><code>X</code> va <code>Y</code> ikkala ifoda ham rost bo‘lgandagina, rost bo‘ladi:</p>
+<pre><code class="has-line-data" data-line-start="48" data-line-end="50" class="language-python">X <span class="hljs-keyword">or</span> Y
+</code></pre>
+<p class="has-line-data" data-line-start="50" data-line-end="51"><code>X</code> va <code>Y</code> ifodalardan hech bo‘lmaganda bittasi rost bo‘lganda, rost bo‘ladi:</p>
+<pre><code class="has-line-data" data-line-start="52" data-line-end="54" class="language-python"><span class="hljs-keyword">not</span> Y
+</code></pre>
+<p class="has-line-data" data-line-start="54" data-line-end="55"><code>X</code> yolg‘on bo‘lganda, rost bo‘ladi.</p>
+<h3 class="code-line" data-line-start=56 data-line-end=57 ><a id="ifelse_uch_boginli_iborasi_56"></a>if/else uch bo‘ginli iborasi</h3>
+<p class="has-line-data" data-line-start="57" data-line-end="58">Ushbu ko‘rsatma:</p>
+<pre><code class="has-line-data" data-line-start="59" data-line-end="64" class="language-python"><span class="hljs-keyword">if</span> X:
+    A = Y
+<span class="hljs-keyword">else</span>:
+    A = Z
+</code></pre>
+<p class="has-line-data" data-line-start="64" data-line-end="65">Xiyla oddiy hamda qisqa bo‘lishiga qaramasdan, <code>4</code> qatorni egallab turibdi. Aynan mana shunday holatlar uchun <code>if/else</code> ifodasi o‘ylab topilgan.</p>
+<pre><code class="has-line-data" data-line-start="66" data-line-end="68" class="language-python">A = Y <span class="hljs-keyword">if</span> X <span class="hljs-keyword">else</span> Z
+</code></pre>
+<p class="has-line-data" data-line-start="68" data-line-end="69">Bu ko‘rsatmada <code>X</code> ifoda rost bo‘lganda, <code>Y</code> ifodani aks holda, <code>Z</code> ifodani bajaradi.</p>
+<pre><code class="has-line-data" data-line-start="70" data-line-end="74" class="language-python">&gt;&gt;&gt; A = <span class="hljs-string">'t'</span> <span class="hljs-keyword">if</span> <span class="hljs-string">'spam'</span> <span class="hljs-keyword">else</span> <span class="hljs-string">'f'</span>
+&gt;&gt;&gt; A
+t
+</code></pre>
+</div>
+
+    <h2 id="Biroz_None_null_yoki_NoneType_tipi_haqida_75">
+        Biroz None (null) yoki NoneType tipi haqida
+    </h2>
+
+<div data-outline="Biroz_None_null_yoki_NoneType_tipi_haqida_75">
+    <p class="has-line-data" data-line-start="76" data-line-end="79"><code>Null</code> kalit so‘zi, odatda, Java, C++, C# va JavaScript kabi ko‘plab dasturlash tillarida qo‘llaniladi. Bu biror o‘zgaruvchiga o‘zlashtiriladigan qiymatdir.<br>
+        <code>Null</code> kalit so‘zining ma’nosi shundan iboratki, u o‘zgaruvchiga neytral (betaraf) yoki nolli holatni beradi.<br>
+        Pythonda bu masalada nima gaplar?</p>
+        <h3 class="code-line" data-line-start=80 data-line-end=81 ><a id="Pythondagi_null_ning_ekvivalenti_None_80"></a>Pythondagi null ning ekvivalenti: None</h3>
+        <p class="has-line-data" data-line-start="81" data-line-end="84">U ikkita sababga ko‘ra shunday ishlab chiqilgan:<br>
+        Ko‘pchilik <code>Null</code> so‘zi yangi o‘rganuvchilar uchun uncha qulay va tushunarli emasligini aytishadi.<br>
+        Bundan tashqri <code>None</code> aynan talab etilayotgan funksionallikni taqdim etadi.</p>
+        <pre><code class="has-line-data" data-line-start="85" data-line-end="87" class="language-python">my_none_variable = <span class="hljs-keyword">None</span>
+        </code></pre>
+        <p class="has-line-data" data-line-start="87" data-line-end="89"><code>None</code>dan foydalanish kerak bo‘lgan bir qancha holatlar mavjud.<br>
+        Ko‘pincha siz ishlashi yoki ishlamasdan xatolikka olib kelishi mumkin bo‘lgan amallarni bajarishingizga to‘g‘ri keladi. Nonedan doydalangan holda siz bu amalning bajarilgan yoki bajarilmaganligini aniqlashingiz mumkin. Mana, masalan:</p>
+        <pre><code class="has-line-data" data-line-start="91" data-line-end="107" class="language-python"><span class="hljs-comment"># Biz ma’lumotlar omboriga ulanmoqchimiz. </span>
+        <span class="hljs-comment"># Biz login va parolimizning to‘g‘riligini bilmaymiz.</span>
+        <span class="hljs-comment"># Agar ma’lumotlar ombori bilan ulanish natijasiz bo‘lsa, u holda, </span>
+        <span class="hljs-comment"># u noodatiy holatni qaytaradi. MyDatabase va DatabaseExceptionlar haqiqiy</span>
+        <span class="hljs-comment"># haqiqiy klasslar emasligiga e’tibor qarating.</span>
+        <span class="hljs-comment"># Biz ulardan shunchaki oddiy misol sifatida foydalanmoqdamiz</span>
+        <span class="hljs-keyword">try</span>:
+            database = MyDatabase(db_host, db_user, db_password, db_database)
+            database_connection = database.connect()
+        <span class="hljs-keyword">except</span> DatabaseException:
+            <span class="hljs-keyword">pass</span>
+        <span class="hljs-keyword">if</span> database_connection <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+            print(<span class="hljs-string">'The database could not connect'</span>)
+        <span class="hljs-keyword">else</span>:
+            print(<span class="hljs-string">'The database could connect'</span>)
+        </code></pre>
+        <p class="has-line-data" data-line-start="107" data-line-end="108">Python obyektga yo‘naltirilgan til hisoblanadi. Shuning uchun None ham obyekt hamda o‘zining tipiga ega.</p>
+        <h3 class="code-line" data-line-start=108 data-line-end=109 ><a id="None_ekanlikka_tekshirish_108"></a>None ekanlikka tekshirish</h3>
+        <p class="has-line-data" data-line-start="109" data-line-end="113"><code>None</code>likka tekshirishning 2 xil metodi mavjud.<br>
+        Birinchi metodi – <code>is</code> kalit so‘zi yordamida tekshirish.<br>
+        Ikkinchi metodi esa <code>==</code> yordamida (lekin bu metoddan foydalanish tavsiya etilmaydi, nima uchun ekanligini esa quyida tushuntirishga harakat qilamiz).<br>
+        Ba’zi misollarni ko‘rib chiqaylik:</p>
+        <pre><code class="has-line-data" data-line-start="114" data-line-end="135" class="language-python">null_variable = <span class="hljs-keyword">None</span>
+        not_null_variable = <span class="hljs-string">'Hammaga salom!'</span>
+        <span class="hljs-comment"># is kalit so'zi</span>
+        <span class="hljs-keyword">if</span> null_variable <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+            print(<span class="hljs-string">'null_variable is None'</span>)
+        <span class="hljs-keyword">else</span>:
+            print(<span class="hljs-string">'null_variable is not None'</span>)
+        <span class="hljs-keyword">if</span> not_null_variable <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+            print(<span class="hljs-string">'not_null_variable is None'</span>)
+        <span class="hljs-keyword">else</span>:
+            print(<span class="hljs-string">'not_null_variable is not None'</span>)
+        <span class="hljs-comment"># == operatori</span>
+        <span class="hljs-keyword">if</span> null_variable == <span class="hljs-keyword">None</span>:
+            print(<span class="hljs-string">'null_variable is None'</span>)
+        <span class="hljs-keyword">else</span>:
+            print(<span class="hljs-string">'null_variable is not None'</span>)
+        <span class="hljs-keyword">if</span> not_null_variable == <span class="hljs-keyword">None</span>:
+            print(<span class="hljs-string">'not_null_variable is None'</span>)
+        <span class="hljs-keyword">else</span>:
+            print(<span class="hljs-string">'not_null_variable is not None'</span>)
+        </code></pre>
+        <p class="has-line-data" data-line-start="135" data-line-end="136">Bu kod quyidagi natijani chiqaradi:</p>
+        <pre><code class="has-line-data" data-line-start="137" data-line-end="142" class="language-python">null_variable <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>
+        not_null_variable <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>
+        null_variable <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>
+        not_null_variable <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>
+        </code></pre>
+        <p class="has-line-data" data-line-start="142" data-line-end="143">Juda yaxshi, demak, ular bir xil ishni bajarishmoqda. Lekin unchalik emas. Tarkibiy tiplar uchun shunday. Lekin foydalanuvchi klasslari bilan ishlaganda, ehtiyot bo‘lish lozim. Python foydalanuvchi klasslarida solishtirish operatorlarini qaytadan taqsimlash imkoniyatini beradi. Shu tarzda siz quyidagi klasslarni solishtirishingiz mumkin. Masalan, <code>MyObject == MyOtherObject</code> kabi.</p>
+        <pre><code class="has-line-data" data-line-start="144" data-line-end="160" class="language-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span>:</span>
+            <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__eq__</span><span class="hljs-params">(self, my_object)</span>:</span>
+                <span class="hljs-comment"># Shunchaki True ni qaytaramiz</span>
+        
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+        my_class = MyClass()
+        
+        <span class="hljs-keyword">if</span> my_class <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+            print(<span class="hljs-string">'my_class bu None, is kalit so\'zini ishlatdik'</span>)
+        <span class="hljs-keyword">else</span>:
+            print(<span class="hljs-string">'my_class bu None emas, is kalit so\'zini ishlatdik'</span>)
+        <span class="hljs-keyword">if</span> my_class == <span class="hljs-keyword">None</span>:
+            print(<span class="hljs-string">'my_class bu None, == operatorini ishlatdik'</span>)
+        <span class="hljs-keyword">else</span>:
+            print(<span class="hljs-string">'my_class bu None emas, == operatorini ishlatdik'</span>)
+        </code></pre>
+        <p class="has-line-data" data-line-start="160" data-line-end="161">Hamda biroz kutilmagan natijani olamiz:</p>
+        <pre><code class="has-line-data" data-line-start="162" data-line-end="165" class="language-python">my_class <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>, using the <span class="hljs-keyword">is</span> keyword
+        my_class <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>, using the == syntax
+        </code></pre>
+        <p class="has-line-data" data-line-start="165" data-line-end="167">Juda ham qiziq, shunday emasmi? Aynan shu sababli <code>None</code> ekanligini tekshirishda <code>is</code> dan foydalanishni tavsiya etamiz.<br>
+        Bundan tashqari ba’zi klasslar uchun <code>__eq__</code> metodiga murojaat qilish ko‘proq vaqtni oladi, <code>is</code> esa undan tezroq bajarilganligi uchun ham afzalroq hisoblanadi.</p>
+</div>
+
+    </div>
+   </div>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript">
+  </script>
+  <script src="../js/handout-run.js" type="text/javascript">
+  </script>
+ </body>
+</html>
