@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    5. Ro‘yxatlar (list)
+   </title>
+   <link href="../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <header>
+   <a href="../index.html">
+    Python Coding Club
+   </a>
+   |
+   <a href="#">
+    Mundarijaga qaytish
+   </a>
+   <div>
+    9-sinf
+   </div>
+  </header>
+  <nav class="table-of-contents col-sm-2">
+   <ul class="nav">
+    <li>
+     <a href="#pythonga_kirish">
+        5. Ro‘yxatlar (list)
+     </a>
+    </li>
+    <li><a href="#Royxatlar_list_Royxatlarning_funksiya_va_metodlari_0">Ro‘yxatlar (list). Ro‘yxatlarning funksiya va metodlari</a></li>
+    <li><a href="#Indekslar_va_kesimlar_96">Indekslar va kesimlar</a></li>
+    <!--  <li>
+     <a href="#summary">
+      Summary
+     </a>
+    </li>-->
+   </ul>
+  </nav>
+  <main class="container-fluid">
+   <h1 class="handout-title col-sm-8 col-sm-offset-2" id="pythonga_kirish">
+    5. Ro‘yxatlar (list)
+   </h1>
+   <div data-outline="pythonga_kirish">
+    <div class="markdown col-sm-8 col-sm-offset-2 converted">
+     <h4>
+        Bu bob quyidagilardan tashkil topgan:
+     </h4>
+     <p>
+      Mavzular:
+     </p>
+     <ul>
+      <li>
+        Ro‘yxatlar (list). Ro‘yxatlarning funksiya va metodlari
+      </li>
+      <li>
+        Indekslar va kesimlar
+      </li>
+     </ul>
+
+
+     <h2 id="Royxatlar_list_Royxatlarning_funksiya_va_metodlari_0">
+        Ro‘yxatlar (list). Ro‘yxatlarning funksiya va metodlari
+     </h2>
+
+<div data-outline="Royxatlar_list_Royxatlarning_funksiya_va_metodlari_0">
+<p class="has-line-data" data-line-start="2" data-line-end="3">Bu bobda biz <em>ro‘yxatlar</em> (<code>list</code>) deb nomlangan yana bir ma’lumotlar tipi, ular ustida bajariladigan amallar, ularning metodlari, ro‘yxatlar generatorlari hamda ro‘yxatlarning amaliyotda qo‘llanilishi haqida gaplashamiz.</p>
+<h3 class="code-line" data-line-start=4 data-line-end=5 ><a id="Royxatlar_nima_4"></a>Ro‘yxatlar nima?</h3>
+<p class="has-line-data" data-line-start="6" data-line-end="7">Python tilida ro‘yxatlar deb, <strong>tartiblangan</strong>, <strong>o‘zgartirish mumkin bo‘lgan</strong> ixtiyoriy tipdagi obyektlar jamlanmasiga aytiladi.</p>
+<p class="has-line-data" data-line-start="8" data-line-end="9">Ro‘yxatlardan foydalanish uchun, eng avvalo, ularni yaratish kerak. Ro‘yxatlarni bir necha metoddan biri orqali yaratish mumkin. Masalan, har qanday iteratsiyalanuvchi obyektlarni <code>list()</code> funksiyasi yordamida qayta ishlash mumkin.</p>
+<pre><code class="has-line-data" data-line-start="11" data-line-end="14" class="language-python">&gt;&gt;&gt; list('Ro'yxat')
+['R', 'o', ''', 'y', 'a', 't']
+</code></pre>
+<p class="has-line-data" data-line-start="14" data-line-end="15">Ro‘yxatni literallar yordamida ham yaratish mumkin.</p>
+<pre><code class="has-line-data" data-line-start="16" data-line-end="23" class="language-python">&gt;&gt;&gt; s = [] # Bo'sh ro'yxat
+&gt;&gt;&gt; l = ['r', 'o', [''yxat'], 2]
+&gt;&gt;&gt; s
+[]
+&gt;&gt;&gt; l
+['r', 'o', [''yxat'], 2]
+</code></pre>
+<p class="has-line-data" data-line-start="23" data-line-end="24">Misolda ko‘rinib turibdiki, ro‘yxat har qanday obyektlarning (shu jumladan, ichki ro‘yxatlarning ham) ixtiyoriy sondagi to‘plamidan iborat bo‘lishi yoki umuman bo‘sh bo‘lishi ham mumkin ekan.</p>
+<p class="has-line-data" data-line-start="25" data-line-end="26">Ro‘yxatlar yaratishning yana bir metodi bu – ro‘yxatlar generatoridir. Ketma-ketlikning har bir elementiga nisbatan biror amalni qo‘llash orqali yangi ro‘yxat yaratish metodi ro‘yxatlar generatori deb ataladi. Ro‘yxatlar generatorlari for takrorlash operatoriga juda ham o‘xshab ketadi:</p>
+<pre><code class="has-line-data" data-line-start="28" data-line-end="32" class="language-python">&gt;&gt;&gt; c = [c * <span class="hljs-number">3</span> <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> <span class="hljs-string">'ro`yxat'</span>]
+&gt;&gt;&gt; c
+[<span class="hljs-string">'rrr'</span>, <span class="hljs-string">'ooo'</span>, <span class="hljs-string">'```'</span>, <span class="hljs-string">'yyy'</span>, <span class="hljs-string">'xxx'</span>, <span class="hljs-string">'aaa'</span>, <span class="hljs-string">'ttt'</span>]
+</code></pre>
+<p class="has-line-data" data-line-start="32" data-line-end="33">Ro‘yxatlar generatorining yanada murakkabroq konstruksiyalari ham mavjud:</p>
+<pre><code class="has-line-data" data-line-start="34" data-line-end="41" class="language-python">&gt;&gt;&gt; c = [c * <span class="hljs-number">3</span> <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> <span class="hljs-string">'ro`yxat'</span>  <span class="hljs-keyword">if</span> c != <span class="hljs-string">'`'</span>]
+&gt;&gt;&gt; c
+[<span class="hljs-string">'rrr'</span>, <span class="hljs-string">'ooo'</span>, <span class="hljs-string">'yyy'</span>, <span class="hljs-string">'xxx'</span>, <span class="hljs-string">'aaa'</span>, <span class="hljs-string">'ttt'</span>]
+&gt;&gt;&gt; c = [c + d <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> <span class="hljs-string">'list'</span> <span class="hljs-keyword">if</span> c != <span class="hljs-string">'i'</span> <span class="hljs-keyword">for</span> d <span class="hljs-keyword">in</span> <span class="hljs-string">'spam'</span> <span class="hljs-keyword">if</span> d != <span class="hljs-string">'a'</span>]
+&gt;&gt;&gt; c
+[<span class="hljs-string">'ls'</span>, <span class="hljs-string">'lp'</span>, <span class="hljs-string">'lm'</span>, <span class="hljs-string">'ss'</span>, <span class="hljs-string">'sp'</span>, <span class="hljs-string">'sm'</span>, <span class="hljs-string">'ts'</span>, <span class="hljs-string">'tp'</span>, <span class="hljs-string">'tm'</span>]
+</code></pre>
+<p class="has-line-data" data-line-start="41" data-line-end="42">Lekin murakkab vaziyatlarda ro‘yxatlar yaratish uchun oddiy for takrorlash operatoridan foydalangan afzalroq.</p>
+<h3 class="code-line" data-line-start=43 data-line-end=44 ><a id="Royxatlarning_funksiya_va_metodlari_43"></a>Ro‘yxatlarning funksiya va metodlari</h3>
+<p class="has-line-data" data-line-start="44" data-line-end="45">Ro‘yxatni yaratishga-ku yaratib qo‘ydik, endi ular bilan ishlash metodlarini ham batafsilroq ko‘rib chiqaylik.</p>
+<h3 class="code-line" data-line-start=46 data-line-end=47 ><a id="Royxatlar_metodlari_jadvali_46"></a>“Ro‘yxatlar metodlari” jadvali</h3>
+<table class="table table-striped no-markdown">
+<thead>
+<tr>
+<th ><strong>Metod</strong></th>
+<th ><strong>Vazifasi</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td ><code>list.append(x)</code></td>
+<td >Ro‘yxat oxirida element qo‘shadi.</td>
+</tr>
+<tr>
+<td ><code>list.extend(L)</code></td>
+<td >List ro‘yxatining oxiriga <code>L</code> ro‘yxatining barcha elementlrini qo‘shish orqali list ro‘yxatini kengaytiradi.</td>
+</tr>
+<tr>
+<td ><code>list.insert(i, x)</code></td>
+<td ><code>x</code> qiymatini ro‘yxatning i-pozitsiyasiga qo‘yadi.</td>
+</tr>
+<tr>
+<td ><code>list.remove(x)</code></td>
+<td >Ro‘yxatdagi <code>x</code> qiymatga ega bo‘lgan birinchi elementni o‘chiradi. Agar bunday element mavjud bo‘lmasa, <code>ValueError</code> yuzaga keladi.</td>
+</tr>
+<tr>
+<td ><code>list.pop([i])</code></td>
+<td ><code>i</code>-elementni o‘chiradi va uni qaytaradi. Agar indeks ko‘rsatilmagan bo‘lsa, u holda oxirgi elementni o‘chiradi.</td>
+</tr>
+<tr>
+<td ><code>list.index(x,[start [, end]])</code></td>
+<td ><code>x</code> qiymatli birinchi elementning pozitsiyasini qaytaradi (bunda izlash startdan boshlanib, endgacha davom ettiriladi).</td>
+</tr>
+<tr>
+<td ><code>list.count(x)</code></td>
+<td ><code>x</code> qiymatli elementlarning sonini qaytaradi.</td>
+</tr>
+<tr>
+<td ><code>list.sort([key=funksiya)</code></td>
+<td >funksiya asosida ro‘yxatni tartibga soladi.</td>
+</tr>
+<tr>
+<td ><code>list.reverse()</code></td>
+<td >Ro‘yxatni teskari tartibga o‘tkazadi.</td>
+</tr>
+<tr>
+<td ><code>list.copy()</code></td>
+<td >Ro‘yxatning yuzaki nusxasi.</td>
+</tr>
+<tr>
+<td ><code>list.clear()</code></td>
+<td 0>Ro‘yxatni tozalaydi.</td>
+</tr>
+</tbody>
+</table>
+<p class="has-line-data" data-line-start="62" data-line-end="63">Ta’kidlash joizki, satrlar metodlaridan farqli ravishda (ro‘yxatlar o‘zgartirish mumkin bo‘lgan obyektlar bo‘lganligi sababli) ro‘yxatlarning metodlari shu ro‘yxatlarning o‘zlariga o‘zgartirishlar kiritadi. Shuning uchun ham o‘zgartirish natijasini shu o‘zgaruvchiga qayta yozish talab etilmaydi.</p>
+<pre><code class="has-line-data" data-line-start="65" data-line-end="73" class="language-python">&gt;&gt;&gt; l = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>]
+&gt;&gt;&gt; l.sort()
+&gt;&gt;&gt; l
+[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>]
+&gt;&gt;&gt; l = l.sort()
+&gt;&gt;&gt; print(l)
+<span class="hljs-keyword">None</span>
+</code></pre>
+<p class="has-line-data" data-line-start="73" data-line-end="74">Yakunida ro‘yxatlar bilan ishlashga oid ba’zi misollarni keltirib o‘tamiz:</p>
+<pre><code class="has-line-data" data-line-start="75" data-line-end="94" class="language-python">&gt;&gt;&gt; a = [<span class="hljs-number">66.25</span>, <span class="hljs-number">333</span>, <span class="hljs-number">333</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1234.5</span>]
+&gt;&gt;&gt; print(a.count(<span class="hljs-number">333</span>), a.count(<span class="hljs-number">66.25</span>), a.count(<span class="hljs-string">'x'</span>))
+<span class="hljs-number">2</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span>
+&gt;&gt;&gt; a.insert(<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)
+&gt;&gt;&gt; a.append(<span class="hljs-number">333</span>)
+&gt;&gt;&gt; a
+[<span class="hljs-number">66.25</span>, <span class="hljs-number">333</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">333</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1234.5</span>, <span class="hljs-number">333</span>]
+&gt;&gt;&gt; a.index(<span class="hljs-number">333</span>)
+<span class="hljs-number">1</span>
+&gt;&gt;&gt; a.remove(<span class="hljs-number">333</span>)
+&gt;&gt;&gt; a
+[<span class="hljs-number">66.25</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">333</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1234.5</span>, <span class="hljs-number">333</span>]
+&gt;&gt;&gt; a.reverse()
+&gt;&gt;&gt; a
+[<span class="hljs-number">333</span>, <span class="hljs-number">1234.5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">333</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">66.25</span>]
+&gt;&gt;&gt; a.sort()
+&gt;&gt;&gt; a
+[-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">66.25</span>, <span class="hljs-number">333</span>, <span class="hljs-number">333</span>, <span class="hljs-number">1234.5</span>]
+</code></pre>
+<p class="has-line-data" data-line-start="94" data-line-end="95">Kamdan-kam holatlarda samaradorlikni oshirish maqsadida ro‘yxatlarning o‘rnida ularga nisbatan imkoniyatlari ozroq bo‘lgan massivlardan foydalaniladi. (Odatda, bunday holatlarda <code>NumPy</code> kabi chetki kutubxonalardan foydalaniladi.)</p>
+</div>
+
+<h2 id="Indekslar_va_kesimlar_96">
+    Indekslar va kesimlar
+ </h2>
+
+<div data-outline="Indekslar_va_kesimlar_96">
+<p class="has-line-data" data-line-start="97" data-line-end="98">Bu bobda biz indeks va kesimlar bilan ishlash amallarini ko‘rib chiqamiz.</p>
+<h3 class="code-line" data-line-start=98 data-line-end=99 ><a id="Indeksi_boyicha_elementni_olish_98"></a>Indeksi bo‘yicha elementni olish</h3>
+<p class="has-line-data" data-line-start="99" data-line-end="100">Boshqa dasturlash tillaridagi kabi indeks bo‘yicha olish:</p>
+<pre><code class="has-line-data" data-line-start="102" data-line-end="112" class="language-python">&gt;&gt;&gt; a = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">8</span>, <span class="hljs-number">7</span>]
+&gt;&gt;&gt; a[<span class="hljs-number">0</span>]
+<span class="hljs-number">1</span>
+&gt;&gt;&gt; a[<span class="hljs-number">3</span>]
+<span class="hljs-number">7</span>
+&gt;&gt;&gt; a[<span class="hljs-number">4</span>]
+Traceback (most recent call last):
+File <span class="hljs-string">"&lt;stdin&gt;"</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;
+IndexError: list index out of range
+</code></pre>
+<p class="has-line-data" data-line-start="112" data-line-end="114">Ko‘plab boshqa tillar kabi bu yerda ham raqamlash noldan boshlanadi. Mavjud bo‘lmagan indeksga murojaat qilishga urinish natijasida IndexError xatoligi yuzaga keladi. Yuqoridagi misolimizda a o‘zgaruvchisi ro‘yxat edi. Bundan tashqari, boshqa tipdagi, masalan, satr va kortejlarda ham indeksi bo‘yicha elementiga murojaat qilish mumkin.<br>
+Pythonda, bundan tashqari, manfiy indekslardan ham foydalanish mukin, bunday holda tartiblash ro‘yxat oxiridan boshlab amalga oshiriladi.</p>
+<pre><code class="has-line-data" data-line-start="115" data-line-end="125" class="language-python">&gt;&gt;&gt; a = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">8</span>, <span class="hljs-number">7</span>]
+&gt;&gt;&gt; a[-<span class="hljs-number">1</span>]
+<span class="hljs-number">7</span>
+&gt;&gt;&gt; a[-<span class="hljs-number">4</span>]
+<span class="hljs-number">1</span>
+&gt;&gt;&gt; a[-<span class="hljs-number">5</span>]
+Traceback (most recent call last):
+File <span class="hljs-string">"&lt;stdin&gt;"</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;
+IndexError: list index out of range
+</code></pre>
+<h3 class="code-line" data-line-start=125 data-line-end=126 ><a id="Kesimlar_125"></a>Kesimlar</h3>
+<p class="has-line-data" data-line-start="126" data-line-end="128">Pythonda indekslardan tashqari yana kesimlar ham mavjud.<br>
+<code>item[START:STOP:STEP]</code> – <code>START</code> nomeridan <code>STOP</code> gacha (uning o‘zi kirmaydi), <code>STEP</code> qadam bilan elementlarni oladi. Boshqa qiymat ko‘rsatilmasa, odatda, <code>START=0</code>, <code>STOP=obyekt uzunligiga</code>, <code>STEP=1</code>. Demak, qaysidir (hatto barcha) parametrlar tushirib qoldirilishi mumkin</p>
+<pre><code class="has-line-data" data-line-start="130" data-line-end="140">&gt;&gt;&gt; a = [1, 3, 8, 7]
+&gt;&gt;&gt; a[:]
+[1, 3, 8, 7]
+&gt;&gt;&gt; a[1:]
+[3, 8, 7]
+&gt;&gt;&gt; a[:3]
+[1, 3, 8]
+&gt;&gt;&gt; a[::2]
+[1, 8]
+</code></pre>
+<p class="has-line-data" data-line-start="141" data-line-end="142">Bundan tashqari, bu parametrlar manfiy qiymatlarni ham qabul qilishi mumkin:</p>
+<pre><code class="has-line-data" data-line-start="143" data-line-end="153">&gt;&gt;&gt; a = [1, 3, 8, 7]
+&gt;&gt;&gt; a[::-1]
+[7, 8, 3, 1]
+&gt;&gt;&gt; a[:-2]
+[1, 3]
+&gt;&gt;&gt; a[-2::-1]
+[8, 3, 1]
+&gt;&gt;&gt; a[1:4:-1]
+[]
+</code></pre>
+<p class="has-line-data" data-line-start="154" data-line-end="155">Oxirgi misolimizda bo‘sh ro‘yxat hosil bo‘ldi, chunki <code>START &lt; STOP</code> va <code>STEP</code> manfiy. Xuddi shunday holat qiymatlar diapazoni obyektdan tashqarini ko‘rsatganda yuz beradi.</p>
+<pre><code class="has-line-data" data-line-start="156" data-line-end="160" class="language-python">&gt;&gt;&gt; a = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">8</span>, <span class="hljs-number">7</span>]
+&gt;&gt;&gt; a[<span class="hljs-number">10</span>:<span class="hljs-number">20</span>]
+[]
+</code></pre>
+<p class="has-line-data" data-line-start="160" data-line-end="161">Bundan tashqari, kesimlar yordamida nafaqat elementlarni olish, balki ularni qo‘shish yoki o‘chirish ham mumkin (albatta, faqat o‘zgartirish mumkin bo‘lgan ketma-ketliklar uchun).</p>
+<pre><code class="has-line-data" data-line-start="162" data-line-end="170" class="language-python">&gt;&gt;&gt; a = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">8</span>, <span class="hljs-number">7</span>]
+&gt;&gt;&gt; a[<span class="hljs-number">1</span>:<span class="hljs-number">3</span>] = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]
+&gt;&gt;&gt; a
+[<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">7</span>]
+&gt;&gt;&gt; <span class="hljs-keyword">del</span> a[:-<span class="hljs-number">3</span>]
+&gt;&gt;&gt; a
+[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">7</span>]
+</code></pre>
+</div>
+
+    </div>
+   </div>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript">
+  </script>
+  <script src="../js/handout-run.js" type="text/javascript">
+  </script>
+ </body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    4. for va while konstruksiyasi
+   </title>
+   <link href="../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <header>
+   <a href="../index.html">
+    Python Coding Club
+   </a>
+   |
+   <a href="#">
+    Mundarijaga qaytish
+   </a>
+   <div>
+    9-sinf
+   </div>
+  </header>
+  <nav class="table-of-contents col-sm-2">
+   <ul class="nav">
+    <li>
+     <a href="#pythonga_kirish">
+        4. for va while konstruksiyasi
+     </a>
+    </li>
+    <li><a href="#for_va_while_sikllari_break_va_continue_operatorlari_else_sehrli_sozi_0">for va while sikllari. break va continue operatorlari. else sehrli so‘zi</a></li>
+    <!--  <li>
+     <a href="#summary">
+      Summary
+     </a>
+    </li>-->
+   </ul>
+  </nav>
+  <main class="container-fluid">
+   <h1 class="handout-title col-sm-8 col-sm-offset-2" id="pythonga_kirish">
+    4. for va while konstruksiyasi
+   </h1>
+   <div data-outline="pythonga_kirish">
+    <div class="markdown col-sm-8 col-sm-offset-2 converted">
+     <h4>
+        Bu bob quyidagilardan tashkil topgan:
+     </h4>
+     <p>
+      Mavzular:
+     </p>
+     <ul>
+      <li>
+        for va while sikllari. break va continue operatorlari. else sehrli so‘zi
+      </li>
+     </ul>
+
+
+     <h2 id="for_va_while_sikllari_break_va_continue_operatorlari_else_sehrli_sozi_0">
+        for va while sikllari. break va continue operatorlari. else sehrli so‘zi
+     </h2>
+
+<div data-outline="for_va_while_sikllari_break_va_continue_operatorlari_else_sehrli_sozi_0">
+<p class="has-line-data" data-line-start="1" data-line-end="2">Ushbu bo‘limda biz <code>for</code> va <code>while</code> takrorlash sikllari, <code>break</code> va <code>continue</code> operatorlari haqida, bundan tashqari, sikllar bilan birga qo‘llanilganda dasturni tushunishni yanada osonlashtiradigan <code>else</code> so‘zi haqida gaplashamiz.</p>
+<h3 class="code-line" data-line-start=3 data-line-end=4 ><a id="while_sikl_operatori_3"></a>while sikl operatori</h3>
+<p class="has-line-data" data-line-start="4" data-line-end="5"><code>while</code> — Pythondagi eng universal takrorlanish operatorlaridan biri bo‘lib, va shu sababli sekin ishlaydi. U shart rost qiymat qabul qilgan holatlar uchun sikl tanasini bajaraveradi.</p>
+<pre><code class="has-line-data" data-line-start="7" data-line-end="17" class="language-python">&gt;&gt;&gt; i = <span class="hljs-number">5</span>
+&gt;&gt;&gt; <span class="hljs-keyword">while</span> i &lt; <span class="hljs-number">15</span>:
+        print(i)
+        i = i + <span class="hljs-number">2</span>
+<span class="hljs-number">5</span>
+<span class="hljs-number">7</span>
+<span class="hljs-number">9</span>
+<span class="hljs-number">11</span>
+<span class="hljs-number">13</span>
+</code></pre>
+<h3 class="code-line" data-line-start=18 data-line-end=19 ><a id="for_sikl_operatori_18"></a>for sikl operatori</h3>
+<p class="has-line-data" data-line-start="19" data-line-end="20"><code>for</code> takrorlash operatori biroz murakkabroq bo‘lib, juda ham universal emas, ammo <code>while</code> operatoriga nisbatan tezkor hisoblanadi. Bu operator har qanday iteratsiyalanuvchi obyekt (masalan, satr yoki ro‘yxat)ni bir-bir ko‘rib chiqib, har bir takrorlanish vaqtida takrorlanishlar tanasini bajaradi.</p>
+<pre><code class="has-line-data" data-line-start="22" data-line-end="27" class="language-python">&gt;&gt;&gt; <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-string">'hello world'</span>:
+        print(i * <span class="hljs-number">2</span>, end=<span class="hljs-string">''</span>)
+        
+hheelllloo wwoorrlldd
+</code></pre>
+<h3 class="code-line" data-line-start=28 data-line-end=29 ><a id="continue_operatori_28"></a>continue operatori</h3>
+<p class="has-line-data" data-line-start="29" data-line-end="30"><code>continue</code> operatori takrorlanishlar tanasining (<code>for</code> yoki <code>while</code>) qolgan qismini bajarmasdan, uni tashlab o‘tib, keyingi takrorlanishni boshlaydi.</p>
+<pre><code class="has-line-data" data-line-start="31" data-line-end="38" class="language-python">&gt;&gt;&gt; <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-string">'hello world'</span>:
+        <span class="hljs-keyword">if</span> i == <span class="hljs-string">'o'</span>:
+            <span class="hljs-keyword">continue</span>
+        print(i * <span class="hljs-number">2</span>, end=<span class="hljs-string">''</span>)
+
+hheellll wwrrlldd
+</code></pre>
+<h3 class="code-line" data-line-start=39 data-line-end=40 ><a id="break_operatori_39"></a>break operatori</h3>
+<p class="has-line-data" data-line-start="40" data-line-end="41"><code>break</code> operatori takrorlanishlarni muddatidan oldin yakunlaydi.</p>
+<pre><code class="has-line-data" data-line-start="43" data-line-end="50" class="language-python">&gt;&gt;&gt; <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-string">'hello world'</span>:
+            <span class="hljs-keyword">if</span> i == <span class="hljs-string">'o'</span>:
+                <span class="hljs-keyword">break</span>
+            print(i * <span class="hljs-number">2</span>, end=<span class="hljs-string">''</span>)
+
+hheellll
+</code></pre>
+<h3 class="code-line" data-line-start=51 data-line-end=52 ><a id="else_sehrli_sozi_51"></a>else sehrli so‘zi</h3>
+<p class="has-line-data" data-line-start="52" data-line-end="53"><code>for</code> yoki <code>while</code> operatorlari tarkibida qo‘llanilganda, <code>else</code> so‘zi takrorlanishlardan odatiy holda yoki <code>break</code> yordamida chiqilganligini tekshirish uchun ishlatiladi. <code>else</code> ning tarkibidagi ko‘rsatmalar bloki takrorlanishlar tanasidan chiqish faqat <code>break</code> operatorisiz amalga oshirilgandagina bajariladi.</p>
+<pre><code class="has-line-data" data-line-start="54" data-line-end="62" class="language-python">&gt;&gt;&gt; <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-string">'hello world'</span>:
+        <span class="hljs-keyword">if</span> i == <span class="hljs-string">'a'</span>:
+            <span class="hljs-keyword">break</span>
+        <span class="hljs-keyword">else</span>:
+            print(<span class="hljs-string">'Satr tarkibida a harfi yo‘q.'</span>)
+
+Satr tarkibida a harfi yo‘q.
+</code></pre>
+</div>
+
+    </div>
+   </div>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript">
+  </script>
+  <script src="../js/handout-run.js" type="text/javascript">
+  </script>
+ </body>
+</html>
