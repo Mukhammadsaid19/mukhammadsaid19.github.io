@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    6. Kortejlar (tuple)
+   </title>
+   <link href="../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <header>
+   <a href="../index.html">
+    Python Coding Club
+   </a>
+   |
+   <a href="#">
+    Mundarijaga qaytish
+   </a>
+   <div>
+    9-sinf
+   </div>
+  </header>
+  <nav class="table-of-contents col-sm-2">
+   <ul class="nav">
+    <li>
+     <a href="#pythonga_kirish">
+        6. Kortejlar (tuple)
+     </a>
+    </li>
+    <li><a href="#Kortejlar_tuple_0">Kortejlar (tuple)</a></li>
+    <!--  <li>
+     <a href="#summary">
+      Summary
+     </a>
+    </li>-->
+   </ul>
+  </nav>
+  <main class="container-fluid">
+   <h1 class="handout-title col-sm-8 col-sm-offset-2" id="pythonga_kirish">
+    6. Kortejlar (tuple)
+   </h1>
+   <div data-outline="pythonga_kirish">
+    <div class="markdown col-sm-8 col-sm-offset-2 converted">
+     <h4>
+        Bu bob quyidagilardan tashkil topgan:
+     </h4>
+     <p>
+      Mavzular:
+     </p>
+     <ul>
+      <li>
+        Kortejlar (tuple)
+      </li>
+     </ul>
+
+
+     <h2 id="Kortejlar_tuple_0">
+        Kortejlar (tuple)
+     </h2>
+
+<div data-outline="Kortejlar_tuple_0">
+<p class="has-line-data" data-line-start="2" data-line-end="4">Bu bobda biz <em>kortejlar</em> va ularning qollanilishi haqida so‘z yuritamiz.<br></p>
+<p>Kortej, o‘zining xususiyatlariga ko‘ra, o‘zgarmaydigan ro‘yxatdir.</p>
+<h3 class="code-line" data-line-start=4 data-line-end=5 ><a id="Royxatlar_turganda_kortejlar_nima_uchun_kerak_4"></a>Ro‘yxatlar turganda, kortejlar nima uchun kerak?</h3>
+<ul>
+<li class="has-line-data" data-line-start="5" data-line-end="6">Xatoliklardan himoya. Ya’ni kortejlar bilib turgan holda (bu yomon) va bilmasdan (bu, albatta, yaxshi) o‘zgarishlardan <strong>himoyalangan</strong>.</li>
+<li class="has-line-data" data-line-start="6" data-line-end="15"><strong>Kichikroq</strong> hajm. Mana bir misol:<pre><code class="has-line-data" data-line-start="8" data-line-end="15" class="language-python">&gt;&gt;&gt; a = (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>)
+&gt;&gt;&gt; b = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]
+&gt;&gt;&gt; a.__sizeof__()
+<span class="hljs-number">36</span>
+&gt;&gt;&gt; b.__sizeof__()
+<span class="hljs-number">44</span>
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="15" data-line-end="27">Kortejlardan <strong>lug‘atlarning kalitlari</strong> sifatida foydalanish mumkinligi:<pre><code class="has-line-data" data-line-start="17" data-line-end="26" class="language-python">&gt;&gt;&gt; d = {(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>) : <span class="hljs-number">1</span>}
+&gt;&gt;&gt; d
+{(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>): <span class="hljs-number">1</span>}
+&gt;&gt;&gt; d = {[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>] : <span class="hljs-number">1</span>}
+Traceback (most recent call last):
+File <span class="hljs-string">""</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span>
+d = {[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>] : <span class="hljs-number">1</span>}
+TypeError: unhashable type: <span class="hljs-string">'list'</span>
+</code></pre>
+</li>
+</ul>
+<h3 class="code-line" data-line-start=27 data-line-end=28 ><a id="Kortejlar_bilan_qanday_ishlanadi_27"></a>Kortejlar bilan qanday ishlanadi?</h3>
+<p class="has-line-data" data-line-start="28" data-line-end="29">Kortejlarning afzalliklari bilan tanishib chiqdik. Endi, ular bilan qanday ishlash mumkin, degan savol yuzaga keladi. Bu obyektlar bilan ishlash ro‘yxatlar bilan ishlashdan deyarli farq qilmaydi. Keling, bitta bosh kortej yaratamiz:</p>
+<pre><code class="has-line-data" data-line-start="30" data-line-end="38" class="language-python">&gt;&gt;&gt; a = tuple() <span class="hljs-comment"># tuple() tarkibiy funksiyasi yordamida</span>
+&gt;&gt;&gt; a
+()
+&gt;&gt;&gt; a = () <span class="hljs-comment"># kortej literali yordamida</span>
+&gt;&gt;&gt; a
+()
+&gt;&gt;&gt;
+</code></pre>
+<p class="has-line-data" data-line-start="38" data-line-end="39">1 ta elementli kortej yaratamiz:</p>
+<pre><code class="has-line-data" data-line-start="40" data-line-end="44" class="language-python">&gt;&gt;&gt; a = (<span class="hljs-string">'s'</span>)
+&gt;&gt;&gt; a
+<span class="hljs-string">'s'</span>
+</code></pre>
+<p class="has-line-data" data-line-start="44" data-line-end="45">Lekin bu misolimiz natijasida satr hosil bo‘ldi. Biz esa kortej yaratmoqchi edik. Kortejni qanday yaratishimiz mumkin?</p>
+<pre><code class="has-line-data" data-line-start="46" data-line-end="50" class="language-python">&gt;&gt;&gt; a = (<span class="hljs-string">'s'</span>, )
+&gt;&gt;&gt; a
+(<span class="hljs-string">'s'</span>,)
+</code></pre>
+<p class="has-line-data" data-line-start="50" data-line-end="51">Mana, kerakli natijaga ega bo‘ldik. Hamma gap <em>vergulda</em> ekan. Qavslarning o‘zi hech narsani bildirmaydi. Aniqrog‘I, bildiradi-yu, ularning ichida bitta bosh joy, satr ko‘chishi yoki boshqa elementlar bilan ajratilishi mumkin bo‘lgan element joylashishini bildiradi. Bundan tashqari, kortejni mana bu metodda ham yaratish mumkin:</p>
+<pre><code class="has-line-data" data-line-start="53" data-line-end="57" class="language-python">&gt;&gt;&gt; a = <span class="hljs-string">'s'</span>,
+&gt;&gt;&gt; a
+(<span class="hljs-string">'s'</span>,)
+</code></pre>
+<p class="has-line-data" data-line-start="58" data-line-end="59">Lekin, baribir, chalg‘imang va qavslarni har doim qo‘yishga odatlaning, chunki ba’zi hollarda ularni qo‘ymaslikning iloji bo‘lmaydi.</p>
+<p class="has-line-data" data-line-start="60" data-line-end="61">Iteratsiyalanadigan obyektlardan kortej yaratish uchun esa avval ko‘rganimiz – tuple() funksiyasi qo‘llaniladi.</p>
+<pre><code class="has-line-data" data-line-start="63" data-line-end="67" class="language-python">&gt;&gt;&gt; a = tuple(<span class="hljs-string">'hello, world!'</span>)
+&gt;&gt;&gt; a
+(<span class="hljs-string">'h'</span>, <span class="hljs-string">'e'</span>, <span class="hljs-string">'l'</span>, <span class="hljs-string">'l'</span>, <span class="hljs-string">'o'</span>, <span class="hljs-string">','</span>, <span class="hljs-string">' '</span>, <span class="hljs-string">'w'</span>, <span class="hljs-string">'o'</span>, <span class="hljs-string">'r'</span>, <span class="hljs-string">'l'</span>, <span class="hljs-string">'d'</span>, <span class="hljs-string">'!'</span>)
+</code></pre>
+<h3 class="code-line" data-line-start=68 data-line-end=69 ><a id="Kortejlar_bilan_bajariladigan_operatsiyalar_68"></a>Kortejlar bilan bajariladigan operatsiyalar</h3>
+<p class="has-line-data" data-line-start="70" data-line-end="71">Ro‘yxatlarni o‘zgartirmaydigan barcha amallarni kortejlarga nisbatan ham qo‘llash mumkin (chunki kortejlar o‘zgarmaydigan ro‘yxatlardir). Bundan tashqari, elementlar o‘rinlarini turli metodlar yordamida almashtirish ham mumkin.</p>
+<p class="has-line-data" data-line-start="72" data-line-end="73">Masalan, Python tili dasturchilarining faxri bo‘lgan ikkita o‘zgaruvchining qiymatlarini o‘zaro almashtirish kabi:</p>
+<pre><code class="has-line-data" data-line-start="75" data-line-end="77" class="language-python">a, b = b, a
+</code></pre>
+</div>
+
+
+    </div>
+   </div>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript">
+  </script>
+  <script src="../js/handout-run.js" type="text/javascript">
+  </script>
+ </body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    7. To‘plamlar
+   </title>
+   <link href="../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <header>
+   <a href="../index.html">
+    Python Coding Club
+   </a>
+   |
+   <a href="#">
+    Mundarijaga qaytish
+   </a>
+   <div>
+    9-sinf
+   </div>
+  </header>
+  <nav class="table-of-contents col-sm-2">
+   <ul class="nav">
+    <li>
+     <a href="#pythonga_kirish">
+        7. To‘plamlar
+     </a>
+    </li>
+    <li><a href="#Kortejlar_tuple_0">To‘plamlar (set va frozenset)</a></li>
+    <!--  <li>
+     <a href="#summary">
+      Summary
+     </a>
+    </li>-->
+   </ul>
+  </nav>
+  <main class="container-fluid">
+   <h1 class="handout-title col-sm-8 col-sm-offset-2" id="pythonga_kirish">
+    7. To‘plamlar
+   </h1>
+   <div data-outline="pythonga_kirish">
+    <div class="markdown col-sm-8 col-sm-offset-2 converted">
+     <h4>
+        Bu bob quyidagilardan tashkil topgan:
+     </h4>
+     <p>
+      Mavzular:
+     </p>
+     <ul>
+      <li>
+        To‘plamlar (set va frozenset)
+      </li>
+     </ul>
+
+
+     <h2 id="Toplamlar_set_va_frozenset_0">
+        To‘plamlar (set va frozenset)
+     </h2>
+
+<div data-outline="Toplamlar_set_va_frozenset_0">
+<p class="has-line-data" data-line-start="2" data-line-end="3">Bu bobda Python dasturlash tilidagi to‘plamlar, ya’ni to‘plam nima ekanligi, ular ustida bajariladigan amallar, ularning qo‘llanilishiga oid misollar haqida gaplashamiz.</p>
+<h3 class="code-line" data-line-start=3 data-line-end=4 ><a id="Toplamlar_nima_3"></a>To‘plamlar nima?</h3>
+<p class="has-line-data" data-line-start="4" data-line-end="6">Pythonda to‘plam – <strong>takrorlanmaydigan</strong> elementlarning <strong>tasodifiy tarzda</strong> joylashgan konteyneri.<br>
+To‘plam yaratamiz:</p>
+<pre><code class="has-line-data" data-line-start="7" data-line-end="23" class="language-python">&gt;&gt;&gt; a = set()
+&gt;&gt;&gt; a
+set()
+&gt;&gt;&gt; a = set('hello')
+&gt;&gt;&gt; a
+{'h', 'o', 'l', 'e'}
+&gt;&gt;&gt; a = {'a', 'b', 'c', 'd'}
+&gt;&gt;&gt; a
+{'b', 'c', 'a', 'd'}
+&gt;&gt;&gt; a = {i ** 2 for i in range(10)} # to`plamlar generatori
+&gt;&gt;&gt; a
+{0, 1, 4, 81, 64, 9, 16, 49, 25, 36}
+&gt;&gt;&gt; a = {} # bunday mumkin emas
+&gt;&gt;&gt; type(a)
+&lt;class 'dict'&gt;
+</code></pre>
+<p class="has-line-data" data-line-start="23" data-line-end="24">Misoldan ko‘rinib turibdiki, to‘plamlar xuddi lug‘atlar kabi literallarga ega, lekin bosh to‘plamni literal yordamida yaratib bo‘lmaydi.</p>
+<p class="has-line-data" data-line-start="25" data-line-end="26">To‘plamlardan takrorlanadigan elementlarni o‘chirish uchun foydalanish qulay.</p>
+<pre><code class="has-line-data" data-line-start="27" data-line-end="31" class="language-python">&gt;&gt;&gt; words = [<span class="hljs-string">'hello'</span>, <span class="hljs-string">'daddy'</span>, <span class="hljs-string">'hello'</span>, <span class="hljs-string">'mum'</span>]
+&gt;&gt;&gt; set(words)
+{<span class="hljs-string">'hello'</span>, <span class="hljs-string">'daddy'</span>, <span class="hljs-string">'mum'</span>}
+</code></pre>
+<p class="has-line-data" data-line-start="32" data-line-end="33">To‘plamlar bilan qator amallarni bajarish mumkin. Masalan, birlashtirish, kesishish va h. k.</p>
+<ul>
+<li class="has-line-data" data-line-start="33" data-line-end="34"><code>len(s)</code> – to‘plamdagi elementlar soni (to‘plam o‘lchami).</li>
+<li class="has-line-data" data-line-start="34" data-line-end="35"><code>x in s</code> – <code>x</code> ning <code>s</code> to‘plamga tegishliligini aniqlash.</li>
+<li class="has-line-data" data-line-start="35" data-line-end="36"><code>set.isdisjoint(other)</code> – agar <code>set</code> va <code>other</code>lar umumiy elementlarga ega bo‘lmasa, rost qiymatga ega bo‘ladi.</li>
+<li class="has-line-data" data-line-start="36" data-line-end="37"><code>set == other</code> – <code>set</code>ning barcha elementlari otherga tegishli, otherning barcha elementlari esa setga tegishli.</li>
+<li class="has-line-data" data-line-start="37" data-line-end="38"><code>set.issubset(other)</code> yoki <code>set &lt;= other</code> – <code>set</code>ning barcha elementlari <code>other</code>ga tegishli.</li>
+<li class="has-line-data" data-line-start="38" data-line-end="39"><code>set.issuperset(other)</code> yoki <code>set &gt;= other</code> – <code>set</code>ning barcha elementlari <code>other</code>ga tegishli.</li>
+<li class="has-line-data" data-line-start="39" data-line-end="40"><code>set.union(other, ...)</code> yoki <code>set | other | ...</code> – bir necha to‘plamni birlashtirish.</li>
+<li class="has-line-data" data-line-start="40" data-line-end="41"><code>set.intersection(other, ...)</code> yoki <code>set &amp; other &amp; ...</code> – kesishma.</li>
+<li class="has-line-data" data-line-start="41" data-line-end="42"><code>set.difference(other, ...)</code> yoki <code>set - other - ...</code> – <code>other</code>ga tegishli bo‘lmagan <code>other</code>ning barcha elementlaridan iborat to‘plam.</li>
+<li class="has-line-data" data-line-start="42" data-line-end="43"><code>set.symmetric_difference(other)</code> yoki <code>set ^ other</code> – ikkala to‘plamda ham uchramaydigan, lekin to‘plamlarning bittasida mavjud elementlardan iborat to‘plam.</li>
+<li class="has-line-data" data-line-start="43" data-line-end="45"><code>set.copy()</code> – to‘plamning nusxasi.</li>
+</ul>
+<p class="has-line-data" data-line-start="45" data-line-end="46">Bevosita to‘plamlarning o‘zini o‘zgartiruvchi amallar:</p>
+<ul>
+<li class="has-line-data" data-line-start="47" data-line-end="48"><code>set.update(other, ...); set |= other | ...</code> – birlashma.</li>
+<li class="has-line-data" data-line-start="48" data-line-end="49"><code>set.intersection_update(other, ...); set &amp;= other &amp; ...</code> – kesishma.</li>
+<li class="has-line-data" data-line-start="49" data-line-end="50"><code>set.difference_update(other, ...); set -= other | ...</code> – ayirma.</li>
+<li class="has-line-data" data-line-start="50" data-line-end="51"><code>set.symmetric_difference_update(other); set ^= other</code> – ikkala to‘plamda ham uchramaydigan, lekin to‘plamlarning bittasida mavjud elementlardan iborat to‘plam.</li>
+<li class="has-line-data" data-line-start="51" data-line-end="52"><code>set.add(elem)</code> – to‘plamga <code>element</code> qo‘shadi.</li>
+<li class="has-line-data" data-line-start="52" data-line-end="53"><code>set.remove(elem)</code> – to‘plamdan <code>elem</code>ni o‘chiradi. Agar bunday <code>eleme</code> bo‘lmasa, <code>KeyError</code> xatoligi yuzaga keladi.</li>
+<li class="has-line-data" data-line-start="53" data-line-end="54"><code>set.discard(elem)</code> – agar <code>elem</code> to‘plamda mavjud bo‘lsa, uni o‘chiradi.</li>
+<li class="has-line-data" data-line-start="54" data-line-end="55"><code>set.pop()</code> – to‘plamning birinchi elementini o‘chiradi. To‘plamlar tartiblanmagan bo‘lganligi sababli, qaysi element birinchi bo‘lishini aytib bo‘lmaydi.</li>
+<li class="has-line-data" data-line-start="55" data-line-end="57"><code>set.clear()</code> – to‘plamni tozalash.</li>
+</ul>
+<h3 class="code-line" data-line-start=57 data-line-end=58 ><a id="frozenset_57"></a>frozenset</h3>
+<p class="has-line-data" data-line-start="59" data-line-end="60"><code>frozenset</code>ning setdan yagona farqi – <code>set</code>ni o‘zgartirish mumkin, ammo <code>frozenset</code>ni o‘zgartirib bo‘lmaydi. Taxminan shunday vaziyatni biz ro‘yxatlar va kortejlarda kuzatgan edik.</p>
+<pre><code class="has-line-data" data-line-start="62" data-line-end="78" class="language-python">&gt;&gt;&gt; a = set('qwerty')
+&gt;&gt;&gt; b = frozenset('qwerty')
+&gt;&gt;&gt; a == b
+True
+&gt;&gt;&gt; True
+True
+&gt;&gt;&gt; type(a - b)
+&lt;class 'set'&gt;
+&gt;&gt;&gt; type(a | b)
+&lt;class 'set'&gt;
+&gt;&gt;&gt; a.add(1)
+&gt;&gt;&gt; b.add(1)
+Traceback (most recent call last):
+File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+AttributeError: 'frozenset' object has no attribute 'add'
+</code></pre>
+</div>
+
+
+    </div>
+   </div>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript">
+  </script>
+  <script src="../js/handout-run.js" type="text/javascript">
+  </script>
+ </body>
+</html>

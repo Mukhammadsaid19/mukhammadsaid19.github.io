@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    8. Funksiyalar
+   </title>
+   <link href="../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <header>
+   <a href="../index.html">
+    Python Coding Club
+   </a>
+   |
+   <a href="#">
+    Mundarijaga qaytish
+   </a>
+   <div>
+    9-sinf
+   </div>
+  </header>
+  <nav class="table-of-contents col-sm-2">
+   <ul class="nav">
+    <li>
+     <a href="#pythonga_kirish">
+        8. Funksiyalar
+     </a>
+    </li>
+    <li><a href="#Funksiyalar_va_ularning_argumentlari_0">Funksiyalar va ularning argumentlari</a></li>
+    <li><a href="#Tarkibiy_funksiyalar_105">Tarkibiy funksiyalar</a></li>
+    <li><a href="#dekoratorlar">Dekoratorlar</a></li>
+    <!--  <li>
+     <a href="#summary">
+      Summary
+     </a>
+    </li>-->
+   </ul>
+  </nav>
+  <main class="container-fluid">
+   <h1 class="handout-title col-sm-8 col-sm-offset-2" id="pythonga_kirish">
+    8. Funksiyalar
+   </h1>
+   <div data-outline="pythonga_kirish">
+    <div class="markdown col-sm-8 col-sm-offset-2 converted">
+     <h4>
+        Bu bob quyidagilardan tashkil topgan:
+     </h4>
+     <p>
+      Mavzular:
+     </p>
+     <ul>
+      <li>
+        Funksiyalar va ularning argumentlari
+      </li>
+      <li>
+        Tarkibiy funksiyalar
+      </li>
+      <li>
+        Dekoratorlar
+      </li>
+     </ul>
+
+
+     <h2 id="Funksiyalar_va_ularning_argumentlari_0">
+        Funksiyalar va ularning argumentlari
+     </h2>
+
+<div data-outline="Funksiyalar_va_ularning_argumentlari_0">
+<p class="has-line-data" data-line-start="2" data-line-end="3">Bu bobda biz <strong>funksiyalar</strong> haqida so‘z yuritamiz. Sizga nomlangan va anonim funksiyalar, <code>def</code>, <code>return</code> va <code>lambda</code> ko‘rsatmalari, funksiyaning majburiy va majburiy bo‘lmagan argumentlari, ixtiyoriy sondagi argumentli funksiyalar haqida tushuncha berishga harakat qilamiz.</p>
+<h3 class="code-line" data-line-start=4 data-line-end=5 ><a id="Nomlangan_funksiyalar_def_instruksiyasi_4"></a>Nomlangan funksiyalar. def instruksiyasi</h3>
+<p class="has-line-data" data-line-start="5" data-line-end="7">Pythonda funksiya bu – argumentlarni qabul qilib, qiymatlarni qaytaruvchi obyekt. Odatda, funksiyalar def xizmatchi so‘zi yordamida aniqlanadi.<br>
+Keling, oddiy bir funksiyani aniqlaylik:</p>
+<pre><code class="has-line-data" data-line-start="8" data-line-end="11" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(x, y)</span>:</span>
+    <span class="hljs-keyword">return</span> x + y
+</code></pre>
+<p class="has-line-data" data-line-start="11" data-line-end="13"><code>return</code> ko‘rsatmasi qiymatni qaytarish kerakligini anglatadi. Bizning misolimizdagi funksiya <code>x</code> va <code>y</code> lar yig‘indisini qaytaradi.<br>
+Endi biz unga murojaat qilishimiz mumkin:</p>
+<pre><code class="has-line-data" data-line-start="14" data-line-end="19" class="language-python">&gt;&gt;&gt; add(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>)
+<span class="hljs-number">11</span>
+&gt;&gt;&gt; add(<span class="hljs-string">'abc'</span>, <span class="hljs-string">'def'</span>)
+<span class="hljs-string">'abcdef'</span>
+</code></pre>
+<p class="has-line-data" data-line-start="19" data-line-end="20">Funksiya ixtiyoriy murakkablikda bo‘lishi hamda ixtiyoriy tipdagi obyektlar (ro‘yxat, kortej va hatto funksiya!)ni qaytarishi mumkin:</p>
+<pre><code class="has-line-data" data-line-start="21" data-line-end="29" class="language-python">&gt;&gt;&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">newfunc</span><span class="hljs-params">(n)</span>:</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">myfunc</span><span class="hljs-params">(x)</span>:</span>
+            <span class="hljs-keyword">return</span> x + n
+        <span class="hljs-keyword">return</span> myfunc
+&gt;&gt;&gt; new = newfunc(<span class="hljs-number">100</span>) <span class="hljs-comment"># new – bu funksiya</span>
+&gt;&gt;&gt; new(<span class="hljs-number">200</span>)
+<span class="hljs-number">300</span>
+</code></pre>
+<p class="has-line-data" data-line-start="29" data-line-end="30">Funksiya <code>return</code> ko‘rsatmasi bilan yakunlanmasligi ham mumkin. Bunday holda funksiya None qiymatni qaytaradi:</p>
+<pre><code class="has-line-data" data-line-start="31" data-line-end="37" class="language-python">&gt;&gt;&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">()</span>:</span>
+            <span class="hljs-keyword">pass</span>
+
+&gt;&gt;&gt; print(func())
+<span class="hljs-keyword">None</span>
+</code></pre>
+<h3 class="code-line" data-line-start=38 data-line-end=39 ><a id="Funksiyalarning_argumentlari_38"></a>Funksiyalarning argumentlari</h3>
+<p class="has-line-data" data-line-start="39" data-line-end="40">Funksiyalar ixtiyoriy sondagi argumentlarni qabul qilishi yoki umuman birorta ham argument qabul qilmasligi mumkin. Bundan tashqari, ixtiyoriy sonli argumentli, pozitsiyali va nomlangan argumentli hamda majburiy va majburiy bo‘lmagan argumentli funksiyalar ham mavjud.</p>
+<pre><code class="has-line-data" data-line-start="42" data-line-end="57" class="language-python">&gt;&gt;&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">(a, b, c=<span class="hljs-number">2</span>)</span>:</span> <span class="hljs-comment"># c – bu majburiy bo`lmagan argumentdir</span>
+        <span class="hljs-keyword">return</span> a + b + c
+
+&gt;&gt;&gt; func(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) <span class="hljs-comment"># a = 1, b = 2, c = 2 (odatiy qiymat)</span>
+<span class="hljs-number">5</span>
+&gt;&gt;&gt; func(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>) <span class="hljs-comment"># a = 1, b = 2, c = 3</span>
+<span class="hljs-number">6</span>
+&gt;&gt;&gt; func(a=<span class="hljs-number">1</span>, b=<span class="hljs-number">3</span>) <span class="hljs-comment"># a = 1, b = 3, c = 2</span>
+<span class="hljs-number">6</span>
+&gt;&gt;&gt; func(a=<span class="hljs-number">3</span>, c=<span class="hljs-number">6</span>) <span class="hljs-comment"># a = 3, c = 6, b aniqlanmagan</span>
+Traceback (most recent call last):
+File <span class="hljs-string">""</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span>
+func(a=<span class="hljs-number">3</span>, c=<span class="hljs-number">6</span>)
+TypeError: func() takes at least <span class="hljs-number">2</span> arguments (<span class="hljs-number">2</span> given)
+</code></pre>
+<p class="has-line-data" data-line-start="57" data-line-end="58">Funksiya, bundan tashqari, pozitsiyali argumentlarning o‘zgarib turuvchi sonini qabul qilishi ham mumkin. U holda nomdan avval <code>*</code> belgisi qo‘yiladi.</p>
+<pre><code class="has-line-data" data-line-start="59" data-line-end="69" class="language-python">&gt;&gt;&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">(*args)</span>:</span>
+        <span class="hljs-keyword">return</span> args
+        
+&gt;&gt;&gt; func(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-string">'abc'</span>)
+(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-string">'abc'</span>)
+&gt;&gt;&gt; func()
+()
+&gt;&gt;&gt; func(<span class="hljs-number">1</span>)
+(<span class="hljs-number">1</span>,)
+</code></pre>
+<p class="has-line-data" data-line-start="69" data-line-end="71">Misolda ko‘rinib turibdiki, <code>args</code> – funksiyaning barcha uzatilgan argumentlaridan iborat kortej. Bu o‘zgaruvchi bilan xuddi kortej kabi ishlash mumkin ekan.<br>
+Funksiya nomlangan argumentlarning ham ixtiyoriy sonini qabul qilishi mumkin. Bu holda o‘zgaruvchidan avval <code>**</code> belgisi qo‘yiladi.</p>
+<pre><code class="has-line-data" data-line-start="73" data-line-end="83" class="language-python">&gt;&gt;&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">(**kwargs)</span>:</span>
+        <span class="hljs-keyword">return</span> kwargs
+
+&gt;&gt;&gt; func(a=<span class="hljs-number">1</span>, b=<span class="hljs-number">2</span>, c=<span class="hljs-number">3</span>)
+{<span class="hljs-string">'a'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'c'</span>: <span class="hljs-number">3</span>, <span class="hljs-string">'b'</span>: <span class="hljs-number">2</span>}
+&gt;&gt;&gt; func()
+{}
+&gt;&gt;&gt; func(a=<span class="hljs-string">'python'</span>)
+{<span class="hljs-string">'a'</span>: <span class="hljs-string">'python'</span>}
+</code></pre>
+<p class="has-line-data" data-line-start="83" data-line-end="84"><code>kwargs</code> o‘zgaruvchisida biz o‘z xohishimizga ko‘ra istagan amallarni qo‘llashimiz mumkin bo‘lgan lug‘at joylashgan.</p>
+<h3 class="code-line" data-line-start=85 data-line-end=86 ><a id="Anonim_funksiyalar_lambda_instruksiyasi_85"></a>Anonim funksiyalar, lambda instruksiyasi</h3>
+<p class="has-line-data" data-line-start="86" data-line-end="87">Anonim funksiyalar faqat bittagina ko‘rsatmadan iborat bo‘lishi mumkin, lekin ular shunga mos ravishda juda tez bajariladi ham. Anonim funksiyalar lambda ko‘rsatmasi yordamida yaratiladi. Bundan tashqari, ularni biz <code>def func()</code> da bajarganimiz kabi o‘zgaruvchilarga moslashtirish ham shart emas.</p>
+<pre><code class="has-line-data" data-line-start="88" data-line-end="98" class="language-python">&gt;&gt;&gt; func = <span class="hljs-keyword">lambda</span> x, y: x + y
+&gt;&gt;&gt; func(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+<span class="hljs-number">3</span>
+&gt;&gt;&gt; func(<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>)
+<span class="hljs-string">'ab'</span>
+&gt;&gt;&gt; (<span class="hljs-keyword">lambda</span> x, y: x + y)(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+<span class="hljs-number">3</span>
+&gt;&gt;&gt; (<span class="hljs-keyword">lambda</span> x, y: x + y)(<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>)
+<span class="hljs-string">'ab'</span>
+</code></pre>
+<p class="has-line-data" data-line-start="98" data-line-end="99"><code>lambda</code> funksiyasiga, odatiy funksiyadan farqli ravishda, <code>return</code> ko‘rsatmasi talab etilmaydi, boshqa barcha jihatlari bo‘yicha u oddiy funksiyalardan farq qilmaydi:</p>
+<pre><code class="has-line-data" data-line-start="100" data-line-end="104" class="language-python">&gt;&gt;&gt; func = <span class="hljs-keyword">lambda</span> *args: args
+&gt;&gt;&gt; func(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
+(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
+</code></pre>
+</div>
+
+<div data-outline="Tarkibiy_funksiyalar_105">
+<h2 class="code-line" data-line-start=105 data-line-end=106 ><a id="Tarkibiy_funksiyalar_105"></a>Tarkibiy funksiyalar</h2>
+<p class="has-line-data" data-line-start="106" data-line-end="107">Python 3 tarkibidagi funksiyalarning qisqa tavsifi quyidagilardan iborat.</p>
+<h3 class="code-line" data-line-start=107 data-line-end=108 ><a id="Tiplarni_ozaro_almashtiruvchi_tarkibiy_tiplar_107"></a>Tiplarni o‘zaro almashtiruvchi tarkibiy tiplar</h3>
+<p class="has-line-data" data-line-start="108" data-line-end="124"><code>bool(x)</code> – rostlikka tekshirish orqali bool tipiga almashtirish. <code>x</code> yolg‘on yoki yozilmagan bo‘lsa, <code>False</code> qiymatni, aks holda <code>True</code> qiymatni qaytaradi.<br>
+<code>bytearray([manba[kodi[xatoliklar]]])</code> – <code>bytearray</code>ga almashtirish. bytearray – <code>0&lt;=x&lt;256</code> oraliqdagi o‘zgartirish mumkin bo‘lgan butun sonlar ketma-ketligi. Argumentsiz qo‘llanilganda, bo‘sh baytlar massivini qaytaradi.<br>
+<code>bytes([manba[kodi[xatoliklar]]])</code> – <code>bytes</code> tipli <code>0&lt;=x&lt;256</code> oraliqdagi o‘zgartirish mumkin bo‘lmagan butun sonlar ketma-ketligi bo‘lgan obyektni qaytaradi (konstruktorning argumentlari xuddi bytearrayniki kabi interpretatsiya qilinadi).<br>
+<code>complex([real[, imag]])</code> – kompleks songa almashtirish.<br>
+<code>dict([object])</code> – lug‘atga almashtirish.<br>
+<code>float([X])</code> – haqiqiy songa almashtirish. Agar argument ko‘rsatilmasa, <code>0.0</code> ni qaytaradi.<br>
+<code>frozenset([ketma-ketlik])</code> – o‘zgarmas to‘plamni qaytaradi.<br>
+<code>int([object], [sanoq tizimi asosi])</code> – butun songa almashtirish.<br>
+<code>list([object])</code> – ro‘yxat yaratadi.<br>
+<code>memoryview([object])</code> – memoryview obyektini yaratadi.<br>
+<code>object()</code> – barcha obyektlar uchun asos bo‘lishi mumkin bo‘lgan xususiyatlarsiz obyekt yaratish.<br>
+<code>range([start=0], stop, [step=1])</code> – <code>start</code>dan <code>stop</code>gacha <code>step</code> qadamli arifmetik progressiya.<br>
+<code>set([object])</code> – to‘plam yaratadi.<br>
+<code>slice([start=0], stop, [step=1])</code> – <code>start</code>dan <code>stop</code>gacha <code>step</code> qadamli kesim yaratish.<br>
+<code>str([object], [kodirovka], [xatoliklar])</code> – obyektning satrli ko‘rinishi. <code>__str__</code> metodini qo‘llaydi.<br>
+<code>tuple(object)</code> – kortejga aylantirish.</p>
+<h3 class="code-line" data-line-start=125 data-line-end=126 ><a id="Boshqa_tarkibiy_funksiyalari_125"></a>Boshqa tarkibiy funksiyalari</h3>
+<p class="has-line-data" data-line-start="127" data-line-end="179"><code>abs(x)</code> – absolyut qiymatni qaytaradi (sonning moduli).<br>
+<code>all(ketma-ketlik)</code> – barcha elementlar rost yoki argument bo‘sh bo‘lsa, <code>True</code>ni qaytaradi.<br>
+<code>any(ketma-ketlik)</code> – elementlardan kamida bittasi rost bo‘lganda, <code>True</code> qiymat qaytaradi. Bo‘sh ketma-ketlik uchun <code>False</code> qiymatni qaytaradi.<br>
+<code>ascii(object)</code> – <code>repr()</code> kabi, obyekt tavsifidan iborat satrni qaytaradi, lekin <code>ASCII</code> bo‘lmagam simvollarni ekranlangan ketma-ketliklarga almashtiradi.<br>
+<code>bin(x)</code> – butun sonni ikkilik satrga almashtirish.<br>
+<code>callable(x)</code> – funksiyalar kabi chaqirish mumkin bo‘lgan obyektlar uchun <code>True</code> qiymat qaytaradi.<br>
+<code>chr(x)</code> – kodi <code>x</code> ga teng bo‘lgan simvolni qaytaradi.<br>
+<code>classmethod(x)</code> – ko‘rsatilgan funksiyani klassning metodi sifatida tavsiflash.<br>
+<code>compile(source, filename, mode, flags=0, dont_inherit=False)</code> – keyinchalik <code>eval</code> yoki <code>exec</code> funksiyasi tomonidan bajarilishi mumkin bo‘lgan dastur kodiga kompilyatsiyalash. Satr tarkibida karetkani qaytarish simvollari yoki nol baytlar bo‘lishi mumkin emas.<br>
+<code>delattr(object, name)</code> – <code>name</code> nomli atributni o‘chirish.<br>
+<code>dir([object])</code> – obyekt nomlari ro‘yxati, obyekt ko‘rsatilmagan holat uchun esa joriy ko‘rinish sohasidagi nomlar ro‘yxati.<br>
+<code>divmod(a,b)</code> – <code>a</code> ni <code>b</code> ga bo‘lish natijasidagi butun qism va qoldiqni qaytaradi.<br>
+<code>enumerate(iterable, start=0)</code> – har bir o‘tishda kortej nomeri hamda unga mos ketma-ketlik a’zosidan iborat iteratorni qaytaradi.<br>
+<code>eval(expression, globals=None, locals=None)</code> – dastur kodi satrini bajaradi.<br>
+<code>exec(object[, globals[, locals]])</code> – Pythondagi dastur kodini bajaradi.<br>
+<code>filter(function, iterable)</code> – function rost qiymatni qaytaradigan elementlardan iborat iteratorni qaytaradi.<br>
+<code>format(value[,format_spec])</code> – formatlash (odatda, satrni formatlash).<br>
+<code>getattr(object, name ,[default])</code> – obyektning atributi yoki <code>default</code>ni chiqarish.<br>
+<code>globals()</code> – global nomlar lug‘ati.<br>
+<code>hasattr(object, name)</code> – obyektning name nomli atributi mavjud yoki mavjud emasligi tekshiriladi.<br>
+<code>hash(x)</code> – ko‘rsatilgan obyektning xeshini qaytaradi.<br>
+<code>help([object])</code> – ichki ma’lumot tizimini chaqirish.<br>
+<code>hex(x)</code> – butun sonni <code>16</code> lik sanoq tizimidagi satrga aylantirish.<br>
+<code>id(object)</code> – obyektning ‘manzili’ni qaytaradi. Bu shu obyektning mavjud bo‘lgan davrida doimiy va faqat o‘ziga xos bo‘lgan sonli qiymatdir.<br>
+<code>input([prompt])</code> – foydalanuvchi tomonidan kiritilgan satrni qaytaradi. <code>[prompt]</code> – foydalanuvchiga yordamchi ma’lumot.<br>
+<code>isinstance(object, ClassInfo)</code> – agar obyekt <code>ClassInfo</code>ning nusxasi yoki klass osti bo‘lsa, rost qiymat qaytaradi. Agar obyekt ushbu tipga tegishli bo‘lmasa, funksiya har doim yolg‘on qiymat qaytaradi.<br>
+<code>issubclass(class, ClassInfo)</code> – agar obyekt <code>ClassInfo</code>ning klass osti bo‘lsa, rost qiymat qaytaradi. Klass o‘zining klass osti hisoblanadi.<br>
+<code>iter(x)</code> – iterator obyektini qaytaradi.<br>
+<code>len(x)</code> – ko‘rsatilgan obyektdagi elementlar sonini qaytaradi.<br>
+<code>locals()</code> – lokal nomlar lug‘ati.<br>
+<code>map(function, iterator)</code> – ketma-ketlikning har bir elementiga nisbatan function funksiyasi qo‘llanilgandan keyin hosil bo‘ladigan iterator.<br>
+<code>max(iter, [args ...] * [, key])</code> – ketma-ketlikning eng katta elementi.<br>
+<code>min(iter, [args ...] * [, key])</code> – ketma-ketlikning eng kichik elementi.<br>
+<code>next(x)</code> – iteratorning keyingi elementini qaytaradi.<br>
+<code>oct(x)</code> – butun sonni <code>8</code> lik sanoq tizimidagi satrga aylantirish.<br>
+<code>open(1le, mode='r', buffering=None, encoding=None, errors=None, newline=None, closefd=True)</code> – faylni ochadi va unga mos oqimni qaytaradi.<br>
+<code>ord(c)</code> – simvol kodi.<br>
+<code>pow(x, y[, r])</code> – <code>( x ** y ) % r</code>.<br>
+<code>reversed(object)</code> – tarqoq obyektdan iterator.<br>
+<code>repr(obj)</code> – obyektning tavsiflanishi.<br>
+<code>print([object, ...], *, sep=&quot; &quot;, end='\n', file=sys.stdout)</code> – chiqarish.<br>
+<code>property(fget=None, fset=None, fdel=None, doc=None)</code> – metodlardan obyekt xususiyatlari sifatida foydalanish imkoniyatini beradi.<br>
+<code>round(X [, N])</code> – <code>X</code> ni verguldan keyin <code>N</code> ta belgigacha yaxlitlash.<br>
+<code>setattr(obyekt, nom, qiymat)</code> – obyekt atributlarini o‘rnatish.<br>
+<code>sorted(iterable[, key][, reverse])</code> – tartiblangan ro‘yxat.<br>
+<code>staticmethod(function)</code> – funksiya uchun statik metod.<br>
+<code>sum(iter, start=0)</code> – ketma-ketlik elementlarining yig‘indisi.<br>
+<code>super([tip [, obyekt yoki tip]])</code> – ona klass bilan bog’liqlik.<br>
+<code>type(object)</code> – obyektning tipini qaytaradi.<br>
+<code>type(name, bases, dict)</code> – <code>name</code> klassining yangi nusxasini qaytaradi.<br>
+<code>vars([object])</code> – obyekt atributlaridan iborat lug‘at. Boshqa ko‘rsatma berilmasa, lokal nomlar lug‘ati.<br>
+<code>zip(*iters)</code> – ketma-ketlik-argumentlarning mos elementlaridna iborat bo‘lgan kortejni qaytaruvchi iterator.</p>
+</div>
+
+<h2 id="dekoratorlar">Dekoratorlar</h2>
+<div data-outline="dekoratorlar">
+<p>Pythonda <em>dekoratorlar</em> va ulardan amaliyotda foydalanish
+Xo‘sh, bu nima? Dekoratorlar nima, ular qanday ishlashi haqida gaplashish uchun biz, eng avvalo, Pythonda funksiyalar ham obyekt sifatida qaralishini esga olishimiz lozim. Bundan chiqdi, ularni boshqa funksiyalardan chaqirish hamda argument sifatida uzatish ham mumkin. </p>
+<p>Mana endi dekoratorlarga o‘tsak ham bo‘ladi. Umuman olganda, <em>dekoratorlar</em> – funksiya kodini o‘zgartirmagan holda u bajaradigan ishni o‘zgartirish imkonini beruvchi <strong>qobiq</strong>.</p>
+<p>O‘z shaxsiy dekoratorimizni “qo‘lda” yaratamiz:</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_shiny_new_decorator</span><span class="hljs-params">(function_to_decorate)</span></span>:
+        <span class="hljs-comment"># Dekorator o`zining tarkibida “qobiq” funksiyani tavsiflaydi. </span>
+        <span class="hljs-comment"># U dekoratsiyalanayotgan funksiya atrofini o`raydi.</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">the_wrapper_around_the_original_function</span><span class="hljs-params">()</span></span>:
+            print(<span class="hljs-string">"Men – funksiyani chaqirilishidan oldin ishlaydigan funksiyaman"</span>)
+            function_to_decorate() <span class="hljs-comment"># Funksiyaning o`zi</span>
+            print(<span class="hljs-string">"Men esa, keyin ishga tushadigan kodman"</span>)
+        <span class="hljs-comment"># Bu funksiyani qaytaraman</span>
+        <span class="hljs-keyword">return</span> the_wrapper_around_the_original_function
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-comment"># Faraz qilaylik, bizda biz endi o`zgartirish niyatimiz bo`lmagan funksiya bor.</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">stand_alone_function</span><span class="hljs-params">()</span></span>:
+        print(<span class="hljs-string">"Men yolg`iz funksiyaman, sen meni o`zgartirmassan, axir?!"</span>)
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; stand_alone_function()
+Men yolg`iz funksiyaman, sen meni o`zgartirmassan, axir?!
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-comment"># Lekin uning ishini o`zgartirish uchun biz uni dekoratsiyalashimiz,</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-comment"># ya`ni, #dekoratorga uzatishimiz</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-comment"># U boshlang`ich funksiyani bizga kerakli ixtiyoriy funksiyaga o`raydi va </span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; foydalanishga tayyor bo`lgan yangisini qaytaradi.
+&gt;&gt;&gt; stand_alone_function_decorated = my_shiny_new_decorator(stand_alone_function)
+&gt;&gt;&gt; stand_alone_function_decorated()
+Men – funksiyani chaqirilishidan oldin ishlaydigan funksiyaman
+Men yolg`iz funksiyaman, sen meni o`zgartirmassan, axir?!
+Men esa, keyin ishga tushadigan kodman
+</code></pre>
+<p>Balki siz endi har safar <code>stand_alone_function</code>ni chaqirishning o‘rniga <code>stand_alone_function_decorated</code>ni chaqirishni istarsiz. Agar shuni xohlasangiz, buning uchun <code>stand_alone_function</code>ni qayta yozib chiqish kifoya.</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;</span>&gt; stand_alone_function = my_shiny_new_decorator(stand_alone_function)
+<span class="hljs-meta">&gt;&gt;</span>&gt; stand_alone_function()
+Men – funksiyani chaqirilishidan oldin ishlaydigan funksiyaman
+Men yolg`iz funksiyaman, sen meni o`zgartirmassan, axir?!
+Men esa, keyin ishga tushadigan kodman
+</code></pre>
+<p>Umuman olganda, mana shuning o‘zi decorator hisoblanadi. Dekoratorlar sintaksisidan foydalangan holda avvalgi misolni quyidagicha yozish mumkin:</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;</span>&gt; @my_shiny_new_decorator
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">another_stand_alone_function</span><span class="hljs-params">()</span></span>:
+        print(<span class="hljs-string">"Meni tinch qo'ying"</span>)
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; another_stand_alone_function()
+Men – funksiyani chaqirilishidan oldin ishlaydigan funksiyaman
+Meni tinch qo`ying.
+Men esa, keyin ishga tushadigan kodman
+</code></pre>
+<p>Ya’ni Pythondagi dekoratorlar – ko‘rinish konstruksiyalari uchun sintaktik shakar hisoblanadi.</p>
+<pre><code class="lang-python"><span class="hljs-attr">another_stand_alone_function</span> = my_shiny_new_decorator(another_stand_alone_function)
+</code></pre>
+<p>Bunda bitta funksiya uchun bir necha dekoratorni qo‘llash mumkin, masalan:</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bread</span><span class="hljs-params">(func)</span></span>:
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">()</span></span>:
+            print()
+            func()
+            print(<span class="hljs-string">"&lt;\______/&gt;"</span>)
+        <span class="hljs-keyword">return</span> wrapper
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ingredients</span><span class="hljs-params">(func)</span></span>:
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">()</span></span>:
+            print(<span class="hljs-string">"#pomidorlar#"</span>)
+            func()
+            print(<span class="hljs-string">"~salat~"</span>)
+        <span class="hljs-keyword">return</span> wrapper
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sandwich</span><span class="hljs-params">(food=<span class="hljs-string">"—go'sht--"</span>)</span></span>:
+        print(food)
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; sandwich()
+--go<span class="hljs-string">'sht--
+&gt;&gt;&gt; sandwich = bread(ingredients(sandwich))
+&gt;&gt;&gt; sandwich()
+
+#pomidorlar#
+--go`sht--
+~salat~
+&lt;\______/&gt;</span>
+</code></pre>
+<p>Dekoratorlar sintaksisidan foydalangan holda quyidagilarni kiritamiz:</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;</span>&gt; @bread
+    @ingredients
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sandwich</span><span class="hljs-params">(food=<span class="hljs-string">"--go'sht--"</span>)</span></span>:
+        print(food)
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; sandwich()
+
+#pomidorlar#
+--go'sht--
+~salat~
+&lt;\______/&gt;
+</code></pre>
+<p>Bundan tashqari, yodingizda bo‘lsin, dekoratsiyalash tartibi ham muhim ahamiyatga ega. Avvalgi misol bilan solishtirib ko‘ring:</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;</span>&gt; @ingredients
+        @bread
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sandwich</span><span class="hljs-params">(food=<span class="hljs-string">"--go'sht--"</span>)</span></span>:
+            print(food)
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; sandwich()
+#pomidorlar#
+--go'sht--
+&lt;\______/&gt;
+~salat~</span>
+</code></pre>
+<h3 id="dekorator-tomonidan-funksiya-argumentlarining-uzatilishi">Dekorator tomonidan funksiya argumentlarining uzatilishi</h3>
+<p>Yuqorida qaralgan barcha dekoratorlar juda muhim 1 ta funksional – dekoratsiyalanayotgan funksiyaga <em>argumentlarni uzatish imkomiyatiga</em> ega emas edi. Ammo bu kamchilik o‘rnini to‘ldirish juda ham qiyin emas.</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">a_decorator_passing_arguments</span><span class="hljs-params">(function_to_decorate)</span></span>:
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">a_wrapper_accepting_arguments</span><span class="hljs-params">(arg1, arg2)</span></span>:
+            print(<span class="hljs-string">"Men mana bularni qabul qildim:"</span>, arg1, arg2)
+            function_to_decorate(arg1, arg2)
+        <span class="hljs-keyword">return</span> a_wrapper_accepting_arguments
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-comment"># Endi biz funksiyani chaqirganimizda, uning “qobig'i”ni chzqiramiz</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-comment"># Unga argumentlarni uzatamiz, u esa, o`z navbatida ularni </span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-comment"># dekoratsiyalanayotgan funksiyaga uzatadi</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; @a_decorator_passing_arguments
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print_full_name</span><span class="hljs-params">(first_name, last_name)</span></span>:
+            print(<span class="hljs-string">"Mening ismim:"</span>, first_name, last_name)
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; print_full_name(<span class="hljs-string">"Ulug'bek"</span>, <span class="hljs-string">"Mamatqulov"</span>)
+Men mana bularni qabul qildim: Ulug`bek Mamatqulov
+Mening ismim Ulug`bek Mamatqulov
+</code></pre>
+<h3 id="metodlarni-dekoratsiyalash">Metodlarni dekoratsiyalash</h3>
+<p>Ahamiyatli jihatlaridan biri shundaki, Pythondagi funksiya va metodlarning har doim birinchi parametr sifatida obyektning o‘ziga (self) havola kiritishi hisobga olinmasa, bir-biridan farq qilmaydi. Demak, biz metodlar uchun ham xuddi funksiyalar kabi (faqat self i esdan chiqarmagan holda) dekoratorlar yaratishimiz mumkin ekan.</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">method_friendly_decorator</span><span class="hljs-params">(method_to_decorate)</span></span>:
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, lie)</span></span>:
+            lie -= <span class="hljs-number">3</span>
+            <span class="hljs-keyword">return</span> method_to_decorate(<span class="hljs-keyword">self</span>, lie)
+        <span class="hljs-keyword">return</span> wrapper
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Lucy</span>:</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(<span class="hljs-keyword">self</span>)</span></span>:
+            <span class="hljs-keyword">self</span>.age = <span class="hljs-number">32</span>
+        @method_friendly_decorator
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sayYourAge</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, lie)</span></span>:
+            print(<span class="hljs-string">"Mening yoshim {}da, qancha berasiz?"</span>.format(<span class="hljs-keyword">self</span>.age + lie))
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; l = Lucy()
+<span class="hljs-meta">&gt;&gt;</span>&gt; l.sayYourAge(-<span class="hljs-number">3</span>)
+Mening yoshim <span class="hljs-number">26</span> da, siz qancha berasiz?
+</code></pre>
+<p>Agar biz maksimal tarzda umumiy dekorator yaratib, uning har qanday funksiya yoki metodga nisbatan qo‘llanilishini istasak, argumentlarni ochish metodidan foydalanishimiz mumkin.</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">a_decorator_passing_arbitrary_arguments</span><span class="hljs-params">(function_to_decorate)</span></span>:
+        <span class="hljs-comment"># Ushbu “qobiq” har qanday argumentlarni qabul qiladi</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">a_wrapper_accepting_arbitrary_arguments</span><span class="hljs-params">(*args, **kwargs)</span></span>:
+            print(<span class="hljs-string">"Menga biror narsa berib yuborishdimi?:"</span>)
+            print(args)
+            print(kwargs)
+            function_to_decorate(*args, **kwargs)
+        <span class="hljs-keyword">return</span> a_wrapper_accepting_arbitrary_arguments
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; @a_decorator_passing_arbitrary_arguments
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">function_with_no_argument</span><span class="hljs-params">()</span></span>:
+    print(<span class="hljs-string">"Python is cool, no argument here."</span>)
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; function_with_no_argument()
+Menga biror narsa berib <span class="hljs-symbol">yuborishdimi?:</span> 
+()
+{}
+Python is cool, no argument here.
+<span class="hljs-meta">&gt;&gt;</span>&gt; @a_decorator_passing_arbitrary_arguments
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">function_with_arguments</span><span class="hljs-params">(a, b, c)</span></span>:
+        print(a, b, c)
+<span class="hljs-meta">&gt;&gt;</span>&gt; function_with_arguments(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
+Menga biror narsa berib <span class="hljs-symbol">yuborishdimi?:</span>
+(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
+{}
+<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; @a_decorator_passing_arbitrary_arguments
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">function_with_named_arguments</span><span class="hljs-params">(a, b, c, platypus=<span class="hljs-string">"Nimaga yo`q?"</span>)</span></span>:
+        print(<span class="hljs-string">"{} , {} va {} lar o`rdakburularni yoqtirishadimi? {} "</span>.format(a, b, c, platypus))
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; function_with_named_arguments(<span class="hljs-string">"Bill"</span>, <span class="hljs-string">"Linus"</span>, <span class="hljs-string">"Stiv"</span>, platypus=<span class="hljs-string">"Aniq ha!"</span>)
+Menga biror narsa berib <span class="hljs-symbol">yuborishmadimi?:</span>
+(<span class="hljs-string">'Bill'</span>, <span class="hljs-string">'Linus'</span>, <span class="hljs-string">'Stiv'</span>)
+{<span class="hljs-string">'platypus'</span>: <span class="hljs-string">'Aniq ha!'</span>}
+Bill, Linus va Stiv o`rdakburunlarni yoqtirishadimi? Aniq ha!
+&gt;&gt;&gt; class Mary(object):
+        def __init__(self):
+            self.age = 31
+        @a_decorator_passing_arbitrary_arguments
+        def sayYourAge(self, lie=-3): # Endi biz odatiy qiymatni ko`rsata olamiz
+            print(<span class="hljs-string">"Mening yoshim {} da, Siz qancha berasiz?"</span>.format(<span class="hljs-keyword">self</span>.age + lie))
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; m = Mary()
+<span class="hljs-meta">&gt;&gt;</span>&gt; m.sayYourAge()
+Menga biror narsa berib yuborishmadimi?
+(&lt;__main_<span class="hljs-number">_</span>.Mary object at <span class="hljs-number">0x7f6373017780</span>&gt;,)
+{}
+Mening yoshim <span class="hljs-number">28</span> da, siz qancha berasiz?
+</code></pre>
+<h3 id="argumentli-dekoratorlar">Argumentli dekoratorlar</h3>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decorator_maker</span><span class="hljs-params">()</span></span>:
+        print(<span class="hljs-string">"Men dekoratorlar yarataman! Men faqatgina 1 marta: \
+            sen dekorator yaratishimni so`raganingdagina ishga tushaman"</span>)
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_decorator</span><span class="hljs-params">(func)</span></span>:
+            print(<span class="hljs-string">"Men dekoratorman! Men faqat bir marta: funksiyani \ 
+                dekoratsiyalashda ishga tushaman"</span>)
+            <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapped</span><span class="hljs-params">()</span></span>:
+                print (<span class="hljs-string">"Men dekoratsiyalanayotgan funksiya atrofidagi “qobiq”.\n"</span>
+                    <span class="hljs-string">"Men har safar dekoratsiyalanayotgan funksiya \
+                        chaqirilganda ishga tushaman.\n"</span>
+                    <span class="hljs-string">"Men dekoratsiyalanayotgan funksiya ishi \ 
+                                 natijasini chiqaraman."</span>)
+                <span class="hljs-keyword">return</span> func()
+            print(<span class="hljs-string">"Men qobiqdagi funksiyani qaytaraman."</span>)
+            <span class="hljs-keyword">return</span> wrapped
+        print(<span class="hljs-string">"Men dekoratorni qaytaraman."</span>)
+        <span class="hljs-keyword">return</span> my_decorator
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-comment"># Endi dekorator yaratamiz. Bu bor yo'g'i yana bir funksiyaga murojaatdir.</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; new_decorator = decorator_maker()
+Men dekoratorlar yarataman! Men faqatgina <span class="hljs-number">1</span> marta: sen dekorator yaratishimni 
+                            so`raganingdagina ishga tushaman.
+Men dekoratorni qaytaraman.
+&gt;&gt;&gt;
+&gt;&gt;&gt; # Endi esa, funksiyani dekoratsiyalaymiz
+&gt;&gt;&gt; <span class="hljs-keyword">def</span> decorated_function():
+        print("Men – dekoratsiyalanayotgan funksiyaman.")
+
+&gt;&gt;&gt; decorated_function = new_decorator(decorated_function)
+Men dekoratorman! Men faqat bir marta funksiyani dekoratsiyalashda ishga tushaman.
+Men qobiqdagi funksiyani qaytaraman.
+&gt;&gt;&gt; <span class="hljs-comment"># Endi esa, nihoyat funksiyani chaqiramiz:</span>
+&gt;&gt;&gt; decorated_function()
+Men har safar dekoratsiyalanayotgan funksiya chaqirilganda ishga tushaman.
+Men dekoratsiyalanayotgan funksiya ishi natijasini chiqaraman.
+Men – dekoratsiyalanayotgan funksiyaman.
+</code></pre>
+<p>Quyidagi kodni dekoratorlar yordamida qayta yozib chiqamiz:</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;</span>&gt; @decorator_maker()
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decorated_function</span><span class="hljs-params">()</span></span>:
+        print(<span class="hljs-string">"Men  - dekoratsiyalanayotgan funksiyaman."</span>)
+
+Men dekoratorlar yarataman! Men faqatgina <span class="hljs-number">1</span> marta: sen dekorator yaratishimni 
+                                    so`raganingdagina ishga tushaman
+Men dekoratorni qaytaraman.
+Men dekoratorman! Men faqat bir marta funksiyani dekoratsiyalashda ishga tushaman.
+Men qobiqdagi funksiyani qaytaraman 
+&gt;&gt;&gt; decorated_function()
+Men dekoratsiyalanayotgan funksiya atrofidagi “qobiq.
+Men har safar dekoratsiyalanayotgan funksiya chaqirilganda ishga tushaman.
+Men dekoratsiyalanayotgan funksiya ishi natijasini chiqaraman.
+Men – dekoratsiyalanayotgan funksiyaman.
+</code></pre>
+<p>Dekoratorlar argumentlariga qaytamiz. Agar biz dekoratorlarni yaratish uchun yo‘l-yo‘lakay funksiyalardan foydalanadigan bo‘lsak, u holda biz unga ixtiyoriy argumentlarni uzatishimiz mumkin, shunday emasmi?</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decorator_maker_with_arguments</span><span class="hljs-params">(decorator_arg1, decorator_arg2)</span></span>:
+        print(<span class="hljs-string">"Men dekoratorlar yarataman va men quyidagi argumentlarni oldim:"</span>,
+          decorator_arg1, decorator_arg2)
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_decorator</span><span class="hljs-params">(func)</span></span>:
+            print(<span class="hljs-string">"Men dekoratorman va sen bu argumentlarni menga uzata olding:"</span>,
+              decorator_arg1, decorator_arg2)
+            <span class="hljs-comment"># dekorator argumentlarini funksiya argumentlari bilan adashtirmang!</span>
+            <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapped</span><span class="hljs-params">(function_arg1, function_arg2)</span></span>:
+                print (<span class="hljs-string">"Men dekoratsiyalanayotgan funksiya atrofidagi qobiqman.\n"</span>
+                      <span class="hljs-string">"va men barcha argumantlarga murojaat qila olaman\n"</span>
+                      <span class="hljs-string">"\t- va: {0} {1} dekoratoriga\n"</span>
+                      <span class="hljs-string">"\t- va: {2} {3} funksiyaiga\n"</span>
+                      <span class="hljs-string">"Endi kerakli argumentlarni keyingiga uzatishim mumkin"</span>
+                      .format(decorator_arg1, decorator_arg2,
+                             function_arg1, function_arg2))
+                <span class="hljs-keyword">return</span> func(function_arg1, function_arg2)
+            <span class="hljs-keyword">return</span> wrapped
+        <span class="hljs-keyword">return</span> my_decorator
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; @decorator_maker_with_arguments(<span class="hljs-string">"²ÌÕÔÇ×Ë"</span>, <span class="hljs-string">"¿ÌÒËÕÔ"</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decorated_function_with_arguments</span><span class="hljs-params">(function_arg1, function_arg2)</span></span>:
+        print (<span class="hljs-string">"Men dekoratsiyalanayotgan funksiyaman va men faqat 
+                        o`z argumentlarimni bilaman: {0} "</span>
+               <span class="hljs-string">" {1} "</span>.format(function_arg1, function_arg2))
+
+Men dekoratorlar yarataman va men quyidagi argumentlarni <span class="hljs-symbol">oldim:</span>Leonard Sheldon 
+Men dekoratorman va sen bu argumentlarni menga uzata <span class="hljs-symbol">olding:</span> Leonard Sheldon
+<span class="hljs-meta">&gt;&gt;</span>&gt; decorated_function_with_arguments(<span class="hljs-string">"Radjesh"</span>, <span class="hljs-string">"Govard"</span>)
+Men dekoratsiyalanayotgan funksiya atrofidagi qobiqman.
+va men barcha argumantlarga murojaat qila olaman 
+- va Leonard Sheldon  dekoratoriga
+-  va Radjesh Govard funksiyasiga
+Endi kerakli argumentlarni keyingiga uzatishim mumkin
+Men dekoratsiyalanayotgan funksiyaman va men faqat o<span class="hljs-string">`z argumentlarimni bilaman: Radjesh Govard</span>
+</code></pre>
+<p>Shunday qilib, biz dekoratorlarga, xuddi oddiy funksiyalar kabi, ixtiyoriy argumentlarni uzatishimiz mumkin ekan. Biz, zarur hollarda, <code>*args</code> va <code>*kwargs</code> orqali ochishlardan ham foydalanishimiz mumkin.</p>
+<h3 id="dekoratorlar-bilan-ishlashning-ayrim-xususiy-hollari">Dekoratorlar bilan ishlashning ayrim xususiy hollari</h3>
+<ul>
+<li>Dekoratorlar funksiyalar ishini sekinlashtirishini esda saqlang.</li>
+<li>Siz funksiyani dedekoratsiyalay olmaysiz. Keyinchalik dekoratorni funksiyadan ajratib olishga qaratilgan amaliyotlar bilan tanishasiz, ammo ulardan foydalanishni maslahat bermaymiz. Yaxshisi, dekoratsiyalangan funksiyani qaytarishning imkoni yo‘qligini eslab qoling.</li>
+<li>Dekoratorlar funksiyalarni qamrab oladi, bu esa ularni sozlashni qiyinlashtiradi.</li>
+</ul>
+<p>So‘nggi muammo <code>functools</code> modulida qamrab olinayotgan funksiya haqidagi barcha ma’lumotlar (nomi, qaysi moduldan ekanligi, rasmiylashtirilishi va h. k.)ni va nusxalovchi <code>functools.wraps</code> funksiyasini qobiq-funksiyaga qo‘shish yo‘li bilan qisman hal etilgan.</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span>:
+        print(<span class="hljs-string">"foo"</span>)
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; print(foo.__name_<span class="hljs-number">_</span>)
+foo
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-comment"># Lekin dekoratorlar ishlarning normal yo`nalishiga xalaqit beradi:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bar</span><span class="hljs-params">(func)</span></span>:
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">()</span></span>:
+            print(<span class="hljs-string">"bar"</span>)
+            <span class="hljs-keyword">return</span> func()
+        <span class="hljs-keyword">return</span> wrapper
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; @bar
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span>:
+        print(<span class="hljs-string">"foo"</span>)
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; print(foo.__name_<span class="hljs-number">_</span>)
+wrapper
+<span class="hljs-meta">&gt;&gt;</span>&gt; import functools <span class="hljs-comment"># "functools" bunda bizga yordam berishi mumkin</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bar</span><span class="hljs-params">(func)</span></span>:
+        <span class="hljs-comment"># "func" ni qamrovchi "wrapper" ni e`lon qilamiz</span>
+        <span class="hljs-comment"># va uni ishga tushiramiz:</span>
+        @functools.wraps(func)
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">()</span></span>:
+            print(<span class="hljs-string">"bar"</span>)
+            <span class="hljs-keyword">return</span> func()
+        <span class="hljs-keyword">return</span> wrapper
+<span class="hljs-meta">&gt;&gt;</span>&gt; @bar
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span>:
+        print(<span class="hljs-string">"foo"</span>)
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; print(foo.__name_<span class="hljs-number">_</span>)
+foo
+</code></pre>
+<h3 id="dekoratorlarning-qo-llanilishiga-oid-misollar">Dekoratorlarning qo‘llanilishiga oid misollar</h3>
+<p>Dekoratorlardan chetki kutubxonalardagi funksiyalarning imkoniyatlarini oshirish (kodlarini o‘zgartira olmaydiganlarimizni) yoki sozlash jarayonini osonlashtirish (agar hali tayyor bo‘lmagan kodni o‘zgartirishni istamasak) maqsadida foydalanishimiz mumkin.</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">benchmark</span><span class="hljs-params">(func)</span></span>:
+        <span class="hljs-string">""</span><span class="hljs-string">"
+        Dekoratsiyalangan funksiyaning bajarilishi uchun 
+        ketgan vaqtni chiqaruvchi dekorator
+        "</span><span class="hljs-string">""</span>
+        import time
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(*args, **kwargs)</span></span>:
+            t = time.clock()
+            res = func(*args, **kwargs)
+            print(func.__name_<span class="hljs-number">_</span>, time.clock() - t)
+            <span class="hljs-keyword">return</span> res
+        <span class="hljs-keyword">return</span> wrapper
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">logging</span><span class="hljs-params">(func)</span></span>:
+        <span class="hljs-string">""</span><span class="hljs-string">"
+        Kod ishini ro`yxatga oluvchi dekorator.
+        To`g`ri, u faqat chaqirishlarni chiqaradi, lekin bu yerda 
+        ro`yxatga olish ham bo`lishi mumkin edi.
+        "</span><span class="hljs-string">""</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(*args, **kwargs)</span></span>:
+            res = func(*args, **kwargs)
+            print(func.__name_<span class="hljs-number">_</span>, args, kwargs)
+            <span class="hljs-keyword">return</span> res
+        <span class="hljs-keyword">return</span> wrapper
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">counter</span><span class="hljs-params">(func)</span></span>:
+        <span class="hljs-string">""</span><span class="hljs-string">"
+        Dekoratsiyalanayotgan funksiyaning chaqirishlari 
+        sonini hisoblovchi va chiqaruvchi dekorator.
+        "</span><span class="hljs-string">""</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(*args, **kwargs)</span></span>:
+            wrapper.count += <span class="hljs-number">1</span>
+            res = func(*args, **kwargs)
+            print(<span class="hljs-string">"{0} {1} marta chaqirildi"</span>.format(func.__name_<span class="hljs-number">_</span>, wrapper.count))
+            <span class="hljs-keyword">return</span> res
+        wrapper.count = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">return</span> wrapper
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; @benchmark
+    @logging
+    @counter
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reverse_string</span><span class="hljs-params">(string)</span></span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-string">''</span>.join(reversed(string))
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; print(reverse_string(<span class="hljs-string">"А роза упала на лапу Азора"</span>))
+reverse_string <span class="hljs-number">1</span> marta chaqirildi
+wrapper (<span class="hljs-string">'А роза упала на лапу Азора'</span>,) {}
+wrapper <span class="hljs-number">0</span>.<span class="hljs-number">000117</span>99999999997923
+арозА упала на лапу азор А
+<span class="hljs-meta">&gt;&gt;</span>&gt; print(reverse_string(<span class="hljs-string">"A man, a plan, a canoe, pasta, heros, rajahs, a coloratura,"</span>
+    <span class="hljs-string">"maps, snipe, percale, macaroni, a gag, a banana bag, a tan, a tag,"</span>
+    <span class="hljs-string">"a banana bag again (or a camel), a crepe, pins, Spam, a rut, a Rolo, cash,"</span>
+    <span class="hljs-string">"a jar, sore hats, a peon, a canal: Panama!"</span>))
+reverse_string <span class="hljs-number">2</span> marta chaqirildi
+wrapper (<span class="hljs-string">'A man, a plan, a canoe, pasta, heros, rajahs, a coloratura,maps, snipe, ..,) {}
+wrapper 0.00017800000000001148
+!amanaP :lanac a ,noep a ,stah eros ,raj a,hsac ,oloR a ,tur a ,mapS ,snip ,eperca ,
+...</span>
+</code></pre>
+</div>
+
+
+    </div>
+   </div>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript">
+  </script>
+  <script src="../js/handout-run.js" type="text/javascript">
+  </script>
+ </body>
+</html>
