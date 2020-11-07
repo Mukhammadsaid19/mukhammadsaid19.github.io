@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    5. Ro‘yxatlar (list)
+   </title>
+   <link href="../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <header>
+   <a href="../index.html">
+    Python Coding Club
+   </a>
+   |
+   <a href="#">
+    Mundarijaga qaytish
+   </a>
+   <div>
+    9-sinf
+   </div>
+  </header>
+  <nav class="table-of-contents col-sm-2">
+   <ul class="nav">
+    <li>
+     <a href="#pythonga_kirish">
+        10. PEP8
+     </a>
+    </li>
+    <li><a href="#PEP8__Pythonda_kod_yozish_boyicha_qollanma_0">PEP8 – Pythonda kod yozish bo‘yicha qo‘llanma</a></li>
+    <!--  <li>
+     <a href="#summary">
+      Summary
+     </a>
+    </li>-->
+   </ul>
+  </nav>
+  <main class="container-fluid">
+   <h1 class="handout-title col-sm-8 col-sm-offset-2" id="pythonga_kirish">
+    10. PEP8
+   </h1>
+   <div data-outline="pythonga_kirish">
+    <div class="markdown col-sm-8 col-sm-offset-2 converted">
+     <h4>
+        Bu bob quyidagilardan tashkil topgan:
+     </h4>
+     <p>
+      Mavzular:
+     </p>
+     <ul>
+      <li>
+        PEP8 – Pythonda kod yozish bo‘yicha qo‘llanma
+      </li>
+     </ul>
+
+
+     <h2 id="PEP8__Pythonda_kod_yozish_boyicha_qollanma_0">
+        PEP8 – Pythonda kod yozish bo‘yicha qo‘llanma
+     </h2>
+
+<div data-outline="PEP8__Pythonda_kod_yozish_boyicha_qollanma_0">
+    <p class="has-line-data" data-line-start="1" data-line-end="2">Bu hujjat Python dasturlash tilida kod yozish, jumladan, Python tarkibiga kiruvchi standart kutubxona haqidagi kelishuvdan iborat.</p>
+<p class="has-line-data" data-line-start="3" data-line-end="4"><em>PEP8</em> hujjati til asoschisi <strong>Gvido van-Rossum</strong> tomonidan berilgan takliflar hamda uning izdoshi Barri Uorsouning qo‘shimchalari asosida ishlab chiqilgan. Agar qaysidir sohada qarama-qarshiliklar kelib chiqadigan bo‘lsa, biz Gvido van-Rossum ko‘rsatmalarini ustun qo‘yamiz. Albatta, PEP to‘liq bo‘lmasligi ham mumkin (ehtimol, u hech qachon o‘z yakuniga yetmas). Gvido van-Rossumning asosiy g‘oyasi – kod yozilganidan ko‘ra ko‘proq o‘qiladi. Demak, kod yozish uslubiga berilayotgan takliflar, asosan, <strong>kodni o‘qishni osonlashtirish</strong> hamda ko‘plab loyihalar orasida <strong>bir xillikni ta’minlashni</strong> o‘z oldiga maqsad qilib qo‘ygan. Eng ideal holatda butun kod aniq bir xil uslubda yoziladi, shu boisdan har qanday dasturchiga uni o‘qish va tushunish oson.</p>
+<p class="has-line-data" data-line-start="5" data-line-end="6">Bu kelishuv va bir xillik haqidagi qo‘llanmadir. Qo‘llanamaga binoan ishlash muhim ahamiyatga ega. Bir loyiha ichida bir xillik undan ham muhim bo‘lib, bitta modul yoki funksiya ichidagi bir xillik hammasidan ham muhimroqdir. Lekin, shuni ham esda saqlash kerakki, ba’zida bu qo‘llanmaga rioya etishning iloji bo‘lmasligi ham mumkin, bunday holatlar haqida ham bilib qo‘yganingiz yaxshi. Agar ikkilansangiz, boshqalar bu masalada qanday yechimni tanlaganliklarini ko‘rib chiqing hamda uning asosida qaror qabul qiling.</p>
+<p class="has-line-data" data-line-start="7" data-line-end="8">Bu qoidalarga rioya qilmaslikning ikkita asosiy sababi:</p>
+<ul>
+<li class="has-line-data" data-line-start="8" data-line-end="9">qoidalarga rioya qilish hatto qoidalar bo‘yicha yozilgan kodni o‘qishga o‘rgangan kishi uchun ham qiyinchilik tug‘dirsa;</li>
+<li class="has-line-data" data-line-start="9" data-line-end="11">biror loyihadagi qoidalarga roiya qilinmagan holda yozilgan (balki xiyla avval yozilgandir) kod bilan bir xillikni ta’minlash maqsadida (balki bu o‘sha kodni qaytadan yozish uchun bir sababdir).</li>
+</ul>
+<h3 class="code-line" data-line-start=11 data-line-end=12 ><a id="Kodning_tashqi_korinishi_11"></a>Kodning tashqi ko‘rinishi</h3>
+<h4 class="code-line" data-line-start=13 data-line-end=14 ><a id="Siljishlar_13"></a>Siljishlar</h4>
+<p class="has-line-data" data-line-start="14" data-line-end="17">Har bir siljish darajasida <strong>4 ta</strong> bo‘sh joydan foydalaning.<br>
+Uzun satrlar ichki elementlar bilan yaqqol bo‘lmagan va qavslar bilan cheklangan vertikal chiziq bo‘ylab yoki muallaq siljish vositasida tekislanishi zarur. Muallaq siljishdan foydalanadigan bo‘lsangiz, quyidagilarga rioya qilish tavsiya etiladi: birinchi qatorda argumentlar bo‘lmasligi kerak, qolgan satrlar esa chiziqning davomi sifatida aniq qabul qilinishi shart.<br>
+To‘g‘ri yozishga misol:</p>
+<pre><code class="has-line-data" data-line-start="18" data-line-end="27" class="language-python"><span class="hljs-comment"># Ochilayotgan ajratuvchi bo‘yicha tekislangan</span>
+foo = long_function_name(var_one, var_two,
+                         var_three, var_four)
+<span class="hljs-comment"># Ko‘proq siljish qo‘llanilishidan maqsad, boshqa siljishlardan farq qilishdir</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">long_function_name</span><span class="hljs-params">(
+        var_one, var_two, var_three, 
+        var_four)</span>:</span>
+    print(var_one)
+</code></pre>
+<p class="has-line-data" data-line-start="27" data-line-end="28">Xato qo‘llanilishiga misol:</p>
+<pre><code class="has-line-data" data-line-start="29" data-line-end="40" class="language-python"><span class="hljs-comment"># agar vertikal tekislash qo‘llanilmayotgan bo‘lsa, </span>
+<span class="hljs-comment"># birinchi satrda argumentlar joylashtirish taqiqlanadi</span>
+foo = long_function_name(var_one, var_two,
+                         var_three, var_four)
+
+<span class="hljs-comment"># boshqa satrlardan farqlanishi uchun ko‘proq bo‘sh joy tashlash talab etiladi</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">long_function_name</span><span class="hljs-params">(
+    var_one, var_two, var_three,
+    var_four)</span>:</span>
+    print(var_one)
+</code></pre>
+<p class="has-line-data" data-line-start="40" data-line-end="41">Vaziyatdan kelib chiqqan holda:</p>
+<pre><code class="has-line-data" data-line-start="42" data-line-end="47" class="language-python"><span class="hljs-comment"># ortiqcha siljishlarga ehtiyoj yo‘q.</span>
+foo = long_function_name(
+  var_one, var_two,
+  var_three, var_four)
+</code></pre>
+<p class="has-line-data" data-line-start="48" data-line-end="49">Ko‘p satrli konstruksiyalarda yopilayotgan dumaloq/kvadrat/figurali qavslar ro‘yxat oxirgi satrining birinchi bo‘sh bo‘lmagan belgisi ostida joylashtirilishi mumkin.</p>
+<pre><code class="has-line-data" data-line-start="51" data-line-end="60" class="language-python">my_list = [
+    <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>,
+    <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>,
+    ]
+result = some_function_that_takes_arguments(
+    <span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>,
+    <span class="hljs-string">'d'</span>, <span class="hljs-string">'e'</span>, <span class="hljs-string">'f'</span>,
+    )
+</code></pre>
+<p class="has-line-data" data-line-start="60" data-line-end="61">Yoki ko‘p satrli konstruksiyani boshlayotgan satrning birinchi belgisi ostida ham joylashishi mumkin:</p>
+<pre><code class="has-line-data" data-line-start="62" data-line-end="71" class="language-python">my_list = [
+    <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>,
+    <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>,
+]
+result = some_function_that_takes_arguments(
+    <span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>,
+    <span class="hljs-string">'d'</span>, <span class="hljs-string">'e'</span>, <span class="hljs-string">'f'</span>,
+)
+</code></pre>
+<h4 class="code-line" data-line-start=72 data-line-end=73 ><a id="Tabulyatsiyami_yoki_bosh_joy_72"></a>Tabulyatsiyami yoki bo‘sh joy?</h4>
+<p class="has-line-data" data-line-start="73" data-line-end="74">Bo‘sh joylar siljishlarning eng ma’qul metodidir.</p>
+<p class="has-line-data" data-line-start="75" data-line-end="76"><strong>Tabulyatsiyadan</strong> faqat xuddi shu tariqa (tabulyatsiyadan foydalanib) yozilgan kod bilan bir xillikni ta’minlash maqsadidagina foydalanish mumkin.</p>
+<p class="has-line-data" data-line-start="77" data-line-end="79">Python 3 siljishlarda tabulyatsiya va bo‘sh joylardan bir vaqtning o‘zida foydalanishni ta’qiqlaydi.<br>
+Python 2 tabulyatsiyani bo‘sh joylarga aylantirishga harakat qiladi.</p>
+<p class="has-line-data" data-line-start="80" data-line-end="81">Agar siz Python2 interpretatorini buyruq satri orqali <code>-t</code> parametru bilan birga ishga tushirsangiz va u siljishlarda aralash uslub qo‘llanilgan bo‘lsa, u holda ogohlantirish (warnings)ni chiqaradi. Interpretatorni <code>-tt</code> parametri bilan ishga tushirganingizda esa shu joylarda xatolik borligi haqida xabar hosil bo‘ladi. Agar siz Python 2 dan foydalanadigan bo‘lsangiz, u holda quyidagi parametrlardan foydalanish tavsiya qilinadi.</p>
+<h4 class="code-line" data-line-start=82 data-line-end=83 ><a id="Qatorning_maksimal_uzunligi_82"></a>Qatorning maksimal uzunligi</h4>
+<p class="has-line-data" data-line-start="83" data-line-end="84">Qator uzunligini eng ko‘pi bilan <em>79</em> tadan oshirmang.</p>
+<p class="has-line-data" data-line-start="85" data-line-end="86">Tuzilmaviy cheklashlari ozroq bo‘lgan uzunroq matnli bloklar uchun esa (rasmiylashtirish satrlari yoki izohlar uchun) satr uzunligini 72 tadan oshirmaslik tavsiya etiladi.</p>
+<p class="has-line-data" data-line-start="87" data-line-end="88">Muharrir oynasining zarur kengligini cheklash imkoniyati bir necha ochiq faylni yonma-yon joylashtirish imkonini beradi hamda yonma-yon ustunlarda ikki xil variantni ko‘rsatib turuvchi kod tahlili vositalari qo‘llanilganda, yaxshi natija beradi.</p>
+<p class="has-line-data" data-line-start="89" data-line-end="90">Ba’zi jamoalar satrlarining uzunroq bo‘lishini ma’qul ko‘radi. Ushbu uzunlikdagi kodni qo‘llab-quvvatlaydigan jamoa bu masalada alohida kelishuvga kelishlari mumkin, bunda izohlar va rasmiylashtirish satrlari hali ham 72 tadan oshmasligi sharti bilan boshqa satrlar uzunligini 80 tadan 100 tagacha (aslida esa maksimal uzunlikni 99 tagacha) oshirish oddiy holdir.</p>
+<p class="has-line-data" data-line-start="91" data-line-end="92">Pythonning standart kutubxonasi bu masalada konservativ bo‘lib, satr uzunligini 79 tadan hamda izohlar va rasmiylashtirish satrlarining 72 tadan oshirilmasligini talab qiladi. Satrlarning keyingi satrga o‘tkazilishi uchun eng ma’qul metod bu – Python satrlarining dumaloq, kvadrat va figurali qavslari ichidagi nazarda tutilgan ko‘chirishlaridan foydalanish metodi. Uzun satrlar qavslar ichiga olingan bir necha satrga bo‘lib yozilishi mumkin. Bu metod satrni davom ettirish uchun teskari egri chiziq (teskari slesh)dan foydalanish metodidan ko‘ra afzalroqdir.</p>
+<p class="has-line-data" data-line-start="93" data-line-end="94">Teskari egri chiziqdan ham ba’zida foydalanish mumkin. Masalan, with konstruksiyasi uzun bo‘lganda, u aniq bo‘lmagan satr ko‘chirishlardan foydalana olmaydi. Mana shunday hollarda teskari sleshdan foydalanish metodini qo‘llash mumkin:</p>
+<pre><code class="has-line-data" data-line-start="96" data-line-end="100" class="language-python"><span class="hljs-keyword">with</span> open(<span class="hljs-string">'/path/to/some/file/you/want/to/read'</span>) <span class="hljs-keyword">as</span> file_1, \
+  open(<span class="hljs-string">'/path/to/some/file/being/written'</span>, <span class="hljs-string">'w'</span>) <span class="hljs-keyword">as</span> file_2:
+        file_2.write(file_1.read())
+</code></pre>
+<p class="has-line-data" data-line-start="101" data-line-end="103">Yana bir holat – <code>assert</code>.<br>
+Ko‘chirilgan satrlar uchun to‘g‘ri siljishlarni o‘rnating. Satr ko‘chirishni mantiqiy operatorlardan avval emas, keyin amalga oshirish ma’qulroq. Masalan:</p>
+<pre><code class="has-line-data" data-line-start="104" data-line-end="119" class="language-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rectangle</span><span class="hljs-params">(Blob)</span>:</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, width, height,
+                 color=<span class="hljs-string">'black'</span>, emphasis=None, highlight=<span class="hljs-number">0</span>)</span>:</span>
+        <span class="hljs-keyword">if</span> (width == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> height == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span>
+                color == <span class="hljs-string">'red'</span> <span class="hljs-keyword">and</span> emphasis == <span class="hljs-string">'strong'</span> <span class="hljs-keyword">or</span>
+                highlight &gt; <span class="hljs-number">100</span>):
+            <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">"sorry, you lose"</span>)
+        <span class="hljs-keyword">if</span> width == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> height == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> (color == <span class="hljs-string">'red'</span> <span class="hljs-keyword">or</span>
+                                           emphasis <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>):
+            <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">"I don't think so -- values are %s, %s"</span> %
+                             (width, height))
+        Blob.__init__(self, width, height,
+                      color, emphasis, highlight)
+</code></pre>
+<h4 class="code-line" data-line-start=119 data-line-end=120 ><a id="Bosh_satrlar_119"></a>Bo‘sh satrlar</h4>
+<p class="has-line-data" data-line-start="120" data-line-end="121">Yuqori darajali funksiya va klasslarning tavsifini ikkita bo‘sh qatorlar bilan ajrating.</p>
+<p class="has-line-data" data-line-start="122" data-line-end="123">Klass ichidagi metodlarning tavsiflari bitta bo‘sh satr bilan ajratiladi.</p>
+<p class="has-line-data" data-line-start="124" data-line-end="125">Qo‘shimcha bo‘sh satrlardan bir-biriga o‘xshash funksiyalar guruhlarini ajratish uchun qo‘llash mumkin. Bo‘sh qatorlar bir nechta o‘zaro bog‘liq bir satrliklar (masalan, fiktiv realizatsiyalar uchun) orasida qo‘yilmasligi ham mumkin.</p>
+<p class="has-line-data" data-line-start="126" data-line-end="127">Funksiyalarda mantiqiy bo‘limlarni ko‘rsatish uchun bo‘sh satrlardan foydalaning.</p>
+<p class="has-line-data" data-line-start="128" data-line-end="129">Python <code>Ctrl+L</code> kombinatsiyasini oddiy bo‘sh joy <code>(whitespace)</code> sifatida qabul qiladi va siz undan ham foydalanishingiz mumkin, chunki aksariyat muharrirlar uni sahifa bo‘linishi sifatida qabul qiladi, buning oqibatida fayldagi mantiqiy bo‘laklar turli qismlarda joylashadi. Ta’kidlash joizki, hamma muharrilar ham <code>Ctrl+L</code> ni qo‘llayvermaydi, uning o‘rnida boshqa belgini chiqarishi ham mumkin.</p>
+<h4 class="code-line" data-line-start=130 data-line-end=131 ><a id="Boshlangich_faylning_kodirovkasi_130"></a>Boshlang‘ich faylning kodirovkasi</h4>
+<p class="has-line-data" data-line-start="131" data-line-end="132">Python kodirovkasi <code>UTF-8</code> bo‘lishi lozim. (Python 2 da <code>ASCII</code>).</p>
+<p class="has-line-data" data-line-start="133" data-line-end="134"><code>ASCII</code> (Python 2) hamda <code>UTF-8</code> (Python 3)dagi fayllar kodirovkasi e’lon qilinishga ega bo‘lmasligi kerak.</p>
+<p class="has-line-data" data-line-start="135" data-line-end="136">Standart kutubxonadagi nostandart kodirovkalar faqat sinab ko‘rish maqsadida yoki izoh yoki rasmiylashtirish satrlari <code>ASCII</code> belgisi bo‘lmagan biror simvoldan muallif nomini ko‘rsatish maqsadida foydalanishni taqozo qilgandagina foydalanish mumkin; boshqa barcha holatlarda satrga ASCII bo‘lmagan belgilarni kiritish uchun <code>\x</code>, <code>\u</code>, <code>\U</code> yoki <code>\N</code> lardan foydalanish eng ma’qul metod hisoblanadi.</p>
+<p class="has-line-data" data-line-start="137" data-line-end="138">Python 3.0 versiyasidan boshlab standart kutubxona uchun quyidagi kelishuv amal qiladi: har bir identifikator faqat <code>ASCII</code> simvollardan hamda mumkin bo‘lgan barcha holatlarda ingliz tilidagi so‘zlardan iborat bo‘lishi (ko‘p hollarda qisqartirishlar va ingliz tilida bo‘lmagan texnik atamalarda) kerak. Bundan tashqari satrlar va izohlar ham faqat <code>ASCII</code> belgilaridan iborat bo‘lishi lozim. Bu qoidaga faqat (a) test case dasturlarning ASCII bo‘lmagan xususiyatlarini testlash hamda (b) mualliflarning ismlari uchungina rioya qilmaslikka ruxsat beriladi. Ismlari lotin alifbosidan boshqa alifboda yoziladigan mualliflar o‘z ismlarini lotin alifbosiga transliteratsiya qilishlari zarur.</p>
+<p class="has-line-data" data-line-start="139" data-line-end="140">Keng ommaga mo‘ljallangan ochiq kodli loyihalarda ham ushbu ko‘rsatmalarga rioya qilish tavsiya etiladi.</p>
+<h4 class="code-line" data-line-start=141 data-line-end=142 ><a id="Import_qilishlar_141"></a>Import qilishlar</h4>
+<ul>
+<li class="has-line-data" data-line-start="143" data-line-end="158">
+<p class="has-line-data" data-line-start="143" data-line-end="144">Har bir import, odatda, alohida satrda bo‘lishi lozim.</p>
+<p class="has-line-data" data-line-start="145" data-line-end="146">To‘g‘ri yozilishi:</p>
+<pre><code class="has-line-data" data-line-start="147" data-line-end="150" class="language-python"><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> sys
+</code></pre>
+<p class="has-line-data" data-line-start="150" data-line-end="151">Xato yosilishi:</p>
+<pre><code class="has-line-data" data-line-start="152" data-line-end="154" class="language-python"><span class="hljs-keyword">import</span> sys, os
+</code></pre>
+<p class="has-line-data" data-line-start="154" data-line-end="155">Shu bilan birga, quyidagicha yozishga ruxsat etiladi:</p>
+<pre><code class="has-line-data" data-line-start="156" data-line-end="158" class="language-python"><span class="hljs-keyword">from</span> subprocess <span class="hljs-keyword">import</span> Popen, PIPE
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="158" data-line-end="166">
+<p class="has-line-data" data-line-start="158" data-line-end="159">Import qilishlar har doim faylning boshlanishida, modulga izohlar va rasmiylashtirish satrlaridan keyin hamda o‘zgarmaslarni e’lon qilishdan avval joylashtiriladi.</p>
+<p class="has-line-data" data-line-start="160" data-line-end="161">Import qilishlar quyidagi tartibda guruhlanishi kerak:</p>
+<ul>
+<li class="has-line-data" data-line-start="161" data-line-end="162">standart kutubxonadan import qilish;</li>
+<li class="has-line-data" data-line-start="162" data-line-end="163">chetki kutubxonalardan import qilish;</li>
+<li class="has-line-data" data-line-start="163" data-line-end="166">joriy loyiha modullarini import qilish.<br>
+Har bir import qilishlar guruhlari orasida bo‘sh satr qoldiring.<br>
+Import qilishlardan keyin <code>__all__</code> spetsifikatsiyasini ko‘rsating.</li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="166" data-line-end="181">
+<p class="has-line-data" data-line-start="166" data-line-end="167">Absolyut import qilish tavsiya etiladi, chunki, odatda, bunday holatda uni o‘qish oson hamda import qilinayotgan tizim xato sozlanganga nisbatan tushunarli bo‘lgan xatoliklar haqidagi xabarlarni beradi (masalan, paket ichidagi katalog sys.path da yakunlanib qolganda):</p>
+<pre><code class="has-line-data" data-line-start="168" data-line-end="172" class="language-python"><span class="hljs-keyword">import</span> mypkg.sibling
+<span class="hljs-keyword">from</span> mypkg <span class="hljs-keyword">import</span> sibling
+<span class="hljs-keyword">from</span> mypkg.sibling <span class="hljs-keyword">import</span> example
+</code></pre>
+<p class="has-line-data" data-line-start="172" data-line-end="173">Shunga qaramasdan, absolyut importning o‘rniga nisbiy importdan ham foydalanish mumkin. Ayniqsa, absolyut importdan foydalanish haddan tashqari maydalashish bo‘lishi mumkin bo‘lgan murakkab paketlar bilan ish olib borilayotganda:</p>
+<pre><code class="has-line-data" data-line-start="174" data-line-end="177" class="language-python"><span class="hljs-keyword">from</span> . <span class="hljs-keyword">import</span> sibling
+<span class="hljs-keyword">from</span> .sibling <span class="hljs-keyword">import</span> example
+</code></pre>
+<p class="has-line-data" data-line-start="177" data-line-end="178">Standart kutubxonalarda paketlarning murakkab strukturalaridan qutulishga harakat qilish va har doim absolyut importdan foydalanish maqsadga muvofiq bo‘ladi.</p>
+<p class="has-line-data" data-line-start="179" data-line-end="180">Nomuayyan importlardan hech qachon foydalanmaslik kerak, bunday imkoniyat Python 3 da olib tashlangan.</p>
+</li>
+<li class="has-line-data" data-line-start="181" data-line-end="192">
+<p class="has-line-data" data-line-start="181" data-line-end="182">Siz moduldan klassni import qilayotganingizda quyidagicha yozishingiz mumkin:</p>
+<pre><code class="has-line-data" data-line-start="183" data-line-end="186" class="language-python"><span class="hljs-keyword">from</span> myclass <span class="hljs-keyword">import</span> MyClass
+<span class="hljs-keyword">from</span> foo.bar.yourclass <span class="hljs-keyword">import</span> YourClass
+</code></pre>
+<p class="has-line-data" data-line-start="186" data-line-end="187">Agar bunday yozish nomlar orasida kelishmovchilikka olib kelsa, u holda quyidagicha yozing:</p>
+<pre><code class="has-line-data" data-line-start="188" data-line-end="191" class="language-python"><span class="hljs-keyword">import</span> myclass
+<span class="hljs-keyword">import</span> foo.bar.yourclass
+</code></pre>
+<p class="has-line-data" data-line-start="191" data-line-end="192"><code>myclass.MyClass</code> va <code>foo.bar.yourclass.YourClass</code> lardan foydalaning.</p>
+</li>
+<li class="has-line-data" data-line-start="192" data-line-end="194">
+<p class="has-line-data" data-line-start="192" data-line-end="193">Import shablonlaridan (<code>from import * kabi</code>) imkon qadar foydalanmaslik kerak, chunki ular nomlar maydonida qanday nomlar mavjudligi haqida nafaqat dasturni o‘qiyotgan kishilarda, balki ko‘plab avtomatlashtirilgan tiizmlarda ham noaniqliklarga olib keladi. Ushbu import shablonidan foydalanishning yakka-yu yagona to‘g‘ri qo‘llanilishi mavjud bo‘lib, u ham bo‘lsa ichki interfeysning umumiy <code>API</code> qismi sifatida e’lon qilinishidan iboratdir (masalan, aksellerator modulida qilingan ishlarni sof Python tiliga qayta yozishda, chunki bunda aynan qaysi funksiyalarni qayta yozilishi aniq bo‘lmaydi).</p>
+</li>
+</ul>
+<h3 class="code-line" data-line-start=194 data-line-end=195 ><a id="Ibora_va_instuksiyalarda_bosh_joylarning_ahamiyati_194"></a>Ibora va instuksiyalarda bo‘sh joylarning ahamiyati</h3>
+<h4 class="code-line" data-line-start=195 data-line-end=196 ><a id="Quyidagi_holatlarda_bosh_joy_belgisini_qollashdan_saqlaning_195"></a>Quyidagi holatlarda bo‘sh joy belgisini qo‘llashdan saqlaning</h4>
+<ul>
+<li class="has-line-data" data-line-start="197" data-line-end="206">Bevosita dumaloq, kvadratli va figurali qavslarning ichida:<br>
+<strong>To‘g‘ri:</strong><pre><code class="has-line-data" data-line-start="200" data-line-end="202" class="language-python">spam(ham[<span class="hljs-number">1</span>], {eggs: <span class="hljs-number">2</span>})
+</code></pre>
+<strong>Xato:</strong><pre><code class="has-line-data" data-line-start="204" data-line-end="206" class="language-python">spam(ham[ <span class="hljs-number">1</span> ], { eggs: <span class="hljs-number">2</span> })
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="206" data-line-end="215">Bevosiya vergul, nuqtali vergul yoki ikki nuqta oldida:<br>
+<strong>To‘g‘ri:</strong><pre><code class="has-line-data" data-line-start="209" data-line-end="211" class="language-python"><span class="hljs-keyword">if</span> x == <span class="hljs-number">4</span>: print(x, y); x, y = y, x
+</code></pre>
+<strong>Xato:</strong><pre><code class="has-line-data" data-line-start="213" data-line-end="215" class="language-python"><span class="hljs-keyword">if</span> x == <span class="hljs-number">4</span> : print(x , y) ; x , y = y , x
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="215" data-line-end="224">Funksiyalarga murojaat qilinayotganda argument yozilishi kerak bo‘lgan qavslarni ochishdan oldinda:<br>
+<strong>To‘g‘ri:</strong><pre><code class="has-line-data" data-line-start="218" data-line-end="220" class="language-python">spam(<span class="hljs-number">1</span>)
+</code></pre>
+<strong>Xato:</strong><pre><code class="has-line-data" data-line-start="222" data-line-end="224" class="language-python">spam (<span class="hljs-number">1</span>)
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="224" data-line-end="233">Indeks yoki kesim yozilishi kerak bo‘lgan qavsning ochilishidan oldinda:<br>
+<strong>To‘g‘ri:</strong><pre><code class="has-line-data" data-line-start="227" data-line-end="229" class="language-python">dict[<span class="hljs-string">'key'</span>] = list[index]
+</code></pre>
+<strong>Xato:</strong><pre><code class="has-line-data" data-line-start="231" data-line-end="233" class="language-python">dict[<span class="hljs-string">'key'</span>] = list[index]
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="233" data-line-end="247">O‘zlashtirish (yoki boshqa ixtiyoriy) operatori atrofida boshqalari bilan tekislash maqsadida bittadan ortiq bo‘sh joyni ishlatishda:<br>
+<strong>To‘g‘ri:</strong><pre><code class="has-line-data" data-line-start="236" data-line-end="240" class="language-python">x = <span class="hljs-number">1</span>
+y = <span class="hljs-number">2</span>
+long_variable = <span class="hljs-number">3</span>
+</code></pre>
+<strong>Xato:</strong><pre><code class="has-line-data" data-line-start="242" data-line-end="246" class="language-python">x  =            <span class="hljs-number">1</span>
+y  =            <span class="hljs-number">2</span>
+long_variable = <span class="hljs-number">3</span>
+</code></pre>
+</li>
+</ul>
+<h4 class="code-line" data-line-start=247 data-line-end=248 ><a id="Boshqa_tavsiyalar_247"></a>Boshqa tavsiyalar</h4>
+<ul>
+<li class="has-line-data" data-line-start="248" data-line-end="249">
+<p class="has-line-data" data-line-start="248" data-line-end="249">Har doim quyidagi operatorlarni ikkala tomonidan bittadan bo‘sh joy bilan qamrab oling: o‘zlashtirish (<code>=</code>, <code>+=</code>, <code>-=</code> va boshqalar), taqqoslash (<code>==</code>, <code>&lt;</code>, <code>&gt;</code>, <code>!=</code>, <code>&lt;&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>in</code>, <code>not in</code>, <code>is</code>, <code>is not</code>) va mantiqiy (<code>and</code>, <code>or</code>, <code>not</code>).</p>
+</li>
+<li class="has-line-data" data-line-start="249" data-line-end="267">
+<p class="has-line-data" data-line-start="249" data-line-end="251">Agar turli ustunlikka ega operatorlardan foydalanayotgan bo‘lsangiz, u holda eng past ustunlikka ega operator atrofiga bo‘sh joylarni qo‘shishga harakat qiling. O‘zingiz mustaqil fikr yuriting, lekin hech qachon 1 tadan ortiq bo‘sh joyni qo‘llamang hamda binar operatorlarning ikkala tomonida ham bir xil sondagi bo‘sh joylarni qo‘llang:<br>
+<strong>To‘g‘ri:</strong></p>
+<pre><code class="has-line-data" data-line-start="252" data-line-end="258" class="language-python">i = i + <span class="hljs-number">1</span>
+submitted += <span class="hljs-number">1</span>
+x = x*<span class="hljs-number">2</span> - <span class="hljs-number">1</span>
+hypot2 = x*x + y*y
+c = (a+b) * (a-b)
+</code></pre>
+<p class="has-line-data" data-line-start="258" data-line-end="259"><strong>Xato:</strong></p>
+<pre><code class="has-line-data" data-line-start="260" data-line-end="266" class="language-python">i=i+<span class="hljs-number">1</span>
+submitted +=<span class="hljs-number">1</span>
+x = x * <span class="hljs-number">2</span> - <span class="hljs-number">1</span>
+hypot2 = x * x + y * y
+c = (a + b) * (a - b)
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="267" data-line-end="279">
+<p class="has-line-data" data-line-start="267" data-line-end="269">Agar <code>=</code> belgisi nomlangan argument yoki parametrlarning odatiy qiymatlarini ko‘rsatish uchun qo‘llanilayotgan bo‘lsa, u holda uning atrofida bo‘sh joydan foydalanmang:<br>
+<strong>To‘g‘ri:</strong></p>
+<pre><code class="has-line-data" data-line-start="270" data-line-end="273" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">complex</span><span class="hljs-params">(real, imag=<span class="hljs-number">0.0</span>)</span>:</span>
+    <span class="hljs-keyword">return</span> magic(r=real, i=imag)
+</code></pre>
+<p class="has-line-data" data-line-start="273" data-line-end="274"><strong>Xato:</strong></p>
+<pre><code class="has-line-data" data-line-start="275" data-line-end="278" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">complex</span><span class="hljs-params">(real, imag = <span class="hljs-number">0.0</span>)</span>:</span>
+    <span class="hljs-keyword">return</span> magic(r = real, i = imag)
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="279" data-line-end="294">
+<p class="has-line-data" data-line-start="279" data-line-end="281">Tarkibiy ko‘rsatmalardan foydlanmang (bir qatorda bir necha buyruqdan):<br>
+<strong>To‘g‘ri:</strong></p>
+<pre><code class="has-line-data" data-line-start="282" data-line-end="288" class="language-python"><span class="hljs-keyword">if</span> foo == <span class="hljs-string">'blah'</span>:
+    do_blah_thing()
+    do_one()
+    do_two()
+    do_three()
+</code></pre>
+<p class="has-line-data" data-line-start="288" data-line-end="289"><strong>Xato:</strong></p>
+<pre><code class="has-line-data" data-line-start="290" data-line-end="293" class="language-python"><span class="hljs-keyword">if</span> foo == <span class="hljs-string">'blah'</span>: do_blah_thing()
+do_one(); do_two(); do_three()
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="294" data-line-end="314">
+<p class="has-line-data" data-line-start="294" data-line-end="296">Ba’zida <code>while</code> va <code>for</code> takrorlashlar tanalarini yoki <code>if</code> tarmog‘ini, agar ular qisqa ko‘rinishda bo‘lsa, shu satrning o‘zida ham yozish mumkin, lekin buyruqlar bir nechta bo‘lsa, hech qachon bunday yozmang. Bundan tashqari juda uzun satrlardan foydalanmaslikka harakat qiling.<br>
+Xato ekanligi aniq:</p>
+<pre><code class="has-line-data" data-line-start="297" data-line-end="301" class="language-python"><span class="hljs-keyword">if</span> foo == <span class="hljs-string">'blah'</span>: do_blah_thing()
+<span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> lst: total += x
+<span class="hljs-keyword">while</span> t &lt; <span class="hljs-number">10</span>: t = delay()
+</code></pre>
+<p class="has-line-data" data-line-start="301" data-line-end="302">Xato bo‘lishi mumkin:</p>
+<pre><code class="has-line-data" data-line-start="303" data-line-end="313" class="language-python"><span class="hljs-keyword">if</span>  foo == <span class="hljs-string">'blah'</span>: do_blah_thing()
+<span class="hljs-keyword">else</span>: do_non_blah_thing()
+
+<span class="hljs-keyword">try</span>: something()
+<span class="hljs-keyword">finally</span>: cleanup()
+
+do_one(); do_two(); do_three(long, argument,
+        list, like, this)
+<span class="hljs-keyword">if</span> foo == <span class="hljs-string">'blah'</span>: one(); two(); three()
+</code></pre>
+</li>
+</ul>
+<h3 class="code-line" data-line-start=314 data-line-end=315 ><a id="Izoh_kommentariylar_314"></a>Izoh (kommentariy)lar</h3>
+<p class="has-line-data" data-line-start="315" data-line-end="316">Kodga qarama-qarshi <em>izohlar</em> ularning yo‘qligidan ham yomon. Agar kodga o‘zgartirish kiritsangiz, har doim, albatta, izohlarni ham ularga moslab o‘zgartiring!</p>
+<p class="has-line-data" data-line-start="317" data-line-end="318">Izohlar <strong>yakunlangan</strong> gaplardan iborat bo‘lishi lozim. Agar izoh birorta ibora yoki gapdan iborat bo‘lsa, bu so‘z dasturda qo‘llanilgan o‘zgaruvchining nomi bo‘lmagan hollarda birinchi harfi bosh harfdan boshlanishi kerak (hech qachon o‘zgaruvchi nomining registrini o‘zgartirib yozmang!).</p>
+<p class="has-line-data" data-line-start="319" data-line-end="320">Agar izoh qisqa ko‘rinishda bo‘lsa, uning oxirida nuqta qo‘yish shart emas. Izohlar bloki, odatda, bir yoki bir nechta to‘laqonli gaplardan iborat abzaslardan tashkil topadi. Shuning uchun har bir gap nuqta bilan yakunlasnishi shart.</p>
+<p class="has-line-data" data-line-start="321" data-line-end="322">Gap tugaganida qo‘yiladigan nuqtadan keyin ikkita bo‘sh joy qoldiring.</p>
+<p class="has-line-data" data-line-start="323" data-line-end="324">Ingliz tilida gaplashmaydigan dasturchilar, iltimos, dasturingizni sizning tilingizni bilmaydigan odamlar o‘qimasligiga <code>120 %</code> ishonchingiz komil bo‘lmasa, izohlaringizni ingliz tilida yozing.</p>
+<h4 class="code-line" data-line-start=325 data-line-end=326 ><a id="Izohlar_bloki_325"></a>Izohlar bloki</h4>
+<p class="has-line-data" data-line-start="326" data-line-end="327">Izohlar bloki, odatda, izohdan keyin joylashgan butun kod yoki uning bir qismini tushuntirish uchun qo‘llaniladi hamda shu kodning o‘zi bilan bir xil siljishga ega bo‘lishi kerak. Bunday blokning har bir satri <code>#</code> belgisi hamda bitta bo‘sh joydan keyin boshlanishi kerak (agar izoh matnining o‘zi siljishga ega bo‘lmasa).</p>
+<p class="has-line-data" data-line-start="328" data-line-end="329">Izohlar blokining ichida abzaslar bitta # belgisidan iborat satr bilan ajratiladi.</p>
+<h4 class="code-line" data-line-start=330 data-line-end=331 ><a id="Satrdagi_izohlari_330"></a>“Satrdagi” izohlari</h4>
+<p class="has-line-data" data-line-start="331" data-line-end="332">Bunday izohlardan imkon qadar kamroq foydalanishga harakat qiling.</p>
+<p class="has-line-data" data-line-start="333" data-line-end="334">Bunday izoh ko‘rsatma bilan bir qatorda joylashgan bo‘ladi. “Satrdagi” izohlar shu satrdagi ko‘rsatmadan kamida 2 ta bo‘sh joy bilan ajratilishi kerak. Ular # belgisi hamda bitta bo‘sh joydan keyin boshlanishi lozim.</p>
+<p class="has-line-data" data-line-start="335" data-line-end="336">Kod yozilgan qatordagi izohlardan foydalanish kerak emas, ular shundoq ham aniq holatni izohlayotgan bo‘lsa, faqat chalg‘itadi. Mana bunday ko‘rinishda izoh yozmang:</p>
+<pre><code class="has-line-data" data-line-start="338" data-line-end="340" class="language-python">x = x + <span class="hljs-number">1</span>                     <span class="hljs-comment"># x ni birga ko'paytiramiz</span>
+</code></pre>
+<p class="has-line-data" data-line-start="341" data-line-end="342"><strong>Xato:</strong></p>
+<pre><code class="has-line-data" data-line-start="343" data-line-end="345" class="language-python">x = x + <span class="hljs-number">1</span>                     <span class="hljs-comment"># Chegarani kompensatsiyalash</span>
+</code></pre>
+<h4 class="code-line" data-line-start=346 data-line-end=347 ><a id="Rasmiylashtirish_satrlari_346"></a>Rasmiylashtirish satrlari</h4>
+<ul>
+<li class="has-line-data" data-line-start="347" data-line-end="349">Har qanday ommaviy modul, funksiya, klass va metodlar uchun rasmiylashtirish ma’lumotlarini yozing.<br>
+Hujatlashtirish ma’lumotlarini yashirin metodlar uchun yozish shart bo‘lmasa-da, bu metod nima vazifa bajarishini yozib qo‘ygan ma’qul. Izohni def yozilgan satrdan keyin yozish kerak.</li>
+<li class="has-line-data" data-line-start="349" data-line-end="350">PEP 257 da qanday sifatli rasmiylashtirish to‘g‘risida so‘z boradi. E’tibor qiling, yopilayotgan qo‘shtirnoqlar alohida satrda bo‘lishi juda muhim. Bundan ham yaxshisi, undan oldinda bitta bo‘sh qator qoldiring, masalan:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="351" data-line-end="357" class="language-python"><span class="hljs-string">"""Return a foobang
+
+Optional plotz says to frobnicate the bizbaz first.
+
+"""</span>
+</code></pre>
+<ul>
+<li class="has-line-data" data-line-start="357" data-line-end="359">Bir satrli rasmiylashtirishda yopish qo‘shtirnog‘ini shu satrning o‘zida ham qo‘yish mumkin.</li>
+</ul>
+<h3 class="code-line" data-line-start=359 data-line-end=360 ><a id="Versiyalar_nazorati_359"></a>Versiyalar nazorati</h3>
+<p class="has-line-data" data-line-start="360" data-line-end="361">Agar siz o‘z boshlang‘ich kodlaringizda Subversion, CVS yoki RCS lardan foydalanmoqchibo‘lsangiz, quyidagi amalni bajaring:</p>
+<pre><code class="has-line-data" data-line-start="362" data-line-end="365" class="language-python">__version__ = <span class="hljs-string">"$Revision: 1a40d4eaa00b $"</span>
+<span class="hljs-comment"># $Source$</span>
+</code></pre>
+<p class="has-line-data" data-line-start="365" data-line-end="366">Bu satrlarni modulni rasmiylashtirish ma’lumotlaridan keyin har qanday boshqa koddan oldinda joylashtiring va ikkala tomonidan ham bittadan bo‘sh qator bilan ajrating.</p>
+<h3 class="code-line" data-line-start=367 data-line-end=368 ><a id="Nomlash_boyicha_kelishuv_367"></a>Nomlash bo‘yicha kelishuv</h3>
+<p class="has-line-data" data-line-start="368" data-line-end="369">Pythonda o‘zgaruvchilarni nomlash bo‘yicha kelishuv bir oz chalkashroq, shuning uchun ularning ro‘yxati hech qachon to‘liq bo‘lmaydi. Shunga qaramasdan, quyida biz hozirgi kunda amaldagi tavsiyalar ro‘yxatini keltirib o‘tamiz. Yangi modul va paketlar mana shu standartlarga amal qilingan holda yozilishi kerak, lekin hozirda mavjud qandaydir bir kutubxonada bu qoidalarga amal qilinmagan bo‘lsa, u holda shu kutubxona bilan bir xil uslubda yozish tavsiya etiladi.</p>
+<h4 class="code-line" data-line-start=370 data-line-end=371 ><a id="Asosiy_goya_370"></a>Asosiy g‘oya</h4>
+<p class="has-line-data" data-line-start="371" data-line-end="372">Foydalanuvchilarga umumiy APIning bir qismi sifatida ko‘rinadigan nomlar dasturning amaliy qo‘llanilishini emas, balki ko‘rinishini boshqaradigan konvensiyalarga bo‘ysunishi kerak.</p>
+<h4 class="code-line" data-line-start=373 data-line-end=374 ><a id="Tavsiflash_nomlar_uslublari_373"></a>Tavsiflash: nomlar uslublari</h4>
+<p class="has-line-data" data-line-start="375" data-line-end="376">Bir qancha bir-biridan farqli uslublar mavjud. Keling, bu uslublar bilan yaqindan tanishib chiqamiz. Natijada, foydalanilayotgan uslub nima maqsadda foydalanilayotganligidan qat’iy nazar tanib olishingiz oson bo‘ladi.</p>
+<p class="has-line-data" data-line-start="377" data-line-end="378">Odatda, quyidagi uslublar farqlanadi:</p>
+<ul>
+<li class="has-line-data" data-line-start="379" data-line-end="380"><code>b</code> (bittalik kichik harf);</li>
+<li class="has-line-data" data-line-start="380" data-line-end="381"><code>B</code> (bittalik bosh harf);</li>
+<li class="has-line-data" data-line-start="381" data-line-end="382"><code>lowercase</code> (kichik registrdagi so‘z);</li>
+<li class="has-line-data" data-line-start="382" data-line-end="383"><code>lower_case_with_underscores</code> (tagchiziqlar bilan kichik harfli so‘zlar);</li>
+<li class="has-line-data" data-line-start="383" data-line-end="384"><code>UPPERCASE</code> (bosh harflar);</li>
+<li class="has-line-data" data-line-start="384" data-line-end="385"><code>UPPERCASE_WITH_UNDERSCORES</code> (tagchiziqlar bilan bosh harflardan iborat so‘zlar);</li>
+<li class="has-line-data" data-line-start="385" data-line-end="386"><code>CapitalizedWords</code> (Bosh harfli so‘zlar yoki <code>CapWords</code> yoki <code>CamelCase</code>). Ko‘rsatma: Siz ushbu uslubda abbreviaturalardan foydalanadigan bo‘lsangiz, bu abbreviaturadagi barcha harflarni bosh harflar bilan yozing. Ya’ni HttpServerError dan ko‘ra <code>HTTPServerError</code> ma’qulroq;</li>
+<li class="has-line-data" data-line-start="386" data-line-end="387"><code>mixedCase</code> (<code>CapitalizedWords</code> dan birinchi harfi kichik harfligi bilan farq qiladi);</li>
+<li class="has-line-data" data-line-start="387" data-line-end="389"><code>Capitalized_Words_With_Underscores</code> (bosh harflar bilan boshlanadigan so‘zlar va tagchiziqlar – unchalik chiroyli emas).</li>
+</ul>
+<p class="has-line-data" data-line-start="389" data-line-end="390">Bundan tashqari yana shunday uslub ham borki, unda bitta mantiqiy guruhga tegishli nomlarni bitta umumiy prefiks nomi bilan ajratish amalga oshiriladi. Bu uslub Pythonda kamdan-kam qo‘llanilsa-da, biz berilayotgan ma’lumotimiz to‘liq bo‘lishi uchun uni ham ko‘rsatib o‘tishimiz kerak. Masalan: <code>os.stat()</code> funksiyasi nomlari odatiy <code>st_mode</code>, <code>st_size</code>, <code>st_mtime</code> va h. k. bo‘lgan kortejni qaytaradi (bunday qilinishidan maqsad – bu maydonlarning <code>POSIX</code> tizimli so‘rovlar strukturasiga mos kelishini ko‘rsatish bo‘lib, bu holat u bilan tanish dasturchilarga qulaylik tug‘diradi).</p>
+<p class="has-line-data" data-line-start="391" data-line-end="392">X11 kutubxonasida barcha <code>public</code>-funksiyalar uchun <code>X</code> prefiksi qo‘llaniladi. Pythonda bunday uslub ortiqcha sanaladi, chunki metodlarning maydon va nomlaridan oldinda obyekt nomi, funksiyalarning nomlari oldida esa modul nomi turadi.</p>
+<p class="has-line-data" data-line-start="393" data-line-end="394">Bularga qo‘shimcha ravishda nomining boshlanishi yoki oxirida tagchiziq belgisini qo‘shib yozishning quyidagicha maxsus shakllari mavjud:</p>
+<ul>
+<li class="has-line-data" data-line-start="395" data-line-end="396"><code>_single_leading_underscore</code>: nom ichki ehtiyojlar uchun ishlatilishining kuchsiz belgisi. Masalan: <code>from M import *</code> buyrug‘i nomi tagchiziqdan boshlanadigan obyektlarni import qilmaydi.</li>
+<li class="has-line-data" data-line-start="396" data-line-end="400"><code>Single_trailing_underscore_</code> : kelishuvga binoan python tilining kalit sozlari bilan yuzaga kelishi mumkin bo‘lgan qarama-qarshiliklarning oldini olish maqsadida qo‘llaniladi. Masalan:
+    <p>
+    <pre><code class="has-line-data" data-line-start="398" data-line-end="400" class="language-python">Tkinter.Toplevel(master, class_=<span class="hljs-string">'ClassName'</span>)
+</code></pre></p>
+</li>
+<li class="has-line-data" data-line-start="400" data-line-end="401"><code>__double_leading_underscore</code> :klas atributining nomini o‘zgartiradi, ya’ni, <code>FooBar</code> klassidagi <code>__boo maydoni _Foobar__boo</code> bo‘ladi.</li>
+<li class="has-line-data" data-line-start="401" data-line-end="403"><code>__double_leading_and_trailing_underscore__</code> (nomning boshlanishi va oxirida ikkitalik tagchiziq): Foydalanuvchi tomonidan boshqariladigan nomlar ichidagi sirli metod va atributlar. Masalan: <code>__init__</code>, <code>__import__</code> yoki <code>__file__</code>. Bunday nomlarni o‘zingiz ixtiro qilmang. Ulardan faqat hujjatlashtiish ma’lumotlarida keltirilgan ko‘rinishdagina foydalaning.</li>
+</ul>
+<h3 class="code-line" data-line-start=403 data-line-end=404 ><a id="Korsatmalar_nomlash_boyicha_kelishuv_403"></a>Ko‘rsatmalar: nomlash bo‘yicha kelishuv</h3>
+<h4 class="code-line" data-line-start=404 data-line-end=405 ><a id="Qollash_kerak_bolmagan_nomlar_404"></a>Qo‘llash kerak bo‘lmagan nomlar</h4>
+<p class="has-line-data" data-line-start="405" data-line-end="406">Hech qachon quyidagi: <code>l</code> (kichik lotin “el” harfi), <code>O</code> (bosh lotin “o” harfi) yoki <code>I</code> (Bosh lotin “i” harfi) lardan bir harfli nomlar sifatida foydalanmang.</p>
+<p class="has-line-data" data-line-start="407" data-line-end="408">Ba’zi shriftlarda bu harflar nol va bir raqamlaridan farq qilmaydi. Agar juda ham l (el) harfi zarur bo‘lib qolsa, uning o‘rniga katta   harfini ishlating.</p>
+<h4 class="code-line" data-line-start=408 data-line-end=409 ><a id="Modullar_va_paketlarning_nomlari_408"></a>Modullar va paketlarning nomlari</h4>
+<p class="has-line-data" data-line-start="409" data-line-end="410">Modullar kichik harflardan iborat qisqa nomga ega bo‘lishi kerak. Agar o‘qish va tushunishni osonlashtirsa, tagchiziqlardan ham foydalanish mumkin. Xuddi shu tavsiyalar paketlarga ham taalluqli bo‘lib, faqat paketlarning nomlarida tagchiziq ishlatilmaydi.</p>
+<p class="has-line-data" data-line-start="411" data-line-end="412">Modullarning nomlari fayl nomi ko‘rinishida tasvirlanishi, ba’zi tizimlar nomlarning registrlariga ta’sirchan emasligi, ba’zi tizimlar esa uzun nomlarni qirqib tashlashini inobatga oladigan bo‘lsak, modullarning ancha qisqa nomlaridan foydalanish maqsadga muvofiq bo‘ladi. Bunday muammo Unix tizimlarda uchramasa-da, eski Windows, Mac yoki DOS tizimlari uchun katta maummoga aylanishi mumkin. C yoki C++ tilida yozilgan modul Python uchun yozilgan yo‘ldosh moduliga ega bo‘lsa, u holda C/C++ moduli tagchiziqdan boshlanadi, masalan, <code>_socket</code> kabi.</p>
+<h4 class="code-line" data-line-start=413 data-line-end=414 ><a id="Klasslar_nomlari_413"></a>Klasslar nomlari</h4>
+<p class="has-line-data" data-line-start="414" data-line-end="415">Klasslarning nomlari, odatda, <code>CapsWords</code> kelishuviga amal qilingan holda qo‘yiladi.</p>
+<p class="has-line-data" data-line-start="416" data-line-end="417">Lekin interfeys, asosan, funksiya kabi hujjatlashtirilgan va qo‘llanilayotgan bo‘lsa, u holda funksiyalarni nomlash kelishuviga ham amal qilinishi mumkin bo‘ladi.</p>
+<p class="has-line-data" data-line-start="418" data-line-end="419">Tarkibiy nomlar to‘g‘risidagi alohida kelishuvning ham mavjudligiga e’tiboringizni qaratmoqchimiz: tarkibiy nomlarning ko‘pchiligi bir so‘z (yoki qo‘shib yozilgan ikkita so‘z)dan iborat. <code>CapsWords</code> kelishuvi esa faqat noodatiy holatlar va tarkibiy o‘zgarmaslarni nomlashdagina qo‘llaniladi.</p>
+<h4 class="code-line" data-line-start=420 data-line-end=421 ><a id="Noodatiy_holatlar_nomlari_420"></a>Noodatiy holatlar nomlari</h4>
+<p class="has-line-data" data-line-start="421" data-line-end="422">Noodatiy holatlar klass ekanligi sababli, ularni nomlashda klasslarni nomlash uslubi qo‘llaniladi. Lekin siz nomning oxirida Error qo‘shimchasini ham qo‘shishingiz mumkin (albatta, bu noodatiy holat xatolik bo‘lsa).</p>
+<h3 class="code-line" data-line-start=423 data-line-end=424 ><a id="Global_ozgaruvchilarning_nomlari_423"></a>Global o‘zgaruvchilarning nomlari</h3>
+<p class="has-line-data" data-line-start="424" data-line-end="425">Global o‘zgaruvchilar faqat bitta modul ichida qo‘llaniladi, deb umid qilamiz. Funksiyalarning nomlari uchun qo‘llaniladigan kelishuvlarga amal qiling!</p>
+<p class="has-line-data" data-line-start="426" data-line-end="427">Global o‘zgaruvchilarning eksport qilinishining oldini olish maqsadida ulardan <code>from M import *</code> shaklida foydalanishga mo‘ljallangan modullarga <code>__all__</code> mexanizmini ham qo‘shing. Yoki bunday global o‘zgaruvchilarning nomlari oldida bitta tagchiziqni qo‘shgan holda eski kelishuvga amal qiling (bu yerda siz faqat modul ichida qo‘llaniladigan global o‘zgaruvchilarni berishingiz mumkin).</p>
+<h4 class="code-line" data-line-start=428 data-line-end=429 ><a id="Funksiyalarning_nomlari_428"></a>Funksiyalarning nomlari</h4>
+<p class="has-line-data" data-line-start="429" data-line-end="430">Funksiyalarning nomlari kichik harflardan iborat bo‘lishi, so‘zlar esa tagchiziq bilan ajratilishi lozim, bu kodni o‘qish va tushunishni osonlashtirish uchun zarur.</p>
+<p class="has-line-data" data-line-start="431" data-line-end="432"><code>mixedCase</code> uslubi shu uslub oldindan qo‘llanilib kelinayotgan holatlarda qaytar moslikni ta’minlash maqsadida qo‘llanilishi mumkin.</p>
+<h4 class="code-line" data-line-start=432 data-line-end=433 ><a id="Funksiya_va_metodlarning_argumentlari_432"></a>Funksiya va metodlarning argumentlari</h4>
+<p class="has-line-data" data-line-start="433" data-line-end="434"><strong>Obyekt ekzemplyari</strong> (nusxasi) metodining birinchi argumenti sifatida har doim self dan foydalaning.</p>
+<p class="has-line-data" data-line-start="435" data-line-end="436">Klass metodining birinchi argumenti sifatida esa har doim cls dan foydalaning.</p>
+<p class="has-line-data" data-line-start="437" data-line-end="438">Agar argumentning nomi Pyhtonning zaxiralangan kalit so‘zi bilan bir xil bo‘lib qolsa, so‘zni xato yozish yoki abbreviaturalardan foydalangandan ko‘ra, odatda, eng ma’qul metod – nomning oxirida tagchiziq qo‘shishdan iborat. Shunday qilib, class_ ko‘rinishi clss dan ko‘ra yaxshiroq (balki birorta sinonimni izlab topish ham yaxshi metoddir).</p>
+<h4 class="code-line" data-line-start=438 data-line-end=439 ><a id="Klasslar_ekzemplyarlarining_metod_va_ozgaruvchilari_uchun_nomlar_438"></a>Klasslar ekzemplyarlarining metod va o‘zgaruvchilari uchun nomlar</h4>
+<p class="has-line-data" data-line-start="439" data-line-end="440">Funksiyalar nomlari uchun qo‘llanilgan uslubdan foydalaning: nomlar kichik harflardan tashkil topishi kerak, so‘zlar esa o‘zaro tagchiziq bilan ajratiladi.</p>
+<p class="has-line-data" data-line-start="441" data-line-end="442">Ommaviy bo‘lmagan metod va atributlar nomlaridan oldinda bitta tagchiziqdan foydalaning.</p>
+<p class="has-line-data" data-line-start="443" data-line-end="444">Nomlarning klass ostilar bilan bir xil bo‘lib qolmasligi uchun nom oldida ikkitalik tagchiziqlardan foydalaning.</p>
+<p class="has-line-data" data-line-start="445" data-line-end="446">Python bu nomlarga o‘zgartirish kiritishi mumkin: agar Foo klassi <code>__a</code> nomli atributga ega bo‘lsa, unga <code>Foo.__a</code> kabi murojaat qilib bo‘lmaydi (o‘jarroq foydalanuvchimiz <code>Foo._Foo.__a</code> tarzida baribir murojaatni tashkil qilishi mumkin). Umuman olganda, nomning boshidagi ikkitalik tagchiziq faqat nomlarning vorislikga mo‘ljallangan klass atributlari bilna bir xil bo‘lib qolmasligi maqsadida ishlatilishi kerak.</p>
+<p class="has-line-data" data-line-start="447" data-line-end="448"><strong>Qo‘shimcha:</strong> <code>__</code> nomlardan foydalanish bo‘yicha ba’zi kelishmovchiliklar mavjud.</p>
+<h4 class="code-line" data-line-start=449 data-line-end=450 ><a id="Ozgarmas_konstantalar_449"></a>O‘zgarmas (konstanta)lar</h4>
+<p class="has-line-data" data-line-start="450" data-line-end="451">O‘zgarmaslar, odatda, modul darajasida e’lon qilinadi va faqat bosh harflar bilangina yoziladi, so‘zlar esa tagchiziq bilan ajratiladi. Masalan: <code>MAX_OVERFLOW</code>, <code>TOTAL</code> kabi.</p>
+<h4 class="code-line" data-line-start=452 data-line-end=453 ><a id="Vorislikni_loyihalashtirish_452"></a>Vorislikni loyihalashtirish</h4>
+<p class="has-line-data" data-line-start="453" data-line-end="454">Albatta klass yoki klass ekzemplyarining (bundan keyin atribut) metodi qanday bo‘lishini – ommaviy yoki noommaviy – hal qilib oling. Agar shubhalanayotgan bo‘lsangiz, noommaviy atributni tanlang. Keyinchalik uni ommaviy qilish teskarisini qilishdan osonroq kechadi.</p>
+<p class="has-line-data" data-line-start="455" data-line-end="456">Ommaviy atributlar – boshqa dasturchilar ham foydalanishlari mumkin bo‘lgan atributlar, siz esa teskari nomutanosiblikning bo‘lmasligiga ishonch hosil qilishingiz kerak. Noommaviy atributlar esa, o‘z navbatida, 3-shaxslar tomonidan qo‘lanilishga mo‘ljallanmagan, shuning uchun siz ularni o‘zgartirmasligingiz yoki o‘chirmasligingizga kafolat bera olmaysiz.</p>
+<p class="has-line-data" data-line-start="457" data-line-end="458">Biz <strong>“yashirin atribut”</strong> atamasini qo‘llamaymiz, chunki Pythonda bunaqasi bo‘lmaydi.</p>
+<p class="has-line-data" data-line-start="459" data-line-end="460">Klasslar atributlarining yana bir tipi API klass ostilariga tegishli bo‘lib, ko‘pincha ularni boshqa tillarda protected deb ham nomlashadi.</p>
+<p class="has-line-data" data-line-start="461" data-line-end="462">Ba’zi klasslar shunday loyihalashtiriladiki, ulardan bazaviy klass imkoniyatlarini kengaytiradigan yoki yangilaydigan boshqa klasslar vorisligi mumkin bo‘ladi. Siz mana shunday klassni loyihalashtirayotganingizda o‘zingiz uchun qaysi atributlar ommaviy, qaysilari API klass ostiga tegishli va qaysilari faqat bazaviy klass tomonidan qo‘llanilishini belgilab oling va aniq ko‘rsating.</p>
+<p class="has-line-data" data-line-start="463" data-line-end="464">Endi tavsiyalarni shakllantirib olamiz:</p>
+<ul>
+<li class="has-line-data" data-line-start="465" data-line-end="466">
+<p class="has-line-data" data-line-start="465" data-line-end="466">Ochiq atributlar nomining boshlanishida tagchiziqqa ega bo‘lmasliklari kerak;</p>
+</li>
+<li class="has-line-data" data-line-start="466" data-line-end="467">
+<p class="has-line-data" data-line-start="466" data-line-end="467">Agar ochiq atribut nomi tilning kalit so‘zi bilan bir xillikka ega bo‘lsa, nomning oxirida bitta tagchiziq qo‘shing. Bu nomni o‘zgartirish yoki abbreviaturalardan foydalanishdan ko‘ra ma’qulroq (lekin bu qoidaning istisno holatlari ham mavjud – klassni anglatadigan argument, ayniqsa, klass metodining birinchi argumenti (class method) cls nomiga ega bo‘lishi lozim);</p>
+</li>
+<li class="has-line-data" data-line-start="467" data-line-end="475">
+<p class="has-line-data" data-line-start="467" data-line-end="468">Oddiy ommaviy atributlarni tushunarli nomlar bilan nomlang va murojat qilish va o‘zgartirishning murakkab metodlarini yozmang. (accessor/mutator, get/set). Yodingizda bo‘lsin, Pythonda ularni, kerak bo‘lsa, keyinchalik qo‘shish juda oson. Bunday holda atributga murojaat sintaksisining ortida funksional amallarni yashirish uchun xususiyatlar (properties)ni qo‘llang.</p>
+<p class="has-line-data" data-line-start="469" data-line-end="470">1-qo‘shimcha: xususiyatlar (properties) faqat yangi uslubdagi klasslar uchun ishlaydi (python 3 da barcha klasslar shnday klasslardir).</p>
+<p class="has-line-data" data-line-start="471" data-line-end="472">2-qo‘shimcha: amaliy funksionallik bilan bog‘liq chetki kutilmagan holatlardan qutulishga harakat qiling; umuman olgand,a keshlash kabi ba’zi holatlarning zarari yo‘q.</p>
+<p class="has-line-data" data-line-start="473" data-line-end="474">3-qo‘shimcha: hisoblash ishlariga ko‘p vaqt sarflaydigan amallardan imkon qadar ozroq foydalaning, chunki atributlar yordamida yozilayotganligi sababli murojaat (nisbatan) tez bajarilayotgandek tassurot qoldirishi mumkin.</p>
+</li>
+<li class="has-line-data" data-line-start="475" data-line-end="483">
+<p class="has-line-data" data-line-start="475" data-line-end="476">Agar siz klassingizni boshqa klasslar meros qilib olmasligini, lekin klass ostilar ba’zi atributlarga vorislik qilishlarini istab loyihalashtirayotgan bo‘lsangiz, nomlarning boshlanishida ikkita tagchiziq qo‘shing va oxirida birorta ham tagchiziq qo‘ymang. Pythondagi nomlarni o‘zgartirish mexanizmi shunday ishlaydiki, klass nomi xuddi shunday atribut nomiga qo‘shiladi, bu esa klass ostilarning atributlari bilan bir xil nom bo‘lishining oldini olishga asos bo‘ladi.</p>
+<p class="has-line-data" data-line-start="477" data-line-end="478">1-qo‘shimcha: e’tiborli bo‘ling, agar klass osti xuddi shunday nom va atribut nomiga ega bo‘lib qolsa, yana nomlar bir xilligi <strong>(nomlar konflikti)</strong> kelib chiqishi mumkin.</p>
+<p class="has-line-data" data-line-start="479" data-line-end="480">2-qo‘shimcha: nomlarni o‘zgartirish mexanizmi <code>__getattr__()</code> ni sozlash yoki u bilan ishlashni qiyinlashtirishi mumkin, lekin u juda yaxshi hujjatlashtirilgan, qo‘lda erkin va samarali boshqarilishi mumkin.</p>
+<p class="has-line-data" data-line-start="481" data-line-end="482">3-qo‘shimcha: ushbu mexanizm hammaga ham yoqavermaydi, shuning uchun nomlar bir xilligidan qutulish va bu atributlarga murojaat qilish imkoniyatiga ega bo‘lish orasida kompromissga erishishga harakat qiling.</p>
+</li>
+</ul>
+<h3 class="code-line" data-line-start=483 data-line-end=484 ><a id="Umumiy_tavsiyalar_483"></a>Umumiy tavsiyalar</h3>
+<ul>
+<li class="has-line-data" data-line-start="484" data-line-end="486">
+<p class="has-line-data" data-line-start="484" data-line-end="485">Kod shunday yozilishi kerakki, u tilning turli lahjalarida ham (PyPy, jython, IronPython, Pyrex, Psyco va boshqalar) bexato ishlashi kerak.</p>
+</li>
+<li class="has-line-data" data-line-start="486" data-line-end="488">
+<p class="has-line-data" data-line-start="486" data-line-end="487">Masalan, CPythonda <code>a+=b</code> yoki <code>a=a+b</code> kabi satrlar konkatenatsiyasining samarali qo‘llanilishini kutmang. Bunday buyruqlar Jythonda nisbatan sekinroq bajariladi. Vaqt masalasi juda muhim bo‘lgan holatlar uchun, yaxshisi, <code>''.join()</code> dan foydalaning – natijada satrlarni ulash amali Python realizatsiyasidan qat’iy nazar bir xil vaqt davomida bajariladi.</p>
+</li>
+<li class="has-line-data" data-line-start="488" data-line-end="490">
+<p class="has-line-data" data-line-start="488" data-line-end="489"><code>None</code> bilan tekshirish = taqqoslash operatori yordamida emas, balki <code>is</code> yoki <code>is not</code> lardan biri yordamida amalga oshirilishi shart. Bundan tashqari, agar <code>if x is not None</code> ni nazarda tutayotgan bo‘lsangiz, <code>if x</code> deb yozmang. Masalan, testlash davomida bunday o‘zgaruvchi <code>None</code> dan farqli bo‘lgan boshqa tipni qabul qilishi ham mumkin, lekin tiplashtirish davomida <code>False</code> hosil bo‘lishi ham mumkin!</p>
+</li>
+<li class="has-line-data" data-line-start="490" data-line-end="496">
+<p class="has-line-data" data-line-start="490" data-line-end="491">Solishtirish metodlaridan foydalanayotganda boshqa dasturchilar faqat aynan bitta solishtirish operatsiyalarini qo‘llashlariga umid qilgandan ko‘ra, solishtirishning barcha 6 ta operatsiyasidan (<code>__eq__</code>, <code>__ne__</code>, <code>__lt__</code>, <code>__le__</code>, <code>__gt__</code>, <code>__ge__</code>) foydalanish lozim.</p>
+<p class="has-line-data" data-line-start="492" data-line-end="493">Ishni osonlashtirish maqsadida yetishmayotgan metodlarni qo‘llash uchun functools.total_ordering() dekoratoridan foydalanish mumkin.</p>
+<p class="has-line-data" data-line-start="494" data-line-end="495">PEP207 interpretator <code>y &gt; x</code> ni <code>x &lt; y</code> ga, <code>y &gt;=x</code> ni <code>x &lt;= y</code> ga almashtirishi hamda <code>x == y</code> va <code>x != y</code> larning argumentlarini o‘rin almashtirishi mumkinligini ko‘rsatadi. <code>sort()</code> va <code>min()</code> funksiyalari <code>&lt;</code> belgisidan, <code>max()</code> esa <code>&gt;</code> belgisidan foydalanishi kafolatlanadi. Lekin, boshqa holatlarda tusunmovchiliklarning oldini olish maqsadida barcha 6 ta operatsiyadan foydalanish tavsiya etiladi.</p>
+</li>
+<li class="has-line-data" data-line-start="496" data-line-end="506">
+<p class="has-line-data" data-line-start="496" data-line-end="498">Lyambda-iborani nomga o‘zlashtirish o‘rniga har doim def iborasini qo‘llang:<br>
+<strong>To‘g‘ri:</strong></p>
+<pre><code class="has-line-data" data-line-start="499" data-line-end="501" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-params">(x)</span>:</span> <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>*x
+</code></pre>
+<p class="has-line-data" data-line-start="501" data-line-end="502"><strong>Xato:</strong></p>
+<pre><code class="has-line-data" data-line-start="503" data-line-end="505" class="language-python">f = <span class="hljs-keyword">lambda</span> x: <span class="hljs-number">2</span>*x
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="506" data-line-end="512">
+<p class="has-line-data" data-line-start="506" data-line-end="507">Shaxsiy noodatiy holat klassingizni BaseExceptiondan emas, <code>Exception</code>dan meros qilib oling. <code>BaseException</code>dan to‘g‘ridan-to‘g‘ri vorislik amali qamrab olish kerak bo‘lmagan noodatiy holatlar uchun zaxiralab qo‘yilgan.</p>
+<p class="has-line-data" data-line-start="508" data-line-end="509">Noodatiy holatlar zanjirini kerakli tarzda qo‘llang. Python 3 da <code>raise X from Y</code> dan sozlash axborotini yo‘qotmasdan yaqqol almashtirish uchun foydalanish kerak.</p>
+<p class="has-line-data" data-line-start="510" data-line-end="511">Noodatiy holat qasddan almashtirilayotganda (Python 2 da <code>raise X</code> ni qo‘llash yoki <code>raise X from None</code> Python 3.3+ da), kerakli ma’lumot yangi noodatiy holatga uzatilganligini nazorat qiling (<code>KeyError</code>ning <code>AttributeError</code>ga aylanishi davomida atribut nomining saqlanishi yoki dastlabki noodatiy holat matnining yangisiga joylashtirilishi kabi ).</p>
+</li>
+<li class="has-line-data" data-line-start="512" data-line-end="518">
+<p class="has-line-data" data-line-start="512" data-line-end="513">Bundan tashqari, siz noodatiy holat yaratayotganingizda eski sintaksis bo‘lgan <code>raise ValueError</code>, <code>message</code> o‘rniga <code>raise ValueError(‘message’)</code> ko‘rinishida yozing.</p>
+<p class="has-line-data" data-line-start="514" data-line-end="515">Python 3 da eskicha yozish shakli ta’qiqlangan.</p>
+<p class="has-line-data" data-line-start="516" data-line-end="517">Bunday shaklda qo‘llash ma’qulroq, chunki qavslar sababli ko‘chiriladigan satrlar belgilaridan, agar ular juda uzun yoki formatlash qo‘llanilgan bo‘lsa, foydalanish shart emas.</p>
+</li>
+<li class="has-line-data" data-line-start="518" data-line-end="534">
+<p class="has-line-data" data-line-start="518" data-line-end="519">Kodingiz noodatiy holatlarni aniqlab olganda, umumiy except iborasining o‘tniga aniq xatoliklarni aniqlang va qayta ishlang:</p>
+<p class="has-line-data" data-line-start="520" data-line-end="521">Masalan, mana bunday yozing:</p>
+<pre><code class="has-line-data" data-line-start="523" data-line-end="528" class="language-python"><span class="hljs-keyword">try</span>:
+    <span class="hljs-keyword">import</span> platform_specific_module
+<span class="hljs-keyword">except</span> ImportError:
+    platform_specific_module = <span class="hljs-keyword">None</span>
+</code></pre>
+<p class="has-line-data" data-line-start="528" data-line-end="530">Oddiygina <code>except:</code> ning o‘zini yozishimiz <code>SystemExit</code> ni ham, <code>KeyboardInterrupt</code> aniqlab, qayta ishlashiga va bu esa, o‘z navbatida, yangi muammolarni, masalan, <code>Ctrl+C</code> kombinatsiyasi yordamida dastur ishini yakunlashning murakkablashuvini keltirib chiqaradi. Agar siz chindan ham barcha noodatiy holatlarni aniqlash va qayta ishlashni istasangiz, u holda <code>except Exception:</code> ko‘rinishida yozing.<br>
+<code>except:</code> dan foydalanishni quyidagi ikki holatdan tashqari cheklash yaxshi amaliyot hisoblanadi:</p>
+<ol>
+<li class="has-line-data" data-line-start="531" data-line-end="532">Qayta ishlash jarayonida foydalanuvchiga sodir bo‘lgan xatolik haqidagi barcha ma’lumotlar chiqarib ko‘rsatilsa, foydalanuvchi, hech bo‘lmaganda, xatolik sodir bo‘lganini bilib oladi.</li>
+<li class="has-line-data" data-line-start="532" data-line-end="534">Noodatiy holat aniqlangandan keyin qandaydir kodni bajarish va undan keyin uni yana qayta ishlash uchun boshqa biror joyda qo‘llash kerak bo‘lganda. Odatda, <code>try … finally</code> konstruksiyasidan foydalanish qulay va to‘g‘riroqdir.</li>
+</ol>
+</li>
+<li class="has-line-data" data-line-start="534" data-line-end="543">
+<p class="has-line-data" data-line-start="534" data-line-end="535">Aniqlangan noodatiy holatlarning aniq nom bilan bog‘liq holatlari uchun Python 2.6 dan qo‘shilgan bog‘liqlikning aniq sintaksisidan foydalaning.</p>
+<pre><code class="has-line-data" data-line-start="536" data-line-end="541" class="language-python"><span class="hljs-keyword">try</span>:
+    process_data()
+<span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> exc:
+    <span class="hljs-keyword">raise</span> DataProcessingFailedError(str(exc))
+</code></pre>
+<p class="has-line-data" data-line-start="541" data-line-end="542">Bu Python 3 da qo‘llaniladigan va verguldan foydalanishga asoslangan eski sintaksis bilan bog‘liq muammolarning kelib chiqmasligi imkonini beruvchi yagona sintaksisdir.</p>
+</li>
+<li class="has-line-data" data-line-start="543" data-line-end="544">
+<p class="has-line-data" data-line-start="543" data-line-end="544">Operatsion sistemaning xatoliklarini aniqlab, qayta ishlanayotganda errno qiymatlar tahlilining o‘rniga Python 3.3 dan kiritilgan noodatiy holatlarning aniq iyerarxiyasidan foydalaning.</p>
+</li>
+<li class="has-line-data" data-line-start="544" data-line-end="565">
+<p class="has-line-data" data-line-start="544" data-line-end="545">Har bir <code>try … except</code> konstruksiyasining tarkibiga xatoliklarni samaraliroq aniqlash va qayta ishlash maqsadida imkon qadar ozroq kod yozishga intiling. Shu bilan birga bu yashirin xatoliklarning oldini olishga ham yordam beradi:</p>
+<p class="has-line-data" data-line-start="546" data-line-end="547"><strong>To‘g‘ri:</strong></p>
+<pre><code class="has-line-data" data-line-start="548" data-line-end="555" class="language-python"><span class="hljs-keyword">try</span>:
+    value = collection[key]
+<span class="hljs-keyword">except</span> KeyError:
+    <span class="hljs-keyword">return</span> key_not_found(key)
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-keyword">return</span> handle_value(value)
+</code></pre>
+<p class="has-line-data" data-line-start="555" data-line-end="556"><strong>Xato:</strong></p>
+<pre><code class="has-line-data" data-line-start="557" data-line-end="565" class="language-python"><span class="hljs-keyword">try</span>:
+    <span class="hljs-comment"># Bu yerda amallar ko‘p!</span>
+    <span class="hljs-keyword">return</span> handle_value(collection[key])
+<span class="hljs-keyword">except</span> KeyError:
+    <span class="hljs-comment"># Bu yerda handle value() tomonidan yuzaga keltirilishi </span>
+    <span class="hljs-comment"># mumkin bo‘lgan KeyError ham aniqlanadi va qayta ishlanadi</span>
+    <span class="hljs-keyword">return</span> key_not_found(key)
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="565" data-line-end="566">
+<p class="has-line-data" data-line-start="565" data-line-end="566">Manba lokal bo‘lgan holatlar uchun kodning ma’lum qismida bajarilganidan keyin u ishonchli tarzda tozalanishi uchun with iborasini qo‘llang.</p>
+</li>
+<li class="has-line-data" data-line-start="566" data-line-end="579">
+<p class="has-line-data" data-line-start="566" data-line-end="568">Kontekst menejerlarini resurslarga ega bo‘lish yoki ularni bo‘shatishdan tashqari har qanday holatda alohida funksiya yoki metod vositasida qo‘llash tavsiya etiladi:<br>
+<strong>To‘g‘ri:</strong></p>
+<pre><code class="has-line-data" data-line-start="569" data-line-end="572" class="language-python"><span class="hljs-keyword">with</span> conn.begin_transaction():
+    do_stuff_in_transaction(conn)
+</code></pre>
+<p class="has-line-data" data-line-start="572" data-line-end="573"><strong>Xato:</strong></p>
+<pre><code class="has-line-data" data-line-start="574" data-line-end="577" class="language-python"><span class="hljs-keyword">with</span> conn:
+    do_stuff_in_transaction(conn)
+</code></pre>
+<p class="has-line-data" data-line-start="577" data-line-end="578">Yuqoridagi misolimiz <code>__enter__</code> va <code>__exit__</code> transaksiyadan keyin ulanishni yopishdan tashqari biror bir vazifani bajarayotganligi haqida hech qanday ma’lumot bermaydi. Bu holatda aniqroq bo‘lish muhim ahamiyatga ega.</p>
+</li>
+<li class="has-line-data" data-line-start="579" data-line-end="582">
+<p class="has-line-data" data-line-start="579" data-line-end="581"><code>string</code> modulining o‘rniga satrlar metodlarini qo‘llang – ular hamisha tezkor va unicod-satrlar uchun aynan bir xil APIga ega. Ushbu qoidalardan Python 2.0 dan kichikroq versiyalar bilan mutanosiblikni ta’minlash maqsadlarida voz kechish mumkin.<br>
+Python 3 da faqat satrlar metodlari qolgan.</p>
+</li>
+<li class="has-line-data" data-line-start="582" data-line-end="593">
+<p class="has-line-data" data-line-start="582" data-line-end="585">Suffiks va prefikslarni tekshirishda satrlar kesimlarini qayta ishlashdan ko‘ra, <code>.startswith()</code> va <code>.endswith()</code> larni qo‘llang.<br>
+<code>.startswith()</code> va <code>.endswith()</code> lar nisbatan tartibli ko‘rinadi hamda ozroq xatoliklarni keltirib chiqaradi. Masalan:<br>
+<strong>To‘g‘ri:</strong></p>
+<pre><code class="has-line-data" data-line-start="586" data-line-end="588" class="language-python"><span class="hljs-keyword">if</span> foo.startswith(<span class="hljs-string">'bar'</span>):
+</code></pre>
+<p class="has-line-data" data-line-start="588" data-line-end="589"><strong>Xato:</strong></p>
+<pre><code class="has-line-data" data-line-start="590" data-line-end="592" class="language-python"><span class="hljs-keyword">if</span> foo[:<span class="hljs-number">3</span>] == <span class="hljs-string">'bar'</span>:
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="593" data-line-end="608">
+<p class="has-line-data" data-line-start="593" data-line-end="595">Obyektlar tiplarini solishtirish amalini to‘g‘ridan-to‘g‘ri solishtirish orqali emas, <code>isinstance()</code> yordamida bajarish kerak:<br>
+<strong>To‘g‘ri:</strong></p>
+<pre><code class="has-line-data" data-line-start="596" data-line-end="598" class="language-python"><span class="hljs-keyword">if</span> isinstance(obj, int):
+</code></pre>
+<p class="has-line-data" data-line-start="598" data-line-end="599"><strong>Xato:</strong></p>
+<pre><code class="has-line-data" data-line-start="600" data-line-end="602" class="language-python"><span class="hljs-keyword">if</span> type(obj) <span class="hljs-keyword">is</span> type(<span class="hljs-number">1</span>):
+</code></pre>
+<p class="has-line-data" data-line-start="602" data-line-end="603">Obyektning satr ekanligini tekshirayotganingizda, satr unicode-satr ham bo‘lishi mumkinligini inobatga oling. Python 2 da str va unicode da umumiy bazaviy klassi mavjud, shuning uchun siz quyidagicha yozishingiz mumkin:</p>
+<pre><code class="has-line-data" data-line-start="604" data-line-end="606" class="language-python"><span class="hljs-keyword">if</span> isinstance(obj, basestring):
+</code></pre>
+<p class="has-line-data" data-line-start="606" data-line-end="607">Python 3 da unicode va basestringlar mavjud emasligini ta’kidlab o‘tish lozim (faqat <code>str</code> bor) hamda bytes endi satr emas, balki butun sonlar ketma-ketligidir.</p>
+</li>
+<li class="has-line-data" data-line-start="608" data-line-end="619">
+<p class="has-line-data" data-line-start="608" data-line-end="610">Ketma-ketlik (satr, ro‘yxat va kortej)lar uchun bo‘sh ketma-ketlik false ekanligidan foydalaning:<br>
+<strong>To‘g‘ri:</strong></p>
+<pre><code class="has-line-data" data-line-start="611" data-line-end="614" class="language-python"><span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> seq:
+<span class="hljs-keyword">if</span> seq:
+</code></pre>
+<p class="has-line-data" data-line-start="614" data-line-end="615"><strong>Xato:</strong></p>
+<pre><code class="has-line-data" data-line-start="616" data-line-end="619" class="language-python"><span class="hljs-keyword">if</span> len(seq)
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(seq)
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="619" data-line-end="620">
+<p class="has-line-data" data-line-start="619" data-line-end="620">Oxirida muhim bo‘lgan bo‘sh joylarga ega satrli o‘zgarmaslardan foydalanmang, chunki bu bo‘sh joylar ko‘rinmaydi, ko‘pchilik muharrir dasturlari esa ularni kesib tashlaydi.</p>
+</li>
+<li class="has-line-data" data-line-start="620" data-line-end="633">
+<p class="has-line-data" data-line-start="620" data-line-end="622"><code>True</code> va <code>False</code> li mantiqiy tiplarni <code>==</code> yordamida solishtirmang:<br>
+<strong>To‘g‘ri:</strong></p>
+<pre><code class="has-line-data" data-line-start="623" data-line-end="625" class="language-python"><span class="hljs-keyword">if</span> greeting:
+</code></pre>
+<p class="has-line-data" data-line-start="625" data-line-end="626"><strong>Xato:</strong></p>
+<pre><code class="has-line-data" data-line-start="627" data-line-end="629" class="language-python"><span class="hljs-keyword">if</span> greeting == <span class="hljs-keyword">True</span>:
+</code></pre>
+<p class="has-line-data" data-line-start="629" data-line-end="630"><strong>Umuman xato qo‘llanilishi:</strong></p>
+<pre><code class="has-line-data" data-line-start="631" data-line-end="633" class="language-python"><span class="hljs-keyword">if</span> greeting <span class="hljs-keyword">is</span> <span class="hljs-keyword">True</span>:
+</code></pre>
+</li>
+</ul>
+</div>
+
+
+    </div>
+   </div>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript">
+  </script>
+  <script src="../js/handout-run.js" type="text/javascript">
+  </script>
+ </body>
+</html>
