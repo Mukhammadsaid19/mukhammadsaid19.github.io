@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    12. Noodatiy holatlar
+   </title>
+   <link href="../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <header>
+   <a href="../index.html">
+    Python Coding Club
+   </a>
+   |
+   <a href="#">
+    Mundarijaga qaytish
+   </a>
+   <div>
+    9-sinf
+   </div>
+  </header>
+  <nav class="table-of-contents col-sm-2">
+   <ul class="nav">
+    <li>
+     <a href="#pythonga_kirish">
+      12. Noodatiy holatlar
+     </a>
+    </li>
+    <li><a href="#Pythonda_noodatiy_holatlar_Noodatiy_holatlarni_qayta_ishlash_uchun_try__except_konstruksiyasi_0"><code>try – except</code> konstruksiyasi</a></li>
+    <!--  <li>
+     <a href="#summary">
+      Summary
+     </a>
+    </li>-->
+   </ul>
+  </nav>
+  <main class="container-fluid">
+   <h1 class="handout-title col-sm-8 col-sm-offset-2" id="pythonga_kirish">
+      12. Noodatiy holatlar
+   </h1>
+   <div data-outline="pythonga_kirish">
+    <div class="markdown col-sm-8 col-sm-offset-2 converted">
+     <h4>
+        Bu bob quyidagilardan tashkil topgan:
+     </h4>
+     <p>
+      Mavzular:
+     </p>
+     <ul>
+      <li>
+         Pythonda noodatiy holatlar. Noodatiy holatlarni qayta ishlash uchun <code>try – except</code> konstruksiyasi
+      </li>
+     </ul>
+
+
+     <h2 id="Pythonda_noodatiy_holatlar_Noodatiy_holatlarni_qayta_ishlash_uchun_try__except_konstruksiyasi_0">
+      Pythonda noodatiy holatlar. Noodatiy holatlarni qayta ishlash uchun <code>try – except</code> konstruksiyasi
+     </h2>
+
+<div data-outline="Pythonda_noodatiy_holatlar_Noodatiy_holatlarni_qayta_ishlash_uchun_try__except_konstruksiyasi_0">
+<p class="has-line-data" data-line-start="2" data-line-end="4">Noodatiy holatlar <code>(exceptions)</code> — Pythondagi yana bir ma’lumotlar tiplaridan biri. Noodatiy holatlar dasturchiga xatoliklar haqida xabar berish uchun ishlatiladi.<br>
+Noodatiy holatlarning eng oddiylaridan biri — nolga bo‘lish.</p>
+<pre><code class="has-line-data" data-line-start="6" data-line-end="12" class="language-python">&gt;&gt;&gt; <span class="hljs-number">100</span> / <span class="hljs-number">0</span>
+Traceback (most recent call last):
+      File <span class="hljs-string">""</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span>
+         <span class="hljs-number">100</span> / <span class="hljs-number">0</span>
+ZeroDivisionError: division by zero
+</code></pre>
+<p class="has-line-data" data-line-start="13" data-line-end="14">Bu yerda interpretator bizga <code>ZeroDivisionError</code> noodatiy holati haqida xabar berdi, ya’ni nolga bo‘lishga harakat qilinganligini bildirdi. Bundan tashqari yana boshqa noodatiy holatlar ham mavjud.</p>
+<pre><code class="has-line-data" data-line-start="16" data-line-end="27" class="language-python">&gt;&gt;&gt; <span class="hljs-number">2</span> + <span class="hljs-string">'1'</span>
+Traceback (most recent call last):
+      File <span class="hljs-string">""</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span>
+         <span class="hljs-number">2</span> + <span class="hljs-string">'1'</span>
+TypeError: unsupported operand type(s) <span class="hljs-keyword">for</span> +: <span class="hljs-string">'int'</span> <span class="hljs-keyword">and</span> <span class="hljs-string">'str'</span>
+&gt;&gt;&gt; int(<span class="hljs-string">'qwerty'</span>)
+Traceback (most recent call last):
+      File <span class="hljs-string">""</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span>
+         int(<span class="hljs-string">'qwerty'</span>)
+ValueError: invalid literal <span class="hljs-keyword">for</span> int() <span class="hljs-keyword">with</span> base <span class="hljs-number">10</span>: <span class="hljs-string">'qwerty'</span>
+</code></pre>
+<p class="has-line-data" data-line-start="28" data-line-end="29">Bu ikkita misolda, mos ravishda, <code>TypeError</code> va <code>ValueError</code> noodatiy holatlari yuzaga kelmoqda. Chiqarilgan xabar bizga bu holatlar qayerda yuzaga kelganligi va nima bilan bog‘ilqligi haqida to‘la ma’lumot bermoqda.</p>
+<p class="has-line-data" data-line-start="30" data-line-end="31">Python tarkibidan o‘rin olgan noodatiy holatlar bilan tanishib chiqamiz, lekin ta’kidlash joizki, siz ish jarayonida boshqacha noodatiy holatlarga ham duch kelisingiz mumkin, chunki dasturchilar o‘zlarining shaxsiy noodatiy holatlarini ham yaratib qo‘yishlari mumkin. Ushbu ro‘yxat Python 3.3 uchun o‘rinli bo‘lib, boshqa versiyalarda ma’lum bir o‘zgarishlar kuzatilishi mumkin.</p>
+<p class="has-line-data" data-line-start="32" data-line-end="33"><strong><code>BaseException</code></strong> – barcha boshqa noodatiy holatlarning asosi bo‘lgan bazaviy noodatiy holat.</p>
+<ul>
+<li class="has-line-data" data-line-start="34" data-line-end="35"><code>SystemExit</code> – dasturdan chiqish paytida <code>sys.exit</code> funksiyasi tomonidan yuzaga keltiriladigan noodatiy holat.</li>
+<li class="has-line-data" data-line-start="35" data-line-end="36"><code>KeyboardInterrupt</code> – foydalanuvchi tomonidan dastur ishi to‘xtatilganda (odatda, <code>Ctrl+C</code> kombinatsiyasi orqali) yuzaga keladi.</li>
+<li class="has-line-data" data-line-start="36" data-line-end="37"><code>GeneratorExit</code> – generator obyektining close metodiga murojaat qilinganda yuzaga keladi.</li>
+<li class="has-line-data" data-line-start="37" data-line-end="85"><code>Exception</code> – mana bu yerda esa sistemaning noodatiy holatlari yakuniga yetdi (ularga yaxshisi tegmagan ma’qul) hamda ular bilan ishlash mumkin bo‘lgan oddiylari boshlanadi.
+<ul>
+<li class="has-line-data" data-line-start="38" data-line-end="39"><code>StopIteration</code> – agar iteratorda boshqa element qolmagan bo‘lsa, u holda next ichki funksiyasi tomonidan yuzaga keltiriladi.</li>
+<li class="has-line-data" data-line-start="39" data-line-end="43"><code>ArithmeticError</code> – arifmetik xatolik
+<ul>
+<li class="has-line-data" data-line-start="40" data-line-end="41"><code>FloatingPointError</code> – suzivchi vergul ustida xato amal bajarilganda yuzaga keladi. Amaliyotda juda kam uchraydi.</li>
+<li class="has-line-data" data-line-start="41" data-line-end="42"><code>OverflowError</code> – arifmetik amalning natijasini ko‘rsatish uchun haddan tashqari katta bo‘lib ketganda yuzaga keladi. Butun sonlar bilan ishlash kabi oddiy holatlarda yuzaga kelmaydi, chunki Python uzun sonlar bilan ishlash imkoniyatiga ega. Ammo ba’zi boshqa holatlarda yuzaga kelishi mumkin.</li>
+<li class="has-line-data" data-line-start="42" data-line-end="43"><code>ZeroDivisionError</code> – nolga bo‘lish.</li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="43" data-line-end="44"><code>AssertionError</code> – <code>assert</code> funksiyasidagi iborat yolg‘on.</li>
+<li class="has-line-data" data-line-start="44" data-line-end="45"><code>AttributeError</code> – obyekt ko‘rsatilgan atribut (qiymat yoki metod)ga ega emas.</li>
+<li class="has-line-data" data-line-start="45" data-line-end="46"><code>BufferError</code> – bufer bilan bog‘liq operatsiyani bajarishning imkoni yo‘q.</li>
+<li class="has-line-data" data-line-start="46" data-line-end="47"><code>EOFError</code> – funksiya faylning oxiriga taqalib qoldi va izlagan ma’lumotini o‘qiy olmadi.</li>
+<li class="has-line-data" data-line-start="47" data-line-end="48"><code>ImportError</code> – modul yoki uning atributini import qilib bo‘lmadi.</li>
+<li class="has-line-data" data-line-start="48" data-line-end="51"><code>LookupError</code> – noto‘g‘ri indeks yoki kalit.
+<ul>
+<li class="has-line-data" data-line-start="49" data-line-end="50"><code>IndexError</code> – index elementlar diapazoniga kirmaydi.</li>
+<li class="has-line-data" data-line-start="50" data-line-end="51"><code>KeyError</code> – mavjud bo‘lmagan kalit (lug‘at, obyekt yoki boshqa to‘plamda).</li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="51" data-line-end="52"><code>MemoryError</code> – xotira yetishmovchiligi.</li>
+<li class="has-line-data" data-line-start="52" data-line-end="54"><code>NameError</code> – ko‘rsatilgan nomdagi o‘zgaruvchi topilmadi.
+<ul>
+<li class="has-line-data" data-line-start="53" data-line-end="54"><code>UnboundLocalError</code> – funksiyadagi lokal o‘zgaruvchiga murojaat qilingan, ammo bu o‘zgaruvchi oldindan e’lon qilinmagan.</li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="54" data-line-end="70"><code>OSError</code> – sistema bilan bog‘liq xatolik.
+<ul>
+<li class="has-line-data" data-line-start="55" data-line-end="56"><code>BlockingIOError</code> – kiritish-chiqarish bilan bog‘liq xatolik.</li>
+<li class="has-line-data" data-line-start="56" data-line-end="57"><code>ChildProcessError</code> – quyi darajadagi jarayon bilan bog‘liq xatolik.</li>
+<li class="has-line-data" data-line-start="57" data-line-end="58"><code>ConnectionError</code> – aloqa bilan bog‘liq noodatiy holatlar uchun bazaviy klass.</li>
+<li class="has-line-data" data-line-start="58" data-line-end="59"><code>BrokenPipeError</code> – kanalga yozishga urinish vaqtida kanalning ikkinchi uchi yopiq bo‘lgan hollarda yuzaga keladi.</li>
+<li class="has-line-data" data-line-start="59" data-line-end="60"><code>ConnectionAbortedError</code> – aloqa tuguni tomonidan yakunlanish vaqtida yuzaga keladi.</li>
+<li class="has-line-data" data-line-start="60" data-line-end="61"><code>ConnectionRefusedError</code> – tugunning aloqani rad etishi natijasida yuzaga keladi.</li>
+<li class="has-line-data" data-line-start="61" data-line-end="62"><code>ConnectionResetError</code> – tugun tomonidan ulanish uzib qo‘yilganda yuzaga keladi.</li>
+<li class="has-line-data" data-line-start="62" data-line-end="63"><code>FileExistsError</code> – oldindan mavjud bo‘lgan fayl yoki papkani yaratishga urinish davrida yuzaga keladi.</li>
+<li class="has-line-data" data-line-start="63" data-line-end="64"><code>FileNotFoundError</code> – fayl yoki papka mavjud emas.</li>
+<li class="has-line-data" data-line-start="64" data-line-end="65"><code>InterruptedError</code> – tizim so‘rovi kiruvchi signal tomonidan uzib qo‘yilgan.</li>
+<li class="has-line-data" data-line-start="65" data-line-end="66"><code>IsADirectoryError</code> – fayl kutilayotganda, papka kelganda yuzaga keladi.</li>
+<li class="has-line-data" data-line-start="66" data-line-end="67"><code>NotADirectoryError</code> – papka kutilayotganda, fayl kelganda yuzaga keladi.</li>
+<li class="has-line-data" data-line-start="67" data-line-end="68"><code>PermissionError</code> – boshqarish huquqlari yetishmaydi.</li>
+<li class="has-line-data" data-line-start="68" data-line-end="69"><code>ProcessLookupError</code> – ko‘rsatilgan jarayon mavjud emas…</li>
+<li class="has-line-data" data-line-start="69" data-line-end="70"><code>TimeoutError</code> – kutish vaqti nihoyasiga yetdi.</li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="70" data-line-end="71"><code>ReferenceError</code> – kuchsiz havolali atributga murojaat qilishga urinish.</li>
+<li class="has-line-data" data-line-start="71" data-line-end="72"><code>RuntimeError</code> – noodatiy holat boshqa birorta ham shunday holatlarga mos kelmaganda yuzaga keladi.</li>
+<li class="has-line-data" data-line-start="72" data-line-end="73"><code>NotImplementedError</code> – klassning abstrakt metodlar o‘z bo‘ysinuvidagi boshqa klasslarda qayta aniqlashni talab qilganda yuzaga keladi.</li>
+<li class="has-line-data" data-line-start="73" data-line-end="76"><code>SyntaxError</code> – sintaktik xatolik.
+<ul>
+<li class="has-line-data" data-line-start="74" data-line-end="75"><code>IndentationError</code> – xato bo‘sh joy tashlashdan iborat (siljishlar).</li>
+<li class="has-line-data" data-line-start="75" data-line-end="76"><code>TabError</code> – siljishlarda bo‘sh joy tashlash hamda tabulyatsiya belgilarining aralashtirilishi.</li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="76" data-line-end="77"><code>SystemError</code> – ichki xatolik.</li>
+<li class="has-line-data" data-line-start="77" data-line-end="78"><code>TypeError</code> – amal mos kelmaydigan tipli obyektga nisbatan qo‘llanilgan.</li>
+<li class="has-line-data" data-line-start="78" data-line-end="79"><code>ValueError</code> – funksiya to‘g‘ri tipli, lekin xato qiymatli argument olganda yuzaga keladi.</li>
+<li class="has-line-data" data-line-start="79" data-line-end="83"><code>UnicodeError</code> – unikod satrlarning xato kodlanishi/dekodlanisi bilan bog‘liq xatolik.
+<ul>
+<li class="has-line-data" data-line-start="80" data-line-end="81"><code>UnicodeEncodeError</code> – unikod kodlash bilan bog‘liq xatolik.</li>
+<li class="has-line-data" data-line-start="81" data-line-end="82"><code>UnicodeDecodeError</code> – inikod dekodlash bilan bog‘liq xatolik.</li>
+<li class="has-line-data" data-line-start="82" data-line-end="83"><code>UnicodeTranslateError</code> – unikod tarjimasi bilan bog‘liq xatolik.</li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="83" data-line-end="85"><code>Warning</code> – ogohlantirish.</li>
+</ul>
+</li>
+</ul>
+<p class="has-line-data" data-line-start="85" data-line-end="86">Endi qachon va qanday vaziyatlarda noodatiy holatlar yuzaga kelishini bilgan holda, biz ularni qayta ishlashimiz mumkin bo‘ladi. Noodatiy holatlarni qayta ishlash uchun <code>try/except</code> konstruksiyasi qo‘llaniladi.</p>
+<p class="has-line-data" data-line-start="87" data-line-end="88">Ushbu konstruksiyadan foydalanishga birinchi misol:</p>
+<pre><code class="has-line-data" data-line-start="89" data-line-end="96" class="language-python">&gt;&gt;&gt; <span class="hljs-keyword">try</span>:
+         k = <span class="hljs-number">1</span> / <span class="hljs-number">0</span>
+      <span class="hljs-keyword">except</span> ZeroDivisionError:
+         k = <span class="hljs-number">0</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>print(k)
+<span class="hljs-number">0</span>
+</code></pre>
+<p class="has-line-data" data-line-start="96" data-line-end="97"><code>try</code> blokida biz noodatiy holatni yuzaga keltirishi mumkin bo‘lgan amallarni bajaramiz, <code>except</code> blokida esa biz ularni qayta ishlaymiz. Bunda noodatiy holatning o‘zi bilan birgalikda uning avlodlari ham tutib qolinadi. Masalan, <code>ArithmeticError</code>ni ushlab qolish oqibatida biz <code>FloatingPointError</code>, <code>OverflowError</code> va <code>ZeroDivisionErrorlar</code>ni ham ushlab qolamiz.</p>
+<pre><code class="has-line-data" data-line-start="98" data-line-end="105" class="language-python">&gt;&gt;&gt; <span class="hljs-keyword">try</span>:
+         k = <span class="hljs-number">1</span> / <span class="hljs-number">0</span>
+      <span class="hljs-keyword">except</span> ArithmeticError:
+         k = <span class="hljs-number">0</span>
+&gt;&gt;&gt; print(k)
+<span class="hljs-number">0</span>
+</code></pre>
+<p class="has-line-data" data-line-start="106" data-line-end="107">Bundan tashqari yuzaga kelishi mumkin bo‘lgan har qanday noodatiy holatlarni (klaviatura orqali uzilish, tizimli chiqish va h. k.) ushlab qolishi mumkin bo‘lgan argumentsiz <code>except</code> ko‘rsatmasi ham mavjud. Shuning uchun bunday formada <code>except</code> ko‘rsatmasi deyarli qo‘llanilmaydi, uning o‘rniga <code>except Exception</code>dan foydalaniladi. Lekin, aksariyat hollarda noodatiy holatlarni bitta holat uchun qayta ishlashga harakat qilinadi, chunki, aks holda siz kutgan noodatiy holat o‘rniga boshqasi yuzaga kelishi mumkin bo‘lgan noodatiy holatning ushlab olinishi va u xato sifatida qayta ishlanishi mumkin.</p>
+<pre><code class="has-line-data" data-line-start="109" data-line-end="128" class="language-python">&gt;&gt;&gt; f = open('1.txt')
+&gt;&gt;&gt; ints = []
+&gt;&gt;&gt; try:
+         for line in f:
+            ints.append(int(line))
+         except ValueError:
+            print(Bu son emas, chiqamiz.')
+         except Exception:
+            print(‘Bu yana nima edi?’)
+         else:
+            print('Hammasi joyida')
+         finally:
+            f.close()
+            print('Men faylni yopdim')
+         # Aynan shunday ketma- ketlikda: try, except guruhi, undan keyin else va eng oxirida finally.
+         
+Bu son emas, chiqamiz.
+Men faylni yopdim.
+</code></pre>
+</div>
+
+
+    </div>
+   </div>
+  </main>
+
+ </body>
+</html>

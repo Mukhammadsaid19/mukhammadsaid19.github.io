@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    14. Savollar va topshiriqlar
+   </title>
+   <link href="../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <header>
+   <a href="../index.html">
+    Python Coding Club
+   </a>
+   |
+   <a href="#">
+    Mundarijaga qaytish
+   </a>
+   <div>
+    9-sinf
+   </div>
+  </header>
+  <nav class="table-of-contents col-sm-2">
+   <ul class="nav">
+    <li>
+     <a href="#pythonga_kirish">
+        14. Savollar va topshiriqlar
+     </a>
+    </li>
+    <li><a href="#Kop_beriladigan_savollar_0">Ko‘p beriladigan savollar</a></li>
+    <li><a href="#Python_boyicha_topshiriqlar_0">Python bo‘yicha topshiriqlar</a></li>
+    <!--  <li>
+     <a href="#summary">
+      Summary
+     </a>
+    </li>-->
+   </ul>
+  </nav>
+  <main class="container-fluid">
+   <h1 class="handout-title col-sm-8 col-sm-offset-2" id="pythonga_kirish">
+    14. Savollar va topshiriqlar
+   </h1>
+   <div data-outline="pythonga_kirish">
+    <div class="markdown col-sm-8 col-sm-offset-2 converted">
+     <h4>
+        Bu bob quyidagilardan tashkil topgan:
+     </h4>
+     <p>
+      Mavzular:
+     </p>
+     <ul>
+      <li>
+         Ko‘p beriladigan savollar
+      </li>
+      <li>Python bo‘yicha topshiriqlar</li>
+     </ul>
+
+
+     <h2 id="Kop_beriladigan_savollar_0">
+      Ko‘p beriladigan savollar
+     </h2>
+
+<div data-outline="Kop_beriladigan_savollar_0">
+<p class="has-line-data" data-line-start="1" data-line-end="2">Pythonda dasturlashni yangi boshlovchilarni ikkilantirishi mumkin bo‘lgan ayrim holatlar.</p>
+<h3 class="code-line" data-line-start=3 data-line-end=4 ><a id="Nega_menda_ozgaruvchi_qiymatga_ega_bolsa_ham_UnboundLocalError_noodatiy_holat_xabari_paydo_bolmoqda_3"></a>Nega menda o‘zgaruvchi qiymatga ega bo‘lsa ham, <code>UnboundLocalError</code> noodatiy holat xabari paydo bo‘lmoqda?</h3>
+<p class="has-line-data" data-line-start="4" data-line-end="5">Ba’zan avval ishlab turgan koddagi funksiyaga oddiygina o‘zlashtirish operatorini qo‘shishning natijasi sifatida <code>UnboundLocalError</code> xatoligi chiqib qolishi mumkin.</p>
+<p class="has-line-data" data-line-start="6" data-line-end="7">Quyidagi kod ishlaydi:</p>
+<pre><code class="has-line-data" data-line-start="9" data-line-end="15" class="language-python">&gt;&gt;&gt; x = <span class="hljs-number">10</span>
+&gt;&gt;&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bar</span><span class="hljs-params">()</span>:</span>
+         print(x)
+&gt;&gt;&gt; bar()
+<span class="hljs-number">10</span>
+</code></pre>
+<p class="has-line-data" data-line-start="15" data-line-end="16">Lekin mana bu kod <code>UnboundLocalError</code> xatoligiga olib keladi:</p>
+<pre><code class="has-line-data" data-line-start="17" data-line-end="22" class="language-python">&gt;&gt;&gt; x = <span class="hljs-number">10</span>
+&gt;&gt;&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span>:</span>
+         print(x)
+         x += <span class="hljs-number">1</span>
+</code></pre>
+<p class="has-line-data" data-line-start="22" data-line-end="23">Natija:</p>
+<pre><code class="has-line-data" data-line-start="24" data-line-end="29" class="language-python">&gt;&gt;&gt; foo()
+Traceback (most recent call last):
+
+UnboundLocalError: local variable <span class="hljs-string">'x'</span> referenced before assignment
+</code></pre>
+<p class="has-line-data" data-line-start="30" data-line-end="31">Buning sabab shundaki, siz o‘zgaruvchiga uning ko‘rinish sohasida qiymat berayotgan vaqtingizda, u shu sohada <em>lokal o‘zgaruvchiga</em> aylanib qoladi, bu esa tashqi sohadagi xuddi shu o‘zgaruvchilarning yashirin holatga o‘tib qolishiga olib keladi.</p>
+<p class="has-line-data" data-line-start="32" data-line-end="33"><code>foo</code> funksiyasidagi oxirgi ko‘rsatma o‘z tarkibidagi <code>x</code> o‘zgaruvchiga yangi qiymat berganda, kompilyator bu lokal o‘zgaruvchi ekan, degan xato xulosaga keladi. Demak, undan oldinroqdagi print hali faollashtirilmagan o‘zgaruvchini chiqarishga intiladi va xatolik kelib chiqadi.</p>
+<p class="has-line-data" data-line-start="34" data-line-end="35">Yuqoridagi misolda murojaat qilish mumkin bo‘lishi uchun o‘zgaruvchini global o‘zgaruvchi sifatida e’lon qilish mumkin:</p>
+<pre><code class="has-line-data" data-line-start="37" data-line-end="45" class="language-python">&gt;&gt;&gt; x = <span class="hljs-number">10</span>
+&gt;&gt;&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foobar</span><span class="hljs-params">()</span>:</span>
+         <span class="hljs-keyword">global</span> x
+         print(x)
+         x += <span class="hljs-number">1</span>
+&gt;&gt;&gt; foobar()
+<span class="hljs-number">10</span>
+</code></pre>
+<p class="has-line-data" data-line-start="45" data-line-end="46">Buni yaqqol e’lon qilishdan maqsad, tashqi ko‘rinish sohasidagi o‘zgaruvchi qiymatini o‘zgartirayotganingizni (klass va ekzemplyarlar bilan bog‘liq xuddi shunday holatdan farqli tarzda) sizga eslatib turishdan iborat.</p>
+<pre><code class="has-line-data" data-line-start="48" data-line-end="51" class="language-python">&gt;&gt;&gt; print(x)
+<span class="hljs-number">11</span>
+</code></pre>
+<p class="has-line-data" data-line-start="52" data-line-end="53">Xuddi shunday vazifani ko‘rinishning ichki sohasida ham bajarish uchun <code>nonlocal</code> so‘zidan foydalanishingiz mumkin:</p>
+<pre><code class="has-line-data" data-line-start="55" data-line-end="67" class="language-python">&gt;&gt;&gt; <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span>:</span>
+         x = <span class="hljs-number">10</span>
+         <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bar</span><span class="hljs-params">()</span>:</span>
+            <span class="hljs-keyword">nonlocal</span> x
+            print(x)
+            x += <span class="hljs-number">1</span>
+         bar()
+         print(x)
+&gt;&gt;&gt; foo()
+<span class="hljs-number">10</span>
+<span class="hljs-number">11</span>
+</code></pre>
+<h3 class="code-line" data-line-start=68 data-line-end=69 ><a id="Pythonning_global_va_lokal_ozgaruvchilari_uchun_qanday_qoidalar_mavjud_68"></a>Pythonning global va lokal o‘zgaruvchilari uchun qanday qoidalar mavjud?</h3>
+<p class="has-line-data" data-line-start="69" data-line-end="70">Pythonda faqat funksiyaning ichidangina murojaat qilinadigan o‘zgaruvchilar global o‘zgaruvchi hisoblanadi. Agar yangi qiymat o‘zgaruvchiga funksiya tanasining ichida o‘zlashtiriladigan bo‘lsa, u lokal o‘zgaruvchi bo‘ladi. Undan global o‘zgaruvchi sifatida foydalanishga zarurat tug‘ilsa, siz bunday imkoniyatni alohida ko‘rsatib o‘tishingiz lozim.</p>
+<p class="has-line-data" data-line-start="71" data-line-end="72">Bu bir qarashda murakkab tuyulishi mumkin. Aslida unday emas, bir tomondan, o‘zlashtirilayotgan o‘zgaruvchilar uchun global talabi barda yuzaga kelishi mumkin bo‘lgan kutilmagan holatlarning oldini olish uchun bu muhim, ikkinchi tomondan, agar global so‘zi har qanday global o‘zgaruvchilar uchun majburiy bo‘lganida edi, siz bu so‘zdan har doim foydalanishga majbur bo‘lar edingiz. Ya’ni siz doimo har bir tarkibiy funksiya yoki import qilinayotgan komponentni ham global sifatida e’lon qilishga majbur bo‘lar edingiz.</p>
+<h3 class="code-line" data-line-start=73 data-line-end=74 ><a id="Nega_takrorlanish_siklida_turli_qiymatlar_bilan_aniqlangan_lambda_funksiyalar_bir_xil_qiymat_qaytarmoqda_73"></a>Nega takrorlanish siklida turli qiymatlar bilan aniqlangan lambda funksiyalar bir xil qiymat qaytarmoqda?</h3>
+<p class="has-line-data" data-line-start="74" data-line-end="75">Deylik, siz quyidagicha kod yozdingiz:</p>
+<pre><code class="has-line-data" data-line-start="77" data-line-end="81" class="language-python">&gt;&gt;&gt; squares = []
+&gt;&gt;&gt; <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(<span class="hljs-number">5</span>):
+         squares.append(<span class="hljs-keyword">lambda</span>: x**<span class="hljs-number">2</span>)
+</code></pre>
+<p class="has-line-data" data-line-start="82" data-line-end="83">Bu bizga <code>x ** 2</code> ni hisoblovchi 5 ta funksiyadan iborat ro‘yxatni beradi. Murojaat qilganimizda, ular bizga mos ravishda <code>0</code>, <code>1</code>, <code>4</code>, <code>6</code> va <code>9</code> ni qaytarishini taxmin qilishimiz mumkin. Ammo amalda ularning barchasi 16 ni qaytarayotganini ko‘ramiz:</p>
+<pre><code class="has-line-data" data-line-start="85" data-line-end="90" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>squares[<span class="hljs-number">2</span>]()
+<span class="hljs-number">16</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>squares[<span class="hljs-number">4</span>]()
+<span class="hljs-number">16</span>
+</code></pre>
+<p class="has-line-data" data-line-start="91" data-line-end="92">Bunga sabab, <code>x</code> lambda uchun local emas, u tashqi ko‘rinish sohasida ham aniqlangan. Buning natijasida u aniqlanganida emas, chaqirilganida hosil bo‘ladi.</p>
+<p class="has-line-data" data-line-start="93" data-line-end="94">Takrorlashlar yakunida <code>x = 4</code> bo‘ladi, shuning uchun ham barcha holatlar uchun <code>4 ** 2</code> ning natijalari <code>16</code> ga teng bo‘lmoqda. Bunga ishonch hosil qilish uchun <code>x</code> ning qiymatini o‘zgartirib, natijani tekshirish kifoya:</p>
+<pre><code class="has-line-data" data-line-start="95" data-line-end="99" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>x = <span class="hljs-number">8</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>squares[<span class="hljs-number">2</span>]()
+<span class="hljs-number">64</span>
+</code></pre>
+<p class="has-line-data" data-line-start="99" data-line-end="100">Bu holatning oldini olish uchun, o‘zgaruvchilar qiymatini lokal holatda saqlab turish lozim.</p>
+<pre><code class="has-line-data" data-line-start="102" data-line-end="106" class="language-python">&gt;&gt;&gt; squares = []
+&gt;&gt;&gt; <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(<span class="hljs-number">5</span>):
+         squares.append(<span class="hljs-keyword">lambda</span> n=x: n**<span class="hljs-number">2</span>)
+</code></pre>
+<p class="has-line-data" data-line-start="106" data-line-end="107">Bu yerda <code>n=x</code> funksiya uchun lokal <code>n</code> o‘zgaruvchini yaratadi va funksiyaning aniqlanish jarayonidayoq hisoblanadi:</p>
+<pre><code class="has-line-data" data-line-start="108" data-line-end="113" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>squares[<span class="hljs-number">2</span>]()
+<span class="hljs-number">4</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>squares[<span class="hljs-number">4</span>]()
+<span class="hljs-number">16</span>
+</code></pre>
+<p class="has-line-data" data-line-start="113" data-line-end="114">Bunday holat nafaqat anonim, balki oddiy funksiyalar uchun ham o‘rinli.</p>
+<h3 class="code-line" data-line-start=115 data-line-end=116 ><a id="Bir_nechta_modul_uchun_global_ozgaruvchilardan_birgalikda_foydalanishni_qanday_tashkil_etish_mumkin_115"></a>Bir nechta modul uchun global o‘zgaruvchilardan birgalikda foydalanishni qanday tashkil etish mumkin?</h3>
+<p class="has-line-data" data-line-start="116" data-line-end="117">Muammoning ko‘pchilik tomonidan qo‘llaniladigan yechimi – aksariyat hollarda congig yoki <code>cfg</code> deb nomlanuvchi bitta modulni yaratish. Buning uchun ilovangizning har bir moduliga import configni qo‘shsangiz kifoya. Bunda modulga global nom orqali murojaat qilish imkoniyati yaratiladi. Modul faqat bitta nusxasdan iborat bo‘lganligi sababli, shu modul ichida amalga oshirilgan barcha o‘zgarishlar hamma yerda o‘z aksini topaveradi. Masalan:</p>
+<p class="has-line-data" data-line-start="118" data-line-end="119"><code>config.py:</code></p>
+<pre><code class="has-line-data" data-line-start="121" data-line-end="123" class="language-python">x = <span class="hljs-number">0</span>
+</code></pre>
+<p class="has-line-data" data-line-start="123" data-line-end="124"><code>mod.py</code></p>
+<pre><code class="has-line-data" data-line-start="125" data-line-end="128" class="language-python"><span class="hljs-keyword">import</span> config
+config.x = <span class="hljs-number">1</span>
+</code></pre>
+<p class="has-line-data" data-line-start="128" data-line-end="129"><code>main.py:</code></p>
+<pre><code class="has-line-data" data-line-start="130" data-line-end="134" class="language-python"><span class="hljs-keyword">import</span> config
+<span class="hljs-keyword">import</span> mod
+print(config.x)
+</code></pre>
+<p class="has-line-data" data-line-start="134" data-line-end="135">Aynan shu sababli, modullardan singlton implementatsiyasi uchun asos sifatida ham foydalanish mumkin.</p>
+<h3 class="code-line" data-line-start=136 data-line-end=137 ><a id="Importlashdan_qanday_unumliroq_foydalanish_mumkin_136"></a>Importlashdan qanday unumliroq foydalanish mumkin?</h3>
+<p class="has-line-data" data-line-start="137" data-line-end="138">Umumiy hollarda imkon qadar <code>from modulname import *</code> metodidan foydalanmang. Bu holat import qiluvchi nomlar muhitining to‘lib qolishiga olib kelishi mumkin. Ayrim foydalanuvchilar bu metodni hatto aynan shuning uchun yaratilgan modullarga nisbatan ham qo‘llamaslikka harakat qiladi (masalan, <code>tkinter</code> yoki <code>thrading</code> kabi modullar).</p>
+<p class="has-line-data" data-line-start="139" data-line-end="140">Modullarni fayl boshlanishida import qiling. Bu sizning kodingiz qanday modullarni talab qilishi, modulning nomi ko‘rinish sohasida mavjud yoki mavjud emasligiga javob berish uchun kerak. Bitta satrda bitta importni amalga oshirish import buyruqlarini qo‘shish, keraksizlarini esa o‘chirish amallarini yengillashtiradi hamda adashishlarning oldini oladi. Lekin guruhli import metodi ekranda ozroq joy egallaydi.</p>
+<p class="has-line-data" data-line-start="141" data-line-end="142">Modullarni quyidagi tartibda import qilish to‘g‘ri hisoblanadi:</p>
+<ul>
+<li class="has-line-data" data-line-start="143" data-line-end="144">standart kutubxona modullari (masalan: <code>sys</code>, <code>os</code>, <code>getopt</code>, <code>re</code>);</li>
+<li class="has-line-data" data-line-start="144" data-line-end="145">chetki ishlab chiqaruvchilarning modullari (site-packages papkasidagi barcha modullar. Masalan: <code>PIL</code>, <code>NumPy</code> va boshqalar);</li>
+<li class="has-line-data" data-line-start="145" data-line-end="147">lokal yaratilgan modular.</li>
+</ul>
+<p class="has-line-data" data-line-start="147" data-line-end="148">Ba’zan importni funksiya yoki klassning ichida joylashtirishga to‘g‘ri kelib qoladi. Takroriy import bilan bog‘liq muammolarning oldini olish uchun Gordon McMillan quyidagilarni bayom qiladi.</p>
+<p class="has-line-data" data-line-start="149" data-line-end="150">Ikkala modul ham <code>import &lt;module&gt;</code> shaklidan foydalangan holatlarda, takroriy import yaxshi ishlaydi. Lekin bu amaliyot bitta modul ikkinchisidagi nomga murojaat qilmoqchi bo‘lganida hamda import tashqi darajada joylashganda, xatoga duch keladi (<code>from module import name</code>). Bunga sabab, birinchi modul ikkinchisini import qilish bilan bandligi uchun, birinchi modulning nomlari hali murojaatga tayyor emasligidir.</p>
+<p class="has-line-data" data-line-start="151" data-line-end="152">Bunday holatda, agar ikkinchi modul faqat bitta funksiyada qo‘llanilayotgan bo‘lsa, importni osonlik bilan shu funksiyaning o‘zida joylashtirish mumkin. Unga murojaat etilgan vaqtda birinchi modul yuklanishni yakuniga yetkazib, ikkinchi modul o‘z importini amalga oshirishi mumkin.</p>
+<p class="has-line-data" data-line-start="153" data-line-end="154">Agar modullardan biri platformaga bog‘liq bo‘lsa, u holda importni fayl boshidan boshqa yerga ko‘chirishga to‘g‘ri kelishi mumkin. Bunday holatda barcha modullarni fayl boshida import qilishning iloji bo‘lmaydi. Bunda kerakli modullarni unga mos platformaga bog‘liq kodning o‘zida import qilish to‘g‘ri yechim bo‘lishi mumkin.</p>
+<p class="has-line-data" data-line-start="155" data-line-end="156">Importni funksiyalarning tavsifi kabi ichki sohalarga ko‘chirish amalini bajarishda faqat biror muammo (masalan, takroriy import kabilar)ga duch kelganingizda yoki modulning faollashish vaqtini qisqartirish kerak bo‘lgandagina qo‘llash tavsiya etiladi.</p>
+<p class="has-line-data" data-line-start="157" data-line-end="158">Bu metod modullarning ko‘pchiligi unchalik zarur bo‘lmaganda, dasturning qanday bajarilishiga bog‘liq holda talab qilinishi mumkin bo‘lgan vaziyatlarda foydali bo‘lishi mumkin. Bundan tashqari, aniq bitta modul faqat shu funksiyaning ichidagina ishlatilsa, modullar importini funksiyaning ichiga joylashtirishingiz mumkin. Modulni birinchi marta yuklash jarayoni uni faollashtiirshga ketadigan vaqt hisobiga cho‘zilishi mumkin, keyinchalik ularni qayta yuklash jarayoni bor-yo‘g‘i lug‘atlardan bir-ikkita qidiruv davrigacha qisqarib qoladi. Hatto modulning nomi ko‘rinish sohasidan yo‘qolib qolgan taqdirda ham, modulning o‘zi katta ehtimollik bilan hali ham sys.modulesda bo‘ladi.</p>
+<h3 class="code-line" data-line-start=159 data-line-end=160 ><a id="Nega_boshlangich_odatiy_qiymat_obyektlar_orasida_taqsimlanadi_159"></a>Nega boshlang‘ich odatiy qiymat obyektlar orasida taqsimlanadi?</h3>
+<p class="has-line-data" data-line-start="160" data-line-end="161">Bunday xatolik ham boshlovchi dasturchilar orasida tez-tez uchrab turadi. Quyidagi funksiyani qaraylik:</p>
+<pre><code class="has-line-data" data-line-start="163" data-line-end="168" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">(mydict={})</span>:</span> <span class="hljs-comment"># xavfli: chaqiruvlar orasida taqsimlangan havola.</span>
+      ... compute something ...
+      mydict[key] = value
+      <span class="hljs-keyword">return</span> mydict
+</code></pre>
+<p class="has-line-data" data-line-start="168" data-line-end="169">Agar funksiyani birinchi marta chaqirganingizda, mydict boshqa qiymatga ega bo‘lsa, ikkinchi martada u 2 ta elementga ega bo‘ladi, chunki <code>foo()</code> bajarilishni boshlayotganida mydict allaqachon bir elementga ega bo‘lgan edi.</p>
+<p class="has-line-data" data-line-start="170" data-line-end="171">Aksariyat hollarda funksiyani chaqirish odatiy qiymatlar uchun yangi obyektlarning yaratilishiga olib kelishini kutishadi. Aslida bunday emas. Odatiy qiymatlar faqat bir marta, funksiyaning tavsiflanish jarayonida yaratiladi. Agar obyekt bizning misolimizdagi lug‘at kabi o‘zgaradigan bo‘lsa, funksiyaga keyingi murojaatlar uchun o‘zgartirilgan obyektdan foydalanishadi.</p>
+<p class="has-line-data" data-line-start="172" data-line-end="173">Aslida esa o‘zgarmaydigan obyekt (son, satr, kortej va <code>None</code> obyekt)lar o‘zgartirilayotganda xavf tug‘dirmaydi. Lug‘atlar, ro‘yxatlar, foydalanuvchi klasslarining ekzemlyarlari kabi o‘zgaradigan obyektlarni o‘zgartirish esa kutilmagan oqibatlarga olib kelishi mumkin.</p>
+<p class="has-line-data" data-line-start="174" data-line-end="175">Shuning uchun odatiy qiymatlar sifatida o‘zgaradigan obyektlardan foydalanmaslik amaliyoti keng tarqalgan. Buning o‘rniga funksiyaning ichida ham Nonedan foydalaning, argumentni None ekanligini tekshiring va yangi ro‘yxat/lug‘atlar yarating.</p>
+<p class="has-line-data" data-line-start="176" data-line-end="177">Quyida berilgan misoldagi kabi ish tutmang:</p>
+<pre><code class="has-line-data" data-line-start="178" data-line-end="181" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">(mydict={})</span>:</span>
+      ...
+</code></pre>
+<p class="has-line-data" data-line-start="182" data-line-end="183">Lekin mana bu misoldagi kabi yo‘l tutish mumkin:</p>
+<pre><code class="has-line-data" data-line-start="184" data-line-end="188" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">(mydict=None)</span>:</span>
+      <span class="hljs-keyword">if</span> mydict <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+         mydict = {} <span class="hljs-comment"># lokal nomlar muhiti uchun yangi lug`at yarating</span>
+</code></pre>
+<p class="has-line-data" data-line-start="189" data-line-end="190">Bu xususiyatdan biz o‘zimizga kerakli holatlarda unumli foydlanishimiz mumkin. Sizda birorta uzoq vaqt bajariluvhci funksiya mavjud bo‘lsa, parametrlar va funksiyaning har bir chaqirilishi natijalarini kesh-xotirada saqlang, bu – keng qo‘llaniladigan metodlardan biri.</p>
+<pre><code class="has-line-data" data-line-start="192" data-line-end="201" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">expensive</span><span class="hljs-params">(arg1, arg2, _cache={})</span>:</span>
+      <span class="hljs-keyword">if</span> (arg1, arg2) <span class="hljs-keyword">in</span> _cache:
+         <span class="hljs-keyword">return</span> _cache[(arg1, arg2)]
+
+      <span class="hljs-comment"># Qiymatni hisoblash</span>
+      result = ... expensive computation ...
+      _cache[(arg1, arg2)] = result <span class="hljs-comment"># Natijani keshga joylashtiramiz</span>
+      <span class="hljs-keyword">return</span> result
+</code></pre>
+<h3 class="code-line" data-line-start=202 data-line-end=203 ><a id="Bitta_funksiyadan_boshqasiga_opsional_va_nomlangan_parametrlarni_qanday_uzatish_mumkin_202"></a>Bitta funksiyadan boshqasiga opsional va nomlangan parametrlarni qanday uzatish mumkin?</h3>
+<p class="has-line-data" data-line-start="204" data-line-end="205">Bunday parametrlarni funksiya argumentlari hamda <code>*</code> va <code>**</code> spetsifikatorlari yordamida hosil qilish mumkin, ular pozitsiyali argumentlardan iborat kortejni hamda nomlangan parametrlardan iborat lug‘atlarni qaytaradi. Shundan keyin siz ularni murojaatdagi <code>*</code> va <code>**</code> dan foydalangan holda boshqa funksiyaga uzatishingiz mumkin:</p>
+<pre><code class="has-line-data" data-line-start="207" data-line-end="213" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-params">(x, *args, **kwargs)</span>:</span>
+      ...
+      kwargs[<span class="hljs-string">'width'</span>] = <span class="hljs-string">'14.3c'</span>
+      ...
+      g(x, *args, **kwargs)
+</code></pre>
+<h3 class="code-line" data-line-start=214 data-line-end=215 ><a id="Nima_uchun_y_royxatning_ozgartirilishi_x_royxatning_ham_ozgarishiga_olib_keladi_214"></a>Nima uchun y ro‘yxatning ozgartirilishi <code>x</code> ro‘yxatning ham o‘zgarishiga olib keladi?</h3>
+<p class="has-line-data" data-line-start="215" data-line-end="216">Agar siz quyidagi kodni yozsangiz:</p>
+<pre><code class="has-line-data" data-line-start="218" data-line-end="226" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>x = []
+<span class="hljs-prompt">&gt;&gt;&gt; </span>y = x
+<span class="hljs-prompt">&gt;&gt;&gt; </span>y.append(<span class="hljs-number">10</span>)
+<span class="hljs-prompt">&gt;&gt;&gt; </span>y
+[<span class="hljs-number">10</span>]
+<span class="hljs-prompt">&gt;&gt;&gt; </span>x
+[<span class="hljs-number">10</span>]
+</code></pre>
+<p class="has-line-data" data-line-start="227" data-line-end="228"><code>y</code> ga nimaningdir qo‘shilishi <code>x</code> ning ham o‘zgarishiga olib kelishini ko‘rasiz, bunga hayron qolishingiz ham mumkin.</p>
+<p class="has-line-data" data-line-start="229" data-line-end="230">Bunday natijaga kelishimizning 2 ta asosiy sababi bor:</p>
+<ul>
+<li class="has-line-data" data-line-start="230" data-line-end="231">o‘zgaruvchilar – shunchaki obyektlarga bo‘lgan havolalar. <code>y = x</code> ro‘yxatning nusxasini yaratmaydi, bu buyruq yana bitta xuddi shu obyektga yo‘naltirilgan havolaga ega <code>x</code> o‘zgaruvchini yaratadi;</li>
+<li class="has-line-data" data-line-start="231" data-line-end="233">ro‘yxatlarning o‘zgaruvchanligi.</li>
+</ul>
+<p class="has-line-data" data-line-start="233" data-line-end="234"><code>append</code> chaqirilganidan keyin, obyektning tarkibi <code>[]</code> dan <code>[10]</code> ga o‘zgardi. <code>x</code> va <code>y</code> aynan bitta obyektga havolaga ega bo‘lganligi sababli, ulardan har birining qo‘llanilishi bizga 10 ni qaytaradi.</p>
+<p class="has-line-data" data-line-start="235" data-line-end="236">Agar biz o‘zgarmaydigan obyektlarni qo‘llaydigan bo‘lsak:</p>
+<pre><code class="has-line-data" data-line-start="238" data-line-end="246" class="language-python">&gt;&gt;&gt; x = <span class="hljs-number">5</span> <span class="hljs-comment"># sonlar o`zgarmas ob`yektlardir</span>
+&gt;&gt;&gt; y = x
+&gt;&gt;&gt; x = x + <span class="hljs-number">1</span> <span class="hljs-comment"># 5 ni o`zgartirish mumkin emas. Biz yangi bir ob`yekt yaratamiz.</span>
+&gt;&gt;&gt; x
+<span class="hljs-number">6</span>
+&gt;&gt;&gt; y
+<span class="hljs-number">5</span>
+</code></pre>
+<p class="has-line-data" data-line-start="247" data-line-end="248">Bu yerda biz <code>x</code> va <code>y</code> endi o‘zaro teng emasligini ko‘rishimiz mumkin, chunki sonlar o‘zgarmas, <code>x = x + 1</code> 5 sonini o‘shirish bilan o‘zgartirish mumkin emas. Buning o‘rniga yangi 6 obyekti yaratiladi va <code>x</code> o‘zgaruvchiga o‘zlashtiriladi (ya’ni <code>x</code> ning yo‘naltirilgan obyekti havolasi o‘zgartiriladi). Shundan keyin bizda 2 ta (5 va 6) obyekt hamda ularga havola sifatida 2 ta (<code>x</code> va <code>y</code>) o‘zgaruvchi hosil bo‘ladi.</p>
+<p class="has-line-data" data-line-start="249" data-line-end="250">Ba’zi operatsiyalar [masalan, <code>y.append(10)</code> va <code>y.sort()</code> kabilar] obyektni o‘zgartirishish bilan birga, ularga tashqi jihatdan o‘xshash bo‘lib ko‘ringan operatsiyalar [masalan, <code>y = y + [10]</code> va <code>sorted(y)</code> kabi] yangi obyekt yaratadi. Umuman, Pythonda (standart kutubxonaning barcha holatlarida ham) obyektni o‘zgartiradigan metodlar xatoliklardan xoli bo‘lish uchun <code>None</code>ni qaytaradi. Deylik, siz quyidagicha yozgangiz:</p>
+<pre><code class="has-line-data" data-line-start="252" data-line-end="254" class="language-python">y = y.sort()
+</code></pre>
+<p class="has-line-data" data-line-start="255" data-line-end="256">U sizga <code>y</code> ning tartiblashtirilgan nusxasini qaytaradi, deb o‘ylayotgan bo‘lsangiz, uning o‘rniga <code>None</code>ga ega bo‘lasiz, bu esa oson tahlil qilish mumkin bo‘lgan xatolikka olib keladi.</p>
+<p class="has-line-data" data-line-start="257" data-line-end="258">Yana bitta operatsiyalar klassi mavjudki, unda aynan bitta operatsiya turli tiplar bilan turlicha ishlaydi. U ham bo‘lsa, o‘zlashtirishning kengaytirilgan operatsiyalaridir. Masalan, <code>+=</code> ro‘yxatlarni o‘zgartiradi, ammo kortej yoki sonlarni emas. (<code>a_list += [1, 2, 3]</code>) hamda <code>a_list.extend([1, 2, 3])</code> lar o‘zaro ekvivalent) ro‘yxatni o‘zgartiradi. <code>some_tuple += (1, 2, 3)</code> va <code>some_int += 1</code> esa yangi obyekt yaratadi.</p>
+<p class="has-line-data" data-line-start="259" data-line-end="260">Agar ikkita o‘zgaruvchi aynan bitta obyektga havolaga ega yoki ega emasligini bilmoqchi bo‘lsangiz, u holda siz is operatori yoki id tarkibiy funksiyasidan foydalanishingiz mumkin.</p>
+<h3 class="code-line" data-line-start=261 data-line-end=262 ><a id="Nisbatan_yuqoriroq_darajali_funksiyalarni_qanday_yaratish_mumkin_261"></a>Nisbatan yuqoriroq darajali funksiyalarni qanday yaratish mumkin?</h3>
+<p class="has-line-data" data-line-start="262" data-line-end="263">Buning ikkita yo‘li bor: 1) ichki funksiyalar yoki 2) chaqiriladigan obyektlardan foydalanish.</p>
+<p class="has-line-data" data-line-start="264" data-line-end="265">Ichki funksiyalardan foydalanishni ko‘rib chiqamiz:</p>
+<pre><code class="has-line-data" data-line-start="266" data-line-end="271" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">linear</span><span class="hljs-params">(a, b)</span>:</span>
+      <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">result</span><span class="hljs-params">(x)</span>:</span>
+         <span class="hljs-keyword">return</span> a * x + b
+      <span class="hljs-keyword">return</span> result
+</code></pre>
+<p class="has-line-data" data-line-start="272" data-line-end="273">Va chaqiriladigan obyektdan foydalanish:</p>
+<pre><code class="has-line-data" data-line-start="275" data-line-end="282" class="language-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">linear</span>:</span>
+
+      <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, a, b)</span>:</span>
+         self.a, self.b = a, b
+      <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__call__</span><span class="hljs-params">(self, x)</span>:</span>
+         <span class="hljs-keyword">return</span> self.a * x + self.b
+</code></pre>
+<p class="has-line-data" data-line-start="283" data-line-end="284">Ikkala holatda ham:</p>
+<pre><code class="has-line-data" data-line-start="286" data-line-end="288" class="language-python">taxes = linear(<span class="hljs-number">0.3</span>, <span class="hljs-number">2</span>)
+</code></pre>
+<p class="has-line-data" data-line-start="289" data-line-end="290"><code>taxes(10e6) == 0.3 * 10e6 + 2</code> funksiyani beradi.</p>
+<p class="has-line-data" data-line-start="291" data-line-end="292">Chaqiriladigan obyektdan foydalanish nisbatan sekinroq kechadi, buning natijasida kod ham ko‘proq bo‘ladi. Lekin bir necha funksiya o‘z vorisliklari yordamida signaturalarini bo‘lishlari mumkin:</p>
+<pre><code class="has-line-data" data-line-start="294" data-line-end="299" class="language-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">exponential</span><span class="hljs-params">(linear)</span>:</span>
+      <span class="hljs-comment"># __init__ meroslanadi</span>
+      <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__call__</span><span class="hljs-params">(self, x)</span>:</span>
+         <span class="hljs-keyword">return</span> self.a * (x ** self.b)
+</code></pre>
+<p class="has-line-data" data-line-start="300" data-line-end="301">Obyekt bir necha chaqiruv uchun ham o‘zining holatini saqlab qolishi mumkin:</p>
+<pre><code class="has-line-data" data-line-start="303" data-line-end="316" class="language-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">counter</span>:</span>
+
+      value = <span class="hljs-number">0</span>
+
+      <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set</span><span class="hljs-params">(self, x)</span>:</span>
+         self.value = x
+      <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">up</span><span class="hljs-params">(self)</span>:</span>
+         self.value = self.value + <span class="hljs-number">1</span>
+      <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">down</span><span class="hljs-params">(self)</span>:</span>
+         self.value = self.value - <span class="hljs-number">1</span>
+      count = counter()
+      inc, dec, reset = count.up, count.down, count.set
+</code></pre>
+<p class="has-line-data" data-line-start="316" data-line-end="317">Bu yerda <code>inc</code>, <code>dec</code> va resetlar aynan bitta o‘zgaruvchini bo‘lishayotgan funksiyalar rolida kelmoqda.</p>
+<h3 class="code-line" data-line-start=318 data-line-end=319 ><a id="Pythonda_obyektni_qanday_nusxalash_mumkin_318"></a>Pythonda obyektni qanday nusxalash mumkin?</h3>
+<p class="has-line-data" data-line-start="319" data-line-end="320">Umuman olganda, obyektni copy moduli yordamida nusxalasa bo‘ladi.</p>
+<p class="has-line-data" data-line-start="321" data-line-end="322">Ba’zi obyektlarni undan ham oddiyroq metodda nusxalash mumkin. Lug‘atlar <code>copy</code> metodiga ega:</p>
+<pre><code class="has-line-data" data-line-start="323" data-line-end="325" class="language-python">newdict = olddict.copy()
+</code></pre>
+<p class="has-line-data" data-line-start="325" data-line-end="326">Ketma-ketliklar kesimlar yordamida nusxalanishi mumkin:</p>
+<pre><code class="has-line-data" data-line-start="327" data-line-end="329" class="language-python">new_l = l[:]
+</code></pre>
+<h3 class="code-line" data-line-start=329 data-line-end=330 ><a id="Obyektning_metod_va_atributlarini_qanday_bilish_mumkin_329"></a>Obyektning metod va atributlarini qanday bilish mumkin?</h3>
+<p class="has-line-data" data-line-start="330" data-line-end="331"><code>dir(x)</code> metod va atributlar ro‘yxatini qaytaradi.</p>
+<h3 class="code-line" data-line-start=332 data-line-end=333 ><a id="Obyektning_nomini_qanday_bilish_mumkin_332"></a>Obyektning nomini qanday bilish mumkin?</h3>
+<p class="has-line-data" data-line-start="333" data-line-end="334">Umuman olganda, obyekt metod va atributlarini bilishning hech qanday imkoni yo‘q, chunki obyektlarda nomning o‘zi bo‘lmaydi. O‘zlashtirish hamma vaqt nom bilan obyektni shunchaki bog‘laydi. Bu <code>de</code> va <code>class</code> instruksiyalari uchun ham to‘g‘ri:</p>
+<pre><code class="has-line-data" data-line-start="335" data-line-end="347" class="language-python">&gt;&gt;&gt; <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span>:</span>
+         <span class="hljs-keyword">pass</span>
+      
+&gt;&gt;&gt; B = A
+&gt;&gt;&gt;
+&gt;&gt;&gt; a = B()
+&gt;&gt;&gt; b = a
+&gt;&gt;&gt; print(b)
+&lt;__main__.A object at <span class="hljs-number">0x7fbcc3ee5160</span>&gt;
+&gt;&gt;&gt; print(a)
+&lt;__main__.A object at <span class="hljs-number">0x7fbcc3ee5160</span>&gt;
+</code></pre>
+<p class="has-line-data" data-line-start="347" data-line-end="348">Klass nomga ega bo‘lishi ham mumkin, lekin u ikkita nom bilan bog‘liq bo‘lib, <code>B</code> nomi orqali murojaat qilinayotgan bo‘lsa-da, yaratilgan ekzemplyar hali ham <code>A</code> klassning ekzemplyari hisoblanadi. Biroq ekzemplyarning nomi <code>A</code> yoki <code>B</code> ekanligini aytib bo‘lmaydi, chunki ularning har ikkalasi aynan bitta obyekt bilan bog‘langan.</p>
+<h3 class="code-line" data-line-start=349 data-line-end=350 ><a id="vergul_operatorining_ustunligi_prioriteti_nimada_349"></a>vergul” operatorining ustunligi (prioriteti) nimada?</h3>
+<p class="has-line-data" data-line-start="351" data-line-end="352">&quot;vergul” Pythonda operator hisoblanmaydi.</p>
+<pre><code class="has-line-data" data-line-start="354" data-line-end="357" class="language-python">&gt;&gt;&gt; <span class="hljs-string">"a"</span> <span class="hljs-keyword">in</span> <span class="hljs-string">"b"</span>, <span class="hljs-string">"a"</span>
+(<span class="hljs-keyword">False</span>, <span class="hljs-string">'a'</span>)
+</code></pre>
+<p class="has-line-data" data-line-start="357" data-line-end="358">&quot;vergul” operator emas, balki ifodalar orasidagi ajratuvchi bo‘lganligi sababli, yuqoridagi misol quyidagi misolni kiritilgandagi kabi amallarni bajaradi:</p>
+<pre><code class="has-line-data" data-line-start="359" data-line-end="361" class="language-python">(<span class="hljs-string">"a"</span> <span class="hljs-keyword">in</span> <span class="hljs-string">"b"</span>), <span class="hljs-string">"a"</span>
+</code></pre>
+<p class="has-line-data" data-line-start="361" data-line-end="362">Lekin mana bu misol bilan bir xil emas:</p>
+<pre><code class="has-line-data" data-line-start="363" data-line-end="365" class="language-python"><span class="hljs-string">"a"</span> <span class="hljs-keyword">in</span> (<span class="hljs-string">"b"</span>, <span class="hljs-string">"a"</span>)
+</code></pre>
+<p class="has-line-data" data-line-start="366" data-line-end="367">Xuddi shunday yuqoridagilar o‘zlashtirish operatorlari (<code>=</code>, <code>+=</code> va boshqalar) uchun ham o‘rinli. Ular operatorlarning emas, balki ifodalardagi sintaktik ajratuvchilar vazifasini bajaradi.</p>
+<p class="has-line-data" data-line-start="368" data-line-end="369">Pythonda “C” tilidagi <code>?:</code> ternar operatorining ekvivalenti mavjudmi?</p>
+<p class="has-line-data" data-line-start="370" data-line-end="371">Ha, mavjud. Sintaksisi:</p>
+<pre><code class="has-line-data" data-line-start="373" data-line-end="375" class="language-python">[on_true] <span class="hljs-keyword">if</span> [expression] <span class="hljs-keyword">else</span> [on_false]
+</code></pre>
+<pre><code class="has-line-data" data-line-start="376" data-line-end="379" class="language-python">x, y = <span class="hljs-number">50</span>, <span class="hljs-number">25</span>
+small = x <span class="hljs-keyword">if</span> x &lt; y <span class="hljs-keyword">else</span> y
+</code></pre>
+<h3 class="code-line" data-line-start=380 data-line-end=381 ><a id="Obfussirlangan_bir_satrlilarni_yozish_mumkinmi_380"></a>Obfussirlangan bir satrlilarni yozish mumkinmi?</h3>
+<p class="has-line-data" data-line-start="382" data-line-end="383">Ha, mumkin.</p>
+<pre><code class="has-line-data" data-line-start="385" data-line-end="409" class="language-python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> reduce
+<span class="hljs-comment"># Tub sonlar &lt; 1000</span>
+
+print(list(filter(<span class="hljs-keyword">None</span>,map(<span class="hljs-keyword">lambda</span> y:y*reduce(<span class="hljs-keyword">lambda</span> x,y:x*y!=<span class="hljs-number">0</span>, 
+map(<span class="hljs-keyword">lambda</span> x,y=y:y%x,range(<span class="hljs-number">2</span>,int(pow(y,<span class="hljs-number">0.5</span>)+<span class="hljs-number">1</span>))),<span class="hljs-number">1</span>),range(<span class="hljs-number">2</span>,<span class="hljs-number">1000</span>)))))
+
+<span class="hljs-comment"># Birinchi o'n Fibonachi sonlari</span>
+print(list(map(<span class="hljs-keyword">lambda</span> x,f=<span class="hljs-keyword">lambda</span> x,f:(f(x-<span class="hljs-number">1</span>,f)+f(x-<span class="hljs-number">2</span>,f)) <span class="hljs-keyword">if</span> x&gt;<span class="hljs-number">1</span> <span class="hljs-keyword">else</span> <span class="hljs-number">1</span>:
+f(x,f), range(<span class="hljs-number">10</span>))))
+
+<span class="hljs-comment"># Mandelbort ko'pligi</span>
+print((<span class="hljs-keyword">lambda</span> Ru,Ro,Iu,Io,IM,Sx,Sy:reduce(<span class="hljs-keyword">lambda</span> x,y:x+y,map(<span class="hljs-keyword">lambda</span> y,
+Iu=Iu,Io=Io,Ru=Ru,Ro=Ro,Sy=Sy,L=<span class="hljs-keyword">lambda</span> yc,Iu=Iu,Io=Io,Ru=Ru,Ro=Ro,i=IM,
+Sx=Sx,Sy=Sy:reduce(<span class="hljs-keyword">lambda</span> x,y:x+y,map(<span class="hljs-keyword">lambda</span> x,xc=Ru,yc=yc,Ru=Ru,Ro=Ro,
+i=i,Sx=Sx,F=<span class="hljs-keyword">lambda</span> xc,yc,x,y,k,f=<span class="hljs-keyword">lambda</span> xc,yc,x,y,k,f:(k&lt;=<span class="hljs-number">0</span>)<span class="hljs-keyword">or</span> (x*x+y*y
+&gt;=<span class="hljs-number">4.0</span>) <span class="hljs-keyword">or</span> <span class="hljs-number">1</span>+f(xc,yc,x*x-y*y+xc,<span class="hljs-number">2.0</span>*x*y+yc,k-<span class="hljs-number">1</span>,f):f(xc,yc,x,y,k,f):chr(
+<span class="hljs-number">64</span>+F(Ru+x*(Ro-Ru)/Sx,yc,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,i)),range(Sx))):L(Iu+y*(Io-Iu)/Sy),range(Sy
+))))(-<span class="hljs-number">2.1</span>, <span class="hljs-number">0.7</span>, -<span class="hljs-number">1.2</span>, <span class="hljs-number">1.2</span>, <span class="hljs-number">30</span>, <span class="hljs-number">80</span>, <span class="hljs-number">24</span>))
+<span class="hljs-comment"># \___ ___/ \___ ___/ | | |__ lines on screen</span>
+<span class="hljs-comment"># V V | |______ columns on screen</span>
+<span class="hljs-comment"># | | |__________ maximum of "iterations"</span>
+<span class="hljs-comment"># | |_________________ range on y axis</span>
+<span class="hljs-comment"># |____________________________ range on x axis</span>
+</code></pre>
+<p class="has-line-data" data-line-start="409" data-line-end="410">Buni uyda mustaqil bajarishga harakat qilmang ;-)</p>
+<h3 class="code-line" data-line-start=411 data-line-end=412 ><a id="Nima_uchun_22__10_ning_natijasi_3_ga_teng_411"></a>Nima uchun <code>–22 // 10</code> ning natijasi <code>–3</code> ga teng?</h3>
+<p class="has-line-data" data-line-start="413" data-line-end="414"><code>i % j</code> ifoda j bilan bir xil ishoraga ega hamda quyidagicha bo‘lganligi uchun:</p>
+<pre><code class="has-line-data" data-line-start="416" data-line-end="418" class="language-python">i == (i // j) * j + (i % j)
+</code></pre>
+<p class="has-line-data" data-line-start="419" data-line-end="420">Satrni qanday o‘zgartirish mumkin?</p>
+<p class="has-line-data" data-line-start="421" data-line-end="422">Hech qanday, chunki satrlar – o‘zgarmas obyektlar. Aksariyat hollarda turli qismlardan yangi satrni tayyorlash yetarli bo‘ladi. Agar juda ham zarur bo‘lsa, <code>io.StringIO</code>dan yoki <code>array</code> modulidan foydalanish mumkin:</p>
+<pre><code class="has-line-data" data-line-start="424" data-line-end="445" class="language-python">&gt;&gt;&gt; <span class="hljs-keyword">import</span> io
+&gt;&gt;&gt; s = <span class="hljs-string">"Hello, world"</span>
+&gt;&gt;&gt; sio = io.StringIO(s)
+&gt;&gt;&gt; sio.getvalue()
+<span class="hljs-string">'Hello, world'</span>
+&gt;&gt;&gt; sio.seek(<span class="hljs-number">7</span>)
+<span class="hljs-number">7</span>
+&gt;&gt;&gt; sio.write(<span class="hljs-string">"there!"</span>)
+<span class="hljs-number">6</span>
+&gt;&gt;&gt; sio.getvalue()
+<span class="hljs-string">'Hello, there!'</span>
+&gt;&gt;&gt; <span class="hljs-keyword">import</span> array
+&gt;&gt;&gt; a = array.array(<span class="hljs-string">'u'</span>, s)
+&gt;&gt;&gt; print(a)
+array(<span class="hljs-string">'u'</span>, <span class="hljs-string">'Hello, world'</span>)
+&gt;&gt;&gt; a[<span class="hljs-number">0</span>] = <span class="hljs-string">'y'</span>
+&gt;&gt;&gt; print(a)
+array(<span class="hljs-string">'u'</span>, <span class="hljs-string">'yello, world'</span>)
+&gt;&gt;&gt; a.tounicode()
+<span class="hljs-string">'yello, world'</span>
+</code></pre>
+<h3 class="code-line" data-line-start=445 data-line-end=446 ><a id="Funksiyametodlarni_chaqirishda_satrlardan_qanday_foydalanish_mumkin_445"></a>Funksiya/metodlarni chaqirishda satrlardan qanday foydalanish mumkin?</h3>
+<p class="has-line-data" data-line-start="447" data-line-end="448">Buning bir necha metodi mavjud:</p>
+<ul>
+<li class="has-line-data" data-line-start="449" data-line-end="459">
+<p class="has-line-data" data-line-start="449" data-line-end="450">Eng yaxshisi – satrga funksiyani mos qo‘yuvchi lug‘atdan foydalanish kerak. Buning afzal tomoni – satrlar funksiyalarning nomlari bilan aynan bir xil bo‘lishlari shart emasligida.</p>
+<pre><code class="has-line-data" data-line-start="451" data-line-end="459" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">a</span><span class="hljs-params">()</span>:</span>
+      <span class="hljs-keyword">pass</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">b</span><span class="hljs-params">()</span>:</span>
+      <span class="hljs-keyword">pass</span>
+
+dispatch = {<span class="hljs-string">'go'</span>: a, <span class="hljs-string">'stop'</span>: b} <span class="hljs-comment"># Note lack of parens for funcs</span>
+dispatch[get_input()]()
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="459" data-line-end="465">
+<p class="has-line-data" data-line-start="459" data-line-end="460"><code>getattr</code> tarkibiy funksiyasidan foydalanish:</p>
+<pre><code class="has-line-data" data-line-start="461" data-line-end="464" class="language-python"><span class="hljs-keyword">import</span> foo
+getattr(foo, <span class="hljs-string">'bar'</span>)()    
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="465" data-line-end="479">
+<p class="has-line-data" data-line-start="465" data-line-end="466"><code>locals</code> yoki <code>eval</code> dan foydalanish (tavsiya etilmaydi):</p>
+<pre><code class="has-line-data" data-line-start="467" data-line-end="478" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">myFunc</span><span class="hljs-params">()</span>:</span>
+      print(<span class="hljs-string">"hello"</span>)
+
+fname = <span class="hljs-string">"myFunc"</span>
+
+f = locals()[fname]
+f()
+
+f = eval(fname)
+f()
+</code></pre>
+</li>
+</ul>
+<h3 class="code-line" data-line-start=479 data-line-end=480 ><a id="Satr_oxiridagi_yangi_satr_belgilarini_qanday_ochirish_mumkin_479"></a>Satr oxiridagi yangi satr belgilarini qanday o‘chirish mumkin?</h3>
+<p class="has-line-data" data-line-start="480" data-line-end="481">Yakuniy bo‘sh joylarni o‘chirmagan holda, yangi satr belgilarini o‘chirish uchun <code>S.rstrip(“\r\n”)</code> dan foydalanish mumkin:</p>
+<pre><code class="has-line-data" data-line-start="482" data-line-end="488" class="language-python">&gt;&gt;&gt; lines = (<span class="hljs-string">"line 1 \r\n"</span>
+               <span class="hljs-string">"\r\n"</span>
+               <span class="hljs-string">"\r\n"</span>)
+&gt;&gt;&gt; lines.rstrip(<span class="hljs-string">"\r\n"</span>)
+<span class="hljs-string">'line 1 '</span>
+</code></pre>
+<h3 class="code-line" data-line-start=489 data-line-end=490 ><a id="Royxatdagi_takrorlanuvchi_elementlarni_qanday_ochirish_mumkin_489"></a>Ro‘yxatdagi takrorlanuvchi elementlarni qanday o‘chirish mumkin?</h3>
+<p class="has-line-data" data-line-start="490" data-line-end="491">Bir nechta metodi mavjud: <a href="http://code.activestate.com/recipes/52560/">http://code.activestate.com/recipes/52560/</a>.</p>
+<h3 class="code-line" data-line-start=492 data-line-end=493 ><a id="Kop_olchovli_royxatni_qanday_yaratish_mumkin_492"></a>Ko‘p o‘lchovli ro‘yxatni qanday yaratish mumkin?</h3>
+<p class="has-line-data" data-line-start="493" data-line-end="494">Siz quyidagi natijani bermaydigan variantni sinab ko‘rgandirsiz:</p>
+<pre><code class="has-line-data" data-line-start="495" data-line-end="497" class="language-python">&gt;&gt;&gt; A = [[<span class="hljs-keyword">None</span>] * <span class="hljs-number">2</span>] * <span class="hljs-number">3</span>
+</code></pre>
+<p class="has-line-data" data-line-start="497" data-line-end="498">Bu quyidagicha chiqarish holatida to‘g‘ri bo‘lishi mumkin:</p>
+<pre><code class="has-line-data" data-line-start="500" data-line-end="503" class="language-python">&gt;&gt;&gt; A
+[[<span class="hljs-keyword">None</span>, <span class="hljs-keyword">None</span>], [<span class="hljs-keyword">None</span>, <span class="hljs-keyword">None</span>], [<span class="hljs-keyword">None</span>, <span class="hljs-keyword">None</span>]]
+</code></pre>
+<p class="has-line-data" data-line-start="503" data-line-end="504">Agar biror qiymatni o‘zlashtirsangiz, u bir nechta turli joylarda hosil bo‘ladi:</p>
+<pre><code class="has-line-data" data-line-start="506" data-line-end="510" class="language-python">&gt;&gt;&gt; A[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">5</span>
+&gt;&gt;&gt; A
+[[<span class="hljs-number">5</span>, <span class="hljs-keyword">None</span>], [<span class="hljs-number">5</span>, <span class="hljs-keyword">None</span>], [<span class="hljs-number">5</span>, <span class="hljs-keyword">None</span>]]
+</code></pre>
+<p class="has-line-data" data-line-start="511" data-line-end="512">Bunga sabab, <code>*</code> operatori nusxalarni emas, faqat mavjud obyektlarga havolalarnigina yaratadi. <code>*3</code> aynan bitta ro‘yxatga 3 ta havola yaratadi. Satrlardan bittasining o‘zgartirilishi boshqalarining ham o‘zgarishiga olib keladi. Bunday vaziyat bizga ma’qul emas.</p>
+<h4 class="code-line" data-line-start=513 data-line-end=514 ><a id="Yechimlari_513"></a>Yechimlari:</h4>
+<pre><code class="has-line-data" data-line-start="515" data-line-end="519" class="language-python">A = [<span class="hljs-keyword">None</span>] * <span class="hljs-number">3</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>):
+      A[i] = [<span class="hljs-keyword">None</span>] * <span class="hljs-number">2</span>
+</code></pre>
+<pre><code class="has-line-data" data-line-start="520" data-line-end="523" class="language-python">w, h = <span class="hljs-number">2</span>, <span class="hljs-number">3</span>
+A = [[<span class="hljs-keyword">None</span>] * w <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(h)]
+</code></pre>
+<p class="has-line-data" data-line-start="523" data-line-end="524">Yoki matritsalardan foydalanish imkoniyatini beriuvchi maxsus modullardan foydalanish mumkin. Ulardan eng ommaviysi – <code>NumPy</code>.</p>
+<h3 class="code-line" data-line-start=525 data-line-end=526 ><a id="Nega_a_tuplei__item_ishlamayapti_qoshish_esa_ishlamoqda_525"></a>Nega <code>a_tuple[i] += ['item']</code> ishlamayapti, qo‘shish esa ishlamoqda?</h3>
+<p class="has-line-data" data-line-start="527" data-line-end="528">Chunki kengaytirilgan o‘zlashtirish operatori bu – o‘zlashtirish operatori ekanligi hamda Pythondagi o‘zgaruvchi va o‘zgarmas obyektlar orasidagi farq sababli.</p>
+<p class="has-line-data" data-line-start="529" data-line-end="530">Bu muhokamamiz kengaytirilgan o‘zlashtirish operatorlarining o‘zgaruvchi obyektlar bilan ishlayotgan kortej elementlariga nisbatan qo‘llanilishi haqida bo‘lsa-da, misol tariqasida biz ro‘yxatlar va <code>+=</code> dan foydalanamiz.</p>
+<p class="has-line-data" data-line-start="531" data-line-end="532">Agar siz quyida keltirilgan misoldagi kabi yozsangiz, xatolikga ega bo‘lasiz:</p>
+<pre><code class="has-line-data" data-line-start="533" data-line-end="539" class="language-python">&gt;&gt;&gt; a_tuple = (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+&gt;&gt;&gt; a_tuple[<span class="hljs-number">0</span>] += <span class="hljs-number">1</span>
+Traceback (most recent call last):
+...
+TypeError: <span class="hljs-string">'tuple'</span> object does <span class="hljs-keyword">not</span> support item assignment
+</code></pre>
+<p class="has-line-data" data-line-start="540" data-line-end="541">Noodatiy holatning sababi sizga tushunarli bo‘lsa kerak? 1 <code>a_tuple[0]</code> obyektga qo‘shiladi, biz kortejning birinchi elementiga 2 qiymatni o‘zlashtirishga harakat qilganimizda, xatoga duch kelamiz, chunki biz kortej elementini o‘zgartira olmaymiz.</p>
+<p class="has-line-data" data-line-start="542" data-line-end="543">Ya’ni ifoda quyidagi amalni bajaradi:</p>
+<pre><code class="has-line-data" data-line-start="545" data-line-end="551" class="language-python">&gt;&gt;&gt; result = a_tuple[<span class="hljs-number">0</span>] + <span class="hljs-number">1</span>
+&gt;&gt;&gt; a_tuple[<span class="hljs-number">0</span>] = result
+Traceback (most recent call last):
+...
+TypeError: <span class="hljs-string">'tuple'</span> object does <span class="hljs-keyword">not</span> support item assignment
+</code></pre>
+<p class="has-line-data" data-line-start="552" data-line-end="553">Biz quyidagilarni yozganimizda:</p>
+<pre><code class="has-line-data" data-line-start="555" data-line-end="561" class="language-python">&gt;&gt;&gt; a_tuple = ([<span class="hljs-string">'foo'</span>], <span class="hljs-string">'bar'</span>)
+&gt;&gt;&gt; a_tuple[<span class="hljs-number">0</span>] += [<span class="hljs-string">'item'</span>]
+Traceback (most recent call last):
+...
+TypeError: <span class="hljs-string">'tuple'</span> object does <span class="hljs-keyword">not</span> support item assignment
+</code></pre>
+<p class="has-line-data" data-line-start="561" data-line-end="562">qo‘shildi!</p>
+<pre><code class="has-line-data" data-line-start="564" data-line-end="567" class="language-python">&gt;&gt;&gt; a_tuple[<span class="hljs-number">0</span>]
+[<span class="hljs-string">'foo'</span>, <span class="hljs-string">'item'</span>]
+</code></pre>
+<p class="has-line-data" data-line-start="567" data-line-end="568">Qanday hodisa ro‘y berganligini tushunish uchun quyidagilarni bilish kerak:</p>
+<ul>
+<li class="has-line-data" data-line-start="568" data-line-end="569">agar obyektni <code>__iadd__</code> metodi aniqlaydigan bo‘lsa, u <code>+=</code> bajarilganda chaqiriladi va qaytariladigan qiymat o‘zlashtirish uchun ishlatiladi;</li>
+<li class="has-line-data" data-line-start="569" data-line-end="571">ro‘yxatlar uchun <code>__iadd__</code> ro‘yxatlar uchun extendni chaqirilgani bilan teng kuchlidir.</li>
+</ul>
+<p class="has-line-data" data-line-start="571" data-line-end="572">Shunday qilib,</p>
+<pre><code class="has-line-data" data-line-start="574" data-line-end="579" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>a_list = []
+<span class="hljs-prompt">&gt;&gt;&gt; </span>a_list += [<span class="hljs-number">1</span>]
+<span class="hljs-prompt">&gt;&gt;&gt; </span>a_list
+[<span class="hljs-number">1</span>]
+</code></pre>
+<p class="has-line-data" data-line-start="580" data-line-end="581">Ekvivalent:</p>
+<pre><code class="has-line-data" data-line-start="582" data-line-end="585" class="language-python">&gt;&gt;&gt; result = a_list.__iadd__([<span class="hljs-number">1</span>])
+&gt;&gt;&gt; a_list = result
+</code></pre>
+<p class="has-line-data" data-line-start="585" data-line-end="586">Shunday qilib, bizning kortejli misolimiz quyidagiga ekvivalentli:</p>
+<pre><code class="has-line-data" data-line-start="587" data-line-end="594" class="language-python">&gt;&gt;&gt; result = a_list.__iadd__([<span class="hljs-number">1</span>])
+&gt;&gt;&gt; a_list = result &gt;&gt;&gt; result = a_tuple[<span class="hljs-number">0</span>].__iadd__([<span class="hljs-string">'item'</span>])
+&gt;&gt;&gt; a_tuple[<span class="hljs-number">0</span>] = result
+Traceback (most recent call last):
+...
+TypeError: <span class="hljs-string">'tuple'</span> object does <span class="hljs-keyword">not</span> support item assignment
+</code></pre>
+<p class="has-line-data" data-line-start="595" data-line-end="596"><code>__iadd__</code> samarali yakunlandi va ro‘yxat kattalashdi, ammo o‘zlashtirish xatolik bilan yakunlandi.</p>   
+</div>
+
+<h2 class="code-line" data-line-start=0 data-line-end=1 ><a id="Python_boyicha_topshiriqlar_0"></a>Python bo‘yicha topshiriqlar</h2>
+<div data-outline="Python_boyicha_topshiriqlar_0">
+<p class="has-line-data" data-line-start="2" data-line-end="3">Har bir Pythonni o‘rganuvchi uchun mustahkamlash maqsadida kodni yozish foydali bo‘ladi. Sizga bir necha topshiriq va yechimlarni taklif qilamiz (hammasi ham oson emas).</p>
+<p class="has-line-data" data-line-start="4" data-line-end="5">Topshiriqlarni bexato bajarish uchun, ushbu qo‘llanmani to‘liq o‘zlashtirib olishingizni tavsiya qilamiz.</p>
+<h3 class="code-line" data-line-start=6 data-line-end=7 ><a id="Oddiy_arifmetik_operatsiyalar_1_6"></a>Oddiy arifmetik operatsiyalar (1)</h3>
+<p class="has-line-data" data-line-start="7" data-line-end="8">3 ta argumentni qabul qiluvchi arithmetik funksiyani yozing: dastlabki ikkitasi sonlar, uchinchisi esa ular ustida bajarilishi kerak bo‘lgan operatsiya bo‘lsin. Agar uchinchi argumenti <code>+</code> bo‘lsa, ular qo‘shilsin; <code>–</code> bo‘lsa, ayirilsin; <code>*</code> bo‘lsa, ko‘paytirilsin va <code>\</code> bo‘lsa, bo‘linsin (birinchisi ikkinchisiga). Qolgan holatlarda esa <code>Noma’lum operatsiya</code> satrini qaytarsin.</p>
+<h3 class="code-line" data-line-start=8 data-line-end=9 ><a id="Kabisa_yili_2_8"></a>Kabisa yili (2)</h3>
+<p class="has-line-data" data-line-start="9" data-line-end="10">1 ta argument – yilni qabul qiluvchi <code>is_year_leap</code> funksiyasini yozing. U, agar yil kabisa yili bo‘sa, <code>True</code> ni, aks holda <code>False</code>ni qaytarsin.</p>
+<h3 class="code-line" data-line-start=10 data-line-end=11 ><a id="Kvadrat_3_10"></a>Kvadrat (3)</h3>
+<p class="has-line-data" data-line-start="11" data-line-end="12">1 ta argument – kvadrat tomonini qabul qilib, 3 ta qiymat (kortej orqali): kvadrat perimetri, kvadrat yuzasi va kvadrat diagonallarini qaytaruvchi funksiya tuzing.</p>
+<h3 class="code-line" data-line-start=12 data-line-end=13 ><a id="Yil_fasllari_4_12"></a>Yil fasllari (4)</h3>
+<p class="has-line-data" data-line-start="13" data-line-end="14">1 ta argument – oy tartib raqami(1 dan 12 gacha)ni qabul qilib, shu oy tegishli bo‘lgan yil fasli (qish, bahor, yoz yoki kuz)ni qaytaruvchi funksiya tuzing.</p>
+<h3 class="code-line" data-line-start=14 data-line-end=15 ><a id="Bank_omonati_5_14"></a>Bank omonati (5)</h3>
+<p class="has-line-data" data-line-start="15" data-line-end="16">Foydalanuvchi <code>a</code> so‘m miqdorida <code>years</code> yilga yillik <code>10%</code> li jamg‘arma bankiga omonat qo‘yadi (har yili uning omonati <code>10</code>%` ga ortadi, bu pullar uning avvalgi omonatiga qo‘shiladi va keyingi yili yana hosil bo‘lgan summadan foiz hisoblanadi – murakkab foiz).</p>
+<p class="has-line-data" data-line-start="17" data-line-end="18"><code>a</code> va <code>years</code> argumentlarini qabul qiluvchi va foydalanuvchining hisob raqamida hosil bo‘ladigan summani qaytaruvchi bank nomli funksiya tuzing.</p>
+<h3 class="code-line" data-line-start=19 data-line-end=20 ><a id="Oddiy_sonlar_6_19"></a>Oddiy sonlar (6)</h3>
+<p class="has-line-data" data-line-start="20" data-line-end="21">1 ta argument – <code>0</code> dan <code>1000</code> gacha bo‘lgan sonni qabul qilib, agar u tub son bo‘lsa, <code>True</code>, aks holda, <code>False</code> qaytaradigan <code>is_prime</code> nomli funksiya tuzing.</p>
+<h3 class="code-line" data-line-start=22 data-line-end=23 ><a id="Togri_sana_7_22"></a>To‘g‘ri sana (7)</h3>
+<p class="has-line-data" data-line-start="23" data-line-end="24">3 ta argument – kun, oy va yillarni qabul qilib, agar bunday sana kalendarimizda mavjud bo‘lsa, <code>True</code>, aks holda <code>False</code> qiymat qaytaruvchi date funksiyasini tuzing.</p>
+<h3 class="code-line" data-line-start=25 data-line-end=26 ><a id="XORshifrlash_8_25"></a>XOR-shifrlash (8)</h3>
+<p class="has-line-data" data-line-start="26" data-line-end="27">2 ta argument – shifrlash kerak bo‘lgan satr va shifrlash kalitini qabul qilib, kalitli satrlar ustida XOR (<code>^</code>) funksiyasini qo‘llash orqali shifrlangan satrni qaytaruvchi funksiya tuzing. Bundan tashqari, shifrlangan satr va kalitga ko‘ra dastlabki satrni qayta tiklovchi <code>XOR_unchifer</code> funksiyasini ham tuzing.</p>
+</div>
+    </div>
+   </div>
+  </main>
+
+ </body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    13. Modullar
+   </title>
+   <link href="../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <header>
+   <a href="../index.html">
+    Python Coding Club
+   </a>
+   |
+   <a href="#">
+    Mundarijaga qaytish
+   </a>
+   <div>
+    9-sinf
+   </div>
+  </header>
+  <nav class="table-of-contents col-sm-2">
+   <ul class="nav">
+    <li>
+     <a href="#pythonga_kirish">
+      13. Modullar
+     </a>
+    </li>
+    <li><a href="#Modullar_bilan_ishlash_yaratish_import_hamda_from_instruksiyalari_bilan_boglash_0">Modullar bilan ishlash: yaratish, import hamda from instruksiyalari bilan bog‘lash</a></li>
+    <li><a href="#pip_yordamida_pythonpaketlarni_ornatish_0"><code>pip</code> yordamida python-paketlarni o‘rnatish</a></li>    
+    <!--  <li>
+     <a href="#summary">
+      Summary
+     </a>
+    </li>-->
+   </ul>
+  </nav>
+  <main class="container-fluid">
+   <h1 class="handout-title col-sm-8 col-sm-offset-2" id="pythonga_kirish">
+    13. Modullar
+   </h1>
+   <div data-outline="pythonga_kirish">
+    <div class="markdown col-sm-8 col-sm-offset-2 converted">
+     <h4>
+        Bu bob quyidagilardan tashkil topgan:
+     </h4>
+     <p>
+      Mavzular:
+     </p>
+     <ul>
+      <li>
+         Modullar bilan ishlash: yaratish, import hamda from instruksiyalari bilan bog‘lash
+      </li>
+      <li>
+         <code>pip</code> yordamida python-paketlarni o‘rnatish
+      </li>
+     </ul>
+
+
+     <h2 id="Modullar_bilan_ishlash_yaratish_import_hamda_from_instruksiyalari_bilan_boglash_0">
+      Modullar bilan ishlash: yaratish, import hamda from instruksiyalari bilan bog‘lash
+     </h2>
+
+<div data-outline="Modullar_bilan_ishlash_yaratish_import_hamda_from_instruksiyalari_bilan_boglash_0">
+   <p class="has-line-data" data-line-start="1" data-line-end="2">Pythonda <strong>modul</strong> deb, har qanday <em>dasturdan iborat fayllar</em>ga aytiladi. (Ha, siz yozgan har bir dasturni modul deb atash mumkin). Bu bobda modullarni qanday yaratish, sizning yoki standart kutubxonaning modullarini qanday bog‘lash haqida so‘z yuritamiz.</p>
+<p class="has-line-data" data-line-start="3" data-line-end="4">Har qanday dastur modulni import qilishi va uning klass, funksiya va obyektlariga murojaat qilishi mumkin. Ta’kidlash joizki, modullar nafaqat Pythonda, balki C yoki C++ tillarida ham yozilgan bo‘lishi mumkin.</p>
+<h3 class="code-line" data-line-start=5 data-line-end=6 ><a id="Standart_kutubxonadagi_modulni_boglash_5"></a>Standart kutubxonadagi modulni bog‘lash</h3>
+<p class="has-line-data" data-line-start="6" data-line-end="7">Modulni import instruksiyasi yordamida bog‘lash mumkin. Masalan, joriy papkani aniqlash uchun <code>os</code> modulini bog‘laymiz:</p>
+<pre><code class="has-line-data" data-line-start="8" data-line-end="12" class="language-python">&gt;&gt;&gt; <span class="hljs-keyword">import</span> os
+&gt;&gt;&gt; os.getcwd()
+<span class="hljs-string">'C:\\Python33'</span>
+</code></pre>
+<p class="has-line-data" data-line-start="12" data-line-end="13"><code>import</code> kalit so‘zidan keyin modulning nomi ko‘rsatiladi. Bitta instruksiya bilan bir necha modulni bog‘lash mumkin, lekin bunday qilish tavsiya etilmaydi, chunki bu kodingizning oson o‘qilishi va tushunilishiga salbiy ta’sir ko‘rsatadi. <code>time</code> va <code>random</code> modullarini import qilamiz:</p>
+<pre><code class="has-line-data" data-line-start="14" data-line-end="20" class="language-python">&gt;&gt;&gt; <span class="hljs-keyword">import</span> time, random
+&gt;&gt;&gt; time.time()
+<span class="hljs-number">1376047104.056417</span>
+&gt;&gt;&gt; random.random()
+<span class="hljs-number">0.9874550833306869</span>
+</code></pre>
+<p class="has-line-data" data-line-start="20" data-line-end="21">Modul import qilinganidan keyin, uning nomi modul atributlariga murojaat qilish mumkin bo‘lgan o‘zgaruvchiga aylanib qoladi. Masalan, <code>math</code> modulida joylashgan <code>e</code> konstantasiga murojaat qilishi mumkin:</p>
+<pre><code class="has-line-data" data-line-start="22" data-line-end="26" class="language-python">&gt;&gt;&gt; <span class="hljs-keyword">import</span> math
+&gt;&gt;&gt; math.e
+<span class="hljs-number">2.718281828459045</span>
+</code></pre>
+<p class="has-line-data" data-line-start="26" data-line-end="27">Agar modulning ko‘rsatilgan atributi topilmay qolsa, u holda <code>AttributeError</code> noodatiy holat yuzaga keladi. Agar import qilish uchun ko‘rsatilgan modulning o‘zi topilmay qolsa, u holda <code>ImportError</code> noodatiy holati yuzaga keladi.</p>
+<pre><code class="has-line-data" data-line-start="29" data-line-end="41" class="language-python">&gt;&gt;&gt; <span class="hljs-keyword">import</span> notexist
+Traceback (most recent call last):
+    File <span class="hljs-string">""</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span>
+        <span class="hljs-keyword">import</span> notexist
+ImportError: No module named <span class="hljs-string">'notexist'</span>
+&gt;&gt;&gt; <span class="hljs-keyword">import</span> math
+&gt;&gt;&gt; math.Ё
+Traceback (most recent call last):
+    File <span class="hljs-string">""</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span>
+       math.Ё
+AttributeError: <span class="hljs-string">'module'</span> object has no attribute <span class="hljs-string">'Ё'</span>
+</code></pre>
+<h3 class="code-line" data-line-start=42 data-line-end=43 ><a id="Belgilash_psevdonimlarni_qollash_42"></a>Belgilash (psevdonim)larni qo‘llash</h3>
+<p class="has-line-data" data-line-start="43" data-line-end="44">Agar modulning nomi juda ham uzun bo‘lsa yoki u qandaydir boshqa sabablarga ko‘ra sizga yoqmasa, <code>as</code> kalit so‘zi yordamida uning uchun belgilash (psevdonim) yaratish mumkin.</p>
+<pre><code class="has-line-data" data-line-start="46" data-line-end="50" class="language-python">&gt;&gt;&gt; <span class="hljs-keyword">import</span> math <span class="hljs-keyword">as</span> m
+&gt;&gt;&gt; m.e
+<span class="hljs-number">2.718281828459045</span>
+</code></pre>
+<p class="has-line-data" data-line-start="50" data-line-end="51">Endi <code>math</code> modulining har bir atributiga murojaat faqat <code>m</code> o‘zgaruvchisi orqali amalga oshiriladi. <code>math</code> o‘zgaruvchisi endi bu dasturda bo‘lmaydi (albatta, siz <code>import math</code> deb qaytadan yozmasangiz. Bu holda modulga ham, <code>m</code> ga ham math nomi bilan murojaat qilish mumkin bo‘ladi).</p>
+<h3 class="code-line" data-line-start=52 data-line-end=53 ><a id="from_instruksiyasi_52"></a><code>from</code> instruksiyasi</h3>
+<p class="has-line-data" data-line-start="53" data-line-end="54">Modulning ma’lum bir atributlarini bog‘lash uchun from instruksiyasi qo‘llaniladi. Uning bir necha xil shakli mavjud:</p>
+<pre><code class="has-line-data" data-line-start="56" data-line-end="60" class="language-python"><span class="hljs-keyword">from</span> &lt;modul nomi&gt; <span class="hljs-keyword">import</span> &lt;<span class="hljs-number">1</span>-atribut&gt; [<span class="hljs-keyword">as</span>&lt;psevdonim1&gt;], [&lt;<span class="hljs-number">2</span>-atribut&gt; 
+                                    [<span class="hljs-keyword">as</span>&lt;psevdonim2&gt;]...]
+<span class="hljs-keyword">from</span> &lt;modul nomi&gt; <span class="hljs-keyword">import</span> *
+</code></pre>
+<p class="has-line-data" data-line-start="60" data-line-end="61">Birinchi shakli moduldan faqat siz ko‘rsatgan modullarni bog‘lash imkoniyatini beradi. Uzun nomlar uchun <code>as</code> so‘zidan keyin psevdonimni ko‘rsatib, tayinlash mumkin.</p>
+<pre><code class="has-line-data" data-line-start="62" data-line-end="68" class="language-python">&gt;&gt;&gt; <span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> e, ceil <span class="hljs-keyword">as</span> c
+&gt;&gt;&gt; e
+<span class="hljs-number">2.718281828459045</span>
+&gt;&gt;&gt; c(<span class="hljs-number">4.6</span>)
+<span class="hljs-number">5</span>
+</code></pre>
+<p class="has-line-data" data-line-start="69" data-line-end="70">Agar import qilinayotgan atributlar soni ko‘p bo‘lsa, kodni o‘qish va tushunishni osonlashtirish maqsadida ularni bir nechta satrda joylashtirish mumkin:</p>
+<pre><code class="has-line-data" data-line-start="72" data-line-end="75" class="language-python">&gt;&gt;&gt; <span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> (sin, cos,
+              tan, atan)
+</code></pre>
+<p class="has-line-data" data-line-start="76" data-line-end="77">From instruksiyasining ikkinchi shakli moduldagi (deyarli) barcha o‘zgaruvchilarni bog‘lash imkoniyatini beradi. Misol uchun <code>sys</code> modulidagi barcha atributlarni import qilamiz:</p>
+<pre><code class="has-line-data" data-line-start="79" data-line-end="85" class="language-python">&gt;&gt;&gt; <span class="hljs-keyword">from</span> sys <span class="hljs-keyword">import</span> *
+&gt;&gt;&gt; version
+<span class="hljs-string">'3.3.2 (v3.3.2:d047928ae3f6, May 16 2013, 00:03:43) [MSC v.1600 32 bit (Intel)]'</span>
+&gt;&gt;&gt; version_info
+sys.version_info(major=<span class="hljs-number">3</span>, minor=<span class="hljs-number">3</span>, micro=<span class="hljs-number">2</span>, releaselevel=<span class="hljs-string">'final'</span>, serial=<span class="hljs-number">0</span>)
+</code></pre>
+<p class="has-line-data" data-line-start="86" data-line-end="87">bog‘lanadi. Agar <code>__all__</code> o‘zgaruvchisi mavjud bo‘lmasa, u holda tagchiziqdan boshlanmaydigan barcha atributlargina bog‘lanadi. Bundan tashqari, modul tarkibidagi barcha atributlarning import qilinishi asosiy dasturning nomlari muhitini buzishi mumkin, chunki bir xil nomga ega o‘zgaruvchilar qaytadan yozilib qoladi.</p>
+<h3 class="code-line" data-line-start=88 data-line-end=89 ><a id="Pythonda_shaxsiy_modulni_yaratish_88"></a>Pythonda shaxsiy modulni yaratish</h3>
+<p class="has-line-data" data-line-start="89" data-line-end="90">Endi o‘zimizning shaxsiy modulimizni yaratish vaqti keldi. <code>mymodule.py</code> faylini yaratamiz va uning tarkibida birorta funksiyani tavsiflaymiz:</p>
+<pre><code class="has-line-data" data-line-start="92" data-line-end="100" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hello</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">'Hello, world!'</span>)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fib</span><span class="hljs-params">(n)</span>:</span>
+    a = b = <span class="hljs-number">1</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(n - <span class="hljs-number">2</span>):
+        a, b = b, a + b
+    <span class="hljs-keyword">return</span> b
+</code></pre>
+<p class="has-line-data" data-line-start="101" data-line-end="102">Endi shu papkaning o‘zida yana boshqa bitta fayl, masalan, <code>main.py</code> yaratamiz:</p>
+<pre><code class="has-line-data" data-line-start="104" data-line-end="108" class="language-python"><span class="hljs-keyword">import</span> mymodule
+mymodule.hello()
+print(mymodule.fib(<span class="hljs-number">10</span>)) 
+</code></pre>
+<p class="has-line-data" data-line-start="108" data-line-end="109">Natija:</p>
+<pre><code class="has-line-data" data-line-start="111" data-line-end="114" class="language-python">Hello, world!
+<span class="hljs-number">55</span>
+</code></pre>
+<p class="has-line-data" data-line-start="114" data-line-end="115">Tabriklayman! Siz o‘z shaxsiy modulingizni yaratdingiz!</p>
+<p class="has-line-data" data-line-start="116" data-line-end="117">Endi esa modullar bilan bog‘liq ba’zi savollarga javob beramiz.</p>
+<h4 class="code-line" data-line-start=118 data-line-end=119 ><a id="Modulni_qanday_nomlash_kerak_118"></a>Modulni qanday nomlash kerak?</h4>
+<p class="has-line-data" data-line-start="119" data-line-end="120">Siz yoki boshqa foydalanuvchi shu modulni import qilib, o‘zgaruvchi sifatida foydalanishi yodingizda bo‘lsin. Modulni kalit so‘zlar bilan bir xil nomlash mumkin emas. Bundan tashqari, modullar nomini raqamlardan boshlash ham mumkin emas. Shuningdek, modullarni qandaydir tarkibiy funksiyalar bilan bir xilda nomlash ham yaramaydi. Bunday bo‘lishi mumkin, lekin keyinchalik qo‘llanilganda jiddiy noqulayliklar keltirib chiqarishi aniq.</p>
+<h4 class="code-line" data-line-start=120 data-line-end=121 ><a id="Modulni_qayerga_joylashtirish_kerak_120"></a>Modulni qayerga joylashtirish kerak?</h4>
+<p class="has-line-data" data-line-start="121" data-line-end="122">Keyin izlab topish oson bo‘lgan joyga. Modullarni izlash yo‘llari sys.path o‘zgaruvchisida ko‘rsatilgan bo‘ladi. Unga joriy papka (modulni asosiy dasturingiz bilan bitta papkada ham qoldirish mumkin) hamda Python o‘rnatilgan papkalar kiritilgan bo‘ladi. Bundan tashqari, <code>sys.path</code> o‘zgaruvchisini mustaqil o‘zgartirishingiz ham mumkin. Bu esa modulingizni siz uchun qulay xohlagan joyingizga o‘rnatish imkonini beradi (asosiysi – dasturingizda <code>sys.path</code>ga tegishli o‘zgartirishlarni kiritishni unutmaslik kerak).</p>
+<h4 class="code-line" data-line-start=122 data-line-end=123 ><a id="Moduldan_mustaqil_dastur_sifatida_foydalanish_mumkinmi_122"></a>Moduldan mustaqil dastur sifatida foydalanish mumkinmi?</h4>
+<p class="has-line-data" data-line-start="123" data-line-end="124">Mumkin. Lekin yodingizda bo‘lsin, modul import qilinganda, uning tarkibi to‘liq bajariladi, agar dasturda nimanidir chiqarish buyurilgan bo‘lsa, u import qilinganda, bu narsa chiqariladi. Buning oldini olish uchun script dastur sifatida ishga tushirilgan yoki import qilinganligini tekshirish lozim. Buni har qanday dasturda tavsiflangan <code>__name__</code> o‘zgaruvchisi yordamida amalga oshirish mumkin. U skript asosiy dastur sifatida ishga tushirilgan bo‘lsa, <code>__main__</code> ga, aks holda, import qilinganda, nomiga teng bo‘ladi. Masalan, <code>mymodule.py</code> quyidagicha ko‘rinishda bo‘lishi mumkin:</p>
+<pre><code class="has-line-data" data-line-start="126" data-line-end="140" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hello</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">'Hello, world!'</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fib</span><span class="hljs-params">(n)</span>:</span>
+    a = b = <span class="hljs-number">1</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(n - <span class="hljs-number">2</span>):
+        a, b = b, a + b
+    <span class="hljs-keyword">return</span> b
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    hello()
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>):
+        print(fib(i))
+</code></pre>
+</div>
+
+<h2 class="code-line" data-line-start=0 data-line-end=1 ><a id="pip_yordamida_pythonpaketlarni_ornatish_0"></a><code>pip</code> yordamida python-paketlarni o‘rnatish</h2>
+<div data-outline="pip_yordamida_pythonpaketlarni_ornatish_0">
+<p class="has-line-data" data-line-start="1" data-line-end="2"><strong>pip</strong> – paketlarni boshqarish tizimi. U Pythonda yaratilgan dasturiy paketlarni o‘rnatish va boshqarish uchun xizmat qiladi.</p>
+<h3 class="code-line" data-line-start=3 data-line-end=4 ><a id="pipni_ornatish_3"></a>pipni o‘rnatish</h3>
+<p class="has-line-data" data-line-start="4" data-line-end="5">pip yordamida Python-paketlarni o‘rnatishdan avval, pipning o‘zini o‘rnatish talab qilinadi.</p>
+<h4 class="code-line" data-line-start=5 data-line-end=6 ><a id="Python_34_5"></a>Python 3.4+</h4>
+<p class="has-line-data" data-line-start="6" data-line-end="7">Python 3.4 versiyasidan boshlab pip Python interpretatori bilan birga ta’minlab beriladi.</p>
+<h4 class="code-line" data-line-start=7 data-line-end=8 ><a id="Python__34_7"></a>Python &lt; 3.4</h4>
+<p class="has-line-data" data-line-start="8" data-line-end="9">Rasmiy instruksiyalar: <a href="https://pip.pypa.io/en/latest/installing.html:">https://pip.pypa.io/en/latest/installing.html:</a></p>
+<ul>
+<li class="has-line-data" data-line-start="9" data-line-end="10"><code>get-pip.py</code>ni yuklab olish (albatta, <code>.py</code> kengaytmasi bilan saqlab olish kerak);</li>
+<li class="has-line-data" data-line-start="10" data-line-end="12">shu faylni ishga tushirish (administrator huquqlari talab etilishi mumkin).</li>
+</ul>
+<p class="has-line-data" data-line-start="12" data-line-end="13">Yana bir metodi (Windows uchun) balki siz uchun ma’qulroq bo‘lishi mumkin:</p>
+<ul>
+<li class="has-line-data" data-line-start="13" data-line-end="14">Setuptoolsni o‘rnatish: <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#setuptools">http://www.lfd.uci.edu/~gohlke/pythonlibs/#setuptools</a></li>
+<li class="has-line-data" data-line-start="14" data-line-end="16">Pipni o‘rnatish: <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip">http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip</a></li>
+</ul>
+<h3 class="code-line" data-line-start=16 data-line-end=17 ><a id="Ishni_boshlash_16"></a>Ishni boshlash</h3>
+<p class="has-line-data" data-line-start="17" data-line-end="18">pip yordamida birorta paket, masalan, <code>numpy</code>ni o‘rnatishni ko‘rib chiqaylik:</p>
+<p class="has-line-data" data-line-start="19" data-line-end="20">Linuxda:</p>
+<pre><code class="has-line-data" data-line-start="21" data-line-end="23" class="language-bash">sudo pip3 install numpy
+</code></pre>
+<p class="has-line-data" data-line-start="24" data-line-end="25">Windowsda:</p>
+<pre><code class="has-line-data" data-line-start="27" data-line-end="29" class="language-cmd">pip3 install numpy
+</code></pre>
+<p class="has-line-data" data-line-start="30" data-line-end="31">Lekin bu ish bermasligi mumkin. python deb yozilganda, bu yozuv ichki yoki tashqi buyruq emas, shunigdek, <strong>ijro etiladigan dastur</strong> yoki paketli <strong>fayl</strong> ham emas. (Aksariyat hollarda ikkinchi metoddan foydalanilganda bunday bo‘lmasligi kerak, lekin sinab ko‘rishning iloji yo‘q.)</p>
+<p class="has-line-data" data-line-start="32" data-line-end="33">U holda to‘g‘ridan-to‘g‘ri murojaatdan foydalanamiz:</p>
+<pre><code class="has-line-data" data-line-start="35" data-line-end="37" class="language-console">C:\Python34\Tools\Scripts\pip3.exe install numpy
+</code></pre>
+<p class="has-line-data" data-line-start="38" data-line-end="39">Yoki <code>C:\Python34\Tools\Scripts\</code> papkasini <code>PATH</code>ga “qo‘lda” qo‘shish kerak bo‘ladi.</p>
+<h3 class="code-line" data-line-start=40 data-line-end=41 ><a id="pip_yordamida_yana_nimalar_qilish_mumkin_40"></a>pip yordamida yana nimalar qilish mumkin?</h3>
+<p class="has-line-data" data-line-start="41" data-line-end="51">pipning asosiy buyruqlarini qisqacha ko‘rib chiqamiz:<br>
+<code>pip help</code> – murojaat qilish mumkin bo‘lgan buyruqlar bo‘yicha yordamсhi ma’lumot.<br>
+<code>pip install package_name</code> – paket(lar)ni o‘rnatish.<br>
+<code>pip uninstall package_name</code> – paket(lar)ni o‘chirish.<br>
+<code>pip list</code> – o‘rnatilgan paketlar ro‘yxati.<br>
+<code>pip show package_name</code> – o‘rnatilgan paket to‘g‘risidagi ma’lumotni chiqarish.<br>
+<code>pip search</code> – paketlarni nomi bo‘yicha izlash.<br>
+<code>pip –proxy user:passwd@proxy.server:port</code> – proksidan foydalanish.<br>
+<code>pip install -U</code> – paket(lar)ni yangilash.<br>
+<code>pip install –force-reinstall</code> – yangilanganda, hatto paket eng oxirgi versiyada bo‘lsa ham, qaytadan o‘rnatish.</p>
+</div>
+    </div>
+   </div>
+  </main>
+
+ </body>
+</html>

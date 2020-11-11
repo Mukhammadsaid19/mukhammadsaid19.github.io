@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    11. Fayllar
+   </title>
+   <link href="../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <header>
+   <a href="../index.html">
+    Python Coding Club
+   </a>
+   |
+   <a href="#">
+    Mundarijaga qaytish
+   </a>
+   <div>
+    9-sinf
+   </div>
+  </header>
+  <nav class="table-of-contents col-sm-2">
+   <ul class="nav">
+    <li>
+     <a href="#pythonga_kirish">
+      11. Fayllar
+     </a>
+    </li>
+    <li><a href="#Fayllar_Fayllar_bilan_ishlash_0">Fayllar. Fayllar bilan ishlash</a></li>
+    <li><a href="#withas__kontekst_menejeri_0"><code>with…as</code> – kontekst menejeri</a></li>
+    <!--  <li>
+     <a href="#summary">
+      Summary
+     </a>
+    </li>-->
+   </ul>
+  </nav>
+  <main class="container-fluid">
+   <h1 class="handout-title col-sm-8 col-sm-offset-2" id="pythonga_kirish">
+      11. Fayllar
+   </h1>
+   <div data-outline="pythonga_kirish">
+    <div class="markdown col-sm-8 col-sm-offset-2 converted">
+     <h4>
+        Bu bob quyidagilardan tashkil topgan:
+     </h4>
+     <p>
+      Mavzular:
+     </p>
+     <ul>
+      <li>
+         Fayllar. Fayllar bilan ishlash
+      </li>
+      <li>
+         <code>with…as</code> – kontekst menejeri
+      </li>
+     </ul>
+
+
+     <h2 id="Fayllar_Fayllar_bilan_ishlash_0">
+      Fayllar. Fayllar bilan ishlash
+     </h2>
+
+<div data-outline="Fayllar_Fayllar_bilan_ishlash_0">
+   <p class="has-line-data" data-line-start="2" data-line-end="3">Bu bobda biz Python tarkibidagi <em>fayllar</em> bilan ishlash vositalari – faylni ochish, yopish, undan o‘qish va unga yozish amallari bilan tanishamiz.</p>
+<p class="has-line-data" data-line-start="4" data-line-end="5">Fayl bilan ishlashdan avval uni ochish kerak. Bu ishni <code>open</code> tarkibiy funksiyasi juda yaxshi bajaradi.</p>
+<pre><code class="has-line-data" data-line-start="7" data-line-end="9" class="language-python">f = open(<span class="hljs-string">'text.txt'</span>, <span class="hljs-string">'r'</span>)
+</code></pre>
+<p class="has-line-data" data-line-start="10" data-line-end="11"><code>open</code> funksiyasining parametrlari juda ko‘p bo‘lib, hozir bizga ulardan 3 tasi muhim: birinchisi – fayl nomi. Faylga yo‘l esa absolyut yoki nisbiy bo‘lishi mumkin. Ikkinchisi – biz faylni ochadigan rejim.</p>
+<table class="table table-striped no-markdown">
+<thead>
+<tr>
+<th style="text-align:center"><strong>Rejim</strong></th>
+<th style="text-align:center"><strong>Ma’nosi</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>'r'</code></td>
+<td style="text-align:center">O‘qish uchun ochish (boshqa holat ko‘rsatilmasa, odatiy hol hisoblanadi)</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'w'</code></td>
+<td style="text-align:center">Yozish uchun ochish, faylning tarkibi o‘chiriladi, agar bunday fayl mavjud bo‘lmasa, yangisi yaratiladi</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'x'</code></td>
+<td style="text-align:center">Yozish uchun ochish, agar bunday fayl mavjud bo‘lmasa, noodatiy holat yuzaga keladi</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'a'</code></td>
+<td style="text-align:center">Qo‘shimcha yozish uchun ochish. Qo‘shilayotgan ma’lumot faylning yakunidan qo‘shiladi</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'b'</code></td>
+<td style="text-align:center">Ikkilik rejimda ochish</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'t'</code></td>
+<td style="text-align:center">Matnli rejimda ochish(boshqa holat ko‘rsatilmasa, odatiy hol hisoblanadi)</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'+'</code></td>
+<td style="text-align:center">O‘qish va yozish uchun ochish</td>
+</tr>
+</tbody>
+</table>
+<p class="has-line-data" data-line-start="22" data-line-end="23">Rejimlarni birlashtirilgan holda ham ishlatish mumkin, masalan, <code>rb</code> – ikkilik rejimda o‘qishni anglatadi. Boshqa holat ko‘rsatilmasa, odatiy holda rejim <code>rt</code> ga teng.</p>
+<p class="has-line-data" data-line-start="24" data-line-end="25">Uchinchisi bu – <code>encoding</code>, u faqat faylni o‘qishning matnli holatidagina kerak bo‘ladi. Mazkur argument kodirovkani anglatadi.</p>
+<h3 class="code-line" data-line-start=26 data-line-end=27 ><a id="Fayldan_oqish_26"></a>Fayldan o‘qish</h3>
+<p class="has-line-data" data-line-start="27" data-line-end="28">Faylni ochganimizdan keyin, undagi ma’lumotlarni o‘qishimiz kerak. Buning bir necha metodi mavjud bo‘lsa-da, ulardan faqat quyidagi ikkitasiga e’tiboringizni qaratamiz: birinchisi – <code>read</code> metodi, agar argumentlarisiz qo‘llanilgan bo‘lsa, u faylni to‘liqligicha o‘qiydi. Agar butun sonli n argumenti qo‘llangan bo‘lsa, shuncha (<code>n</code> ta) sonli belgilarni o‘qiydi.</p>
+<pre><code class="has-line-data" data-line-start="30" data-line-end="36" class="language-python">&gt;&gt;&gt; f = open(<span class="hljs-string">'text.txt'</span>)
+&gt;&gt;&gt; f.read(<span class="hljs-number">1</span>)
+<span class="hljs-string">'H'</span>
+&gt;&gt;&gt; f.read()
+<span class="hljs-string">'ello world!\nThe end.\n\n'</span>
+</code></pre>
+<p class="has-line-data" data-line-start="37" data-line-end="38">Ikkinchi metodi – for takrorlash operatoridan foydalangan holda faylni satrma-satr o‘qish.</p>
+<pre><code class="has-line-data" data-line-start="39" data-line-end="48" class="language-python">&gt;&gt;&gt; f = open(<span class="hljs-string">'text.txt'</span>)
+&gt;&gt;&gt; <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> f:
+        line
+
+<span class="hljs-string">'Hello world!\n'</span>
+<span class="hljs-string">'\n'</span>
+<span class="hljs-string">'The end.\n'</span>
+<span class="hljs-string">'\n'</span>
+</code></pre>
+<h3 class="code-line" data-line-start=49 data-line-end=50 ><a id="Faylga_yozish_49"></a>Faylga yozish</h3>
+<p class="has-line-data" data-line-start="50" data-line-end="51">Endi esa fayl yozishni ko‘rib chiqamiz. Faylimizga quyidagi ro‘yxatning qanday yozilishini ko‘rib chiqaylik:</p>
+<pre><code class="has-line-data" data-line-start="52" data-line-end="57" class="language-python">&gt;&gt;&gt; l = [str(i)+str(i-<span class="hljs-number">1</span>) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">20</span>)]
+&gt;&gt;&gt; l
+[<span class="hljs-string">'0-1'</span>, <span class="hljs-string">'10'</span>, <span class="hljs-string">'21'</span>, <span class="hljs-string">'32'</span>, <span class="hljs-string">'43'</span>, <span class="hljs-string">'54'</span>, <span class="hljs-string">'65'</span>, <span class="hljs-string">'76'</span>, <span class="hljs-string">'87'</span>, <span class="hljs-string">'98'</span>, <span class="hljs-string">'109'</span>, <span class="hljs-string">'1110'</span>,
+<span class="hljs-string">'1211'</span>, <span class="hljs-string">'1312'</span>, <span class="hljs-string">'1413'</span>, <span class="hljs-string">'1514'</span>, <span class="hljs-string">'1615'</span>, <span class="hljs-string">'1716'</span>, <span class="hljs-string">'1817'</span>, <span class="hljs-string">'1918'</span>]
+</code></pre>
+<p class="has-line-data" data-line-start="57" data-line-end="58">Faylni yozish uchun ochamiz:</p>
+<pre><code class="has-line-data" data-line-start="59" data-line-end="61" class="language-python">&gt;&gt;&gt; f = open(<span class="hljs-string">'text.txt'</span>, <span class="hljs-string">'w'</span>)
+</code></pre>
+<p class="has-line-data" data-line-start="62" data-line-end="63">Faylga yozish <code>write</code> metodi yordamida amalga oshiriladi:</p>
+<pre><code class="has-line-data" data-line-start="65" data-line-end="74" class="language-python">&gt;&gt;&gt; <span class="hljs-keyword">for</span> index <span class="hljs-keyword">in</span> l:
+        f.write(index + <span class="hljs-string">'\n'</span>)
+
+<span class="hljs-number">4</span>
+<span class="hljs-number">3</span>
+<span class="hljs-number">3</span>
+<span class="hljs-number">3</span>
+<span class="hljs-number">3</span>
+</code></pre>
+<p class="has-line-data" data-line-start="74" data-line-end="75">Bu sonlar nimaligini tushunmagan bo‘lsangiz, tushunib oling: write metodi yozilgan simvollar sonini qaytaradi.</p>
+<p class="has-line-data" data-line-start="76" data-line-end="77">Fayl bilan ishlash yakuniga yetgach, uni, albatta, close metodi yordamida yopish kerak bo‘ladi.</p>
+<pre><code class="has-line-data" data-line-start="79" data-line-end="81" class="language-python">&gt;&gt;&gt; f.close()
+</code></pre>
+<p class="has-line-data" data-line-start="82" data-line-end="83">Endi esa hosil bo‘lgan faylimizdan shu ro‘yxatimizni chaqirishga harakat qilib ko‘ramiz. Faylni o‘qish uchun ochamiz (umid qilamanki, siz buni qanday bajarilishini tushundingiz) va satrlarni o‘qiymiz.</p>
+<pre><code class="has-line-data" data-line-start="85" data-line-end="92" class="language-python">&gt;&gt;&gt; f = open(<span class="hljs-string">'text.txt'</span>, <span class="hljs-string">'r'</span>)
+&gt;&gt;&gt; l = [line.strip() <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> f]
+&gt;&gt;&gt; l
+[<span class="hljs-string">'0-1'</span>, <span class="hljs-string">'10'</span>, <span class="hljs-string">'21'</span>, <span class="hljs-string">'32'</span>, <span class="hljs-string">'43'</span>, <span class="hljs-string">'54'</span>, <span class="hljs-string">'65'</span>, <span class="hljs-string">'76'</span>, <span class="hljs-string">'87'</span>, <span class="hljs-string">'98'</span>, <span class="hljs-string">'109'</span>, <span class="hljs-string">'1110'</span>,
+<span class="hljs-string">'1211'</span>, <span class="hljs-string">'1312'</span>, <span class="hljs-string">'1413'</span>, <span class="hljs-string">'1514'</span>, <span class="hljs-string">'1615'</span>, <span class="hljs-string">'1716'</span>, <span class="hljs-string">'1817'</span>, <span class="hljs-string">'1918'</span>]
+&gt;&gt;&gt; f.close()
+</code></pre>
+<p class="has-line-data" data-line-start="92" data-line-end="93">Biz o‘sha avvalgi ro‘yxatimizga ega bo‘ldik. Bundan murakkabroq holatlarda (lug‘atlar, ichki kortejlar va h. k. uchun) yozish algoritmi nisbatan murakkabroq bo‘ladi. Bizga bu kerak ham emas. Pythonda allaqachonlar <code>pickle</code> yoki <code>json</code> kabi murakkab strukturalarni saqlash vositalari o‘ylab topilgan.</p>
+</div>
+
+<h2 class="code-line" data-line-start=0 data-line-end=1 ><a id="withas__kontekst_menejeri_0"></a><code>with…as</code> – kontekst menejeri</h2>
+<div data-outline="withas__kontekst_menejeri_0">
+<p class="has-line-data" data-line-start="2" data-line-end="3"><code>with…as</code> konstruksiyasi kontekst menejeri tomonidan ko‘rsatmalar blokining bajarilishi jarayonini qamrab olish uchun ishlatiladi. Ba’zida bu konstruksiyadan foydalanish <code>try/except/finally</code> dan ko‘ra samaraliroq bo‘lishi mumkin.</p>
+<p class="has-line-data" data-line-start="4" data-line-end="5"><code>with…as</code> konstruksiyasining sintaksisi:</p>
+<pre><code class="has-line-data" data-line-start="7" data-line-end="10" class="language-python"><span class="hljs-string">"with"</span> expression [<span class="hljs-string">"as"</span> target] (<span class="hljs-string">","</span> expression [<span class="hljs-string">"as"</span> target])* <span class="hljs-string">":"</span>
+      suite
+</code></pre>
+<p class="has-line-data" data-line-start="11" data-line-end="12">Endi esa ushbu blokning bajarilisih jarayoni haqida batafsil to‘xtalib o‘tamiz:</p>
+<ol>
+<li class="has-line-data" data-line-start="13" data-line-end="14"><code>with…as</code> konstruksiyasidagi ko‘rsatma bajariladi;</li>
+<li class="has-line-data" data-line-start="14" data-line-end="15">keyinchalik foydalanish uchun <code>__exit__</code> maxsus metodi yuklanadi;</li>
+<li class="has-line-data" data-line-start="15" data-line-end="16"><code>__enter__</code> metodi bajariladi. Agar with konstruksiyasining tarkibida as so‘zi mavjud bo‘lsa, u holda <code>__enter__</code> metodi tomonidan qaytariladigan qiymat o‘zgaruvchiga yoziladi;</li>
+<li class="has-line-data" data-line-start="16" data-line-end="17"><code>suite</code> amalga oshiriladi;</li>
+<li class="has-line-data" data-line-start="17" data-line-end="19"><code>__exit__</code> metodiga murojaat qilinadi. Bu yerda <code>suite</code> bajarilganligi yoki noodatiy holat yuzaga kelganligi ahamiyatsiz. Bu metodga, agar noodatiy holat yuzaga kelgan bo‘lsa, uning parametrlari, agar yuzaga kelmagan bo‘lsa, barcha argumentlarda <code>None</code> qiymati beriladi.</li>
+</ol>
+<p class="has-line-data" data-line-start="19" data-line-end="20">Agar <code>with…as</code> konstruksiyasining tarkibida bir necha ko‘rsatma keltirilgan bo‘lsa, u holda ular bir necha ichma-ich joylashtirilgan ko‘rsatmalar bilan teng kuchli hisoblanadi:</p>
+<pre><code class="has-line-data" data-line-start="22" data-line-end="25" class="language-python"><span class="hljs-keyword">with</span> A() <span class="hljs-keyword">as</span> a, B() <span class="hljs-keyword">as</span> b:
+      suite
+</code></pre>
+<p class="has-line-data" data-line-start="26" data-line-end="27">hamda:</p>
+<pre><code class="has-line-data" data-line-start="28" data-line-end="32" class="language-python"><span class="hljs-keyword">with</span> A() <span class="hljs-keyword">as</span> a:
+      <span class="hljs-keyword">with</span> B() <span class="hljs-keyword">as</span> b:
+         suite
+</code></pre>
+<p class="has-line-data" data-line-start="33" data-line-end="34">dastur qismlari o‘zaro ekvivalent (teng kuchli) hisoblanadi.</p>
+<p class="has-line-data" data-line-start="35" data-line-end="36"><code>with…as</code> konstruksiyasi nima uchun qo‘llaniladi? – Bajarilishi o‘ta muhim bo‘lgan funksiyalar har qanday holatda ham kafolatlangan tarzda bajarilishini nazorat qilish uchun. Ushbu konstruksiyadan foydalanishning eng keng tarqalgan holatlaridan biri bu – fayllarni ochish jarayoni. Biz avvalgi boblarimizda <code>open</code> funksiyasi yordamida fayllarni ochish jarayoni bilan tanishgan edik, lekin <code>with…as</code> konstruksiyasi bu amal uchun ko‘proq qo‘llaniladigan konstruksiya bo‘lib, undan foydalanilganda har qanday holatda ham yakunida faylning yopilishini kafolatlashi bilan farq qiladi.</p>
+<p class="has-line-data" data-line-start="37" data-line-end="38">Masalan:</p>
+<pre><code class="has-line-data" data-line-start="40" data-line-end="44" class="language-python"><span class="hljs-keyword">with</span> open(<span class="hljs-string">'newfile.txt'</span>, <span class="hljs-string">'w'</span>, encoding=<span class="hljs-string">'utf-8'</span>) <span class="hljs-keyword">as</span> g:
+      d = int(input())
+      print(<span class="hljs-string">'1 / {} = {} '</span>.format(d, <span class="hljs-number">1</span> / d), file=g)
+</code></pre>
+<p class="has-line-data" data-line-start="45" data-line-end="46">Bunday holatda foydalanuvhci tomonidan nima kiritilsa ham, yakunida faylning aniq yopilishiga shubha qilmasangiz ham bo‘ladi.</p>
+
+</div>
+
+    </div>
+   </div>
+  </main>
+
+ </body>
+</html>
