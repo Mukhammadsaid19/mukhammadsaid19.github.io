@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    1. Pythonga kirish
+   </title>
+   <link href="../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <div class="row">
+  <div class="table-of-contents col-sm-3">
+    <div class="bg-white border sticky-top">
+    <ul class="nav">
+      <li class="w-100"><a href="#pythonga_kirish"></a></li>
+    </ul>
+    </div>
+  </div>
+
+  <div class="col-sm-9">
+   <h1 class="handout-title p-3 mb-3 bg-white border" id="pythonga_kirish">
+    1. Pythonga kirish
+   </h1>
+   <div data-outline="pythonga_kirish" class="bg-white p-4 border">
+    <div class="markdown converted">
+     <h4>
+      Bu bob quyidagilardan tashkil topgan:
+     </h4>
+     <p>
+      Mavzular:
+     </p>
+     <ul>
+      <li>
+        Python tili imkoniyatlari
+      </li>
+      <li>
+        Pythonni ko‘chirib olish
+      </li>
+      <li>
+        Birinchi dastur. IDLE dasturlash muhiti  
+      </li>
+      <li>
+        Python tili sintaksisi
+      </li>
+      <li>
+        Dastur ishlamayapti. Nima qilish kerak?
+      </li>
+     </ul>
+     <h2 id="python_tili_imkoniyatlari">Python tili imkoniyatlari</h2>
+     <div data-outline="python_tili_imkoniyatlari">
+    <p>Python tili imkoniyatlari
+    Mendan juda ko‘p Python tilining afzalliklari haqida so‘rashganlari uchun, men shu mavzuda uncha katta bo‘lmagan tahliliy maqola yozishga qaror qildim.
+    Quyida Python yordamida bajarish mumkin bo‘lgan ba’zi amallar keltirilgan:</p>
+    <ul>
+        <li>xml/html fayllar bilan ishlash;</li>
+        <li>http so‘rovlar bilan ishlash;</li>
+        <li>GUI (grafik interfeys);</li>
+        <li>Veb-ssenariylar yaratish;</li>
+        <li>FTP bilan ishlash;</li>
+        <li>tasvirlar, audio va videofayllar bilan ishlash;</li>
+        <li>robototexnika;</li>
+        <li>ilmiy va matematik hisoblashlarni dasturlash va yana ko‘plab boshqa ishlar.</li>
+    </ul>
+    <p>Shunday qilib, Python tili zaxirali nusxalash, elektron pochtani o‘qish yoki birorta o‘yin yaratish kabi kundalik vazifalarning juda katta qismini bajarishda qo‘l kelishi mumkin. Python dasturlash tili deyarli hech qanday cheklanmagan, shuning uchun u yirik loyihalarda ham qo‘llanilishi mumkin. Masalan, Python Google va Yandex kabi IT gigantlar tomonidan muntazam qo‘llanilib kelinmoqda. Bundan tashqari, Python tilining oddiyligi va universalligi uni eng kuchli tillardan biriga aylantirgan.</p>
+    </div>
+
+     <h2 id="Pythonni_ko‘chirib_olish">
+      Pythonni ko‘chirib olish
+     </h2>
+     <div data-outline="Pythonni_ko‘chirib_olish">
+        <p>Bugun biz Python 3 ni shaxsiy kompyuterimizga tekinga ko‘chirib olish, ro‘yxatdan o‘tish va SMSlarsiz o‘rnatib olishni o‘rganamiz :)</p>
+        <h3 id="windowsda-pythonni-o-rnatish">Windowsda Pythonni o‘rnatish</h3>
+        <p>Pythonni biz rasmiy saytidan yuklab olamiz. Men sizlarga Pythonni boshqa sayt yoki torrentlardan ko‘chirmaslikni taklif qilaman, chunki ularda viruslar bo‘lishi mumkin. Dasturning o‘zi esa tekin. <a href="https://python.org/downloads/windows/">Ushbu</a> manziliga kiramiz hamda <em>Latest Python release</em> va <em>Python 3</em> ni tanlaymiz.</p>
+        <p>Kitobdagi ayrim misollarim Python 2 da ishlamasligi mumkin. Kitob yozilayotgan vaqtda saytdan Python 3.8.6 versiyasi joy olib ulgurgan.</p>
+        <p>Pythonning joriy versiyasi tavsiflangan (ingliz tilida) sahifa hosil bo‘ladi. Sahifaning oxiriga o‘tib, <strong>Download</strong> / <strong>Скачать</strong> tanlanganda, eng oxirgi versiyani yuklash sahifasi hosil bo‘ladi:</p>
+
+            <p><img src="../figures/1.jpg" alt="Python sayti" width="60%"></p>
+
+        <p>Bundan tashqari, siz yuklab olishingiz mumkin bo‘lgan fayllar ro‘yxatini ham ko‘rishingiz mumkin. Bizga (agar sistemamiz 32 bitli bo‘lsa) <em>Windows x86 MSI</em> installer yoki (agar sistemamiz 64 bitli bo‘lsa) <em>Windows x86-64 MSI</em> installerlaridan biri kerak. Shu fayylarni o‘zi kifoya.
+            Shundan keyin yuklangan faylni ochamiz. Fayl <strong>Python Software Foundation</strong> tomonidan imzolangan bo‘lsa, demak, hammasi joyida. O‘rni kelganda eslatib o‘tmoqchiman, tasdiqlanmagan yoki ishonchsiz tasdiqlangan <code>.exe</code> kengaytmali fayllarni ochishdan saqlanish kerak!</p>
+            
+            <p><img src="../figures/2.jpg" alt="Pythonni o'rnatish" width="40%"></p>
+            
+            <p><strong>Install Now</strong> yoki <strong>Установить сейчас</strong> degan buyruqni tanlaymiz. Barcha foydalanuvchilar uchun yoki faqat bir kishi uchun o‘rnatishni tanlaymiz (qaysi birini tanlash sizning ixtiyoringizda):</p>
+
+            <p><img src="../figures/3.jpg" alt="Pythonni o'rnatish" width="40%"></p>
+
+            <p>O‘rnatish uchun papka manzilini tanlaymiz. Men bu yerda ko‘rsatilgan papkani o‘zgarishsiz qoldiraman. Siz esa o‘z diskingizdagi ixtiyoriy papkani tanlashingiz mumkin.
+                Pythonni o‘rnatish yakuniga yetishini kutamiz…
+                Finish. Tabriklayman. Siz shaxsiy kompyuteringizga Pythonni o‘rnatdingiz! Bundan tashqari, Windows uchun mo‘ljallangan Python o‘rnatuvchisining tarkibida IDLE ham mavjud. Siz birdan o‘zingizning birinchi dasturingizni yozishngiz mumkin.
+                </p>
+<p><img src="../figures/4.jpg" alt="Pythonni o'rnatish" width="40%"></p>
+
+<h3 id="pythonni-linux-tizimlar-ubuntu-linux-mint-va-boshqalar-da-o-rnatish">Pythonni Linux tizimlar (Ubuntu, Linux Mint va boshqalar) da o‘rnatish</h3>
+<p>Konsolni oching (odatda, <code>Ctrl+Alt+T</code>). Konsolga quyidagi buyruqni kiriting:</p>
+<pre><code><span class="hljs-attribute">python</span>
+</code></pre><p>Sizning ekraningizda Python 3 qutlovi hosil bo‘ladi.</p>
+<pre><code>Python <span class="hljs-number">3.8</span><span class="hljs-number">.6</span> (<span class="hljs-keyword">default</span>, <span class="hljs-built_in">Oct</span> <span class="hljs-number">6</span> <span class="hljs-number">2020</span>, <span class="hljs-number">13</span>:<span class="hljs-number">05</span>:<span class="hljs-number">11</span>)
+[GCC <span class="hljs-number">4.8</span><span class="hljs-number">.2</span>] <span class="hljs-keyword">on</span> linux
+Type <span class="hljs-string">"help"</span>, <span class="hljs-string">"copyright"</span>, <span class="hljs-string">"credits"</span> <span class="hljs-keyword">or</span> <span class="hljs-string">"license"</span> <span class="hljs-keyword">for</span> more information.
+&gt;&gt;&gt;
+</code></pre><p>Agar shunday bo‘lsa, u holda sizni tabriklasak bo‘ladi. Kompyuteringizga Python 3 o‘rnatilibdi. Aks holda, <em>Python 3</em> paketini o‘rnatish kerak bo‘ladi:</p>
+<p>Bu ishni, sizning xohishingizga ko‘ra, <strong>ubuntu/</strong> ilovalar markazi orqali miniinstaller/synaptic orqali ham amalga oshirish mumkin.
+Linux uchun Pythonning tarkibida oldindan o‘rnatilgan <strong>IDLE</strong> mavjud emas. Agar istasangiz, uni alohida o‘rnatish mumkin. Paket <em>idle3</em> deb nomlanadi (oldinroq chiqarilgan versiyalarda u Python 3-idle deb nomlanishi ham mumkin). </p>
+<p>Lekin uni o‘rnatish shart ham emas. Siz o‘zingizga yoqadigan matn muharriringizda (gedit, vim, emacs) dasturlarni yozishingiz va ularni konsol orqali ishga tushirishingiz ham mumkin.</p>
+<pre><code><span class="hljs-keyword">python3</span> path_to_file.<span class="hljs-keyword">py</span>
+</code></pre><p>Endi siz o‘zingizning birinchi dasturingizni yozishingiz mumkin. Bu ishni o‘z xohishingizga ko‘ra IDLEda yoki yoqtirgan matn muharriringizda bajarishingiz mumkin.</p>
+
+            
+     </div>
+
+     <h2 id="birinchi_dastur">
+        Birinchi dastur. IDLE dasturlash muhiti
+     </h2>
+
+     <div data-outline="birinchi_dastur">
+        <p>Bugun biz siz bilan <em>IDLE</em> dasturlash muhitida o‘zimizning birinchi dasturimizni yaratamiz. Pythonni ko‘chirib olib o‘rnatganimizdan keyin IDLEni ishga tushiramiz (Distributiv bilan birga beriladigan Pythton dasturlash muhiti). </p>
+        <p>Bu yerda va bundan keyin, menda Windows o‘rnatilganligi sababli, shu tizim uchun misollarni keltiraman.</p>
+        <p>IDLEni ishga tushiramiz (odatda, <em>interfaol rejimda</em> ishga tushadi), endi o‘zimizning ilk dasturimizni yozishni boshlashimiz mumkin. Har doimgidek, bizning birinchi dasturimiz – “Hello world!” dasturi bo‘ladi. Pythonda <code>Hello world!</code>ni chiqarish uchun bittagina satr yetarlidir:</p>        
+        <pre><code class="has-line-data" data-line-start="9" data-line-end="11" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>print(<span class="hljs-string">"Hello, World!"</span>)</code></pre>
+        <p class="has-line-data" data-line-start="12" data-line-end="13">Bu satrni IDLEda kiritamiz va <code>Enter</code> tugmachasini bosamiz. Natijani esa siz quyidagi tasvirda ko‘rishingiz mumkin:</p>
+<pre><code class="has-line-data" data-line-start="15" data-line-end="22" class="language-python">Python <span class="hljs-number">3.9</span><span class="hljs-number">.0</span> (tags/v3<span class="hljs-number">.9</span><span class="hljs-number">.0</span>:<span class="hljs-number">9</span>cf6752, Oct  <span class="hljs-number">5</span> <span class="hljs-number">2020</span>, <span class="hljs-number">15</span>:<span class="hljs-number">34</span>:<span class="hljs-number">40</span>) [MSC v<span class="hljs-number">.1927</span> <span class="hljs-number">64</span> bit (AMD64)] on win32 
+Type <span class="hljs-string">"help"</span>, <span class="hljs-string">"copyright"</span>, <span class="hljs-string">"credits"</span> <span class="hljs-keyword">or</span> <span class="hljs-string">"license()"</span> <span class="hljs-keyword">for</span> more information.
+<span class="hljs-prompt">&gt;&gt;&gt; </span>print(<span class="hljs-string">"Hello, World!"</span>)
+Hello world!
+&gt;&gt;&gt;
+</code></pre>
+<p class="has-line-data" data-line-start="23" data-line-end="24">Tabriklayman, Siz Pythonda o‘zingizning ilk dasturingizni yozdingiz!</p>
+<p class="has-line-data" data-line-start="25" data-line-end="26">Interfaol rejim bilan biz tanishib chiqdik. Bir necha tajriba o‘tkazib, siz uni batafsilroq o‘rganishingiz mumkin. Masalan, quyidagilarni kiritib ko‘ring:</p>
+<pre><code class="has-line-data" data-line-start="28" data-line-end="32" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>print(<span class="hljs-string">"Assalomu-alaykum!"</span>)
+<span class="hljs-prompt">&gt;&gt;&gt; </span>print(<span class="hljs-string">"Mening ismim-Anvar."</span>)
+<span class="hljs-prompt">&gt;&gt;&gt; </span>print(<span class="hljs-string">"Diqqatingiz uchun rahmat!"</span>)
+</code></pre>
+<p class="has-line-data" data-line-start="33" data-line-end="34">Lekin interfaol rejim biz uchun asosiy rejim hisoblanmaydi. Siz, asosan, o‘z dasturlaringizni faylli rejimda saqlab, ularning fayl ko‘rinishini ishga tushirasiz. IDLE interfaol rejimida yangi fayl yaratish uchun <em>File</em> — <em>New File</em> buyruqlarini tanlang (yoki <code>Ctrl+</code>N kombinatsiyasini bosing).</p>
+<p class="has-line-data" data-line-start="35" data-line-end="36">Hosil bo‘lgan oynada quyidagi kodni kiriting:</p>
+<pre><code class="has-line-data" data-line-start="38" data-line-end="41" class="language-python">name = input(<span class="hljs-string">"Ismingiz nima?"</span>)
+print(<span class="hljs-string">"Assalomu alaykum,"</span>, name)
+</code></pre>
+<p class="has-line-data" data-line-start="44" data-line-end="45">Birinchi satr <code>Ismingiz nima?</code> savolini chiqaradi hamda sizning biror narsa yozib, <code>Enter</code> tugmachasini bosishingizni kutadi hamda kiritilgan matnni <code>name</code> o‘zgaruvchisida saqlaydi.</p>
+<p class="has-line-data" data-line-start="46" data-line-end="47">Ikkinchi satrda biz matnni ekranga chiqarish uchun <code>print()</code> funksiyasidan foydalanamiz. Bu yerda Assalomu alaykum, matni hamda <code>name</code> o‘zgaruvchisidagi matnni chiqarish amalga oshirilmoqda. Endi esa <code>F5</code> ni bosamiz (yoki IDLEning Run menyusidagi <em>Run Module</em> buyrug‘ini tanlaymiz) va biz yozgan dasturimizning ishlayotganiga ishonch hosil qilamiz. Dasturimizni ishga tushirishdan oldin IDLE bizga uni saqlashni taklif qiladi. Sizga qulay bo‘lgan joyda saqlaymiz va dasturimiz ishga tushganini ko‘ramiz. Natija taxminan mana shunday bo‘lishi lozim (chapda natija, o‘ngda siz tuzgan dastur matni):</p>
+<p class="has-line-data" data-line-start="48" data-line-end="49">Tabriklayman! Siz IDLE interfaol rejimi bilan tanishdingiz va oddiy dasturlarni yozishni o‘rgandingiz. Endi ozroq dam olib, so‘ngra Pythonni o‘rganishda davom etish mumkin. Bundan buyog‘iga biz Python sintaksisi, takrorlash sikllari va tarmoqlanishni o‘rganamiz.</p>
+    </div>
+
+     <h2 id="python_tili_sintaksisi">
+        Python tili sintaksisi
+     </h2>
+     <div data-outline="python_tili_sintaksisi">
+
+        <p class="has-line-data" data-line-start="0" data-line-end="1">Python tilining sintaksisi ham tilning o‘zi kabi juda sodda.</p>
+        <h3 class="code-line" data-line-start=2 data-line-end=3 ><a id="Sintaksis_2"></a>Sintaksis</h3>
+        <ul>
+        <li class="has-line-data" data-line-start="4" data-line-end="5">
+        <p class="has-line-data" data-line-start="4" data-line-end="5">Satrning <strong>yakuni</strong> ifodaning ham yakuni hisoblanadi (nuqtali vergul talab etilmaydi).</p>
+        </li>
+        <li class="has-line-data" data-line-start="5" data-line-end="6">
+        <p class="has-line-data" data-line-start="5" data-line-end="6">Ichki ko‘rsatmalar qoldirilgan bo‘sh joylarga qarab bloklarga birlashtiriladi. Bosh joylar soni ixtiyoriy bo‘lishi mumkin; asosiysi, bitta ichki blok chegarasida bo‘sh joylar soni <strong>bir xil bo‘lishi</strong> lozim. Bu yerda kodning oson o‘qilishiga ham e’tibor qaratish kerak. Masalan, 1 ta bo‘sh joy tashlash – mumkin emas. Yaxshisi, <em>4 ta</em> bo‘sh joy tashlang (yoki, hech bo‘lmaganda, tabulyatsiyadan <code>Tab</code> foydalaning).</p>
+        </li>
+        <li class="has-line-data" data-line-start="6" data-line-end="13">
+        <p class="has-line-data" data-line-start="6" data-line-end="7">Pythonda ichki ko‘rsatmalar bitta shablon asosida yoziladi: asosiy ko‘rsatma <strong>ikkita nuqta</strong> bilan yakunlanganda, undan keyin, odatda, kod bloki bir xil bo‘sh joy tashlagan holda yoziladi.</p>
+<pre><code class="has-line-data" data-line-start="9" data-line-end="12">asosiy ko‘rsatma:
+    ichki ko‘rsatmalar bloki</code></pre>
+        </li>
+        </ul>
+        <h3 class="code-line" data-line-start=13 data-line-end=14 ><a id="Bazi_maxsus_hollar_13"></a>Ba’zi maxsus hollar</h3>
+        <ul>
+        <li class="has-line-data" data-line-start="15" data-line-end="23">
+        <p class="has-line-data" data-line-start="15" data-line-end="16">Bitta ko‘rsatmani bir nechta satrda ham yozish mumkin. Buning uchun ifodani oddiy yumaloq, kvadrat yoki figurali qavslardan birining ichiga olish kifoya:</p>
+<pre><code class="has-line-data" data-line-start="18" data-line-end="22" class="language-python"><span class="hljs-keyword">if</span> (a == <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> b == <span class="hljs-number">2</span> 
+<span class="hljs-keyword">and</span> c == <span class="hljs-number">3</span> <span class="hljs-keyword">and</span> d == <span class="hljs-number">4</span>):   <span class="hljs-comment"># Ikki nuqtani ham esdan chiqarmaymiz</span>
+    print(<span class="hljs-string">'spam'</span> * <span class="hljs-number">3</span>)
+</code></pre>
+        </li>
+        <li class="has-line-data" data-line-start="23" data-line-end="29">
+        <p class="has-line-data" data-line-start="23" data-line-end="24">Tarkibiy ko‘rsatma asosiy ko‘rsatma bilan bir satrda ham joylashishi mumkin, lekin bunda tarkibiy ko‘rsatma ham, o‘z navbatida, tarkibiy ko‘rsatmalardan iborat bo‘lmasigi kerak. Umid qilamanki, siz buni yaxshi tushundingiz :D. Keling, yaxshisi, bunga bir misol keltiray:</p>
+<pre><code class="has-line-data" data-line-start="26" data-line-end="28" class="language-python"><span class="hljs-keyword">if</span> x &gt; y: print(x)
+</code></pre>
+        </li>
+        </ul>
+        <p class="has-line-data" data-line-start="29" data-line-end="30">Sintaksisni to‘liq tushunish, albatta, tajriba ortishi bilan amalga oshadi, shuning uchun ham “Dasturlarga misollar” bo‘limiga nazar tashlashni maslahat beraman.</p>
+        <p class="has-line-data" data-line-start="31" data-line-end="32">Bundan tashqari, <strong>PEP8</strong> – Pythonda kod yozish bo‘yicha qo‘llanma hamda “Pythonda kodni rasmiylashtirish” <strong>PEP 257</strong> bilan ham tanishishni maslahat beraman.</p>
+     </div>
+
+     <h2 id="dastur_ishlamayapti">
+        Dastur ishlamayapti. Nima qilish kerak?
+     </h2>
+     <div data-outline="dastur_ishlamayapti">
+        <h3 class="code-line" data-line-start=0 data-line-end=1 ><a id="Maqsadlar_0"></a>Maqsadlar</h3>
+        <p class="has-line-data" data-line-start="2" data-line-end="3">Mening dasturim ishlamayapti. Nima qilish kerak? Bu bobda men Python 3 da dasturlashni boshlayotganlarda eng ko‘p uchraydigan xato va kamchiliklarni ko‘rib chiqib, ularni bartaraf etish haqida so‘z yuritaman.</p>
+
+      <div class="handout-solo alert alert-warning">
+        <p class="has-line-data" data-line-start="4" data-line-end="5">Ushbu bobda xar-xil muammolarga yechimlar keltirilgan. Ayrim muammolarni siz <strong>bilmasligingiz mumkin</strong>.</p>
+      </div>
+
+      <h3 class="code-line" data-line-start=4 data-line-end=5 ><a id="Muammolar_4"></a>Muammolar</h3>
+<p class="has-line-data" data-line-start="6" data-line-end="9"><strong>Muammo:</strong> Dastur ishga tushmayapti. Bir sekundga qora oyna hosil bo‘lib, keyin yo‘qolmoqda.<br>
+<strong>Sabab:</strong> Dastur ishini yakunlagach (butun kod bajarib bo‘lingach yoki noodatiy holat yuzaga kelganda), dastur yakunlanadi. Agar dasturni uning ikonkasidagi chap tugmachani ikki marta bosish orqali ishga tushurgan bo‘lsangiz (o‘ylaymanki, siz aynan shunday qilgan bo‘lishingiz mumkin), bu dastur xabari bo‘lgan oyna bilan birga yopiladi.<br>
+<strong>Yechim:</strong> Dasturni <em>IDLE</em> yoki <em>konsol</em> orqali ishga tushirish lozim.</p>
+<p class="has-line-data" data-line-start="10" data-line-end="11"><strong>Muammo:</strong> <code>input()</code> funksiyasi ishlamayapti. <code>SyntaxError</code> yozuvi chiqib qolmoqda.</p>
+<pre><code class="has-line-data" data-line-start="12" data-line-end="19" class="language-python">&gt;&gt;&gt; a = input()
+hello world
+File <span class="hljs-string">"&lt;string&gt;"</span>, line <span class="hljs-number">1</span>
+hello world
+^
+SyntaxError: unexpected EOF <span class="hljs-keyword">while</span> parsing
+</code></pre>
+<p class="has-line-data" data-line-start="20" data-line-end="22"><strong>Sabab:</strong> Siz Python 2 ni ishga tushirgansiz.<br>
+<strong>Yechim:</strong> Python 3 ni o‘rnatish lozim.</p>
+<p class="has-line-data" data-line-start="23" data-line-end="24"><strong>Muammo:</strong> Qayerdadir oddiy bir dasturni ko‘rib qoldim, u esa ishlamayapti.</p>
+<pre><code class="has-line-data" data-line-start="25" data-line-end="28" class="language-python">name = raw_input()
+<span class="hljs-keyword">print</span> name
+</code></pre>
+<p class="has-line-data" data-line-start="28" data-line-end="29">Va natijada:</p>
+<pre><code class="has-line-data" data-line-start="30" data-line-end="35" class="language-python">     File <span class="hljs-string">"a.py"</span>, line <span class="hljs-number">3</span>
+         <span class="hljs-keyword">print</span> name
+                         ^
+SyntaxError: invalid syntax
+</code></pre>
+<p class="has-line-data" data-line-start="35" data-line-end="37"><strong>Sabab:</strong> Sizga Python 2 da tuzilgan dasturni berishgan.<br>
+<strong>Yechim:</strong> Python 2 bilan Python 3 farqlari haqida o‘qib chiqishingiz kerak. Dasturni Python 3 ga moslashtirib, yozib chiqish lozim. Masalan, yuqoridagi dastur Python 3 da quyidagicha ko‘rinishda bo‘ladi:</p>
+<pre><code class="has-line-data" data-line-start="38" data-line-end="41" class="language-python">name = raw_input()
+print(name)
+</code></pre>
+<p class="has-line-data" data-line-start="42" data-line-end="43"><strong>Muammo:</strong> <code>TypeError: Can't convert 'int' onject to str implicitly.</code></p>
+<pre><code class="has-line-data" data-line-start="44" data-line-end="50" class="language-python">&gt;&gt;&gt; a = input() + 5
+8
+Traceback (most recent call last):
+      File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: Can't convert 'int' object to str implicitly
+</code></pre>
+<p class="has-line-data" data-line-start="50" data-line-end="52"><strong>Sabab:</strong> Satr bilan sonni o‘zaro qo‘shib bo‘lmaydi.<br>
+<strong>Yechim:</strong> Satrni <code>int()</code> funksiyasi yordamida songa aylantirish lozim. Bu yerda <code>input()</code> funksiyasi har doim satrni qaytarishiga e’tibor qiling.</p>
+<pre><code class="has-line-data" data-line-start="53" data-line-end="58" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>a = int(input()) + <span class="hljs-number">5</span>
+<span class="hljs-number">8</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>a
+<span class="hljs-number">13</span>
+</code></pre>
+<p class="has-line-data" data-line-start="59" data-line-end="60"><strong>Muammo:</strong> <code>SyntaxError: invalid syntax.</code></p>
+<pre><code class="has-line-data" data-line-start="61" data-line-end="65" class="language-python">a = <span class="hljs-number">5</span>
+<span class="hljs-keyword">if</span> a == <span class="hljs-number">5</span>
+    print(<span class="hljs-string">'Ura!'</span>)
+</code></pre>
+<p class="has-line-data" data-line-start="65" data-line-end="66">Va natijada:</p>
+<pre><code class="has-line-data" data-line-start="67" data-line-end="72">File &quot;a.py&quot;, line 3
+     if a == 5
+                 ^
+SyntaxError: invalid syntax
+</code></pre>
+<p class="has-line-data" data-line-start="72" data-line-end="74"><strong>Sabab:</strong> Ikki nuqta esdan chiqib qolgan.<br>
+<strong>Yechim:</strong></p>
+<pre><code class="has-line-data" data-line-start="75" data-line-end="79" class="language-python">a = <span class="hljs-number">5</span>
+<span class="hljs-keyword">if</span> a == <span class="hljs-number">5</span>:
+    print(<span class="hljs-string">'Ura!'</span>)
+</code></pre>
+<p class="has-line-data" data-line-start="80" data-line-end="81"><strong>Muammo:</strong> <code>NameError: name 'a' is not defined</code></p>
+<pre><code class="has-line-data" data-line-start="82" data-line-end="84" class="language-python">print(a)
+</code></pre>
+<p class="has-line-data" data-line-start="84" data-line-end="86"><strong>Sabab:</strong> <code>a</code> o‘zgaruvchisi mavjud emas. Siz o‘zgaruvchini yozishda xato qilgansiz yoki bu o‘zgaruvchini hali e’lon qilmagansiz.<br>
+<strong>Yechim:</strong> Yozuvdagi xatoni to‘g‘rilash lozim.</p>
+<pre><code class="has-line-data" data-line-start="87" data-line-end="90" class="language-python">a = <span class="hljs-number">10</span>
+print(a)
+</code></pre>
+<p class="has-line-data" data-line-start="91" data-line-end="92"><strong>Muammo:</strong> <code>IndentationError: expected an indented block.</code></p>
+<pre><code class="has-line-data" data-line-start="93" data-line-end="97" class="language-python">a = <span class="hljs-number">10</span>
+<span class="hljs-keyword">if</span> a &gt; <span class="hljs-number">0</span>:
+print(a)
+</code></pre>
+<p class="has-line-data" data-line-start="97" data-line-end="99"><strong>Sabab:</strong> Bo‘sh joy tashlash kerak.<br>
+<strong>Yechim:</strong></p>
+<pre><code class="has-line-data" data-line-start="100" data-line-end="104" class="language-python">a = <span class="hljs-number">10</span>
+<span class="hljs-keyword">if</span> a &gt; <span class="hljs-number">0</span>:
+    print(a)
+</code></pre>
+<p class="has-line-data" data-line-start="105" data-line-end="106"><strong>Muammo:</strong> <code>TabError: inconsistent use of tabs and spaces in indentation.</code></p>
+<pre><code class="has-line-data" data-line-start="107" data-line-end="112" class="language-python">a = <span class="hljs-number">10</span>
+<span class="hljs-keyword">if</span> a &gt; <span class="hljs-number">0</span>:
+    print(a)
+    print(<span class="hljs-string">'Ura!'</span>)
+</code></pre>
+<p class="has-line-data" data-line-start="112" data-line-end="113">Natijada quyidagi xatolik:</p>
+<pre><code class="has-line-data" data-line-start="114" data-line-end="119">File &quot;a.py&quot;, line 5
+   print('Ura!')
+                       ^
+TabError: inconsistent use of tabs and spaces in indentation
+</code></pre>
+<p class="has-line-data" data-line-start="119" data-line-end="121"><strong>Sabab:</strong> Joy tashlanganda bo‘sh joylar va tabulyatsiyadan aralash tarzda foydalanilgan.<br>
+<strong>Yechim:</strong> Bo‘sh joylarni to‘g‘ri tashkil qilish lozim:</p>
+<pre><code class="has-line-data" data-line-start="122" data-line-end="127" class="language-python">a = <span class="hljs-number">10</span>
+<span class="hljs-keyword">if</span> a &gt; <span class="hljs-number">0</span>:
+    print(a)
+    print(<span class="hljs-string">'Ura!'</span>)
+</code></pre>
+<p class="has-line-data" data-line-start="128" data-line-end="129"><strong>Muammo:</strong> <code>UnboundLocalError: local variable 'a' referenced before assignment.</code></p>
+<pre><code class="has-line-data" data-line-start="130" data-line-end="137" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-params">()</span>:</span>
+    a += <span class="hljs-number">1</span>
+    print(a)
+
+a = <span class="hljs-number">10</span>
+f()
+</code></pre>
+<p class="has-line-data" data-line-start="137" data-line-end="138">Natijada quyidagi xatolik:</p>
+<pre><code class="has-line-data" data-line-start="139" data-line-end="146">Traceback (most recent call last):
+File &quot;a.py&quot;, line 7, in &lt;module&gt;
+f()
+File &quot;a.py&quot;, line 3, in f
+a += 1
+UnboundLocalError: local variable 'a' referenced before assignment
+</code></pre>
+<p class="has-line-data" data-line-start="146" data-line-end="148"><strong>Sabab:</strong> Hali yaratilmagan lokal o‘zgaruvchiga murojaat qilingan.<br>
+<strong>Yechim:</strong></p>
+<pre><code class="has-line-data" data-line-start="149" data-line-end="156" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">global</span> a
+    a += <span class="hljs-number">1</span>
+    print(a)
+a = <span class="hljs-number">10</span>
+f()
+</code></pre>
+<p class="has-line-data" data-line-start="157" data-line-end="158"><strong>Muammo:</strong> Dastur ishladi, lekin faylga hech narsa yozilmadi/hammasi yozilmadi.</p>
+<pre><code class="has-line-data" data-line-start="160" data-line-end="165" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>f = open(<span class="hljs-string">'output.txt'</span>, <span class="hljs-string">'w'</span>, encoding=<span class="hljs-string">'utf-8'</span>)
+<span class="hljs-prompt">&gt;&gt;&gt; </span>f.write(<span class="hljs-string">'bla'</span>)
+<span class="hljs-number">3</span>
+&gt;&gt;&gt;
+</code></pre>
+<p class="has-line-data" data-line-start="164" data-line-end="166"><strong>Sabab:</strong> Fayl yopilmagan. Ma’lumotlarning bir qismi buferda qolib ketgan bo‘lishi mumkin.<br>
+<strong>Yechim:</strong> Bo‘sh joylarni to‘g‘ri tashkil qilish lozim:</p>
+<pre><code class="has-line-data" data-line-start="167" data-line-end="173" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>f = open(<span class="hljs-string">'output.txt'</span>, <span class="hljs-string">'w'</span>, encoding=<span class="hljs-string">'utf-8'</span>)
+<span class="hljs-prompt">&gt;&gt;&gt; </span>f.write(<span class="hljs-string">'bla'</span>)
+<span class="hljs-number">3</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>f.close()
+&gt;&gt;&gt;
+</code></pre>
+<p class="has-line-data" data-line-start="174" data-line-end="175"><strong>Muammo:</strong> Bu yerda muammoni o‘zingiz keltirib chqargan bo‘lishingiz ham mumkin. Izohi esa pastroqda <code>:D</code></p>
+     </div>
+
+    </div>
+   </div>
+</div>
+</div>
+ </body>
+</html>
