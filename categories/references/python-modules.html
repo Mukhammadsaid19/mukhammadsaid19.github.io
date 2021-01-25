@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python modullari</title>
+    <link rel="stylesheet" href="../../css/handout-style.css" />
+  </head>
+  <body>
+    <div class="row">
+      <div class="table-of-contents col-sm-3">
+        <div class="bg-white border sticky-top">
+          <ul class="nav">
+            <li class="w-100">
+              <a href="#pythonga_kirish">Python modullari</a>
+            </li>
+            <li class="w-100">
+              <a href="#python_idle">1. Tkinter</a>
+            </li>
+            <li class="w-100">
+              <a href="#anaconda">2. Turtle</a>
+            </li>
+            <li class="w-100">
+              <a href="#pycharm">3. NumPy</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-9">
+        <h1 class="handout-title p-3 mb-3 bg-white border" id="pythonga_kirish">
+          Python modullari
+        </h1>
+        <div data-outline="python_muharrirlari" class="bg-white p-4 border">
+          <div class="markdown converted">
+            <h4>Bu bob quyidagilardan tashkil topgan:</h4>
+            <p>Mavzular:</p>
+            <ul>
+              <li>1. Tkinter</li>
+              <li>2. Turtle</li>
+              <li>3. NumPy</li>
+            </ul>
+            <h2 class="code-line" data-line-start="4" data-line-end="5">
+              <a id="Tkinterhttpsdocspythonorg3librarytkhtml_4"></a
+              ><a href="https://docs.python.org/3/library/tk.html">Tkinter</a>
+            </h2>
+            <div data-outline="tkinter">
+              <p class="has-line-data" data-line-start="2" data-line-end="3">
+                Ushbu bobda siz modullarni ishlatish va o’rnatish bo’yicha
+                tushunchaga ega bo’lasiz.
+              </p>
+              <p class="has-line-data" data-line-start="6" data-line-end="7">
+                <img
+                  src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/168622938/original/bc63d9369ff1e8861af00f058f8325252ed99acf/make-desktop-applications-with-tkinter-and-mysql.png"
+                  alt="Make desktop applications with tkinter by Davintandy"
+                  style="width: 20%; margin: auto"
+                />
+              </p>
+              <p class="has-line-data" data-line-start="8" data-line-end="9">
+                Tkinter — bu Tk GUI asboblar to’plami bilan bog’langan Python.
+                Bu Tk GUI asboblar to’plamining standart Python interfeysi va
+                Pythonning amaldagi standart GUI-si. Tkinter Python standart
+                Linux, Microsoft Windows va Mac OS X o’rnatmalariga kiritilgan.
+              </p>
+              <p class="has-line-data" data-line-start="10" data-line-end="11">
+                Tkinter nomi Tk interfeysidan kelib chiqqan. Tkinter Fredrik
+                Lundh tomonidan yozilgan.
+              </p>
+              <p class="has-line-data" data-line-start="12" data-line-end="13">
+                Tkinter - bu Python litsenziyasi asosida chiqarilgan bepul
+                dastur.
+              </p>
+              <h3 class="code-line" data-line-start="14" data-line-end="15">
+                <a id="Bazi_tariflar_14"></a>Ba’zi ta’riflar
+              </h3>
+              <h4 class="code-line" data-line-start="16" data-line-end="17">
+                <a id="Oyna_16"></a>Oyna
+              </h4>
+              <p class="has-line-data" data-line-start="18" data-line-end="19">
+                Ushbu atama har xil kontekstda turli xil ma’nolarga ega, ammo
+                umuman olganda bu foydalanuvchi ekranidagi to’rtburchaklar
+                maydonni anglatadi.
+              </p>
+              <h4 class="code-line" data-line-start="20" data-line-end="21">
+                <a id="Yuqori_darajadagi_oyna_20"></a>Yuqori darajadagi oyna
+              </h4>
+              <p class="has-line-data" data-line-start="22" data-line-end="23">
+                Asosiy oynaning bolasi vazifasini bajaradigan oyna. U ish stoli
+                menejeri uchun standart ramka va boshqaruv elementlari bilan
+                bezatilgan bo’ladi. Uni ish stoli atrofida ko’chirish mumkin va
+                odatda uning o’lchamini o’zgartirish mumkin.
+              </p>
+              <h4 class="code-line" data-line-start="24" data-line-end="25">
+                <a id="Vidjet_24"></a>Vidjet
+              </h4>
+              <p class="has-line-data" data-line-start="26" data-line-end="27">
+                Grafik foydalanuvchi interfeysida dasturni tashkil etuvchi har
+                qanday qurilish bloklari uchun umumiy atama.
+              </p>
+              <ul>
+                <li
+                  class="has-line-data"
+                  data-line-start="28"
+                  data-line-end="29"
+                >
+                  Asosiy vidjetlar: konteynerlar: ramka, labframe, toplevel,
+                  oynali oyna. Tugmalar: tugma, radio tugmasi, tasdiqlash
+                  tugmasi (tasdiqlash qutisi) va menyu tugmasi. Matn vidjetlari:
+                  yorliq, xabar, matn. Kirish vidjetlari: masshtab, aylantirish
+                  paneli, ro’yxat qutisi, slayder, spinbox, yozuv (bitta qator),
+                  variant menyusi, matn (ko’p qatorli) va kanvas (vektorli va
+                  pikselli grafikalar).
+                </li>
+                <li
+                  class="has-line-data"
+                  data-line-start="29"
+                  data-line-end="31"
+                >
+                  Tkinter ochiladigan dialog oynalarini ko’rsatishga imkon
+                  beruvchi uchta modulni taqdim etadi:
+                  <code>tk.messagebox</code> (tasdiqlash, ma’lumot,
+                  ogohlantirish va xatolar uchun dialog oynalari),
+                  <code>tk.filedialog</code> (bitta fayl, bir nechta fayl va
+                  kataloglarni tanlash dialoglari) va
+                  <code>tk.colorchooser</code> (rang tanlash) .
+                </li>
+              </ul>
+              <h4 class="code-line" data-line-start="31" data-line-end="32">
+                <a id="Bola_va_otaona_31"></a>Bola va ota-ona
+              </h4>
+              <p class="has-line-data" data-line-start="33" data-line-end="34">
+                Har qanday vidjet yaratilganda, ota-ona va bola munosabatlari
+                o’rnatiladi. Masalan, ramkaning ichiga matn yorlig’ini
+                joylashtirsangiz, ramka yorliqning ota-onasi hisoblanadi.
+              </p>
+              <h3 class="code-line" data-line-start="35" data-line-end="36">
+                <a id="Oddiy_dastur_35"></a>Oddiy dastur
+              </h3>
+              <p class="has-line-data" data-line-start="37" data-line-end="38">
+                Bitta vidjetli oddiy Python 3 Tkinter dasturi:
+              </p>
+              <pre><code class="has-line-data" data-line-start="40" data-line-end="47" class="language-python"><span class="hljs-comment">#!/usr/bin/env python3</span>
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> *
+root = Tk()                             <span class="hljs-comment"># root (tayanch) oynasini yarating</span>
+w = Label(root, text=<span class="hljs-string">"Hello, world!"</span>)   <span class="hljs-comment"># So'zlar bilan yorliq yarating</span>
+w.pack()                                <span class="hljs-comment"># Yorliqni oynaga qo'ying</span>
+root.mainloop()                         <span class="hljs-comment"># Hodisalar tsiklini boshlang</span>
+</code></pre>
+              <p class="has-line-data" data-line-start="48" data-line-end="49">
+                Tkinter Pythonni o’rnatganingizda o’zi standard paketni ichida
+                o’rnatilgan bo’ladi. Bu standard paketdir.
+              </p>
+            </div>
+
+            <h2 class="code-line" data-line-start="50" data-line-end="51">
+              <a id="Turtlehttpsdocspythonorg3libraryturtlehtml_50"></a
+              ><a href="https://docs.python.org/3/library/turtle.html"
+                >Turtle</a
+              >
+            </h2>
+            <div data-outline="anaconda">
+              <p class="has-line-data" data-line-start="52" data-line-end="53">
+                Kompyuter grafikalarida toshbaqa grafigi dekart tekisligida
+                nisbiy kursordan (“toshbaqa”) foydalanilgan vektorli
+                grafikalardir.
+              </p>
+              <p class="has-line-data" data-line-start="54" data-line-end="55">
+                Toshbaqaning uchta xususiyati bor: joy, oriyentatsiyasi (yoki
+                yo’nalish) va ruckhasi. Ruchka ham atributlarga ega: rang,
+                kenglik va yozilayotgan/yozilmayotgan holati.
+              </p>
+              <p class="has-line-data" data-line-start="56" data-line-end="57">
+                Toshbaqa “10 bo’sh joy oldinga siljish” va “chapga 90 daraja
+                burilish” kabi o’z pozitsiyasiga nisbatan buyruqlar bilan
+                harakat qiladi. Toshbaqa olib yuradigan ruchka uni yozish,
+                rangini sozlash yoki kengligini sozlash orqali ham boshqarilishi
+                mumkin. Agar talaba toshbaqa bo’lsa, nima qilishlarini tasavvur
+                qilish orqali toshbaqa harakatini tushunishi (va bashorat
+                qilishi va haqida o’ylashi) mumkin edi. Seymur Papert buni “tana
+                sintonik” mulohaza deb atadi.
+              </p>
+              <p class="has-line-data" data-line-start="58" data-line-end="59">
+                To’liq toshbaqa grafika tizimi boshqaruv oqimi, protseduralari
+                va rekursiyani talab qiladi. Ushbu qurilish bloklaridan
+                kvadratchalar, uchburchaklar, doiralar va boshqa kompozitsion
+                figuralar kabi murakkabroq shakllarni qurish mumkin. Toshbaqa
+                grafikasi g’oyasi, masalan, fraktallarni ishlab chiqarish uchun
+                Lindenmayer tizimida foydalidir.
+              </p>
+              <p class="has-line-data" data-line-start="60" data-line-end="61">
+                Toshbaqa geometriyasi ba’zida grafik muhitda qat’iy koordinatali
+                manzilli grafik tizimiga alternativ sifatida ishlatiladi.
+              </p>
+              <p class="has-line-data" data-line-start="62" data-line-end="63">
+                x-y tekisligida (0, 0) dan boshlanadigan robot toshbaqani
+                tasavvur qiling. <code>import turtle</code> dan so’ng, unga
+                <code>turtle.forward(15)</code> buyrug’ini bering va u
+                harakatlanayotganda chiziq chizib, o’zi qaragan yo’nalishda 15
+                piksel harakat qiladi (ekranda!).
+                <code>turtle.right(25)</code> buyrug’ini bering va u o’z joyida
+                soat yo’nalishi bo’yicha 25 daraja aylanadi.
+              </p>
+              <p class="has-line-data" data-line-start="64" data-line-end="65">
+                Ushbu va shunga o’xshash buyruqlarni birlashtirib, murakkab
+                shakllar va rasmlarni osongina chizish mumkin.
+              </p>
+              <p class="has-line-data" data-line-start="66" data-line-end="67">
+                <code>turtle</code> moduli bir xil nomdagi modulni Python
+                standart tarqatishidan Python 2.5 versiyasigacha kengaytirilgan
+                modulidir.
+              </p>
+              <p class="has-line-data" data-line-start="68" data-line-end="69">
+                <code>turtle</code> moduli toshbaqa grafikasi uchun ibtidoiy
+                narsalarni ob’ektiv va protsedurali yo’nalishlarda taqdim etadi.
+                Tkinterni asosiy grafikalar uchun ishlatganligi sababli, unga Tk
+                ko’magi bilan o’rnatilgan Python versiyasi kerak.
+              </p>
+              <h3 class="code-line" data-line-start="70" data-line-end="71">
+                <a id="turtle_yulduzi__Oddiy_dastur_70"></a
+                ><code>turtle</code> yulduzi - Oddiy dastur
+              </h3>
+              <p class="has-line-data" data-line-start="72" data-line-end="73">
+                Toshbaqa oddiy harakatlarni takrorlaydigan dasturlar yordamida
+                murakkab shakllarni chizishi mumkin.
+              </p>
+              <p class="has-line-data" data-line-start="74" data-line-end="75">
+                <img
+                  src="https://docs.python.org/3/_images/turtle-star.png"
+                  alt="../_images/turtle-star.png"
+                  style="width: 30%"
+                />
+              </p>
+              <pre><code class="has-line-data" data-line-start="77" data-line-end="88" class="language-python"><span class="hljs-keyword">from</span> turtle <span class="hljs-keyword">import</span> *
+color(<span class="hljs-string">'red'</span>, <span class="hljs-string">'yellow'</span>)
+begin_fill()
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+    forward(<span class="hljs-number">200</span>)
+    left(<span class="hljs-number">170</span>)
+    <span class="hljs-keyword">if</span> abs(pos()) &lt; <span class="hljs-number">1</span>:
+        <span class="hljs-keyword">break</span>
+end_fill()
+done()
+</code></pre>
+              <p class="has-line-data" data-line-start="89" data-line-end="90">
+                <code>turtle</code> moduli Pythonning standard paketi ichida
+                o’rnatiladi. Dasturda ishlatish uchun
+                <code>from turtle import *</code> ni yozing.
+              </p>
+            </div>
+
+            <h2 class="code-line" data-line-start="91" data-line-end="92">
+              <a id="NumPy_91"></a><a href="https://numpy.org/">NumPy</a>
+            </h2>
+
+            <div data-outline="pycharm">
+              <p class="has-line-data" data-line-start="93" data-line-end="94">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/NumPy_logo_2020.svg/1280px-NumPy_logo_2020.svg.png"
+                  alt="File:NumPy logo 2020.svg - Wikipedia"
+                  style="width: 30%"
+                />
+              </p>
+              <p class="has-line-data" data-line-start="95" data-line-end="96">
+                <strong>NumPy</strong> - Pythonda ilmiy hisoblash uchun asosiy
+                paket. Bu Python kutubxonasi, ko’p o’lchovli qator ob’ekti,
+                turli xil yetishib olingan narsalar (masalan, maskalangan
+                massivlar va matritsalar) va matematik, mantiqiy, shakl
+                manipulyatsiyasi, saralash, tanlash, kiritish-chiqarishni o’z
+                ichiga olgan massivlarda tezkor operatsiyalarni bajarish
+                tartiblari assortimenti, alohida Furye transformatsiyasi, asosiy
+                chiziqli algebra, asosiy statistik operatsiyalar, tasodifiy
+                simulyatsiya va boshqalarni o’z ichiga olgan moduldir.
+              </p>
+              <h4 class="code-line" data-line-start="97" data-line-end="98">
+                <a id="PIP_97"></a>PIP
+              </h4>
+              <p class="has-line-data" data-line-start="99" data-line-end="100">
+                Agar siz pipdan foydalansangiz, NumPy-ni quyidagilar bilan
+                o’rnatishingiz mumkin:
+              </p>
+              <pre><code class="has-line-data" data-line-start="102" data-line-end="104" class="language-bash">pip install numpy
+</code></pre>
+              <p
+                class="has-line-data"
+                data-line-start="105"
+                data-line-end="106"
+              >
+                Windowsda <code>Win + R</code> tugmalarini bosing. Paydo bo’lgan
+                oynada <code>cmd</code> deb tering. Yangi paydo bo’lgan oyna bu
+                qatorli buyruq interpretatoridir, ya’ni, shu yerdan Windows
+                operatsion tizimini boshqarsangiz bo’ladi.
+              </p>
+              <p
+                class="has-line-data"
+                data-line-start="107"
+                data-line-end="108"
+              >
+                <img
+                  src="img/modules-numpy-1.png"
+                  alt="image-20210125221806335"
+                  style="width: 30%"
+                />
+              </p>
+              <p
+                class="has-line-data"
+                data-line-start="111"
+                data-line-end="112"
+              >
+                <img
+                  src="img/modules-numpy-2.png"
+                  alt="image-20210125221837530"
+                />
+              </p>
+              <p
+                class="has-line-data"
+                data-line-start="113"
+                data-line-end="114"
+              >
+                Endi paydo shu yerga <code>pip</code> deb tering. Buyruqlar
+                ro’yxati paydo bo’lishi kerak. Bu degani sizda
+                <code>pip</code> ishlamoqda - Pythonning 3.4 versiyasidan
+                tortib, <code>pip</code> paket menejeri standard paketning
+                ichida o’rnatiladi.
+              </p>
+              <p
+                class="has-line-data"
+                data-line-start="115"
+                data-line-end="116"
+              >
+                NumPy massivlari va standart Py`thon ketma-ketliklari orasida
+                bir nechta muhim farqlar mavjud:
+              </p>
+              <ul>
+                <li
+                  class="has-line-data"
+                  data-line-start="117"
+                  data-line-end="119"
+                >
+                  <p
+                    class="has-line-data"
+                    data-line-start="117"
+                    data-line-end="118"
+                  >
+                    Python ro’yxatlaridan farqli o’laroq NumPy massivlari
+                    yaratilish vaqtida aniq o’lchamga ega (ular dinamik ravishda
+                    o’sishi mumkin). <em>ndarray</em> hajmini o’zgartirish yangi
+                    qator yaratadi va asl nusxasini o’chirib tashlaydi.
+                  </p>
+                </li>
+                <li
+                  class="has-line-data"
+                  data-line-start="119"
+                  data-line-end="121"
+                >
+                  <p
+                    class="has-line-data"
+                    data-line-start="119"
+                    data-line-end="120"
+                  >
+                    NumPy massividagi elementlarning barchasi bir xil ma’lumot
+                    turiga ega bo’lishi kerak va shu bilan xotirada bir xil
+                    hajmda bo’ladi. Istisno: (Python, shu jumladan NumPy)
+                    moslamalari massivlari bo’lishi mumkin va shu bilan turli
+                    o’lchamdagi elementlarning massivlari mavjud.
+                  </p>
+                </li>
+                <li
+                  class="has-line-data"
+                  data-line-start="121"
+                  data-line-end="123"
+                >
+                  <p
+                    class="has-line-data"
+                    data-line-start="121"
+                    data-line-end="122"
+                  >
+                    NumPy massivlari ko’p sonli ma’lumotlarga nisbatan
+                    rivojlangan matematik va boshqa turdagi operatsiyalarni
+                    osonlashtiradi. Odatda, bunday operatsiyalar Python-ning
+                    o’rnatilgan ketma-ketliklari yordamida imkon qadar kamroq va
+                    kamroq kod bilan bajariladi.
+                  </p>
+                </li>
+                <li
+                  class="has-line-data"
+                  data-line-start="123"
+                  data-line-end="125"
+                >
+                  <p
+                    class="has-line-data"
+                    data-line-start="123"
+                    data-line-end="124"
+                  >
+                    Python asosidagi ilmiy va matematik to’plamlarning tobora
+                    ko’payib borishi NumPy massivlaridan foydalanmoqda; garchi
+                    ular odatda Python ketma-ketligini kiritishni
+                    qo’llab-quvvatlasa ham, ular bunday kirishni NumPy
+                    qatorlariga qayta ishlashdan oldin o’zgartiradilar va ular
+                    ko’pincha NumPy massivlarini chiqaradilar. Boshqacha qilib
+                    aytganda, bugungi Pythonga asoslangan ilmiy / matematik
+                    dasturlarning ko’pchiligidan (ehtimol hatto ko’pchiligidan)
+                    samarali foydalanish uchun, Python-ning o’rnatilgan
+                    ketma-ketlik turlaridan qanday foydalanishni bilish yetarli
+                    emas - shuningdek NumPy massivlaridan qanday foydalanishni
+                    bilish kerak.
+                  </p>
+                </li>
+              </ul>
+              <h3 class="code-line" data-line-start="125" data-line-end="126">
+                <a id="Asosiy_Tushuncha_125"></a>Asosiy Tushuncha
+              </h3>
+              <p
+                class="has-line-data"
+                data-line-start="127"
+                data-line-end="128"
+              >
+                NumPy-ning asosiy ob’ekti bir hil ko’p o’lchovli massivdir. Bu
+                elementlarning jadvali (odatda raqamlar), barchasi bir xil,
+                manfiy bo’lmagan tamsayılar to’plami bilan indekslangan. NumPy
+                o’lchamlari o’qlar deb ataladi.
+              </p>
+              <p
+                class="has-line-data"
+                data-line-start="129"
+                data-line-end="130"
+              >
+                Masalan, 3D fazodagi nuqta koordinatalari
+                <code>[1, 2, 1]</code> bitta o’qga ega. Ushbu o’qda 3 ta element
+                bor, shuning uchun uning uzunligi 3 ga teng deymiz. Quyidagi
+                rasmda massivda 2 ta o’q mavjud. Birinchi o’qning uzunligi 2,
+                ikkinchi o’qining uzunligi 3 ga teng.
+              </p>
+              <pre><code class="has-line-data" data-line-start="132" data-line-end="135" class="language-python">[[ <span class="hljs-number">1.</span>, <span class="hljs-number">0.</span>, <span class="hljs-number">0.</span>],
+ [ <span class="hljs-number">0.</span>, <span class="hljs-number">1.</span>, <span class="hljs-number">2.</span>]]
+</code></pre>
+              <p
+                class="has-line-data"
+                data-line-start="136"
+                data-line-end="137"
+              >
+                NumPy ning massiv klassi <code>ndarray</code> deb nomlanadi.
+                <code>numpy.array</code> standart Python kutubxonasi klassi
+                <code>array.array</code> bilan bir xil emasligini unutmang, u
+                faqat bitta o’lchovli massivlarni boshqaradi va kam
+                funksiyalarni taklif qiladi. <code>ndarray</code> ob’ektining
+                muhim xususiyatlari:
+              </p>
+              <p
+                class="has-line-data"
+                data-line-start="138"
+                data-line-end="140"
+              >
+                <strong>ndarray.ndim</strong><br />
+                massivning o’qlari (o’lchamlari) soni.
+              </p>
+              <p
+                class="has-line-data"
+                data-line-start="141"
+                data-line-end="143"
+              >
+                <strong>ndarray.shape</strong><br />
+                massivning o’lchamlari. Bu har bir o’lchovdagi massivning
+                hajmini ko’rsatadigan tamsayılar to’plami. N qator va m ustunli
+                matritsa uchun shakli (n, m) bo’ladi. Shuning uchun shakl
+                gorizontalining uzunligi o’qlar soni, ndim.
+              </p>
+              <p
+                class="has-line-data"
+                data-line-start="144"
+                data-line-end="146"
+              >
+                <strong>ndarray.size</strong><br />
+                massiv elementlarining umumiy soni. Bu shakl elementlari
+                mahsulotiga teng.
+              </p>
+              <p
+                class="has-line-data"
+                data-line-start="147"
+                data-line-end="149"
+              >
+                <strong>ndarray.dtype</strong><br />
+                massivdagi elementlarning turini tavsiflovchi ob’ekt. Oddiy
+                Python turlaridan foydalanib dtype yaratishi yoki ko’rsatishi
+                mumkin. Bundan tashqari, NumPy o’z turlarini taqdim etadi.
+                numpy.int32, numpy.int16 va numpy.float64 ba’zi misollar.
+              </p>
+              <p
+                class="has-line-data"
+                data-line-start="150"
+                data-line-end="152"
+              >
+                <strong>ndarray.itemsize</strong><br />
+                massivning har bir elementining baytdagi hajmi. Masalan, float64
+                tipidagi elementlar massivi 8 (= 64/8) hajmiga ega, kompleks32
+                turlaridan biri 4 (= 32/8) hajmga ega. Bu ndarray.dtype.itemsize
+                ga teng.
+              </p>
+              <p
+                class="has-line-data"
+                data-line-start="153"
+                data-line-end="155"
+              >
+                <strong>ndarray.data</strong><br />
+                massivning haqiqiy elementlarini o’z ichiga olgan bufer. Odatda,
+                biz ushbu atributdan foydalanishga hojat qolmaydi, chunki biz
+                indekslash vositalaridan foydalangan holda massivdagi
+                elementlarga kirishimiz mumkin.
+              </p>
+              <h4 class="code-line" data-line-start="156" data-line-end="157">
+                <a id="Misol_156"></a>Misol
+              </h4>
+              <pre><code class="has-line-data" data-line-start="159" data-line-end="183" class="language-python">&gt;&gt;&gt; import numpy as np
+&gt;&gt;&gt; a = np.arange(15).reshape(3, 5)
+&gt;&gt;&gt; a
+array([[ 0,  1,  2,  3,  4],
+       [ 5,  6,  7,  8,  9],
+       [10, 11, 12, 13, 14]])
+&gt;&gt;&gt; a.shape
+(3, 5)
+&gt;&gt;&gt; a.ndim
+2
+&gt;&gt;&gt; a.dtype.name
+'int64'
+&gt;&gt;&gt; a.itemsize
+8
+&gt;&gt;&gt; a.size
+15
+&gt;&gt;&gt; type(a)
+&lt;class 'numpy.ndarray'&gt;
+&gt;&gt;&gt; b = np.array([6, 7, 8])
+&gt;&gt;&gt; b
+array([6, 7, 8])
+&gt;&gt;&gt; type(b)
+&lt;class 'numpy.ndarray'&gt;
+</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
