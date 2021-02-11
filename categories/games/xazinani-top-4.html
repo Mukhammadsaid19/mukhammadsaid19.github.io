@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    3. Xazinani top
+   </title>
+   <link href="../../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <div class="row">
+  <div class="table-of-contents col-sm-3">
+      <div class="bg-white border sticky-top">
+      <ul class="nav">
+        <li class="w-100"><a href="#pythonga_kirish">3. Xazinani top</a></li>
+        <li class="w-100"><a href="#Dasturni_loyihalash_365">Dasturni loyihalash</a></li>
+        <li class="w-100"><a href="#random_sys_va_math_modullarini_import_qilamiz_368">random, sys va math modullarini import qilamiz</a></li>
+        <li class="w-100"><a href="#Yangi_oyin_taxtasini_yaratish_380">Yangi o’yin taxtasini yaratish</a></li>
+        <li class="w-100"><a href="#Oyin_taxtasini_chizish_417">O’yin taxtasini chizish</a></li>
+        <li class="w-100"><a href="#Tasodifiy_xazina_sandiqlarini_yaratish_524">Tasodifiy xazina sandiqlarini yaratish</a></li>
+        <li class="w-100"><a href="#Kochirishning_haqiqiyligini_aniqlash_540">Ko’chirishning haqiqiyligini aniqlash</a></li>
+        <li class="w-100"><a href="#Harakatni_taxtaga_joylashtirish_550">Harakatni taxtaga joylashtirish</a></li>
+        <li class="w-100"><a href="#Oyinchi_uchun_oyin_korsatmalarini_chop_etish_711">O’yinchi uchun o’yin ko’rsatmalarini chop etish</a></li>
+        <li class="w-100"><a href="#Oyin_davri_726">O’yin davri</a></li>
+        <li class="w-100"><a href="#Xulosa_830">Xulosa</a></li>
+      </ul>
+      </div>
+  </div>
+
+  <div class="col-sm-9">
+      <h1 class="code-line" data-line-start=0 data-line-end=1 ><a id="Sonar_Xazinalar_Ovi_0"></a>Sonar Xazinalar Ovi</h1>
+<p class="has-line-data" data-line-start="2" data-line-end="3">Ushbu bobdagi “Sonar xazinalar ovi” o’yini birinchi bo’lib siz 12-bobda bilib olgan dekart koordinatalar tizimidan foydalanadi. Ushbu o’yinda ma’lumotlar tuzilmalaridan ham foydalaniladi, bu shunchaki xayoliy uslub bo’lib, unda boshqa ro’yxatlar va shunga o’xshash murakkab o’zgaruvchilarni o’z ichiga olgan ro’yxat qiymatlari mavjud. Siz dasturlashtirgan o’yinlar murakkablashganda, ma’lumotlaringizni ma’lumotlar tuzilmalarida tartibga solishingiz kerak bo’ladi.</p>
+<p class="has-line-data" data-line-start="4" data-line-end="5">Ushbu bobning o’yinida o’yinchi cho’kib ketgan xazina sandiqlarini topish uchun sonar moslamalarini okeanning turli joylariga tashlaydi. Sonar - bu kemalar dengiz ostidagi narsalarni topish uchun foydalanadigan texnologiya. Ushbu o’yindagi sonar qurilmalari o’yinchiga eng yaqin xazina sandig’i qancha masofani ko’rsatib beradi, ammo qaysi yo’nalishda emas. Ammo bir nechta sonar moslamalarini joylashtirish orqali o’yinchi xazina sandig’ining joylashishini aniqlay oladi.</p>
+<p class="has-line-data" data-line-start="6" data-line-end="7">Ushbu bobda yoritilgan mavzular:</p>
+<ul>
+<li class="has-line-data" data-line-start="8" data-line-end="9">Ma’lumotlar tuzilmalari</li>
+<li class="has-line-data" data-line-start="9" data-line-end="10">Pifagor teoremasi</li>
+<li class="has-line-data" data-line-start="10" data-line-end="11"><code>Remove()</code> ro’yxati usuli</li>
+<li class="has-line-data" data-line-start="11" data-line-end="12"><code>isdigit()</code> qator usuli</li>
+<li class="has-line-data" data-line-start="12" data-line-end="14"><code>sys.exit()</code> funktsiyasi</li>
+</ul>
+<p class="has-line-data" data-line-start="14" data-line-end="15">To’plash uchun 3 ta sandiq bor va ularni topish uchun o’yinchida atigi 20 ta sonar moslama mavjud. 13-1-rasmda xazina sandig’ini ko’rmaganingizni tasavvur qiling. Chunki, har bir sonar moslamasi masofani sandig’ yo’nalishidan emas, balki faqat sandig’dan topishi mumkinligi sababli, xazina sonar moslamasi atrofidagi halqaning istalgan joyida bo’lishi mumkin.</p>
+<p class="has-line-data" data-line-start="16" data-line-end="17">Ammo birgalikda ishlaydigan bir nechta sonar qurilmalar sandiq joylashgan joyni halqalarni kesib o’tadigan aniq koordinatalarga qadar toraytirishi mumkin (13-2-rasmga qarang).</p>
+<p class="has-line-data" data-line-start="18" data-line-end="19">Quyida “Sonar xazinalar ovi” dasturini ishga tushirganda foydalanuvchi nimani ko’rishi ko’rsatilgan. Foydalanuvchi kiritgan matn qalin harflar bilan beilgilangan.</p>
+<pre><code class="has-line-data" data-line-start="21" data-line-end="148">S O N A R !
+Would you like to view the instructions? (yes/no)
+no
+             1         2         3         4         5
+   012345678901234567890123456789012345678901234567890123456789
+ 0 ~`~``~``~``~`~`~```~`~``````~```~`~~~`~~```~~`~~~~~`~~`~~~~` 0
+ 1 ~~~~~`~~~~~````~``~~```~``~`~`~`~``~~```~~~`~`~```~~~~`~`~~` 1
+ 2 ```~````~``~`~`~~~``~~`````~~``~``~``~~```~~``~~`~~~````~~`~ 2
+ 3 `````~~``````~`~~~~~```~~``~~~`~`~~~~~~`````~`~```~~~``~``~` 3
+ 4 ~~~`~~~`~`~~~``~~~`~`~``~~~~``~~~~``~~~~`~`~``~~```~``~~`~`~ 4
+ 5 `~``~````~`~`~~``~~~~``````~```~~~~````````~``~~~`~~``~~```` 5
+ 6 ~`~```~~`~~```~````````~~```~```~~~~``~~~`~`~~`~``~~~`~~`~`` 6
+ 7 ~`~~~```~``~```~`~```~~~~~~~`~~`~`~~~~``~```~~~`~```~``~``~` 7
+ 8 `~``~~`~`~~`~~`~~``~```~````~`~```~``~````~~~````~~``~~``~~` 8
+ 9 ~`~``~~````~~```~`~~```~~`~``~`~~``~`~`~~~~`~`~~`~`~```~~``` 9
+10 `~~~~~~`~``~``~~~``~``~~~~`~``~```~`~~``~~~~~~``````~~`~``~~ 10
+11 ~``~~~````~`~~`~~~`~~~``~``````~`~``~~~~`````~~~``````~`~`~~ 11
+12 ~~~~~``~`~````~```~`~`~`~~`~~`~``~~~~~~~`~~```~~``~~`~~~~``` 12
+13 `~~```~~````````~~~`~~~```~~~~~~~~`~~``~~`~```~`~~````~~~``~ 13
+14 ```~``~`~`~``~```~`~``~`~``~~```~`~~~``~~``~```~`~~`~``````~ 14
+   012345678901234567890123456789012345678901234567890123456789
+             1         2         3         4         5
+            
+You have 20 sonar device(s) left. 3 treasure chest(s) remaining.
+Where do you want to drop the next sonar device? (0-59 0-14) (or type quit)
+25 5
+
+             1         2         3         4         5
+   012345678901234567890123456789012345678901234567890123456789
+ 0 ~`~``~``~``~`~`~```~`~``````~```~`~~~`~~```~~`~~~~~`~~`~~~~` 0
+ 1 ~~~~~`~~~~~````~``~~```~``~`~`~`~``~~```~~~`~`~```~~~~`~`~~` 1
+ 2 ```~````~``~`~`~~~``~~`````~~``~``~``~~```~~``~~`~~~````~~`~ 2
+ 3 `````~~``````~`~~~~~```~~``~~~`~`~~~~~~`````~`~```~~~``~``~` 3
+ 4 ~~~`~~~`~`~~~``~~~`~`~``~~~~``~~~~``~~~~`~`~``~~```~``~~`~`~ 4
+ 5 `~``~````~`~`~~``~~~~````5`~```~~~~````````~``~~~`~~``~~```` 5
+ 6 ~`~```~~`~~```~````````~~```~```~~~~``~~~`~`~~`~``~~~`~~`~`` 6
+ 7 ~`~~~```~``~```~`~```~~~~~~~`~~`~`~~~~``~```~~~`~```~``~``~` 7
+ 8 `~``~~`~`~~`~~`~~``~```~````~`~```~``~````~~~````~~``~~``~~` 8
+ 9 ~`~``~~````~~```~`~~```~~`~``~`~~``~`~`~~~~`~`~~`~`~```~~``` 9
+10 `~~~~~~`~``~``~~~``~``~~~~`~``~```~`~~``~~~~~~``````~~`~``~~ 10
+11 ~``~~~````~`~~`~~~`~~~``~``````~`~``~~~~`````~~~``````~`~`~~ 11
+12 ~~~~~``~`~````~```~`~`~`~~`~~`~``~~~~~~~`~~```~~``~~`~~~~``` 12
+13 `~~```~~````````~~~`~~~```~~~~~~~~`~~``~~`~```~`~~````~~~``~ 13
+14 ```~``~`~`~``~```~`~``~`~``~~```~`~~~``~~``~```~`~~`~``````~ 14
+   012345678901234567890123456789012345678901234567890123456789
+             1         2         3         4         5
+
+Treasure detected at a distance of 5 from the sonar device.
+You have 19 sonar device(s) left. 3 treasure chest(s) remaining.
+Where do you want to drop the next sonar device? (0-59 0-14) (or type quit)
+30 5
+
+             1         2         3         4         5
+   012345678901234567890123456789012345678901234567890123456789
+ 0 ~`~``~``~``~`~`~```~`~``````~```~`~~~`~~```~~`~~~~~`~~`~~~~` 0
+ 1 ~~~~~`~~~~~````~``~~```~``~`~`~`~``~~```~~~`~`~```~~~~`~`~~` 1
+ 2 ```~````~``~`~`~~~``~~`````~~``~``~``~~```~~``~~`~~~````~~`~ 2
+ 3 `````~~``````~`~~~~~```~~``~~~`~`~~~~~~`````~`~```~~~``~``~` 3
+ 4 ~~~`~~~`~`~~~``~~~`~`~``~~~~``~~~~``~~~~`~`~``~~```~``~~`~`~ 4
+ 5 `~``~````~`~`~~``~~~~````5`~``3~~~~````````~``~~~`~~``~~```` 5
+ 6 ~`~```~~`~~```~````````~~```~```~~~~``~~~`~`~~`~``~~~`~~`~`` 6
+ 7 ~`~~~```~``~```~`~```~~~~~~~`~~`~`~~~~``~```~~~`~```~``~``~` 7
+ 8 `~``~~`~`~~`~~`~~``~```~````~`~```~``~````~~~````~~``~~``~~` 8
+ 9 ~`~``~~````~~```~`~~```~~`~``~`~~``~`~`~~~~`~`~~`~`~```~~``` 9
+10 `~~~~~~`~``~``~~~``~``~~~~`~``~```~`~~``~~~~~~``````~~`~``~~ 10
+11 ~``~~~````~`~~`~~~`~~~``~``````~`~``~~~~`````~~~``````~`~`~~ 11
+12 ~~~~~``~`~````~```~`~`~`~~`~~`~``~~~~~~~`~~```~~``~~`~~~~``` 12
+13 `~~```~~````````~~~`~~~```~~~~~~~~`~~``~~`~```~`~~````~~~``~ 13
+14 ```~``~`~`~``~```~`~``~`~``~~```~`~~~``~~``~```~`~~`~``````~ 14
+   012345678901234567890123456789012345678901234567890123456789
+             1         2         3         4         5
+
+Treasure detected at a distance of 3 from the sonar device.
+You have 18 sonar device(s) left. 3 treasure chest(s) remaining.
+Where do you want to drop the next sonar device? (0-59 0-14) (or type quit)
+25 10
+
+             1         2         3         4         5
+   012345678901234567890123456789012345678901234567890123456789
+ 0 ~`~``~``~``~`~`~```~`~``````~```~`~~~`~~```~~`~~~~~`~~`~~~~` 0
+ 1 ~~~~~`~~~~~````~``~~```~``~`~`~`~``~~```~~~`~`~```~~~~`~`~~` 1
+ 2 ```~````~``~`~`~~~``~~`````~~``~``~``~~```~~``~~`~~~````~~`~ 2
+ 3 `````~~``````~`~~~~~```~~``~~~`~`~~~~~~`````~`~```~~~``~``~` 3
+ 4 ~~~`~~~`~`~~~``~~~`~`~``~~~~``~~~~``~~~~`~`~``~~```~``~~`~`~ 4
+ 5 `~``~````~`~`~~``~~~~````5`~``3~~~~````````~``~~~`~~``~~```` 5
+ 6 ~`~```~~`~~```~````````~~```~```~~~~``~~~`~`~~`~``~~~`~~`~`` 6
+ 7 ~`~~~```~``~```~`~```~~~~~~~`~~`~`~~~~``~```~~~`~```~``~``~` 7
+ 8 `~``~~`~`~~`~~`~~``~```~````~`~```~``~````~~~````~~``~~``~~` 8
+ 9 ~`~``~~````~~```~`~~```~~`~``~`~~``~`~`~~~~`~`~~`~`~```~~``` 9
+10 `~~~~~~`~``~``~~~``~``~~~4`~``~```~`~~``~~~~~~``````~~`~``~~ 10
+11 ~``~~~````~`~~`~~~`~~~``~``````~`~``~~~~`````~~~``````~`~`~~ 11
+12 ~~~~~``~`~````~```~`~`~`~~`~~`~``~~~~~~~`~~```~~``~~`~~~~``` 12
+13 `~~```~~````````~~~`~~~```~~~~~~~~`~~``~~`~```~`~~````~~~``~ 13
+14 ```~``~`~`~``~```~`~``~`~``~~```~`~~~``~~``~```~`~~`~``````~ 14
+   012345678901234567890123456789012345678901234567890123456789
+             1         2         3         4         5
+             
+Treasure detected at a distance of 4 from the sonar device.
+You have 17 sonar device(s) left. 3 treasure chest(s) remaining.
+Where do you want to drop the next sonar device? (0-59 0-14) (or type quit)
+29 8
+
+             1         2         3         4         5
+   012345678901234567890123456789012345678901234567890123456789
+ 0 ~`~``~``~``~`~`~```~`~``````~```~`~~~`~~```~~`~~~~~`~~`~~~~` 0
+ 1 ~~~~~`~~~~~````~``~~```~``~`~`~`~``~~```~~~`~`~```~~~~`~`~~` 1
+ 2 ```~````~``~`~`~~~``~~`````~~``~``~``~~```~~``~~`~~~````~~`~ 2
+ 3 `````~~``````~`~~~~~```~~``~~~`~`~~~~~~`````~`~```~~~``~``~` 3
+ 4 ~~~`~~~`~`~~~``~~~`~`~``~~~~``~~~~``~~~~`~`~``~~```~``~~`~`~ 4
+ 5 `~``~````~`~`~~``~~~~````X`~``X~~~~````````~``~~~`~~``~~```` 5
+ 6 ~`~```~~`~~```~````````~~```~```~~~~``~~~`~`~~`~``~~~`~~`~`` 6
+ 7 ~`~~~```~``~```~`~```~~~~~~~`~~`~`~~~~``~```~~~`~```~``~``~` 7
+ 8 `~``~~`~`~~`~~`~~``~```~````~X~```~``~````~~~````~~``~~``~~` 8
+ 9 ~`~``~~````~~```~`~~```~~`~``~`~~``~`~`~~~~`~`~~`~`~```~~``` 9
+10 `~~~~~~`~``~``~~~``~``~~~X`~``~```~`~~``~~~~~~``````~~`~``~~ 10
+11 ~``~~~````~`~~`~~~`~~~``~``````~`~``~~~~`````~~~``````~`~`~~ 11
+12 ~~~~~``~`~````~```~`~`~`~~`~~`~``~~~~~~~`~~```~~``~~`~~~~``` 12
+13 `~~```~~````````~~~`~~~```~~~~~~~~`~~``~~`~```~`~~````~~~``~ 13
+14 ```~``~`~`~``~```~`~``~`~``~~```~`~~~``~~``~```~`~~`~``````~ 14
+   012345678901234567890123456789012345678901234567890123456789
+             1         2         3         4         5
+
+You have found a sunken treasure chest!
+You have 16 sonar device(s) left. 2 treasure chest(s) remaining.
+Where do you want to drop the next sonar device? (0-59 0-14) (or type quit)
+--snip--
+</code></pre>
+<p class="has-line-data" data-line-start="149" data-line-end="150">“Sonar xazinalar ovi” uchun manba kodi</p>
+<p class="has-line-data" data-line-start="151" data-line-end="152">Pythonning IDLEda Fayl - New File bosish orqali yangi fayl muharriri oynasini oching. Ko’rsatilgan bo’sh oynada manba kodini kiriting va uni <code>sonar.py</code> sifatida saqlang. Keyin F5 tugmachasini bosib dasturni ishga tushiring.</p>
+<p class="has-line-data" data-line-start="153" data-line-end="154">Ushbu kodni fayl muharririga kiritganingizda, satrlarning old qismidagi bo’shliqqa e’tibor bering. Ba’zi satrlarni to’rt yoki sakkiz bo’shliq bilan ajratish kerak.</p>
+<p class="has-line-data" data-line-start="155" data-line-end="156"><code>sonar.py</code></p>
+<pre><code class="has-line-data" data-line-start="157" data-line-end="364" class="language-python"><span class="hljs-comment"># Sonar Xazinalar Ovi</span>
+
+<span class="hljs-keyword">import</span> random
+<span class="hljs-keyword">import</span> sys
+<span class="hljs-keyword">import</span> math
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getNewBoard</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-comment"># Yangi 60x15 taxta ma'lumotlar tuzilishini yaratish</span>
+    board = []
+    <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(<span class="hljs-number">60</span>): <span class="hljs-comment"># 60 ta ro'yhatdan iborat asosiy ro'yhat</span>
+        board.append([])
+        <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> range(<span class="hljs-number">15</span>): <span class="hljs-comment"># Har bir asosiy ro'yhatdagi ro'yhatda 15ta bitta-belgili satrlar bor</span>
+            <span class="hljs-comment"># O'qishga oson bo'lishi uchun okeanga harhil belgilar ishlatamiz</span>
+            <span class="hljs-keyword">if</span> random.randint(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>) == <span class="hljs-number">0</span>:
+                board[x].append(<span class="hljs-string">'~'</span>)
+            <span class="hljs-keyword">else</span>:
+                board[x].append(<span class="hljs-string">'`'</span>)
+    <span class="hljs-keyword">return</span> board
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">drawBoard</span><span class="hljs-params">(board)</span>:</span>
+    <span class="hljs-comment"># Taxtaning ma'lumotlar tuzilishini chizish. </span>
+    tensDigitsLine = <span class="hljs-string">'    '</span> <span class="hljs-comment"># Taxtaning chap tomonidagi raqamlar uchun dastlabki bo'sh joy</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">6</span>):
+        tensDigitsLine += (<span class="hljs-string">' '</span> * <span class="hljs-number">9</span>) + str(i)
+
+    <span class="hljs-comment"># Raqamlarni taxtaning yuqori qismiga bosib chiqaramz.</span>
+    print(tensDigitsLine)
+    print(<span class="hljs-string">'   '</span> + (<span class="hljs-string">'0123456789'</span> * <span class="hljs-number">6</span>))
+    print()
+
+    <span class="hljs-comment"># 15 qatorning har birini chop etamiz</span>
+    <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> range(<span class="hljs-number">15</span>):
+        <span class="hljs-comment"># Bir xonali raqamlarni qo'shimcha joy bilan to'ldirish kerak.</span>
+        <span class="hljs-keyword">if</span> row &lt; <span class="hljs-number">10</span>:
+            extraSpace = <span class="hljs-string">' '</span>
+        <span class="hljs-keyword">else</span>:
+            extraSpace = <span class="hljs-string">''</span>
+
+        <span class="hljs-comment"># Ushbu qator uchun satrni taxtada yaratish.</span>
+        boardRow = <span class="hljs-string">''</span>
+        <span class="hljs-keyword">for</span> column <span class="hljs-keyword">in</span> range(<span class="hljs-number">60</span>):
+            boardRow += board[column][row]
+
+        print(<span class="hljs-string">'%s%s %s %s'</span> % (extraSpace, row, boardRow, row))
+
+    <span class="hljs-comment"># Raqamlarni taxtaning pastki qismida bosib chiqarish.</span>
+    print()
+    print(<span class="hljs-string">'   '</span> + (<span class="hljs-string">'0123456789'</span> * <span class="hljs-number">6</span>))
+    print(tensDigitsLine)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getRandomChests</span><span class="hljs-params">(numChests)</span>:</span>
+    <span class="hljs-comment"># Sandiq ma'lumotlari tuzilmalari ro'yxatini yaratish (x, y int koordinatalarining ikki elementli ro'yxati).</span>
+    chests = []
+    <span class="hljs-keyword">while</span> len(chests) &lt; numChests:
+        newChest = [random.randint(<span class="hljs-number">0</span>, <span class="hljs-number">59</span>), random.randint(<span class="hljs-number">0</span>, <span class="hljs-number">14</span>)]
+        <span class="hljs-keyword">if</span> newChest <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> chests: <span class="hljs-comment"># Sandiq allaqachon bu erda emasligiga ishonch hosil qilamiz.</span>
+            chests.append(newChest)
+    <span class="hljs-keyword">return</span> chests
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isOnBoard</span><span class="hljs-params">(x, y)</span>:</span>
+    <span class="hljs-comment"># Agar koordinatalar doskada bo'lsa, True-ni, aks holda, False-ni qaytaramiz.</span>
+    <span class="hljs-keyword">return</span> x &gt;= <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> x &lt;= <span class="hljs-number">59</span> <span class="hljs-keyword">and</span> y &gt;= <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> y &lt;= <span class="hljs-number">14</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">makeMove</span><span class="hljs-params">(board, chests, x, y)</span>:</span>
+    <span class="hljs-comment"># Sonar qurilmasi belgisi bilan taxta ma'lumotlar tuzilishini o'zgartiring. Xazina sandiqlarini topilgandek sandiqlar ro'yxatidan olib tashlaymiz.</span>
+    <span class="hljs-comment"># Agar bu noto'g'ri harakat bo'lsa, False(yolg'on)ni qaytaramiz.</span>
+    <span class="hljs-comment"># Aks holda, ushbu harakat natijasini qaytaramiz.</span>
+    smallestDistance = <span class="hljs-number">100</span> <span class="hljs-comment"># Har qanday sandiq 100 dan yaqinroq bo'ladi.</span>
+    <span class="hljs-keyword">for</span> cx, cy <span class="hljs-keyword">in</span> chests:
+        distance = math.sqrt((cx - x) * (cx - x) + (cy - y) * (cy - y))
+
+        <span class="hljs-keyword">if</span> distance &lt; smallestDistance: <span class="hljs-comment"># Bizga eng yaqinda joylashgan xazina sandig'i kerak</span>
+            smallestDistance = distance
+
+    smallestDistance = round(smallestDistance)
+
+    <span class="hljs-keyword">if</span> smallestDistance == <span class="hljs-number">0</span>:
+        <span class="hljs-comment"># xy to'g'ridan-to'g'ri xazina sandig'ida!</span>
+        chests.remove([x, y])
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'Siz cho\'kib ketgan xazina sandig\'ini topdingiz!'</span>
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">if</span> smallestDistance &lt; <span class="hljs-number">10</span>:
+            board[x][y] = str(smallestDistance)
+            <span class="hljs-keyword">return</span> <span class="hljs-string">'Sonar qurilmasidan %s masofada xazina aniqlandi.'</span> % (smallestDistance)
+        <span class="hljs-keyword">else</span>:
+            board[x][y] = <span class="hljs-string">'X'</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-string">'Sonar hech narsani aniqlamadi. Barcha xazina sandiqlari doiradan tashqarida.'</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">enterPlayerMove</span><span class="hljs-params">(previousMoves)</span>:</span>
+    <span class="hljs-comment"># O'yinchi o'z harakatini kirishiga ruxsat bering. Int xy koordinatalarining ikki elementli ro'yxatini qaytaring.</span>
+    print(<span class="hljs-string">'Keyingi sonar qurilmasini qaerga tashlamoqchisiz? (0-59 0-14) (yoki chiqish deb yozing)'</span>)
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+        move = input()
+        <span class="hljs-keyword">if</span> move.lower() == <span class="hljs-string">'chiqish'</span>:
+            print(<span class="hljs-string">'O\'ynaganingiz uchun tashakkur!'</span>)
+            sys.exit()
+
+        move = move.split()
+        <span class="hljs-keyword">if</span> len(move) == <span class="hljs-number">2</span> <span class="hljs-keyword">and</span> move[<span class="hljs-number">0</span>].isdigit() <span class="hljs-keyword">and</span> move[<span class="hljs-number">1</span>].isdigit() <span class="hljs-keyword">and</span> isOnBoard(int(move[<span class="hljs-number">0</span>]), int(move[<span class="hljs-number">1</span>])):
+            <span class="hljs-keyword">if</span> [int(move[<span class="hljs-number">0</span>]), int(move[<span class="hljs-number">1</span>])] <span class="hljs-keyword">in</span> previousMoves:
+                print(<span class="hljs-string">'Siz allaqachon u yerga yurgansiz.'</span>)
+                <span class="hljs-keyword">continue</span>
+            <span class="hljs-keyword">return</span> [int(move[<span class="hljs-number">0</span>]), int(move[<span class="hljs-number">1</span>])]
+
+        print(<span class="hljs-string">'0 dan 59 gacha raqamni, bo\'sh joyni, keyin 0 dan 14 gacha bo\'lgan raqamni kiriting.'</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">showInstructions</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">'''Ko'rsatmalar:
+Siz xazina qidiradigan kemaning Simon kapitansiz. Sizning hozirgi vazifangiz
+pastki qismida cho'kkan uchta xazina sandig'ini topish uchun sonar asboblaridan foydalanish
+okean. Ammo sizda faqat arzon sonar bor, u yo'nalishni emas, balki masofani topadi.
+
+Sonar qurilmasini tushirish uchun koordinatalarni kiriting. Okean xaritasi bilan belgilanadi
+eng yaqin ko'krak qafasi qanchalik uzoq bo'lsa yoki X sonar moslamasidan tashqarida bo'lsa
+oralig'i. Masalan, S belgilar ko'krak qafasi joylashgan joy. Sonar qurilmasi a ni ko'rsatadi
+3 chunki eng yaqin ko'krak qafasi 3 bo'shliqda.
+
+            1         2         3
+  012345678901234567890123456789012
+
+0 ~~~~`~```~`~``~~~``~`~~``~~~``~`~ 0
+1 ~`~`~``~~`~```~~~```~~`~`~~~`~~~~ 1
+2 `~`C``3`~~~~`C`~~~~`````~~``~~~`` 2
+3 ````````~~~`````~~~`~`````~`~``~` 3
+4 ~`~~~~`~~`~~`C`~``~~`~~~`~```~``~ 4
+
+  012345678901234567890123456789012
+            1         2         3
+(Haqiqiy o'yinda sandiqlar okeanda ko'rinmaydi.)
+
+Davom ettirish uchun Enter tugmasini bosing...'''</span>)
+    input()
+
+    print(<span class="hljs-string">'''Sonar moslamasini to'g'ridan-to'g'ri sandiqqa tashlaganingizda, 
+    uni olasiz va boshqa sonar qurilmalar yangilanadi, keyingi eng yaqin sandiq qancha masofada joylashganligini ko'rsatadi. 
+    Sandiq chap tomonda joylashgan sonar moslamasi chegarasidan tashqarida, shuning uchun u X ni ko'rsatadi.
+
+            1         2         3
+  012345678901234567890123456789012
+
+0 ~~~~`~```~`~``~~~``~`~~``~~~``~`~ 0
+1 ~`~`~``~~`~```~~~```~~`~`~~~`~~~~ 1
+2 `~`X``7`~~~~`C`~~~~`````~~``~~~`` 2
+3 ````````~~~`````~~~`~`````~`~``~` 3
+4 ~`~~~~`~~`~~`C`~``~~`~~~`~```~``~ 4
+
+  012345678901234567890123456789012
+            1         2         3
+
+Xazina sandiqlari aylanib yurmaydi. Sonar qurilmalari xazina qutilarini 9 bo'shliqgacha aniqlay oladi. 
+Sonar qurilmalari tugamasdan oldin barcha 3 sandiqni yig'ishga harakat qiling. Omad!
+
+Davom ettirish uchun Enter tugmasini bosing...'''</span>)
+    input()
+
+
+
+print(<span class="hljs-string">'S O N A R !'</span>)
+print()
+print(<span class="hljs-string">'Ko\'rsatmalarni ko\'rishni xohlaysizmi? (ha yoki yo\'q)'</span>)
+<span class="hljs-keyword">if</span> input().lower().startswith(<span class="hljs-string">'h'</span>):
+    showInstructions()
+
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+    <span class="hljs-comment"># Game setup</span>
+    sonarDevices = <span class="hljs-number">20</span>
+    theBoard = getNewBoard()
+    theChests = getRandomChests(<span class="hljs-number">3</span>)
+    drawBoard(theBoard)
+    previousMoves = []
+
+    <span class="hljs-keyword">while</span> sonarDevices &gt; <span class="hljs-number">0</span>:
+        <span class="hljs-comment"># Sonar moslamasi va sandiq holatini ko'rsating.</span>
+        print(<span class="hljs-string">'Sizda %s sonar moslama(lar) qoldi. %s xazina quti(lar) qoldi.'</span> % (sonarDevices, len(theChests)))
+
+        x, y = enterPlayerMove(previousMoves)
+        previousMoves.append([x, y]) <span class="hljs-comment"># Sonar qurilmalari yangilanishi uchun biz barcha harakatlarni kuzatib borishimiz kerak.</span>
+
+        moveResult = makeMove(theBoard, theChests, x, y)
+        <span class="hljs-keyword">if</span> moveResult == <span class="hljs-keyword">False</span>:
+            <span class="hljs-keyword">continue</span>
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">if</span> moveResult == <span class="hljs-string">'Siz cho\'kib ketgan xazina sandig\'ini topdingiz!'</span>:
+                <span class="hljs-comment"># Hozirda xaritada mavjud barcha sonar qurilmalarini yangilaymiz.</span>
+                <span class="hljs-keyword">for</span> x, y <span class="hljs-keyword">in</span> previousMoves:
+                    makeMove(theBoard, theChests, x, y)
+            drawBoard(theBoard)
+            print(moveResult)
+
+        <span class="hljs-keyword">if</span> len(theChests) == <span class="hljs-number">0</span>:
+            print(<span class="hljs-string">'Siz cho\'kib ketgan barcha xazina qutilarini topdingiz! Tabriklayman, yaxshi o\'yin bo\'ldi!'</span>)
+            <span class="hljs-keyword">break</span>
+
+        sonarDevices -= <span class="hljs-number">1</span>
+
+    <span class="hljs-keyword">if</span> sonarDevices == <span class="hljs-number">0</span>:
+        print(<span class="hljs-string">'Sonar qurilmalarimiz tugadi! Endi biz kemani aylantirib, xazina sandiqlari bilan'</span>)
+        print(<span class="hljs-string">'uyimiz tomon yo\'l olishimiz kerak! O\'yin tugadi.'</span>)
+        print(<span class="hljs-string">' Qolgan sandiqlar bu yerda edi:'</span>)
+        <span class="hljs-keyword">for</span> x, y <span class="hljs-keyword">in</span> theChests:
+            print(<span class="hljs-string">' %s, %s'</span> % (x, y))
+
+    print(<span class="hljs-string">'Qayta o\'ynashni xohlaysizmi? (ha yoki yo\'q)'</span>)
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> input().lower().startswith(<span class="hljs-string">'h'</span>):
+        sys.exit()
+
+</code></pre>
+<h1 class="code-line" data-line-start=365 data-line-end=366 ><a id="Dasturni_loyihalash_365"></a>Dasturni loyihalash</h1>
+<p class="has-line-data" data-line-start="366" data-line-end="367">Manba kodini tushunishga urinishdan oldin, nima bo’layotganini bilish uchun o’yinni bir necha marta o’ynang. “Sonar xazinalar ovi” o’yini ma’lumotlar tuzilmalari deb nomlangan ro’yxatlar va boshqa murakkab o’zgaruvchilar ro’yxatlaridan foydalanadi. Ma’lumotlar tuzilmalari biror narsani ifodalash uchun qiymatlar tartibini saqlaydi. Masalan, 10-bobda “Krestik Nolik” taxtasining ma’lumotlar tuzilishi qatorlarning ro’yxati edi. Satr X, O yoki bo’sh joyni, ro’yxatdagi satrning ko’rsatkichi esa taxtadagi bo’sh joyni ifodalaydi. “Sonar xazinalar ovi” o’yini xazina sandiqlari va sonar qurilmalari joylashgan joylari uchun shunga o’xshash ma’lumotlar tuzilmalariga ega bo’ladi.</p>
+<h1 class="code-line" data-line-start=368 data-line-end=369 ><a id="random_sys_va_math_modullarini_import_qilamiz_368"></a>random, sys va math modullarini import qilamiz</h1>
+<p class="has-line-data" data-line-start="369" data-line-end="370">Dastur boshida biz <code>random</code>, <code>sys</code> va <code>math</code> modullarini import qilamiz:</p>
+<pre><code class="has-line-data" data-line-start="371" data-line-end="377" class="language-python"><span class="hljs-comment"># Sonar Treasure Hunt</span>
+
+<span class="hljs-keyword">import</span> random
+<span class="hljs-keyword">import</span> sys
+<span class="hljs-keyword">import</span> math
+</code></pre>
+<p class="has-line-data" data-line-start="377" data-line-end="379"><code>sys</code> moduli <code>exit()</code> funktsiyasini o’z ichiga oladi, ushbu funksiya dasturni darhol tamomlaydi.<br>
+<code>sys.exit()</code> chaqiruvidan keyin kod satrlarining hech biri ishlamaydi; Dastur shunchaki oxirigacha to’xtaydi. Ushbu funktsiya keyinchalik dasturda qo’llaniladi. Matematik modulda sonning kvadrat ildizini topish uchun foydalaniladigan <code>sqrt()</code> funktsiyasi mavjud. Kvadrat ildizlar ortidagi matematik 186-betdagi “Eng yaqin xazina sandig’ini topish” da izohlangan.</p>
+<h1 class="code-line" data-line-start=380 data-line-end=381 ><a id="Yangi_oyin_taxtasini_yaratish_380"></a>Yangi o’yin taxtasini yaratish</h1>
+<p class="has-line-data" data-line-start="381" data-line-end="382">Har bir yangi o’yinni boshlash uchun <code>getNewBoard()</code> tomonidan yaratilgan yangi <code>board</code> ma’lumotlar tuzilishi kerak. “Sonar xazinalar ovi” o’yin taxtasi - atrofida x va y koordinatalari bo’lgan ASCII Art okeanidir. Biz <code>board</code> ma’lumotlar tuzilmasidan foydalanganda dekart koordinatalariga kirishimiz kabi uning koordinatalar tizimiga kirishni xohlaymiz. Buning uchun biz har bir koordinatani taxtada quyidagicha chaqirish uchun ro’yxatlar ro’yxatidan foydalanamiz: <code>board [x][y]</code>.  x koordinatasi y koordinatasidan oldin keladi - (26, 12) koordinatadagi satrni olish uchun siz <code>board[12][26]</code> ga emas, balki <code>board[26][12]</code> kirasiz.</p>
+<pre><code class="has-line-data" data-line-start="384" data-line-end="397" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getNewBoard</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-comment"># Yangi 60x15 taxta ma'lumotlar tuzilishini yaratish</span>
+    board = []
+    <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(<span class="hljs-number">60</span>): <span class="hljs-comment"># 60 ta ro'yhatdan iborat asosiy ro'yhat</span>
+        board.append([])
+        <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> range(<span class="hljs-number">15</span>): <span class="hljs-comment"># Har bir asosiy ro'yhatdagi ro'yhatda 15ta bitta-belgili satrlar bor</span>
+            <span class="hljs-comment"># O'qishga oson bo'lishi uchun okeanga harhil belgilar ishlatamiz</span>
+            <span class="hljs-keyword">if</span> random.randint(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>) == <span class="hljs-number">0</span>:
+                board[x].append(<span class="hljs-string">'~'</span>)
+            <span class="hljs-keyword">else</span>:
+                board[x].append(<span class="hljs-string">'`'</span>)
+    <span class="hljs-keyword">return</span> board
+</code></pre>
+<p class="has-line-data" data-line-start="398" data-line-end="399">Ma’lumotlarning taxtasi <code>board</code> - bu satrlar ro’yxati. Birinchi ro’yxat x koordinatasini aks ettiradi. O’yin taxtasi bo’ylab 60 ta belgi bo’lganligi sababli, ushbu birinchi ro’yxatda 60 ta ro’yxat bo’lishi kerak. 10-qatorda biz unga 60 ta bo’sh ro’yxatni qo’shadigan <code>for</code> tsiklini yaratamiz.</p>
+<p class="has-line-data" data-line-start="400" data-line-end="401">Ammo <code>board</code> shunchaki 60 ta bo’sh ro’yxatlarning ro’yxatidan ko’proq. 60 ro’yxatning har biri o’yin taxtasining x koordinatasini aks ettiradi. Taxtada 15 ta qator bor, shuning uchun ushbu 60 ta ro’yxatning har birida 15 ta satr bo’lishi kerak. 12-satr - bu okeanni aks ettiruvchi 15 ta bitta simli satrlarni qo’shadigan yana bir <code>for</code> tsikli.</p>
+<p class="has-line-data" data-line-start="402" data-line-end="403">Okean tasodifiy tanlangan ‘~’ va ‘`’ qatorlar to’plami bo’ladi. Klaviaturangizdagi 1 tugmachaning yonida joylashgan tilda (~) va orqa belgi (`) belgilar okean to’lqinlari uchun ishlatiladi. Qaysi belgidan foydalanilishini aniqlash uchun 14 dan 17 gacha bo’lgan satrlarda ushbu mantiq qo’llaniladi: agar <code>random.randint()</code> ning qaytish qiymati 0 ga teng bo’lsa, ‘~’ qatorini qo’shing; aks holda, ‘`’ qatorini qo’shing. Bu okeanga tasodifiy, bo’g’iq ko’rinish beradi.</p>
+<p class="has-line-data" data-line-start="404" data-line-end="405">Kichikroq misol uchun, agar <code>board</code> [[’~’, ‘~’, ‘’ ‘], [[’ ~ ‘,’ ~ ‘,’ ‘’], [[’~’, ‘~ ‘,’ &quot;’], [’ ~ ‘,’ ‘’, ‘’], [’&quot;’, ‘~’, ‘’ ']] u holda chizilgan taxta quyidagicha ko’rinishga ega bo’ladi:</p>
+<pre><code class="has-line-data" data-line-start="407" data-line-end="411">~~~~`
+~~~`~
+.`````
+</code></pre>
+<p class="has-line-data" data-line-start="412" data-line-end="413">Va ohiri, funktsiya 18-qatorda <code>board</code> o’zgaruvchisidagi qiymatni qaytaradi:</p>
+<pre><code class="has-line-data" data-line-start="414" data-line-end="416" class="language-python"><span class="hljs-keyword">return</span> board
+</code></pre>
+<h1 class="code-line" data-line-start=417 data-line-end=418 ><a id="Oyin_taxtasini_chizish_417"></a>O’yin taxtasini chizish</h1>
+<p class="has-line-data" data-line-start="418" data-line-end="419">Keyin biz yangi taxta chizganimizda chaqiradigan <code>drawBoard()</code> usulini aniqlaymiz:</p>
+<pre><code class="has-line-data" data-line-start="420" data-line-end="422" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">drawBoard</span><span class="hljs-params">(board)</span>:</span>
+</code></pre>
+<p class="has-line-data" data-line-start="422" data-line-end="423">Koordinatalari bilan to’liq o’yin taxtasi quyidagicha ko’rinadi:</p>
+<pre><code class="has-line-data" data-line-start="424" data-line-end="444">             1         2         3         4         5
+   012345678901234567890123456789012345678901234567890123456789
+ 0 ~~~`~``~~~``~~~~``~`~`~`~`~~`~~~`~~`~``````~~`~``~`~~```~`~` 0
+ 1 `~`~````~~``~`~```~```~```~`~~~``~~`~~~``````~`~``~~``~~`~~` 1
+ 2 ```~~~~`~`~~```~~~``~````~~`~`~~`~`~`~```~~`~``~~`~`~~~~~~`~ 2
+ 3 ~~~~`~~~``~```~``~~`~`~~`~`~~``~````~`~````~```~`~`~`~`````~ 3
+ 4 ~```~~~~~`~~````~~~~```~~~`~`~`~````~`~~`~`~~``~~`~``~`~``~~ 4
+ 5 `~```~`~`~~`~~~```~~``~``````~~``~`~`~~~~`~~``~~~~~~`~```~~` 5
+ 6 ``~~`~~`~``~`````~````~~``~`~~~~`~~```~~~``~`~`~~``~~~```~~~ 6
+ 7 ``~``~~~~~~```~`~```~~~``~`~``~`~~~~~~```````~~~`~~`~~`~~`~~ 7
+ 8 ~~`~`~~```~``~~``~~~``~~`~`~~`~`~```~```~~~```~~~~~~`~`~~~~` 8
+ 9 ```~``~`~~~`~~```~``~``~~~```~````~```~`~~`~~~~~`~``~~~~~``` 9
+10 `~~~~```~`~````~`~`~~``~`~~~~`~``~``~```~~```````~`~``~````` 10
+11 ~~`~`~~`~``~`~~~````````````````~~`````~`~~``~`~~~~`~~~`~~`~ 11
+12 ~~`~~~~```~~~`````~~``~`~`~~``````~`~~``~```````~~``~~~`~~`~ 12
+13 `~``````~~``~`~~~```~~~~```~~`~`~~~`~```````~~`~```~``~`~~~~ 13
+14 ~~~``~```~`````~~`~`~``~~`~``~`~~`~`~``~`~``~~``~`~``~```~~~ 14
+   012345678901234567890123456789012345678901234567890123456789
+             1         2         3         4         5
+</code></pre>
+<p class="has-line-data" data-line-start="444" data-line-end="445"><code>DrawBoard()</code> funktsiyasidagi rasm to’rt bosqichdan iborat:</p>
+<ol>
+<li class="has-line-data" data-line-start="445" data-line-end="446">Keng bo’shliqlar bilan oraliqda 1, 2, 3, 4 va 5 gacha bo’lgan qatorning o’zgaruvchisini yarating. Ushbu raqamlar x o’qi bo’yicha 10, 20, 30, 40 va 50 koordinatalarini belgilaydi.</li>
+<li class="has-line-data" data-line-start="446" data-line-end="448">Ushbu o’q yordamida x o’qi koordinatalarini yuqori qismi bo’ylab aks ettiring<br>
+ekran.</li>
+<li class="has-line-data" data-line-start="448" data-line-end="449">Okeanning har bir satrini ekranning ikkala tomonidagi y o’qi koordinatalari bilan birga chop eting.</li>
+<li class="has-line-data" data-line-start="449" data-line-end="451">X o’qini pastki qismida yana chop eting. Har tomondan koordinatalarga ega bo’lish sonar qurilmani qaerga joylashtirishni ko’rishni osonlashtiradi.</li>
+</ol>
+<h4 class="code-line" data-line-start=451 data-line-end=452 ><a id="Xkoordinatalarini_doskaning_yuqori_qismida_chizish_451"></a>X-koordinatalarini doskaning yuqori qismida chizish</h4>
+<p class="has-line-data" data-line-start="452" data-line-end="453"><code>DrawBoard()</code> ning birinchi qismi taxtaning yuqori qismidagi x o’qini bosib chiqaradi. Biz taxtaning har bir qismi teng bo’lishini istaganimiz uchun har bir koordinata yorlig’i faqat bitta belgi maydonini egallashi mumkin. Koordinatali raqamlash 10 ga etganida, har bir raqam uchun ikkita raqam mavjud, shuning uchun biz o’nlikdagi raqamlarni 13-3-rasmda ko’rsatilgandek alohida chiziqqa qo’yamiz. X o’qi shunday joylashtirilganki, birinchi satrda o’nli o’rinli raqamlar, ikkinchi satrda esa raqamlar ko’rsatiladi.</p>
+<pre><code class="has-line-data" data-line-start="454" data-line-end="458">+++++++++++++1+++++++++2+++++++++3              # Birinchi qator
++++0123456789012345678901234567890123456789     # Ikkinchi qator
++0 ~`~``~``~``~`~`~```~`~``````~```~`~~~`~~ 0   # Uchinchi qator
+</code></pre>
+<p class="has-line-data" data-line-start="459" data-line-end="460">22 dan 24 gacha bo’lgan qatorlar taxtaning birinchi qatori uchun qatorni hosil qiladi, bu o’nlab joylarga ega bo’lgan x o’qi qismidir:</p>
+<pre><code class="has-line-data" data-line-start="461" data-line-end="466" class="language-python">    <span class="hljs-comment"># Taxtaning ma'lumotlar tuzilishini chizish. </span>
+    tensDigitsLine = <span class="hljs-string">'    '</span> <span class="hljs-comment"># Taxtaning chap tomonidagi raqamlar uchun dastlabki bo'sh joy</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">6</span>):
+        tensDigitsLine += (<span class="hljs-string">' '</span> * <span class="hljs-number">9</span>) + str(i)
+</code></pre>
+<p class="has-line-data" data-line-start="467" data-line-end="468">Birinchi satrda o’nlik pozitsiyasini belgilaydigan raqamlarning barchasi o’rtasida 9 ta bo’shliq bor va 1-ning oldida 13 ta bo’shliq mavjud. 22 dan 24 gacha bo’lgan qatorlar shu qator bilan satr hosil qiladi va uni <code>tensDigitsLine</code> nomli o’zgaruvchida saqlaydi:</p>
+<pre><code class="has-line-data" data-line-start="469" data-line-end="474" class="language-python">    <span class="hljs-comment"># Raqamlarni taxtaning yuqori qismiga bosib chiqaramz.</span>
+    print(tensDigitsLine)
+    print(<span class="hljs-string">'   '</span> + (<span class="hljs-string">'0123456789'</span> * <span class="hljs-number">6</span>))
+    print()
+</code></pre>
+<p class="has-line-data" data-line-start="475" data-line-end="476">Raqamlarni o’yin taxtasining yuqori qismida chop etish uchun avval <code>tensDigitsLine</code> o’zgaruvchisining tarkibini chop eting. So’ngra, keyingi satrda uchta bo’sh joyni bosib chiqaring (shu qator to’g’ri kelishi uchun), so’ngra <code>'0123456789'</code> qatorini olti marta bosib chiqaring: <code>('0123456789' * 6)</code>.</p>
+<h4 class="code-line" data-line-start=477 data-line-end=478 ><a id="Okeanni_chizish_477"></a>Okeanni chizish</h4>
+<p class="has-line-data" data-line-start="478" data-line-end="479">32 dan 44 gacha bo’lgan satrlar okean to’lqinlarining har bir satrini, shu qatorda y o’qini belgilash uchun yon tomonidagi raqamlarni bosib chiqaradi:</p>
+<pre><code class="has-line-data" data-line-start="481" data-line-end="489" class="language-python">    <span class="hljs-comment"># 15 qatorning har birini chop etamiz</span>
+    <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> range(<span class="hljs-number">15</span>):
+        <span class="hljs-comment"># Bir xonali raqamlarni qo'shimcha joy bilan to'ldirish kerak.</span>
+        <span class="hljs-keyword">if</span> row &lt; <span class="hljs-number">10</span>:
+            extraSpace = <span class="hljs-string">' '</span>
+        <span class="hljs-keyword">else</span>:
+            extraSpace = <span class="hljs-string">''</span>
+</code></pre>
+<p class="has-line-data" data-line-start="490" data-line-end="492"><code>For</code> tsikli taxtaning har ikki tomonidagi qator raqamlari bilan birga 0 dan 14 gacha qatorlarni bosib chiqaradi.<br>
+Ammo bizda x o’qi bilan bir xil muammo bor. Faqat bitta raqamga ega bo’lgan raqamlar (masalan, 0, 1, 2 va hokazo) bosilganda faqat bitta bo’sh joyni egallaydi, ammo ikkita raqamli raqamlar (masalan, 10, 11 va 12) ikkita bo’sh joyni egallaydi. Agar koordinatalar har xil o’lchamlarga ega bo’lsa, qatorlar qatorga qo’shilmaydi. Kengash shunday ko’rinadi:</p>
+<pre><code class="has-line-data" data-line-start="493" data-line-end="498"> 8 ~~`~`~~```~``~~``~~~``~~`~`~~`~`~```~```~~~```~~~~~~`~`~~~~` 8
+ 9 ```~``~`~~~`~~```~``~``~~~```~````~```~`~~`~~~~~`~``~~~~~``` 9
+10 `~~~~```~`~````~`~`~~``~`~~~~`~``~``~```~~```````~`~``~````` 10
+11 ~~`~`~~`~``~`~~~````````````````~~`````~`~~``~`~~~~`~~~`~~`~ 11
+</code></pre>
+<p class="has-line-data" data-line-start="498" data-line-end="499">Yechish oson: barcha bitta raqamli raqamlar oldida bo’sh joy qo’shing. 34 dan 37 gacha bo’lgan qatorlar <code>ExtraSpace</code> o’zgaruvchisini bo’sh joyga yoki bo’sh satrga o’rnatadi. <code>ExtraSpace</code> o’zgaruvchisi har doim bosilib chiqadi, lekin u faqat bitta raqamli qator raqamlari uchun bo’shliq belgisiga ega. Aks holda, bu bo’sh satr. Shunday qilib, barcha qatorlar ularni bosib chiqarishda bir qatorga to’g’ri keladi.</p>
+<h4 class="code-line" data-line-start=500 data-line-end=501 ><a id="Okeandagi_qatorni_chop_etish_500"></a>Okeandagi qatorni chop etish</h4>
+<p class="has-line-data" data-line-start="501" data-line-end="502">Kengash parametri - bu butun okean to’lqinlari uchun ma’lumotlar tuzilishi. 39 dan 44 gacha bo’lgan satrlar taxtaning o’zgaruvchisini o’qiydi va bitta qatorni bosib chiqaradi:</p>
+<pre><code class="has-line-data" data-line-start="503" data-line-end="510" class="language-python">        <span class="hljs-comment"># Ushbu qator uchun satrni taxtada yaratish.</span>
+        boardRow = <span class="hljs-string">''</span>
+        <span class="hljs-keyword">for</span> column <span class="hljs-keyword">in</span> range(<span class="hljs-number">60</span>):
+            boardRow += board[column][row]
+
+        print(<span class="hljs-string">'%s%s %s %s'</span> % (extraSpace, row, boardRow, row))
+</code></pre>
+<p class="has-line-data" data-line-start="511" data-line-end="513">40-qatorda <code>boardRow</code> bo’sh satr sifatida boshlanadi. 32-satrda <code>for</code> tsikli okean to’lqinlarining hozirgi qatori uchun o’zgaruvchini o’rnatadi. 41-satrda ushbu tsiklning ichida joriy satrning har bir ustuni bo’ylab takrorlanadigan yana bir <code>for</code> tsikli mavjud. Biz ushbu taxtada <code>taxta[column][row]</code>ni biriktirib, <code>boardRow</code> hosil qilamiz, bu <code>board[0][row]</code>, <code>board[1][row]</code>, <code>board[2][satr]</code>larni birlashtirish degan ma’noni anglatadi va shunga o’xshash narsalar uchun  <code>board[59][row]</code>. Bu qatorda 0 indeksidan 59 indeksigacha 60 ta belgi borligi sababli.<br>
+41-satrdagi <code>for</code> tsikli 0 dan 59 gacha bo’lgan butun sonlar bo’ylab takrorlanadi. Har bir takrorlashda doska ma’lumotlari tarkibidagi keyingi belgi <code>boardRow</code> oxiriga ko’chiriladi. Tsikl tugaguncha, <code>boardRow</code> qatorning to’liq ASCII sa’nat to’lqinlariga ega bo’ladi. Keyin <code>boardRow</code> dagi satr 44-qatordagi qator raqamlari bilan birga chop etiladi.</p>
+<h4 class="code-line" data-line-start=514 data-line-end=515 ><a id="Xkoordinatalarini_taxtaning_pastki_qismida_chizish_514"></a>X-koordinatalarini taxtaning pastki qismida chizish</h4>
+<p class="has-line-data" data-line-start="515" data-line-end="516">46 dan 49 gacha bo’lgan satrlar 26 dan 29 gacha bo’lgan satrlarga o’xshaydi:</p>
+<pre><code class="has-line-data" data-line-start="517" data-line-end="522" class="language-python">    <span class="hljs-comment"># Raqamlarni taxtaning pastki qismida bosib chiqarish.</span>
+    print()
+    print(<span class="hljs-string">'   '</span> + (<span class="hljs-string">'0123456789'</span> * <span class="hljs-number">6</span>))
+    print(tensDigitsLine)
+</code></pre>
+<p class="has-line-data" data-line-start="522" data-line-end="523">Ushbu satrlar taxtaning pastki qismidagi x-koordinatalarini bosib chiqaradi.</p>
+<h1 class="code-line" data-line-start=524 data-line-end=525 ><a id="Tasodifiy_xazina_sandiqlarini_yaratish_524"></a>Tasodifiy xazina sandiqlarini yaratish</h1>
+<p class="has-line-data" data-line-start="525" data-line-end="527">O’yin tasodifiy ravishda yashirin xazina sandiqlari qaerdaligini hal qiladi. Xazina qutilari ikkita butun sonli ro’yxatlar ro’yxati sifatida taqdim etilgan. Ushbu ikkita butun son bitta x ning x va y koordinatalari. Masalan, agar ko’krak qafasi ma’lumotlarining tuzilishi <code>[[2, 2], [2, 4], [10, 0]]</code> bo’lsa, demak, uchta xazina sandig’i bor edi, ulardan biri (2, 2), ikkinchisi (2, 4), uchinchisi (10, 0) da.<br>
+<code>GetRandomChests()</code> funktsiyasi tasodifiy tayinlangan koordinatalarda ma’lum miqdordagi ko’krak ma’lumotlari tuzilishini yaratadi:</p>
+<pre><code class="has-line-data" data-line-start="528" data-line-end="537" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getRandomChests</span><span class="hljs-params">(numChests)</span>:</span>
+    <span class="hljs-comment"># Sandiq ma'lumotlari tuzilmalari ro'yxatini yaratish (x, y int koordinatalarining ikki elementli ro'yxati).</span>
+    chests = []
+    <span class="hljs-keyword">while</span> len(chests) &lt; numChests:
+        newChest = [random.randint(<span class="hljs-number">0</span>, <span class="hljs-number">59</span>), random.randint(<span class="hljs-number">0</span>, <span class="hljs-number">14</span>)]
+        <span class="hljs-keyword">if</span> newChest <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> chests: <span class="hljs-comment"># Sandiq allaqachon bu erda emasligiga ishonch hosil qilamiz.</span>
+            chests.append(newChest)
+    <span class="hljs-keyword">return</span> chests
+</code></pre>
+<p class="has-line-data" data-line-start="538" data-line-end="539"><code>NumChests</code> parametri funktsiyaga qancha xazina qutisi yaratish kerakligini aytadi. 54-qator <code>while</code> tsikli barcha koordinatalar berilgunga qadar takrorlanadi. 55-chiziqdagi koordinatalar uchun ikkita tasodifiy butun son tanlangan. X-koordinatasi 0 dan 59 gacha, y koordinatasi esa 0 dan 14 gacha bo’lishi mumkin. <code>[random.randint (0, 59), random.randint (0, 14)]</code> ifodasi <code>[2, 2]</code> yoki <code>[2, 4]</code> yoki <code>[10, 0]</code> kabi ro’yxat qiymatiga qarab baholanadi. Agar ushbu koordinatalar <code>chests</code> ro’yxatida mavjud bo’lmasa, ular 57-qatorda <code>chests</code> ga qo’shiladi.</p>
+<h1 class="code-line" data-line-start=540 data-line-end=541 ><a id="Kochirishning_haqiqiyligini_aniqlash_540"></a>Ko’chirishning haqiqiyligini aniqlash</h1>
+<p class="has-line-data" data-line-start="541" data-line-end="543">O’yinchi sonar qurilmani tushirmoqchi bo’lgan joy uchun x- va y-koordinatalarini kiritganda, biz raqamlarning haqiqiyligiga ishonch hosil qilishimiz kerak. Yuqorida aytib o’tilganidek, harakatning amal qilishi uchun ikkita shart mavjud: x koordinatasi 0 dan 59 gacha, y koordinatasi esa 0 dan 14 gacha bo’lishi kerak.<br>
+<code>IsOnBoard()</code> funktsiyasi oddiy ifodadan foydalanadi va operatorlar ushbu shartlarni bitta ifodaga birlashtirish uchun <code>and</code> ifodaning har bir qismi <code>True</code> bo’lishini ta’minlash uchun:</p>
+<pre><code class="has-line-data" data-line-start="544" data-line-end="548" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isOnBoard</span><span class="hljs-params">(x, y)</span>:</span>
+    <span class="hljs-comment"># Agar koordinatalar doskada bo'lsa, True-ni, aks holda, False-ni qaytaramiz.</span>
+    <span class="hljs-keyword">return</span> x &gt;= <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> x &lt;= <span class="hljs-number">59</span> <span class="hljs-keyword">and</span> y &gt;= <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> y &lt;= <span class="hljs-number">14</span>
+</code></pre>
+<p class="has-line-data" data-line-start="548" data-line-end="549">Biz <code>and</code> mantiqiy operatoridan foydalanayotganimiz sababli, hatto koordinatalardan biri yaroqsiz bo’lsa, u holda butun ifoda <code>False</code>ga baholanadi.</p>
+<h1 class="code-line" data-line-start=550 data-line-end=551 ><a id="Harakatni_taxtaga_joylashtirish_550"></a>Harakatni taxtaga joylashtirish</h1>
+<p class="has-line-data" data-line-start="551" data-line-end="552">“Sonar xazinalar ovi” o’yinida o’yin taxtasi har bir sonar moslamasining eng yaqin xazina sandig’iga bo’lgan masofasini ko’rsatadigan raqamni ko’rsatish uchun yangilanadi. Shunday qilib, o’yinchi dasturni x va y koordinatalarini berib harakat qilganda, xazina sandiqlari pozitsiyalariga qarab taxta o’zgaradi.</p>
+<pre><code class="has-line-data" data-line-start="553" data-line-end="558" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">makeMove</span><span class="hljs-params">(board, chests, x, y)</span>:</span>
+    <span class="hljs-comment"># Sonar qurilmasi belgisi bilan taxta ma'lumotlar tuzilishini o'zgartiring. Xazina sandiqlarini topilgandek sandiqlar ro'yxatidan olib tashlaymiz.</span>
+    <span class="hljs-comment"># Agar bu noto'g'ri harakat bo'lsa, False(yolg'on)ni qaytaramiz.</span>
+    <span class="hljs-comment"># Aks holda, ushbu harakat natijasini qaytaramiz.</span>
+</code></pre>
+<p class="has-line-data" data-line-start="559" data-line-end="560"><code>MakeMove()</code> funktsiyasi to’rt parametrni oladi: o’yin taxtasining ma’lumotlar tuzilishi, xazina sandig’ining ma’lumotlar tuzilishi, x koordinatasi va y koordinatasi. <code>MakeMove()</code> funktsiyasi harakatga javoban nima bo’lganligini tavsiflovchi satr qiymatini qaytaradi:</p>
+<ul>
+<li class="has-line-data" data-line-start="560" data-line-end="561">Agar koordinatalar to’g’ridan-to’g’ri xazina qutisiga tushsa, <code>makeMove()</code> <code>'Siz cho'kib ketgan xazina sandig'ini topdingiz!'</code> satrini qaytaradi.</li>
+<li class="has-line-data" data-line-start="561" data-line-end="562">Agar koordinatalar sandiqdan 9 yoki undan kam masofada bo’lsa, <code>makeMove()</code> <code>'Sonar qurilmasidan %s masofada xazina aniqlandi.'</code> (bu erda %s butun masofa bilan almashtiriladi).</li>
+<li class="has-line-data" data-line-start="562" data-line-end="564">Aks holda, <code>makeMove()</code> <code>'Sonar hech narsani aniqlamadi. Barcha xazina sandiqlari doiradan tashqarida.'</code>ni qaytaradi.</li>
+</ul>
+<p class="has-line-data" data-line-start="564" data-line-end="565">O’yinchi sonarni tushirmoqchi bo’lgan joyning koordinatalarini hisobga olgan holda qurilma va xazinalar uchun x va y koordinatalarining ro’yxati, qaysi xazina sandig’i eng yaqin ekanligini aniqlash uchun algoritm kerak bo’ladi.</p>
+<h4 class="code-line" data-line-start=566 data-line-end=567 ><a id="Eng_yaqin_xazina_sandigini_topish_566"></a>Eng yaqin xazina sandig’ini topish</h4>
+<p class="has-line-data" data-line-start="567" data-line-end="568">68 dan 75 gacha bo’lgan satrlar sonar moslamasiga qaysi xazina sandig’ining yaqinligini aniqlash algoritmidir.</p>
+<pre><code class="has-line-data" data-line-start="569" data-line-end="576" class="language-python">    smallestDistance = <span class="hljs-number">100</span> <span class="hljs-comment"># Har qanday sandiq 100 dan yaqinroq bo'ladi.</span>
+    <span class="hljs-keyword">for</span> cx, cy <span class="hljs-keyword">in</span> chests:
+        distance = math.sqrt((cx - x) * (cx - x) + (cy - y) * (cy - y))
+
+        <span class="hljs-keyword">if</span> distance &lt; smallestDistance: <span class="hljs-comment"># Bizga eng yaqinda joylashgan xazina sandig'i kerak</span>
+            smallestDistance = distance
+</code></pre>
+<p class="has-line-data" data-line-start="576" data-line-end="578">x va y parametrlari tamsayılar (masalan, 3 va 5) bo’lib, ular birgalikda o’yinchi taxmin qilgan o’yin taxtasida joylashgan joyni anglatadi. <code>chests</code> o’zgaruvchisi uchta xazinaning joylashishini ifodalovchi <code>[[5, 0], [0, 2], [4, 2]]</code> kabi qiymatga ega bo’ladi. 13-4-rasmda ushbu qiymat ko’rsatilgan.<br>
+Sonar moslamasi va xazina sandig’i orasidagi masofani topish uchun ikkita x- va y-koordinatalar orasidagi masofani topish uchun matematikadan o’tishimiz kerak bo’ladi. Aytaylik, biz sonar moslamasini (3, 5) joylashtiramiz va (4, 2) da xazina sandig’iga masofani topishni xohlaymiz.</p>
+<p class="has-line-data" data-line-start="579" data-line-end="580">x va y koordinatalarining ikkita to’plami orasidagi masofani topish uchun biz Pifagor teoremasidan foydalanamiz. Ushbu teorema to’g’ri burchakli uchburchakka taalluqlidir - bir burchagi 90 daraja bo’lgan uchburchaklar, xuddi shu to’rtburchakda topilgan burchak. Pifagor teoremasi uchburchakning diagonal tomonini gorizontal va vertikal tomonlari uzunliklaridan hisoblash mumkin, deydi. 13-5-rasmda sonar moslamasi (3, 5) va xazina sandig’i (4, 2) da tortilgan to’rtburchak uchburchak ko’rsatilgan.</p>
+<p class="has-line-data" data-line-start="581" data-line-end="582">Pifagor teoremasi a^2 + b^2 = c^2, unda a gorizontal tomonning uzunligi, b vertikal tomonning uzunligi va c diagonal tomonning yoki gipotenuzaning uzunligi. Ushbu uzunliklar kvadratga bo’linadi, ya’ni bu raqam o’zi bilan ko’paytiriladi. Raqamni “kvadratga tortmaslik” raqamning kvadrat ildizini topish deb ataladi, chunki biz c2 dan c olishimiz kerak bo’ladi.</p>
+<p class="has-line-data" data-line-start="583" data-line-end="584">Pifagor teoremasidan sonar moslama (3, 5) va sandiq (4, 2) orasidagi masofani topish uchun foydalanamiz:</p>
+<ol>
+<li class="has-line-data" data-line-start="584" data-line-end="585">A ni topish uchun birinchi x koordinatasidan ikkinchi x-koordinatani 4 ni chiqaring, 3: 3 - 4 = –1.</li>
+<li class="has-line-data" data-line-start="585" data-line-end="586">a^2 ni topish uchun a ni a ga ko’paytiring: –1 × –1 = 1. (manfiy son, salbiy son har doim musbat songa teng bo’ladi.)</li>
+<li class="has-line-data" data-line-start="586" data-line-end="587">B ni topish uchun birinchi y koordinatasidan ikkinchi y-koordinatani 2, 5: 5 - 2 = 3 ayirib tashlang.</li>
+<li class="has-line-data" data-line-start="587" data-line-end="588">b^2 ni topish uchun b ni b ga ko’paytiring: 3 × 3 = 9.</li>
+<li class="has-line-data" data-line-start="588" data-line-end="589">c^2 ni topish uchun a^2 va b^2 ni qo’shing: 1 + 9 = 10.</li>
+<li class="has-line-data" data-line-start="589" data-line-end="591">c^2 dan c ni olish uchun c^2 ning kvadrat ildizini topish kerak.</li>
+</ol>
+<p class="has-line-data" data-line-start="591" data-line-end="592">Biz 5-qatorga import qilgan <code>math</code> modulda <code>sqrt()</code> nomli kvadrat ildiz funktsiyasi mavjud. Interaktiv qobiqga quyidagilarni kiriting:</p>
+<pre><code class="has-line-data" data-line-start="593" data-line-end="599">&gt;&gt;&gt; import math
+&gt;&gt;&gt; math.sqrt(10)
+3.1622776601683795
+&gt;&gt;&gt; 3.1622776601683795 * 3.1622776601683795
+10.000000000000002
+</code></pre>
+<p class="has-line-data" data-line-start="600" data-line-end="603">E’tibor bering, kvadrat ildizni o’zi ko’paytirganda kvadrat son hosil bo’ladi. (10-ning oxiridagi qo’shimcha 2, <code>sqrt()</code> funktsiyasidagi muqarrar yengil noaniqlikdandir.)<br>
+c^2 ni <code>sqrt()</code> ga o’tkazib, sonar qurilmasi xazina sandig’idan 3,16 birlik masofada ekanligini aytishimiz mumkin. O’yin buni 3 gacha yaxlitlaydi.<br>
+Keling, yana 68 dan 70 gacha chiziqlarni ko’rib chiqaylik:</p>
+<pre><code class="has-line-data" data-line-start="604" data-line-end="608" class="language-python">    smallestDistance = <span class="hljs-number">100</span> <span class="hljs-comment"># Har qanday sandiq 100 dan yaqinroq bo'ladi.</span>
+    <span class="hljs-keyword">for</span> cx, cy <span class="hljs-keyword">in</span> chests:
+        distance = math.sqrt((cx - x) * (cx - x) + (cy - y) * (cy - y))
+</code></pre>
+<p class="has-line-data" data-line-start="608" data-line-end="610"><code>For</code> chizig’i ichidagi kod har bir sandiqning masofasini hisoblab chiqadi. 68-qator <code>smallesDistance</code> 100 ta eng kichik masofani beradi, shunda siz topgan xazinalar qutilaridan kamida bittasi 73-qatorga <code>smallestDistance</code>ga qo’yiladi. <em>cx - x</em> gorizontal masofani <em>a</em> sandiq va sonar moslamasi o’rtasida, <em>(cx - x) * (cx - x)</em> bizning Pifagor teoremasi hisob-kitobining a^2-si. U <em>(cy - y) * (cy - y)</em> ga qo’shiladi, b2. Ushbu summa c^2 ga teng va sandiq va sonar moslamasi orasidagi masofani olish uchun <code>sqrt()</code> ga uzatiladi.<br>
+Biz sonar moslamasi va eng yaqin ko’krak qafasi orasidagi masofani topmoqchimiz, shuning uchun agar bu masofa eng kichik masofadan kichik bo’lsa, u 73-qatorda eng yangi masofa sifatida saqlanadi:</p>
+<pre><code class="has-line-data" data-line-start="611" data-line-end="614" class="language-python">        <span class="hljs-keyword">if</span> distance &lt; smallestDistance: <span class="hljs-comment"># Bizga eng yaqinda joylashgan xazina sandig'i kerak</span>
+            smallestDistance = distance
+</code></pre>
+<p class="has-line-data" data-line-start="615" data-line-end="616"><code>For</code> tsikli tugagach, siz <code>smallestDistance</code> ning sonar moslamasi va o’yindagi barcha xazinalar orasidagi eng qisqa masofani ushlab turishini bilasiz.</p>
+<h4 class="code-line" data-line-start=617 data-line-end=618 ><a id="Royhat_usuli_remove_bilan_qiymatlarni_olib_tashlash_617"></a>Ro’yhat usuli remove() bilan qiymatlarni olib tashlash</h4>
+<p class="has-line-data" data-line-start="618" data-line-end="619"><code>remove()</code> list usuli o’tgan argumentga mos keladigan qiymatning birinchi paydo bo’lishini olib tashlaydi. Masalan, interaktiv qobiqga quyidagilarni kiriting:</p>
+<pre><code class="has-line-data" data-line-start="620" data-line-end="625">&gt;&gt;&gt; x = [42, 5, 10, 42, 15, 42]
+&gt;&gt;&gt; x.remove(10)
+&gt;&gt;&gt; x
+[42, 5, 42, 15, 42]
+</code></pre>
+<p class="has-line-data" data-line-start="625" data-line-end="627">10 qiymat x ro’yxatidan olib tashlandi.<br>
+Endi interaktiv qobiqga quyidagilarni kiriting:</p>
+<pre><code class="has-line-data" data-line-start="628" data-line-end="633">&gt;&gt;&gt; x = [42, 5, 10, 42, 15, 42]
+&gt;&gt;&gt; x.remove(42)
+&gt;&gt;&gt; x
+[5, 10, 42, 15, 42]
+</code></pre>
+<p class="has-line-data" data-line-start="633" data-line-end="635">E’tibor bering, faqat birinchi 42 qiymat o’chirilgan, ikkinchisi va uchinchisi esa hanuzgacha mavjud. <code>remove()</code> usuli siz o’tkazgan qiymatning birinchi va faqat birinchisini olib tashlaydi.<br>
+Agar siz ro’yxatdagi qiymatni olib tashlamoqchi bo’lsangiz, xatoga yo’l qo’yasiz:</p>
+<pre><code class="has-line-data" data-line-start="636" data-line-end="642">&gt;&gt;&gt; x = [5, 42]
+&gt;&gt;&gt; x.remove(10)
+Traceback (most recent call last):
+File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+ValueError: list.remove(x): x not in list
+</code></pre>
+<p class="has-line-data" data-line-start="642" data-line-end="644"><code>append()</code> usuli singari, <code>remove()</code> usuli ham ro’yxatda chaqiriladi va ro’yxatni qaytarmaydi. Siz <code>x = x.remove(42)</code> emas, balki <code>x.remove(42)</code> kabi koddan foydalanmoqchisiz.<br>
+Keling, o’yindagi sonar qurilmalari va xazina sandiqlari orasidagi masofani topishga qaytaylik. Sonar qurilmaning x va y-koordinatalari xazinalar x va y-koordinatalari bilan bir xil bo’lganida, eng kichik masofa 0 ga teng bo’lgan yagona vaqt. Bu shuni anglatadiki, o’yinchi xazina sandig’ining o’rnini to’g’ri taxmin qilgan.</p>
+<pre><code class="has-line-data" data-line-start="646" data-line-end="651" class="language-python">    <span class="hljs-keyword">if</span> smallestDistance == <span class="hljs-number">0</span>:
+        <span class="hljs-comment"># xy to'g'ridan-to'g'ri xazina sandig'ida!</span>
+        chests.remove([x, y])
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'Siz cho\'kib ketgan xazina sandig\'ini topdingiz!'</span>
+</code></pre>
+<p class="has-line-data" data-line-start="651" data-line-end="652">Bu sodir bo’lganda, dastur <code>remove()</code> ro’yxati usuli bilan ushbu sandiqning ikki raqamli ro’yxatini ma’lumotlar tuzilmasidan o’chirib tashlaydi. Keyin funktsiya “Siz cho’kib ketgan xazina sandig’ini topdingiz!” satrini qaytaradi.</p>
+<p class="has-line-data" data-line-start="653" data-line-end="654">Ammo <code>smallestDistance</code> 0 ga teng bo’lmasa, o’yinchi xazina sandig’ining aniq joyini taxmin qilmadi va 81-qatordan boshlangan else bloki quyidagilarni bajaradi:</p>
+<pre><code class="has-line-data" data-line-start="655" data-line-end="663" class="language-python">    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">if</span> smallestDistance &lt; <span class="hljs-number">10</span>:
+            board[x][y] = str(smallestDistance)
+            <span class="hljs-keyword">return</span> <span class="hljs-string">'Sonar qurilmasidan %s masofada xazina aniqlandi.'</span> % (smallestDistance)
+        <span class="hljs-keyword">else</span>:
+            board[x][y] = <span class="hljs-string">'X'</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-string">'Sonar hech narsani aniqlamadi. Barcha xazina sandiqlari doiradan tashqarida.'</span>
+</code></pre>
+<p class="has-line-data" data-line-start="663" data-line-end="664">Agar sonar moslamasining xazina qutisiga bo’lgan masofasi 10 dan kam bo’lsa, 83-satr doskada <code>smallestDistance</code>ning simli versiyasi bilan belgilanadi. Agar shunday bo’lmasa, taxta “X” belgisi bilan belgilanadi. Shunday qilib, o’yinchi har bir sonar moslamasining xazina sandig’iga qanchalik yaqinligini biladi. Agar o’yinchi <em>0</em> ni ko’rsa, ular ketish yo’llarini bilishadi.</p>
+<h4 class="code-line" data-line-start=665 data-line-end=666 ><a id="Oyinchini_harakatini_olish_665"></a>O’yinchini harakatini olish</h4>
+<p class="has-line-data" data-line-start="666" data-line-end="667"><code>enterPlayerMove()</code> funktsiyasi o’yinchining keyingi harakatining x va y koordinatalarini to’playdi:</p>
+<pre><code class="has-line-data" data-line-start="668" data-line-end="677" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">enterPlayerMove</span><span class="hljs-params">(previousMoves)</span>:</span>
+    <span class="hljs-comment"># O'yinchi o'z harakatini kirishiga ruxsat bering. Int xy koordinatalarining ikki elementli ro'yxatini qaytaring.</span>
+    print(<span class="hljs-string">'Keyingi sonar qurilmasini qaerga tashlamoqchisiz? (0-59 0-14) (yoki chiqish deb yozing)'</span>)
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+        move = input()
+        <span class="hljs-keyword">if</span> move.lower() == <span class="hljs-string">'chiqish'</span>:
+            print(<span class="hljs-string">'O\'ynaganingiz uchun tashakkur!'</span>)
+            sys.exit()
+</code></pre>
+<p class="has-line-data" data-line-start="678" data-line-end="681"><code>previousMoves</code> parametri - bu sonar moslamasini qo’ygan oldingi joylarning ikki tamsayıli ro’yxatlarining ro’yxati. Ushbu ma’lumot o’yinchi sonar moslamasini allaqachon o’rnatilgan joyga joylashtirmasligi uchun ishlatiladi.<br>
+<code>while</code> tsikli o’yinchidan sonar qurilmasi bo’lmagan joy uchun koordinatalarni kiritguncha keyingi harakatlarini so’rab turadi. Shuningdek, o’yinchi o’yinni tark etish uchun &quot;chiqish&quot;ni kiritishi mumkin. Bunday holda, 96-qator dasturni darhol tugatish uchun <code>sys.exit()</code> funktsiyasini chaqiradi.<br>
+Agar o’yinchi &quot;chiqish&quot;ni kiritmagan deb hisoblasak, kod kiritilgan bo’shliq bilan ajratilgan ikkita butun son ekanligini tekshiradi. 98-qator <code>move</code>da <code>split()</code> usulini <code>move</code>ning yangi qiymati sifatida chaqiradi:</p>
+<pre><code class="has-line-data" data-line-start="683" data-line-end="692" class="language-python">        move = move.split()
+        <span class="hljs-keyword">if</span> len(move) == <span class="hljs-number">2</span> <span class="hljs-keyword">and</span> move[<span class="hljs-number">0</span>].isdigit() <span class="hljs-keyword">and</span> move[<span class="hljs-number">1</span>].isdigit() <span class="hljs-keyword">and</span> isOnBoard(int(move[<span class="hljs-number">0</span>]), int(move[<span class="hljs-number">1</span>])):
+            <span class="hljs-keyword">if</span> [int(move[<span class="hljs-number">0</span>]), int(move[<span class="hljs-number">1</span>])] <span class="hljs-keyword">in</span> previousMoves:
+                print(<span class="hljs-string">'Siz allaqachon u yerga yurgansiz.'</span>)
+                <span class="hljs-keyword">continue</span>
+            <span class="hljs-keyword">return</span> [int(move[<span class="hljs-number">0</span>]), int(move[<span class="hljs-number">1</span>])]
+
+        print(<span class="hljs-string">'0 dan 59 gacha raqamni, bo\'sh joyni, keyin 0 dan 14 gacha bo\'lgan raqamni kiriting.'</span>)
+</code></pre>
+<p class="has-line-data" data-line-start="692" data-line-end="695">Agar o’yinchi “1 2 3” qiymatini yozgan bo’lsa, <code>split()</code> bilan qaytarilgan ro’yxat [‘1’, ‘2’, ‘3’] bo’ladi. Bunday holda, <code>len(move) == 2</code> ifodasi <code>False</code> (harakatdagi ro’yxat faqat ikkita raqamdan iborat bo’lishi kerak, chunki u koordinatani bildiradi) va butun ifoda darhol <code>False</code>ga baholanadi. Python qisqa tutashuv sababli qolgan ifodani tekshirmaydi (bu “Qisqa tutashuvni baholash” da 139-betda tasvirlangan).<br>
+Agar ro’yxatning uzunligi 2 ga teng bo’lsa, u holda ikkita qiymat <code>move[0]</code> va <code>move[1]</code> harakatlanish indekslarida bo’ladi. Ushbu qiymatlar raqamlar (masalan, ‘2’ yoki ‘17’) ekanligini tekshirish uchun siz <code>isOnlyDigits()</code> kabi funktsiyani “Satrda faqat raqamlar borligini tekshirish” 158 sahifasida ishlatishingiz mumkin. Ammo Pythonda allaqachon shunday usul mavjud bu.<br>
+Satr usuli <code>isdigit()</code>, agar satr faqat raqamlardan iborat bo’lsa, <code>True</code> qiymatini qaytaradi. Aks holda, <code>False</code>ni qaytaradi. Interaktiv qobiqga quyidagilarni kiriting:</p>
+<pre><code class="has-line-data" data-line-start="696" data-line-end="708">&gt;&gt;&gt; '42'.isdigit()
+True
+&gt;&gt;&gt; 'forty'.isdigit()
+False
+&gt;&gt;&gt; ''.isdigit()
+False
+&gt;&gt;&gt; 'hello'.isdigit()
+False
+&gt;&gt;&gt; x = '10'
+&gt;&gt;&gt; x.isdigit()
+True
+</code></pre>
+<p class="has-line-data" data-line-start="708" data-line-end="710">Har ikkala <code>move[0].isdigit()</code> va <code>move[1].isdigit()</code> butun holat <code>True</code> bo’lishi uchun <code>True</code> bo’lishi kerak. 99-satr holatining yakuniy qismi taxtada x va y-koordinatalarining mavjudligini tekshirish uchun <code>isOnBoard()</code> funktsiyasini chaqiradi.<br>
+Agar butun shart <code>True</code> bo’lsa, 100-qator bu harakatning <code>previousMoves</code> ro’yxatida mavjudligini tekshiradi. Agar shunday bo’lsa, 102-qatorning <code>continue</code> buyrug’i ijroning 92-qatordagi <code>while</code> tsiklining boshlanishiga qaytishiga olib keladi va keyin o’yinchining harakatini yana so’raydi. Agar shunday bo’lmasa, 103-qatorda x va y koordinatalarining ikki <em>integer</em> ro’yxati beriladi.</p>
+<h1 class="code-line" data-line-start=711 data-line-end=712 ><a id="Oyinchi_uchun_oyin_korsatmalarini_chop_etish_711"></a>O’yinchi uchun o’yin ko’rsatmalarini chop etish</h1>
+<p class="has-line-data" data-line-start="712" data-line-end="713"><code>showInstructions()</code> funktsiyasi - bu ko’p satrli satrlarni bosib chiqaradigan <code>print()</code> chaqiruvlarining juftligi:</p>
+<pre><code class="has-line-data" data-line-start="714" data-line-end="723" class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">showInstructions</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">'''Ko'rsatmalar:
+Siz xazina qidiradigan kemaning Simon kapitansiz. Sizning hozirgi vazifangiz
+
+--kesik--
+
+Davom ettirish uchun Enter tugmasini bosing...'''</span>)
+    input()
+</code></pre>
+<p class="has-line-data" data-line-start="724" data-line-end="725"><code>input()</code> funktsiyasi o’yinchiga keyingi qatorni bosib chiqarishdan oldin <em>Enter</em> tugmasini bosish imkoniyatini beradi. Buning sababi shundaki, IDLE oynasi bir vaqtning o’zida shunchaki juda ko’p matnni ko’rsatishi mumkin va biz matnning boshini o’qish uchun o’yinchi yuqoriga o’girilishini xohlamaymiz. Foydalanuvchi <em>Enter</em> tugmachasini bosgandan so’ng, funktsiya funktsiyani chaqirgan qatorga qaytadi.</p>
+<h1 class="code-line" data-line-start=726 data-line-end=727 ><a id="Oyin_davri_726"></a>O’yin davri</h1>
+<p class="has-line-data" data-line-start="727" data-line-end="728">Endi biz o’yinimiz chaqiradigan barcha funktsiyalarni kiritdik, keling, o’yinning asosiy qismiga kiraylik. Dasturni ishga tushirgandan so’ng o’yinchi ko’radigan birinchi narsa - bu 159-qator bilan bosilgan o’yin sarlavhasi. Bu dasturning asosiy qismidir, u o’yinchi ko’rsatmalarini berish va keyin o’yin foydalanadigan o’zgaruvchilarni sozlash bilan boshlanadi.</p>
+<pre><code class="has-line-data" data-line-start="730" data-line-end="744" class="language-python">print(<span class="hljs-string">'S O N A R !'</span>)
+print()
+print(<span class="hljs-string">'Ko\'rsatmalarni ko\'rishni xohlaysizmi? (ha yoki yo\'q)'</span>)
+<span class="hljs-keyword">if</span> input().lower().startswith(<span class="hljs-string">'h'</span>):
+    showInstructions()
+
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+    <span class="hljs-comment"># Game setup</span>
+    sonarDevices = <span class="hljs-number">20</span>
+    theBoard = getNewBoard()
+    theChests = getRandomChests(<span class="hljs-number">3</span>)
+    drawBoard(theBoard)
+    previousMoves = []
+</code></pre>
+<p class="has-line-data" data-line-start="744" data-line-end="745"><code>input().Lower().startwith('h')</code> iborasi o’yinchiga ko’rsatmalarni so’rashga imkon beradi va agar o’yinchi “h” yoki “H” bilan boshlanadigan satrga kirsa, u <code>True</code> qiymatiga to’g’ri keladi. Masalan:</p>
+<pre><code>illustration here
+</code></pre>
+<p class="has-line-data" data-line-start="748" data-line-end="750">Agar bu shart <code>True</code> bo’lsa, 163-qatorda <code>showInstructions()</code> chaqiriladi. Aks holda, o’yin boshlanadi.<br>
+167 dan 171 gacha bo’lgan qatorlarda bir nechta o’zgaruvchilar o’rnatildi; bular 13-1-jadvalda tasvirlangan.</p>
+<pre><code>table here
+</code></pre>
+<p class="has-line-data" data-line-start="753" data-line-end="754">Yaqinda biz ushbu o’zgaruvchilardan foydalanamiz, shuning uchun davom etishdan oldin ularning tavsiflarini ko’rib chiqing!</p>
+<h4 class="code-line" data-line-start=755 data-line-end=756 ><a id="Oyinchi_uchun_oyin_holatini_korsatish_755"></a>O’yinchi uchun o’yin holatini ko’rsatish</h4>
+<p class="has-line-data" data-line-start="756" data-line-end="757">173-chi qatorda, agar o’yinchida sonar moslamalari qolgan bo’lsa va ularga qancha sonar qurilmalar va xazina qutilari qolganligi haqida xabar yozib bersa, ishlaydi.</p>
+<pre><code class="has-line-data" data-line-start="758" data-line-end="762" class="language-python">    <span class="hljs-keyword">while</span> sonarDevices &gt; <span class="hljs-number">0</span>:
+        <span class="hljs-comment"># Sonar moslamasi va sandiq holatini ko'rsating.</span>
+        print(<span class="hljs-string">'Sizda %s sonar moslama(lar) qoldi. %s xazina quti(lar) qoldi.'</span> % (sonarDevices, len(theChests)))
+</code></pre>
+<p class="has-line-data" data-line-start="763" data-line-end="764">Qancha qurilma qolganligini chop etgandan so’ng, <code>while</code> tsikli bajarilishini davom ettiradi.</p>
+<h4 class="code-line" data-line-start=765 data-line-end=766 ><a id="Aktyorning_harakatini_boshqarish_765"></a>Aktyorning harakatini boshqarish</h4>
+<p class="has-line-data" data-line-start="766" data-line-end="767">177 qator hali ham <code>while</code> tsiklining bir qismidir va x va y o’zgaruvchilarni <code>enterPlayerMove()</code> tomonidan qaytarilgan o’yinchining harakat koordinatalarini ifodalovchi ikkita element ro’yxatiga tayinlash uchun bir nechta topshiriqlardan foydalanadi. <code>enterPlayerMove()</code> kodi o’yinchi oldingi harakatni takrorlamasligini ta’minlashi uchun biz avvalgi harakatlarga o’tamiz.</p>
+<pre><code class="has-line-data" data-line-start="768" data-line-end="775" class="language-python">        x, y = enterPlayerMove(previousMoves)
+        previousMoves.append([x, y]) <span class="hljs-comment"># Sonar qurilmalari yangilanishi uchun biz barcha harakatlarni kuzatib borishimiz kerak.</span>
+
+        moveResult = makeMove(theBoard, theChests, x, y)
+        <span class="hljs-keyword">if</span> moveResult == <span class="hljs-keyword">False</span>:
+            <span class="hljs-keyword">continue</span>
+</code></pre>
+<p class="has-line-data" data-line-start="775" data-line-end="777">Keyin x va y o’zgaruvchilar <code>previousMoves</code> ro’yxatining oxiriga qo’shiladi. <code>previousMoves</code> o’zgaruvchisi bu o’yindagi har bir harakatning <code>x</code> va <code>y</code> koordinatalari ro’yxati. Ushbu ro’yxat keyinchalik dasturda 177 va 186 satrlarda ishlatiladi.<br>
+<code>x</code>, <code>y</code>, <code>theBoard</code> va <code>theChests</code> o’zgaruvchilari barchasi 180-satrdagi <code>makeMove()</code> funktsiyasiga uzatiladi. Ushbu funktsiya sonar qurilmani taxtaga joylashtirish uchun zarur modifikatsiyalarni amalga oshiradi.</p>
+<p class="has-line-data" data-line-start="778" data-line-end="779">Agar <code>makeMove()</code> <code>False</code>ni qaytarsa, unda unga berilgan x va y qiymatlarida muammo yuzaga keladi. <code>continue</code> operatori ijrochini yana x va y-koordinatalarini so’rash uchun 173-satrda <code>while</code> tsiklining boshiga yuboradi.</p>
+<h4 class="code-line" data-line-start=780 data-line-end=781 ><a id="Chokib_ketgan_xazina_sandigini_topish_780"></a>Cho’kib ketgan xazina sandig’ini topish</h4>
+<p class="has-line-data" data-line-start="781" data-line-end="782">Agar <code>makeMove()</code> <code>False</code>ni qaytarmasa, u ushbu harakat natijalarining qatorini qaytaradi. Agar bu satr “Siz cho’kib ketgan xazina sandig’ini topdingiz!” Bo’lsa, unda taxtadagi barcha sonar qurilmalar keyingi eng yaqin xazina sandig’ini aniqlash uchun yangilanishi kerak:</p>
+<pre><code class="has-line-data" data-line-start="783" data-line-end="791" class="language-python">        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">if</span> moveResult == <span class="hljs-string">'Siz cho\'kib ketgan xazina sandig\'ini topdingiz!'</span>:
+                <span class="hljs-comment"># Hozirda xaritada mavjud barcha sonar qurilmalarini yangilaymiz.</span>
+                <span class="hljs-keyword">for</span> x, y <span class="hljs-keyword">in</span> previousMoves:
+                    makeMove(theBoard, theChests, x, y)
+            drawBoard(theBoard)
+            print(moveResult)
+</code></pre>
+<p class="has-line-data" data-line-start="791" data-line-end="792">Barcha sonar qurilmalarining x va y-koordinatalari <code>previousMoves</code>da joylashgan. 186-satrda <code>previousMoves</code> ustidan takrorlash orqali siz ushbu x va y-koordinatalarning barchasini yana <code>makeMove()</code> funktsiyasiga uzatishingiz mumkin. Dastur bu yerda hech qanday yangi matnni chop etmasligi sababli, o’yinchi dastur avvalgi harakatlarning barchasini takrorlashini tushunmaydi. Taxta o’zini yangilaydi.</p>
+<h4 class="code-line" data-line-start=793 data-line-end=794 ><a id="Oyinchining_galaba_qozonganligini_tekshirish_793"></a>O’yinchining g’alaba qozonganligini tekshirish</h4>
+<p class="has-line-data" data-line-start="794" data-line-end="795"><code>makeMove()</code> funktsiyasi siz yuborgan <code>theChests</code> ro’yxatini o’zgartirishini unutmang. <code>theChests</code> ro’yxat bo’lganligi sababli, funktsiya ichida unga kiritilgan har qanday o’zgarishlar bajarilish funktsiyadan qaytgandan keyin ham saqlanib qoladi. <code>makeMove()</code> funktsiyasi xazina sandiqlari topilayotganda narsalarni <code>chests</code>dan olib tashlaydi, shuning uchun oxir-oqibat (agar o’yinchi to’g’ri taxmin qilsa) barcha xazinalar olib tashlanadi. (Esingizda bo’lsa, “xazina sandig’i” deganda biz <code>theChests</code> ro’yxatidagi x va y koordinatalarining ikki elementli ro’yxatini nazarda tutamiz.)</p>
+<pre><code class="has-line-data" data-line-start="796" data-line-end="800" class="language-python">        <span class="hljs-keyword">if</span> len(theChests) == <span class="hljs-number">0</span>:
+            print(<span class="hljs-string">'Siz cho\'kib ketgan barcha xazina qutilarini topdingiz! Tabriklayman, yaxshi o\'yin bo\'ldi!'</span>)
+            <span class="hljs-keyword">break</span>
+</code></pre>
+<p class="has-line-data" data-line-start="800" data-line-end="801">Barcha xazina sandiqlari taxtada topilib, <code>theChests</code>dan olib tashlanganida, <code>theChests</code> ro’yxatining uzunligi 0 ga teng bo’ladi. Bu sodir bo’lganda, kod o’yinchiga tabrik xabarini namoyish etadi va undan keyin <code>while</code> tsiklidan chiqib ketish uchun <code>break</code> bayonotini bajaradi. Keyin ijro 197-qatorga, <code>while</code> blokidan keyingi birinchi qatorga o’tadi.</p>
+<h4 class="code-line" data-line-start=802 data-line-end=803 ><a id="Oyinchining_yutqizganligini_tekshirish_802"></a>O’yinchining yutqizganligini tekshirish</h4>
+<p class="has-line-data" data-line-start="803" data-line-end="804">195-qator - bu 173-qatorda boshlangan <code>while</code> tsiklining so’nggi satri.</p>
+<pre><code class="has-line-data" data-line-start="805" data-line-end="807" class="language-python">        sonarDevices -= <span class="hljs-number">1</span>
+</code></pre>
+<p class="has-line-data" data-line-start="807" data-line-end="809">Dastur <code>sonarDevices</code> o’zgaruvchisini kamaytiradi, chunki <code>o'yinchi</code> bitta sonar qurilmani ishlatgan. Agar o’yinchi xazina qutilarini sog’inishni davom ettirsa, natijada <code>sonarDevices</code> 0 ga kamayadi. Ushbu qatordan keyin ijro 173 qatorga ko’tariladi va u <code>while</code> holatining holatini qayta ko’rib chiqishi mumkin (bu <code>sonarDevices &gt; 0</code>).<br>
+Agar <code>sonarDevices</code> 0 ga teng bo’lsa, u holda shart <code>False</code> bo’ladi va uning bajarilishi 197 qatoridagi <code>while</code> blokidan tashqarida davom etadi. Ammo shu vaqtgacha shart <code>True</code> bo’lib qoladi va o’yinchi taxminlarni davom ettirishi mumkin:</p>
+<pre><code class="has-line-data" data-line-start="811" data-line-end="818" class="language-python">    <span class="hljs-keyword">if</span> sonarDevices == <span class="hljs-number">0</span>:
+        print(<span class="hljs-string">'Sonar qurilmalarimiz tugadi! Endi biz kemani aylantirib, xazina sandiqlari bilan'</span>)
+        print(<span class="hljs-string">'uyimiz tomon yo\'l olishimiz kerak! O\'yin tugadi.'</span>)
+        print(<span class="hljs-string">' Qolgan sandiqlar bu yerda edi:'</span>)
+        <span class="hljs-keyword">for</span> x, y <span class="hljs-keyword">in</span> theChests:
+            print(<span class="hljs-string">' %s, %s'</span> % (x, y))
+</code></pre>
+<p class="has-line-data" data-line-start="818" data-line-end="820">197-qator - <code>while</code> tsiklining tashqarisidagi birinchi satr. Qatl qilish shu darajaga yetganda, o’yin tugaydi. Agar <code>sonarDevices</code> 0 ga teng bo’lsa, bilasizki, o’yinchi barcha sonlarni topishdan oldin sonar qurilmalari tugagan va yo’qolgan.<br>
+198 dan 200 gacha bo’lgan chiziqlar o’yinchiga yutqazganligini aytadi. 201 chizig’idagi <code>for</code> loop <code>theChests</code>da qolgan xazina qutilaridan o’tadi va ularning joylashuvini namoyish etadi, shunda o’yinchi xazina sandiqlari qaerda turganini ko’rishi mumkin.</p>
+<h4 class="code-line" data-line-start=821 data-line-end=822 ><a id="sysexit_funktsiyasi_bilan_dasturni_tugatish_821"></a>sys.exit() funktsiyasi bilan dasturni tugatish</h4>
+<p class="has-line-data" data-line-start="822" data-line-end="823">Yutish yoki yutqazish, dastur o’yinchiga o’ynashni davom ettirish to’g’risida qaror qabul qilishga imkon beradi. Agar o’yinchi “ha” yoki &quot;yo’q&quot;ni kiritmasa yoki “y” harfi bilan boshlanmaydigan boshqa bir qatorni kiritsa, u holda <code>not input.lower().startswith(&quot;h&quot;)</code> bilan <code>True</code> va <code>sys.exit()</code> funktsiyasi bajariladi. Bu dasturni tugatilishiga olib keladi.</p>
+<pre><code class="has-line-data" data-line-start="824" data-line-end="828" class="language-python">    print(<span class="hljs-string">'Qayta o\'ynashni xohlaysizmi? (ha yoki yo\'q)'</span>)
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> input().lower().startswith(<span class="hljs-string">'h'</span>):
+        sys.exit()
+</code></pre>
+<p class="has-line-data" data-line-start="828" data-line-end="829">Aks holda, ijro 165 qatoridagi <code>while</code> tsiklining boshiga o’tadi va yangi o’yin boshlanadi.</p>
+<h1 class="code-line" data-line-start=830 data-line-end=831 ><a id="Xulosa_830"></a>Xulosa</h1>
+<p class="has-line-data" data-line-start="831" data-line-end="835">Bizning “Krestik Nolik” o’yinimiz qanday qilib “Krestik Nolik” taxtasidagi bo’shliqlarni 1 dan 9 gacha raqamlashini eslaysizmi? Bunday koordinatalar tizimi 10 dan kam bo’shliqli taxta uchun yaxshi bo’lishi mumkin edi. Ammo “Sonar Xazinalar Ovi” taxtasida 900 ta bo’sh joy mavjud! 12-bobda biz bilgan dekartian koordinatalar tizimi haqiqatan ham bu bo’shliqlarni boshqariladigan qiladi, ayniqsa, o’yinimiz taxtada ikkita nuqta orasidagi masofani topishi kerak bo’lganda.<br>
+Dekart koordinatalari tizimidan foydalanadigan o’yinlardagi joylar ro’yxatlari ro’yxatida saqlanishi mumkin, unda birinchi indeks x koordinatasi, ikkinchi indeks esa y koordinatadir. Bu <code>[x][y]</code> taxtasi yordamida koordinataga kirishni osonlashtiradi.<br>
+Ushbu ma’lumotlar tuzilmalari (masalan, okean va xazina sandiqlari uchun ishlatiladigan narsalar) murakkab tushunchalarni ma’lumotlar sifatida ifodalashga imkon beradi va sizning o’yin dasturlaringiz asosan ushbu ma’lumotlar tuzilmalarini o’zgartirish bilan shug’ullanadi.<br>
+Keyingi bobda biz harflarni raqam sifatida namoyish etamiz. Matnni raqamlar sifatida ko’rsatish orqali biz ulardagi maxfiy xabarlarni shifrlash yoki parolini hal qilish bo’yicha matematik operatsiyalarni bajarishimiz mumkin.</p>
+</div>
+ </body>
+</html>

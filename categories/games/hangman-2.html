@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    2. Hangman
+   </title>
+   <link href="../../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <div class="row">
+  <div class="table-of-contents col-sm-3">
+      <div class="bg-white border sticky-top">
+      <ul class="nav">
+        <li class="w-100"><a href="#pythonga_kirish">2. Hangman</a></li>
+        <li class="w-100"><a href="#random_modulni_import_qilish_134"><code>random</code> modulni import qilish</a></li>
+        <li class="w-100"><a href="#Doimiy_ozgaruvchilar_144">Doimiy o’zgaruvchilar</a></li>
+        <li class="w-100"><a href="#Malumotlar_turi__list_163">Ma’lumotlar turi – <code>list</code></a></li>
+        <li class="w-100"><a href="#Funksiyani_chaqirish_usullari_271">Funksiyani chaqirish usullari</a></li>
+        <li class="w-100"><a href="#Sozlar_royxatidan_maxfiy_sozni_olish_322">So’zlar ro’yxatidan maxfiy so’zni olish</a></li>
+        <li class="w-100"><a href="#Oyinchi_taxminini_olish_489">O’yinchi taxminini olish</a></li>
+        <li class="w-100"><a href="#elif_bayonotlari_516">elif bayonotlari</a></li>
+        <li class="w-100"><a href="#Oyinchi_aniq_taxminni_kiritganiga_ishonch_hosil_qilish_535">O’yinchi aniq taxminni kiritganiga ishonch hosil qilish</a></li>
+        <li class="w-100"><a href="#Oyinchidan_yana_oynashni_sorash_556">O’yinchidan yana o’ynashni so’rash</a></li>
+        <li class="w-100"><a href="#Oyinimizning_funktsiyalarni_korib_chiqamiz_568">O’yinimizning funktsiyalarni ko’rib chiqamiz</a></li>
+        <li class="w-100"><a href="#Oyin_tsikli_579">O’yin tsikli</a></li>
+      </ul>
+      </div>
+  </div>
+
+  <div class="col-sm-9">
+   <h1 class="code-line" data-line-start=0 data-line-end=1 ><a id="Hangman_uchun_manba_kodi_0"></a>Hangman</h1>
+<p class="has-line-data" data-line-start="2" data-line-end="4">Ushbu bobning o’yini avvalgi o’yinlarga qaraganda bir oz kattaroq, lekin uning aksariyati “Hangman” rasmlari uchun ASCII san’ati.<br>
+Fayl muharririga quyidagilarni kiriting va <a href="http://hangman.py">hangman.py</a> sifatida saqlang. Agar siz quyidagi kodni kiritgandan so’ng xatolarga duch kelsangiz, siz kiritilgan kodni kitobning kodi bilan onlayn diff vositasi bilan taqqoslang.</p>
+<pre><code class="has-line-data" data-line-start="6" data-line-end="133" class="language-python">import random
+HANGMAN_PICS = ['''
+  +---+
+      |
+      |
+      |
+     ===''', '''
+  +---+
+  O   |
+      |
+      |
+     ===''', '''
+  +---+
+  O   |
+  |   |
+      |
+     ===''', '''
+  +---+
+  O   |
+ /|   |
+      |
+     ===''', '''
+  +---+
+  O   |
+ /|\  |
+      |
+     ===''', '''
+  +---+
+  O   |
+ /|\  |
+ /    |
+     ===''', '''
+  +---+
+  O   |
+ /|\  |
+ / \  |
+     ===''']
+words = 'ant baboon badger bat bear beaver camel cat clam cobra cougar coyote crow deer dog donkey duck eagle ferret fox frog goat goose hawk lion lizard llama mole monkey moose mouse mule newt otter owl panda parrot pigeon python rabbit ram rat raven rhino salmon seal shark sheep skunk sloth snake spider stork swan tiger toad trout turkey turtle weasel whale wolf wombat zebra'.split()
+
+def getRandomWord(wordList):
+    # Ushbu funktsiya tasodifiy qatorni uzatilgan qatorlar qatoridan qaytaradi..
+    wordIndex = random.randint(0, len(wordList) - 1)
+    return wordList[wordIndex]
+
+def displayBoard(missedLetters, correctLetters, secretWord):
+    print(HANGMAN_PICS[len(missedLetters)])
+    print()
+
+    print('O'tkazib yuborilgan harflar:', end=' ')
+    for letter in missedLetters:
+        print(letter, end=' ')
+    print()
+
+    blanks = '_' * len(secretWord)
+
+    for i in range(len(secretWord)): # bo'sh joylarni to'g'ri taxmin qilingan harflar bilan almashtiring
+        if secretWord[i] in correctLetters:
+            blanks = blanks[:i] + secretWord[i] + blanks[i+1:]
+
+    for letter in blanks: # har bir harf orasidagi bo'shliqlar bilan maxfiy so'zni ko'rsating
+        print(letter, end=' ')
+    print()
+
+def getGuess(alreadyGuessed):
+    # O'yinchi kiritilgan xarfni qaytaradi. Ushbu funktsiya o'yinchining bitta harfni kiritganiga ishonch hosil qiladi, boshqa narsani emas.
+    while True:
+        print('Guess a letter.')
+        guess = input()
+        guess = guess.lower()
+        if len(guess) != 1:
+            print('Iltimos, bitta harfni kiriting.')
+        elif guess in alreadyGuessed:
+            print('Siz allaqachon bu xatni taxmin qilgansiz. Qayta tanlang.')
+        elif guess not in 'abcdefghijklmnopqrstuvwxyz':
+            print('Iltimos, faqat harf kiriting.')
+        else:
+            return guess
+
+def playAgain():
+    # Agar o'yinchi yana o'ynashni xohlasa, bu funktsiya True qiymatini qaytaradi; aks holda, False qaytadi.
+    print('Yana o\'ynashni istaysizmi? (ha or yo'q)')
+    return input().lower().startswith('h')
+
+
+print('H A N G M A N')
+missedLetters = ''
+correctLetters = ''
+secretWord = getRandomWord(words)
+gameIsDone = False
+
+while True:
+    displayBoard(missedLetters, correctLetters, secretWord)
+
+    # O'yinchinga xarf kirishiga ruxsat bering.
+    guess = getGuess(missedLetters + correctLetters)
+
+    if guess in secretWord:
+        correctLetters = correctLetters + guess
+
+        # O'yinchining g'alaba qozonganligini tekshiring.
+        foundAllLetters = True
+        for i in range(len(secretWord)):
+            if secretWord[i] not in correctLetters:
+                foundAllLetters = False
+                break
+        if foundAllLetters:
+            print('Ha! Mahfiy so\'z "' + secretWord + '"! Siz yutdingiz!')
+            gameIsDone = True
+    else:
+        missedLetters = missedLetters + guess
+
+        # O'yinchi juda ko'p marta taxmin qilgani va yutqazganligini tekshiring.
+        if len(missedLetters) == len(HANGMAN_PICS) - 1:
+            displayBoard(missedLetters, correctLetters, secretWord)
+            print('Sizda taxminlar tugadi!\n' str(len(missedLetters)) + ' noto\'g\'ri tahminlardan keyin va ' + str(len(correctLetters)) + ' to\'g\'ri tahminlardan keyin, mahfiy so\'z"' + secretWord + '" edi')
+            gameIsDone = True
+
+    # O'yinchidan yana o'ynashni xohlashlarini so'rang (lekin agar o'yin tugagan bo'lsa).
+    if gameIsDone:
+        if playAgain():
+            missedLetters = ''
+            correctLetters = ''
+            gameIsDone = False
+            secretWord = getRandomWord(words)
+        else:
+            break
+</code></pre>
+<h2 class="code-line" data-line-start=134 data-line-end=135 ><a id="random_modulni_import_qilish_134"></a><code>random</code> modulni import qilish</h2>
+<p class="has-line-data" data-line-start="136" data-line-end="137">Hangman dasturi tasodifiy ravishda so’zlar ro’yxatidan o’yinchi uchun taxminiy sirni tanlaydi. random modul ushbu qobiliyatni ta’minlaydi, shuning uchun 1-qator uni import qiladi.</p>
+<pre><code class="has-line-data" data-line-start="139" data-line-end="141" class="language-python"> <span class="hljs-number">1.</span> <span class="hljs-keyword">import</span> random
+</code></pre>
+<p class="has-line-data" data-line-start="142" data-line-end="143">Ammo 2-chiziqdagi <code>HANGMAN_PICS</code> o’zgaruvchisi biz hozirgacha ko’rgan o’zgaruvchilardan biroz farq qiladi. Ushbu kod nimani anglatishini tushunish uchun yana bir nechta tushunchalarni o’rganishimiz kerak.</p>
+<h2 class="code-line" data-line-start=144 data-line-end=145 ><a id="Doimiy_ozgaruvchilar_144"></a>Doimiy o’zgaruvchilar</h2>
+<p class="has-line-data" data-line-start="146" data-line-end="147">2 dan 37 gacha bo’lgan satrlar <code>HANGMAN_PICS</code> o’zgaruvchisi uchun bitta uzoq tayinlash bayonotidir.</p>
+<pre><code class="has-line-data" data-line-start="149" data-line-end="158" class="language-python"><span class="hljs-number">2.</span> HANGMAN_PICS = [<span class="hljs-string">'''
+ 3. +---+
+ 4. |
+ 5. |
+ 6. |
+ 7. ==='''</span>, <span class="hljs-string">'''
+ --yana satrlar--
+ 37. ==='''</span>]
+</code></pre>
+<p class="has-line-data" data-line-start="159" data-line-end="160"><code>HANGMAN_PICS</code> o’zgaruvchisi nomi barcha katta harflarda. Bu doimiy o’zgaruvchilar uchun dasturlash konvensiyasi. Konstantalar - bu birinchi tayinlash bayonotidan hech qachon o’zgarmaydigan qiymatlarga ega bo’lgan o’zgaruvchilar. <code>HANGMAN_PICS</code> dagi qiymatni boshqa har qanday o’zgaruvchiga iloji boricha o’zgartirishingiz mumkin bo’lsa-da, katta harf nomi buni qilmasligingizni eslatib turadi.</p>
+<p class="has-line-data" data-line-start="161" data-line-end="162">Barcha anjumanlarda bo’lgani kabi, siz ham bunga rioya qilishingiz shart emas. Ammo buni amalga oshirish boshqa dasturchilar uchun sizning kodingizni o’qishni osonlashtiradi. Ular <code>HANGMAN_PICS</code> har doim 2 dan 37 gacha bo’lgan qatorlarda tayinlangan qiymatga ega bo’lishini bilishadi.</p>
+<h2 class="code-line" data-line-start=163 data-line-end=164 ><a id="Malumotlar_turi__list_163"></a>Ma’lumotlar turi – <code>list</code></h2>
+<p class="has-line-data" data-line-start="165" data-line-end="166"><code>HANGMAN_PICS</code> tarkibida bir nechta ko’p qatorli satrlar mavjud. Buni amalga oshirishi mumkin, chunki bu ro’yxat. Ro’yxatlarda bir nechta boshqa qiymatlarni o’z ichiga oladigan ro’yxat qiymati mavjud. Buni interaktiv qobiqga kiriting:</p>
+<pre><code class="has-line-data" data-line-start="168" data-line-end="172" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>animals = [<span class="hljs-string">'aardvark'</span>, <span class="hljs-string">'anteater'</span>, <span class="hljs-string">'antelope'</span>, <span class="hljs-string">'albert'</span>]
+<span class="hljs-prompt">&gt;&gt;&gt; </span>animals
+[<span class="hljs-string">'aardvark'</span>, <span class="hljs-string">'anteater'</span>, <span class="hljs-string">'antelope'</span>, <span class="hljs-string">'albert'</span>]
+</code></pre>
+<p class="has-line-data" data-line-start="173" data-line-end="174">Hayvonlarda ro’yxat qiymati to’rtta qiymatni o’z ichiga oladi. Ro’yxat qiymatlari chap kvadrat qavs bilan boshlanib, [va o’ng kvadrat qavs bilan tugaydi,]. Bu xuddi satrlarning tirnoq bilan boshlanishi va tugashiga o’xshaydi.</p>
+<p class="has-line-data" data-line-start="175" data-line-end="176">Vergullar ro’yxat ichidagi alohida qiymatlarni ajratib turadi. Ushbu qiymatlar elementlar deb ham ataladi. <code>HANGMAN_PICS</code>-dagi har bir element ko’p satrli mag’lubiyatdir.</p>
+<p class="has-line-data" data-line-start="177" data-line-end="178">Ro’yxatlar bir nechta qiymatlarni har biri uchun o’zgaruvchini ishlatmasdan saqlashga imkon beradi. Ro’yxatlarsiz kod quyidagicha ko’rinadi:</p>
+<pre><code class="has-line-data" data-line-start="180" data-line-end="185" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>animals1 = <span class="hljs-string">'aardvark'</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>animals2 = <span class="hljs-string">'anteater'</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>animals3 = <span class="hljs-string">'antelope'</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>animals4 = <span class="hljs-string">'albert'</span>
+</code></pre>
+<p class="has-line-data" data-line-start="186" data-line-end="187">Agar sizda yuzlab yoki minglab simlar bo’lsa, ushbu kodni boshqarish qiyin bo’lar edi. Ammo ro’yxat osongina istalgan qiymatlarni o’z ichiga olishi mumkin.</p>
+<h3 class="code-line" data-line-start=188 data-line-end=189 ><a id="Indeksli_narsalarga_kirish_188"></a>Indeksli narsalarga kirish</h3>
+<p class="has-line-data" data-line-start="190" data-line-end="191">Ro’yxat o’zgaruvchisining oxiriga to’rtburchak qavslarni qo’shib, ular orasidagi raqam bilan ro’yxat ichidagi elementga kirishingiz mumkin. Kvadrat qavslar orasidagi raqam indeksdir. Python-da, ro’yxatdagi birinchi elementning ko’rsatkichi 0 ga teng. Ikkinchi element 1-indeksda, uchinchi element 2-indeksda va hokazo. Indekslar 1 emas, 0 dan boshlanganligi sababli, biz Python ro’yxatlari nolga indekslangan deb aytamiz.</p>
+<p class="has-line-data" data-line-start="192" data-line-end="193">Biz hali ham interaktiv qobiqda va hayvonlar ro’yxati bilan ishlayotganimizda, <code>animals[0], animals[1], animals[2] va animals[3]</code> ni qanday baholashlarini ko’rish uchun kiriting:</p>
+<pre><code class="has-line-data" data-line-start="194" data-line-end="203" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>animals[<span class="hljs-number">0</span>]
+<span class="hljs-string">'aardvark'</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>animals[<span class="hljs-number">1</span>]
+<span class="hljs-string">'anteater'</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>animals[<span class="hljs-number">2</span>]
+<span class="hljs-string">'antelope'</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>animals[<span class="hljs-number">3</span>]
+<span class="hljs-string">'albert'</span>
+</code></pre>
+<p class="has-line-data" data-line-start="204" data-line-end="205">E’tibor bering, ro’yxatdagi birinchi qiymat <code>&quot;aardvark&quot;</code> 1-indeksda emas, 0-indeksda saqlanadi. Ro’yxatdagi har bir element <code>0</code> dan boshlab tartibda raqamlangan.</p>
+<p class="has-line-data" data-line-start="206" data-line-end="207">Kvadrat qavslardan foydalanib, siz ro’yxatdagi narsalarni boshqa har qanday qiymat kabi ko’rib chiqishingiz mumkin. Masalan, <code>animals[0] + animals[2]</code> ni interaktiv qobiqqa kiriting:</p>
+<pre><code class="has-line-data" data-line-start="209" data-line-end="212" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>animals[<span class="hljs-number">0</span>] + animals[<span class="hljs-number">2</span>]
+<span class="hljs-string">'aardvarkantelope'</span>
+</code></pre>
+<h4 class="code-line" data-line-start=213 data-line-end=214 ><a id="Chegaradan_chiqib_ketgan_indekslar_va_IndexError_213"></a>Chegaradan chiqib ketgan indekslar va IndexError</h4>
+<p class="has-line-data" data-line-start="215" data-line-end="216">Agar siz ro’yxatdagi ko’rsatkichdan yuqori ko’rsatkichga kirishga harakat qilsangiz, dasturingizni buzadigan <code>IndexError</code>ni olasiz. Ushbu xatoning namunasini ko’rish uchun quyidagilarni interfaol qobiqga kiriting:</p>
+<pre><code class="has-line-data" data-line-start="218" data-line-end="225" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>animals = [<span class="hljs-string">'aardvark'</span>, <span class="hljs-string">'anteater'</span>, <span class="hljs-string">'antelope'</span>, <span class="hljs-string">'albert'</span>]
+<span class="hljs-prompt">&gt;&gt;&gt; </span>animals[<span class="hljs-number">9999</span>]
+Traceback (most recent call last):
+     File <span class="hljs-string">""</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span>
+     animals[<span class="hljs-number">9999</span>]
+    IndexError: list index out of range
+</code></pre>
+<p class="has-line-data" data-line-start="226" data-line-end="227"><code>9999</code> indeksida qiymat yo’qligi sababli siz xatoga yo’l qo’yasiz.</p>
+<p class="has-line-data" data-line-start="228" data-line-end="229">Indeksni tayinlash orqali ro’yxat elementlarini o’zgartirish</p>
+<p class="has-line-data" data-line-start="230" data-line-end="231">Ro’yxatdagi element qiymatini indeks belgilash yordamida ham o’zgartirishingiz mumkin. Interaktiv qobiqga quyidagilarni kiriting:</p>
+<pre><code class="has-line-data" data-line-start="233" data-line-end="238" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>animals = [<span class="hljs-string">'aardvark'</span>, <span class="hljs-string">'anteater'</span>, <span class="hljs-string">'antelope'</span>, <span class="hljs-string">'albert'</span>]
+<span class="hljs-prompt">&gt;&gt;&gt; </span>animals[<span class="hljs-number">1</span>] = <span class="hljs-string">'ANTEATER'</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>animals
+[<span class="hljs-string">'aardvark'</span>, <span class="hljs-string">'ANTEATER'</span>, <span class="hljs-string">'antelope'</span>, <span class="hljs-string">'albert'</span>]
+</code></pre>
+<p class="has-line-data" data-line-start="239" data-line-end="240">Yangi “ANTEATER” (ya’ni chumolixo’r) qatori <code>animals</code> ro’yxatidagi ikkinchi element ustiga yoziladi. Shunday qilib, <code>animals[1]</code> o’z-o’zidan ro’yxatning joriy ikkinchi elementini baholaydi, ammo uni tayinlash operatorining chap tomonida ishlatib, ro’yxatning ikkinchi bandiga yangi qiymat belgilaydi.</p>
+<h3 class="code-line" data-line-start=241 data-line-end=242 ><a id="Royxatni_birlashtirish_241"></a>Ro’yxatni birlashtirish</h3>
+<p class="has-line-data" data-line-start="243" data-line-end="244"><code>+</code> operatori yordamida bir nechta ro’yxatlarni bitta ro’yxatga qo’shishingiz mumkin, xuddi satrlar kabi. Bunday qilish ro’yxat birikmasi deb ataladi. Buni amalda ko’rish uchun quyidagilarni interaktiv qobiqga kiriting:</p>
+<pre><code class="has-line-data" data-line-start="246" data-line-end="249" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>] + [<span class="hljs-string">'apples'</span>, <span class="hljs-string">'oranges'</span>] + [<span class="hljs-string">'Alice'</span>, <span class="hljs-string">'Bob'</span>]
+[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-string">'apples'</span>, <span class="hljs-string">'oranges'</span>, <span class="hljs-string">'Alice'</span>, <span class="hljs-string">'Bob'</span>]
+</code></pre>
+<h3 class="code-line" data-line-start=250 data-line-end=251 ><a id="in_operatori_250"></a><code>in</code> operatori</h3>
+<p class="has-line-data" data-line-start="252" data-line-end="253"><code>in</code> operatori qiymatning ro’yxatda bor-yo’qligini aytib berishi mumkin. <code>in</code> operatoridan foydalanadigan iboralar mantiqiy qiymatni qaytaradi: agar qiymat ro’yxatda bo’lsa <code>True</code>, agar yo’q bo’lsa <code>False</code>. Interaktiv qobiqga quyidagilarni kiriting:</p>
+<pre><code class="has-line-data" data-line-start="255" data-line-end="261" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>animals = [<span class="hljs-string">'aardvark'</span>, <span class="hljs-string">'anteater'</span>, <span class="hljs-string">'antelope'</span>, <span class="hljs-string">'albert'</span>]
+<span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-string">'antelope'</span> <span class="hljs-keyword">in</span> animals
+<span class="hljs-keyword">True</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-string">'ant'</span> <span class="hljs-keyword">in</span> animals
+<span class="hljs-keyword">False</span>
+</code></pre>
+<p class="has-line-data" data-line-start="262" data-line-end="263"><code>animals</code>dagi <code>'antilope'</code> iborasi To’g’ri qaytadi, chunki <code>'antilope'</code> qatori <code>animals</code> ro’yxatidagi qiymatlardan biridir. U 2-indeksda joylashgan. Ammo hayvonlarga <code>'ant'</code> iborasini kiritganingizda, False-ni qaytaradi, chunki <code>'ant'</code> qatori ro’yxatda yo’q.</p>
+<p class="has-line-data" data-line-start="264" data-line-end="265"><code>in</code> operatori qatorlar uchun ham ishlaydi, bitta satr boshqasida mavjudligini tekshiradi. Interaktiv qobiqga quyidagilarni kiriting:</p>
+<pre><code class="has-line-data" data-line-start="267" data-line-end="270" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-string">'hello'</span> <span class="hljs-keyword">in</span> <span class="hljs-string">'Alice said hello to Bob.'</span>
+<span class="hljs-keyword">True</span>
+</code></pre>
+<h2 class="code-line" data-line-start=271 data-line-end=272 ><a id="Funksiyani_chaqirish_usullari_271"></a>Funksiyani chaqirish usullari</h2>
+<p class="has-line-data" data-line-start="273" data-line-end="274">Metod - bu qiymatga biriktirilgan funktsiya. Metodni chaqirish uchun uni nuqta yordamida ma’lum bir qiymatga qo’shishingiz kerak. Pythonda juda ko’p foydali metodlar mavjud va biz ulardan ba’zilarini <strong>Hangman</strong> dasturida qo’llaymiz.</p>
+<p class="has-line-data" data-line-start="275" data-line-end="276">Ammo oldin, ba’zi bir ro’yxat va mag’lubiyat metodlarni ko’rib chiqamiz.</p>
+<h3 class="code-line" data-line-start=277 data-line-end=278 ><a id="reverse_va_append_royxat_usullari_277"></a><code>reverse()</code> va <code>append()</code> ro’yxat usullari</h3>
+<p class="has-line-data" data-line-start="279" data-line-end="280">Ro’yxat ma’lumotlari turida siz juda ko’p ishlatadigan ikkita usul mavjud: <code>reverse()</code> va <code>append()</code>. <code>reverse()</code> usuli ro’yxatdagi elementlarning tartibini o’zgartiradi. <code>spam = [1, 2, 3, 4, 5, 6, 'meow', 'woof']</code> kiritib ko’ring, so’ngra <code>spam.reverse()</code> ro’yxatni teskari yo’naltirish uchun. Keyin o’zgaruvchining tarkibini ko’rish uchun <code>spam</code> kiriting.</p>
+<pre><code class="has-line-data" data-line-start="281" data-line-end="286" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>spam = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-string">'meow'</span>, <span class="hljs-string">'woof'</span>]
+<span class="hljs-prompt">&gt;&gt;&gt; </span>spam.reverse()
+<span class="hljs-prompt">&gt;&gt;&gt; </span>spam
+[<span class="hljs-string">'woof'</span>, <span class="hljs-string">'meow'</span>, <span class="hljs-number">6</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>]
+</code></pre>
+<p class="has-line-data" data-line-start="287" data-line-end="288">Siz foydalanadigan eng keng tarqalgan ro’yxat usuli bu <code>append()</code>. Ushbu usul siz kiritgan qiymatni ro’yxat oxiriga qo’shadi. Interaktiv qobiqga quyidagilarni kiritib ko’ring:</p>
+<pre><code class="has-line-data" data-line-start="289" data-line-end="297" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>eggs = []
+<span class="hljs-prompt">&gt;&gt;&gt; </span>eggs.append(<span class="hljs-string">'hovercraft'</span>)
+<span class="hljs-prompt">&gt;&gt;&gt; </span>eggs
+[<span class="hljs-string">'hovercraft'</span>]
+<span class="hljs-prompt">&gt;&gt;&gt; </span>eggs.append(<span class="hljs-string">'eels'</span>)
+<span class="hljs-prompt">&gt;&gt;&gt; </span>eggs
+[<span class="hljs-string">'hovercraft'</span>, <span class="hljs-string">'eels'</span>]
+</code></pre>
+<p class="has-line-data" data-line-start="298" data-line-end="299">Ushbu usullar ular chaqirilgan ro’yxatlarni o’zgartiradi. Ular yangi ro’yxatni qaytarishmaydi. Ushbu usullar ro’yxatni joyida o’zgartiradi, deymiz.</p>
+<h3 class="code-line" data-line-start=300 data-line-end=301 ><a id="split_String_usuli_300"></a><code>split()</code> String usuli</h3>
+<p class="has-line-data" data-line-start="302" data-line-end="303">Ma’lumotlarning mag’lubiyat turi <code>split()</code> usuliga ega, bu esa ajratilgan satrdan qilingan satrlar ro’yxatini qaytaradi. Interaktiv qobiqga quyidagilarni kiritish orqali <code>split()</code> usulidan foydalanib ko’ring:</p>
+<pre><code class="has-line-data" data-line-start="305" data-line-end="310" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>sentence = input()
+My very energetic mother just served us nachos.
+<span class="hljs-prompt">&gt;&gt;&gt; </span>sentence.split()
+[<span class="hljs-string">'My'</span>, <span class="hljs-string">'very'</span>, <span class="hljs-string">'energetic'</span>, <span class="hljs-string">'mother'</span>, <span class="hljs-string">'just'</span>, <span class="hljs-string">'served'</span>, <span class="hljs-string">'us'</span>, <span class="hljs-string">'nachos.'</span>]
+</code></pre>
+<p class="has-line-data" data-line-start="311" data-line-end="312">Natijada sakkiz qatorli ro’yxat, asl satrdagi har bir so’z uchun bitta satr. Ipdagi bo’sh joy bo’lgan joyda bo’linish sodir bo’ladi. Bo’sh joylar ro’yxatdagi biron bir narsaga kiritilmagan.</p>
+<p class="has-line-data" data-line-start="313" data-line-end="314">Hangman dasturining 38-qatorida keyingi qismda ko’rsatilganidek, <code>split()</code> usuli ham qo’llaniladi. Kod uzun, ammo bu shunchaki oddiy tayinlash bayonoti bo’lib, unda bo’sh joylar bilan ajratilgan bitta uzun so’zlar qatori mavjud va oxirida <code>split()</code> usul chaqiruvi mavjud. <code>split()</code> usuli satrdagi har bir so’z bilan ro’yxatni bitta ro’yxat elementi sifatida baholaydi.</p>
+<pre><code class="has-line-data" data-line-start="316" data-line-end="319" class="language-python"><span class="hljs-number">38.</span> words = <span class="hljs-string">'ant baboon badger bat bear beaver camel cat clam cobra cougar coyote crow deer dog donkey duck eagle ferret fox frog goat goose hawk lion lizard llama mole monkey moose mouse mule newt otter owl panda parrot pigeon python rabbit ram rat raven rhino salmon seal shark sheep skunk sloth snake spider stork swan tiger toad trout turkey turtle weasel whale wolf wombat zebra'</span>
+.split()
+</code></pre>
+<p class="has-line-data" data-line-start="320" data-line-end="321">Ushbu dasturni <code>split()</code> yordamida yozish osonroq. Agar siz boshlash uchun ro’yxat tuzgan bo’lsangiz, har bir so’z uchun qo’shtirnoq va vergul bilan <code>['ant', 'baboon', 'badger',</code> va boshqalarni yozishingiz kerak edi. Shuningdek, siz o’zingizning so’zlaringizni 38-satrdagi satrga qo’shishingiz yoki o’yinda bo’lishni istamagan narsalarni olib tashlashingiz mumkin. Bo’shliqlarning so’zlarni ajratishiga ishonch hosil qiling.</p>
+<h2 class="code-line" data-line-start=322 data-line-end=323 ><a id="Sozlar_royxatidan_maxfiy_sozni_olish_322"></a>So’zlar ro’yxatidan maxfiy so’zni olish</h2>
+<p class="has-line-data" data-line-start="324" data-line-end="325">40-qator <code>getRandomWord()</code> funktsiyasini belgilaydi. <code>wordList</code> parametri uchun ro’yxat argumenti beriladi. Ushbu funktsiya ro’yxatdan bitta maxfiy so’zni <code>wordList</code>ga qaytaradi.</p>
+<pre><code class="has-line-data" data-line-start="326" data-line-end="331" class="language-python"><span class="hljs-number">40.</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getRandomWord</span><span class="hljs-params">(wordList)</span>:</span>
+<span class="hljs-number">41.</span>     <span class="hljs-comment"># Ushbu funktsiya tasodifiy qatorni uzatilgan qatorlardan qaytaradi.</span>
+<span class="hljs-number">42.</span>     wordIndex = random.randint(<span class="hljs-number">0</span>, len(wordList) - <span class="hljs-number">1</span>)
+<span class="hljs-number">43.</span>     <span class="hljs-keyword">return</span> wordList[wordIndex]
+</code></pre>
+<p class="has-line-data" data-line-start="331" data-line-end="332">42-qatorda biz ushbu ro’yxat uchun tasodifiy indeksni ikkita argument bilan <code>randint()</code> ni chaqirib <code>wordIndex</code> o’zgaruvchisida saqlaymiz. Birinchi argument <code>0</code> (birinchi mumkin bo’lgan indeks uchun), ikkinchisi – <code>len (wordList) - 1</code> ifodasi (<code>wordList</code>dagi so’nggi mumkin bo’lgan indeks uchun) baholaydigan qiymat.</p>
+<p class="has-line-data" data-line-start="333" data-line-end="334">Ro’yxat indekslari <code>1</code>dan emas, <code>0</code>dan boshlanishini unutmang, agar sizda uchta element ro’yxati bo’lsa, birinchi elementning indeksi <code>0</code>ga, ikkinchi elementning indeksi esa <code>1</code>ga, uchinchi elementning indeksi esa <code>2</code>ga teng.  Ushbu ro’yxatning usunligi 3, ammo 3-indeks oxirgi indeksdan keyin bo’ladi. Shuning uchun 42-qator <code>wordList</code> uzunligidan <code>1</code>ni olib tashlaydi. <code>wordList</code> o’lchamidan qat’i nazar, 42-satrdagi kod ishlaydi. Agar xohlasangiz, endi <code>wordList</code>ga qatorlarni qo’shishingiz yoki olib tashlashingiz mumkin.</p>
+<p class="has-line-data" data-line-start="335" data-line-end="336"><code>wordIndex</code> o’zgaruvchisi <code>wordList</code> parametri sifatida berilgan ro’yxat uchun tasodifiy indeksga o’rnatiladi. 43-qator elementni <code>wordList</code>da <code>wordIndex</code>da saqlangan butun sonni qaytaradi.</p>
+<p class="has-line-data" data-line-start="337" data-line-end="338">Keling, <code>['olma', 'mandarin', 'uzum']</code> <code>getRandomWord()</code> argumenti sifatida qabul qilinganligini va <code>randint(0, 2)</code> butun sonni 2 qaytarganligini ko’rsataylik. Bu degani, bu 43 satr <code>wordList[2]</code> ni qaytaradi va undan keyingina <code>&quot;uzum&quot;</code> ni qaytaradi. <code>getRandomWord()</code> <code>wordList</code>da tasodifiy qatorni shunday qaytaradi.</p>
+<p class="has-line-data" data-line-start="339" data-line-end="340">O’yinchiga stolni ko’rsatish</p>
+<p class="has-line-data" data-line-start="341" data-line-end="342">Keyinchalik, Hangman stolini ekranda chop etish uchun bizga funktsiya kerak. Shuningdek, o’yinchi qancha harfni to’g’ri (va noto’g’ri) taxmin qilganligini ko’rsatishi kerak.</p>
+<pre><code class="has-line-data" data-line-start="343" data-line-end="347" class="language-python"><span class="hljs-number">45.</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">displayBoard</span><span class="hljs-params">(missedLetters, correctLetters, secretWord)</span>:</span>
+<span class="hljs-number">46.</span> print(HANGMAN_PICS[len(missedLetters)])
+<span class="hljs-number">47.</span> print()
+</code></pre>
+<p class="has-line-data" data-line-start="347" data-line-end="348">Ushbu kod <code>displayBoard()</code> nomli yangi funktsiyani belgilaydi. Ushbu funktsiya uchta parametrga ega:</p>
+<ul>
+<li class="has-line-data" data-line-start="349" data-line-end="350"><code>missedLetters</code> O’yinchi maxfiy so’zda bo’lmagan harflar qatorini taxmin qilgani</li>
+<li class="has-line-data" data-line-start="350" data-line-end="351"><code>correctLetters</code> O’yinchi maxfiy so’zda taxmin qilgan harflar</li>
+<li class="has-line-data" data-line-start="351" data-line-end="353"><code>secretWord</code> O’yinchi taxmin qilmoqchi bo’lgan maxfiy so’z</li>
+</ul>
+<p class="has-line-data" data-line-start="353" data-line-end="354"><code>print()</code> funktsiyasining birinchi chaqiruvi stolni aks ettiradi. <code>HANGMAN_PICS</code> global o’zgaruvchisi har bir mumkin bo’lgan stol uchun satrlar ro’yxatiga ega. (Shuni esda tutingki, global o’zgaruvchilar funktsiya ichidan o’qilishi mumkin.) <code>HANGMAN_PICS[0]</code> bo’sh daralarni, <code>HANGMAN_PICS[1]</code> boshni (o’yinchi bitta harfni o’tkazib yuborganda), <code>HANGMAN_PICS [2]</code> boshni va tanani ko’rsatadi (qachon o’yinchi ikkita harfni o’tkazib yuborganda) va shunga o’xshash <code>HANGMAN_PICS[6]</code> ga qadar, bu to’liq osilgan odamni ko’rsatadi</p>
+<p class="has-line-data" data-line-start="355" data-line-end="356"><code>missedLetters</code>dagi harflar soni o’yinchining qancha noto’g’ri taxminlar qilganligini aks ettiradi. Ushbu raqamni bilish uchun <code>len(missedLetters)</code>ni chaqiring. Shunday qilib, agar <code>missedLetters</code>da <code>'aetr'</code> bo’lsa, u holda <code>len('aetr')</code> <code>4</code>ni qaytaradi. <code>HANGMAN_PICS[4]</code> ni bosib chiqarish to’rtta o’tkazib yuborish uchun mos keladigan osilgan odam rasmini aks ettiradi. 46-qatorda <code>HANGMAN_PICS[len (missedLetters)]</code> stolni variantiga teng bo’ladi.</p>
+<p class="has-line-data" data-line-start="357" data-line-end="358">49-satrda yangi satr o’rniga bo’sh joy belgisi qo’yilgan ‘O’tkazib yuborilgan harflar:’ qatori chop etiladi:</p>
+<pre><code class="has-line-data" data-line-start="360" data-line-end="365" class="language-python">49.    print('O'tkazib yuborilgan harflar:', end=' ')
+50.    for letter in missedLetters:
+51.        print(letter, end=' ')
+52.    print()
+</code></pre>
+<p class="has-line-data" data-line-start="366" data-line-end="367">50-satrda <code>for loop</code>i <code>missedLetters</code> satridagi har bir belgi ustida takrorlanadi va uni ekranga chiqaradi. <code>end = ''</code> satrdan keyin bosilgan yangi satr belgisini bitta bo’shliq belgisi bilan almashtirishini unutmang. Masalan, agar <code>missedLetters 'ajtw'</code> bo’lsa, bu <code>for loop a j t w</code> ni aks ettiradi.</p>
+<p class="has-line-data" data-line-start="368" data-line-end="369"><code>displayBoard()</code> funktsiyasining qolgan qismi (54 dan 62 gacha chiziqlar) o’tkazib yuborilgan harflarni aks ettiradi va barcha taxmin qilinmagan harflar bilan maxfiy so’zning satrini bo’sh joy sifatida yaratadi. Buni <code>range()</code> funktsiyasi va ro’yxatni <code>slice()</code> qilish yordamida amalga oshiradi.</p>
+<p class="has-line-data" data-line-start="370" data-line-end="371"><code>list()</code> va <code>range()</code> funktsiyalar</p>
+<p class="has-line-data" data-line-start="372" data-line-end="373">Bitta argument bilan chaqirilganda, <code>range()</code> butun sonlar oralig’idagi ob’ektni <code>0</code> dan argumentgacha (lekin shu jumladan emas) qaytaradi. Ushbu diapazon ob’ekti <code>for loop</code> uchun ishlatiladi, lekin <code>list()</code> funktsiyasi bilan tanish bo’lgan ma’lumotlar turiga aylantirilishi mumkin. <code>list(range(10))</code> interaktiv qobiqga kiriting</p>
+<pre><code class="has-line-data" data-line-start="375" data-line-end="380" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>list(range(<span class="hljs-number">10</span>))
+[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>]
+<span class="hljs-prompt">&gt;&gt;&gt; </span>list(<span class="hljs-string">'Hello'</span>)
+[<span class="hljs-string">'H'</span>, <span class="hljs-string">'e'</span>, <span class="hljs-string">'l'</span>, <span class="hljs-string">'l'</span>, <span class="hljs-string">'o'</span>]
+</code></pre>
+<p class="has-line-data" data-line-start="381" data-line-end="382"><code>list()</code> funktsiyasi <code>str()</code> yoki <code>int()</code> funktsiyalariga o’xshaydi. Bu o’tgan qiymatni oladi va ro’yxatni qaytaradi. <code>range()</code> funktsiyasi bilan katta ro’yxatlarni yaratish oson. Masalan, <code>list(range(1000))</code> interaktiv qobiqga kiriting:</p>
+<pre><code class="has-line-data" data-line-start="384" data-line-end="389" class="language-python">&gt;&gt;&gt; list(range(10000))
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,...
+ --ko'p sonlar--
+...9989, 9990, 9991, 9992, 9993, 9994, 9995, 9996, 9997, 9998, 9999]
+</code></pre>
+<p class="has-line-data" data-line-start="390" data-line-end="391">Ushbu ro’yxat juda katta, hatto ekranga ham sig’maydi. Ammo siz ro’yxatni o’zgaruvchida saqlashingiz mumkin:</p>
+<pre><code class="has-line-data" data-line-start="393" data-line-end="395" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>spam = list(range(<span class="hljs-number">10000</span>))
+</code></pre>
+<p class="has-line-data" data-line-start="396" data-line-end="397">Agar <code>range()</code> ikkita butun son argumentini o’tkazsangiz, u qaytaradigan qator ob’ekti birinchi butun son argumentidan ikkinchi butun son argumentigacha (lekin uni ichiga olmasdan) bo’lgan barcha butun sonlar bo’ladi. Keyin <code>list(range(10, 20))</code> interaktiv qobiqqa quyidagicha kiriting:</p>
+<pre><code class="has-line-data" data-line-start="399" data-line-end="402" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>list(range(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>))
+[<span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">16</span>, <span class="hljs-number">17</span>, <span class="hljs-number">18</span>, <span class="hljs-number">19</span>]
+</code></pre>
+<p class="has-line-data" data-line-start="403" data-line-end="404">Ko’rib turganingizdek, bizning ro’yxatimiz faqat 19taga yetadi va 20 ga o’z ichiga olmaydi.</p>
+<h3 class="code-line" data-line-start=405 data-line-end=406 ><a id="Royxat_va_satrlarni_kesish_405"></a>Ro’yxat va satrlarni kesish</h3>
+<p class="has-line-data" data-line-start="407" data-line-end="408">Ro’yxatni kesish boshqa ro’yxat elementlari to’plamidan foydalangan holda yangi ro’yxat qiymatini yaratadi. Ro’yxatni kesish uchun, ro’yxat nomidan keyin to’rtburchak qavsda ikki nuqta qo’yilgan ikkita indeksni (boshi va oxiri) ko’rsating. Masalan, interaktiv qobiqga quyidagilarni kiriting:</p>
+<pre><code class="has-line-data" data-line-start="410" data-line-end="414" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>spam = [<span class="hljs-string">'apples'</span>, <span class="hljs-string">'bananas'</span>, <span class="hljs-string">'carrots'</span>, <span class="hljs-string">'dates'</span>]
+<span class="hljs-prompt">&gt;&gt;&gt; </span>spam[<span class="hljs-number">1</span>:<span class="hljs-number">3</span>]
+[<span class="hljs-string">'bananas'</span>, <span class="hljs-string">'carrots'</span>]
+</code></pre>
+<p class="has-line-data" data-line-start="415" data-line-end="416"><code>spam[1:3]</code> iborasi <code>spam</code>dagi ma’lumotlar ro’yxatiga 1-indeksdan 3-indeksgacha (lekin uni ichiga olmasdan) qadar baholanadi.</p>
+<p class="has-line-data" data-line-start="417" data-line-end="418">Agar siz birinchi indeksni qoldirsangiz, Python avtomatik ravishda birinchi indeks uchun <code>0</code> indeksini xohlaysiz deb o’ylaydi:</p>
+<pre><code class="has-line-data" data-line-start="420" data-line-end="424" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>spam = [<span class="hljs-string">'apples'</span>, <span class="hljs-string">'bananas'</span>, <span class="hljs-string">'carrots'</span>, <span class="hljs-string">'dates'</span>]
+<span class="hljs-prompt">&gt;&gt;&gt; </span>spam[:<span class="hljs-number">2</span>]
+[<span class="hljs-string">'apples'</span>, <span class="hljs-string">'bananas'</span>]
+</code></pre>
+<p class="has-line-data" data-line-start="425" data-line-end="426">Agar siz ikkinchi indeksni qoldirsangiz, Python avtomatik ravishda ro’yxatning qolgan qismini xohlaysiz deb o’ylaydi:</p>
+<pre><code class="has-line-data" data-line-start="428" data-line-end="432" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>spam = [<span class="hljs-string">'apples'</span>, <span class="hljs-string">'bananas'</span>, <span class="hljs-string">'carrots'</span>, <span class="hljs-string">'dates'</span>]
+<span class="hljs-prompt">&gt;&gt;&gt; </span>spam[<span class="hljs-number">2</span>:]
+[<span class="hljs-string">'carrots'</span>, <span class="hljs-string">'dates'</span>]
+</code></pre>
+<p class="has-line-data" data-line-start="433" data-line-end="434">Shuningdek, siz chiziqlar bilan bo’laklarni ro’yxatlar bilan ishlatganingiz kabi ishlatishingiz mumkin. Satrdagi har bir belgi ro’yxatdagi narsaga o’xshaydi. Interaktiv qobiqga quyidagilarni kiriting:</p>
+<pre><code class="has-line-data" data-line-start="436" data-line-end="445" class="language-python"><span class="hljs-prompt">&gt;&gt;&gt; </span>myName = <span class="hljs-string">'Zophie the Fat Cat'</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>myName[<span class="hljs-number">4</span>:<span class="hljs-number">12</span>]
+<span class="hljs-string">'ie the F'</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>myName[:<span class="hljs-number">10</span>]
+<span class="hljs-string">'Zophie the'</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>myName[<span class="hljs-number">7</span>:]
+<span class="hljs-string">'the Fat Cat'</span>
+
+</code></pre>
+<h3 class="code-line" data-line-start=446 data-line-end=447 ><a id="Boshliqlar_bilan_maxfiy_sozni_korsatish_446"></a>Bo’shliqlar bilan maxfiy so’zni ko’rsatish</h3>
+<p class="has-line-data" data-line-start="448" data-line-end="449">Endi siz maxfiy so’zni chop etmoqchisiz, ammo taxmin qilinmagan harflar uchun bo’sh satrlar bilan. Buning uchun pastki chiziq belgisini (_) ishlatishingiz mumkin. Dastlab maxfiy so’zdagi har bir harf uchun bitta chiziqdan boshqa hech narsa bo’lmagan qatorni yarating. Keyin har bir harf uchun bo’sh joylarni correctLetters-ga almashtiring.</p>
+<p class="has-line-data" data-line-start="450" data-line-end="451">Agar maxfiy so’z “otter” bo’lsa, bo’sh satr ‘_ _ _ _ _’ (beshta pastki chiziq) bo’ladi. Agar correctLetters ‘rt’ qatori bo’lsa, siz satrni ‘_tt_r’ ga o’zgartirasiz. 54 dan 58 gacha bo’lgan satrlar quyidagilarni bajaradigan kodning bir qismidir:</p>
+<pre><code class="has-line-data" data-line-start="453" data-line-end="459" class="language-python"><span class="hljs-number">54.</span> blanks = <span class="hljs-string">'_'</span> * len(secretWord)
+<span class="hljs-number">55.</span>
+<span class="hljs-number">56.</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(secretWord)): <span class="hljs-comment"># bo'sh joylarni to'g'ri taxmin qilingan harflar bilan almashtiring</span>
+<span class="hljs-number">57.</span>     <span class="hljs-keyword">if</span> secretWord[i] <span class="hljs-keyword">in</span> correctLetters:
+<span class="hljs-number">58.</span>           blanks = blanks[:i] + secretWord[i] + blanks[i+<span class="hljs-number">1</span>:]
+</code></pre>
+<p class="has-line-data" data-line-start="460" data-line-end="461">54-qatorda satrlarni takrorlash yordamida pastki chiziqlar bilan to’ldirilgan bo’shliq o’zgaruvchisi yaratiladi. <code>*</code> operatori satrda va butun sonda ishlatilishi mumkinligini yodda tuting, shuning uchun <code>'_' * 5</code> ifodasi <code>'_ _ _ _ _'</code> ga teng bo’ladi. Bu bo’shliqlar maxfiy so’zlaridagi harflar bilan bir xil miqdordagi pastki chiziqlarga ega bo’lishini ta’minlaydi.</p>
+<p class="has-line-data" data-line-start="462" data-line-end="463">56-satrda har bir harfni <code>secretWord</code> orqali o’tadigan va pastki chiziqni to’g’ri harflarda mavjud bo’lsa, haqiqiy harf bilan almashtiradigan <code>for loop</code>i mavjud. <code>secretWord</code> qiymati <code>'otter'</code> va <code>correctLetters</code>-dagi qiymat <code>'tr'</code> bo’lgan oldingi misolni yana bir ko’rib chiqamiz. Siz <code>'_tt_r'</code> qatorini o’yinchiga ko’rsatilishini xohlaysiz. Keling, ushbu satrni qanday yaratishni aniqlaylik.</p>
+<p class="has-line-data" data-line-start="464" data-line-end="465">56-qatorning <code>len(secretWord)</code> chaqiruvi 5 ga qaytadi. <code>range(len(secretWord))</code> chaqiruvi <code>range(5)</code>ga aylanadi, bu esa <code>for loop</code>ini 0, 1, 2, 3 va 4 dan takrorlaydi.</p>
+<p class="has-line-data" data-line-start="466" data-line-end="467"><code>i</code> qiymati [0, 1, 2, 3, 4] har bir qiymatni qabul qilishi sababli <code>for loop</code>idagi kod quyidagicha ko’rinadi:</p>
+<pre><code class="has-line-data" data-line-start="469" data-line-end="474" class="language-python"><span class="hljs-keyword">if</span> secretWord[<span class="hljs-number">0</span>] <span class="hljs-keyword">in</span> correctLetters:
+    blanks = blanks[:<span class="hljs-number">0</span>] + secretWord[<span class="hljs-number">0</span>] + blanks[<span class="hljs-number">1</span>:]
+<span class="hljs-keyword">if</span> secretWord[<span class="hljs-number">1</span>] <span class="hljs-keyword">in</span> correctLetters:
+    blanks = blanks[:<span class="hljs-number">1</span>] + secretWord[<span class="hljs-number">1</span>] + blanks[<span class="hljs-number">2</span>:]
+</code></pre>
+<p class="has-line-data" data-line-start="475" data-line-end="476">Biz <code>for loop</code>ining faqat dastlabki ikki takrorlanishini ko’rsatmoqdamiz, lekin <code>0</code> dan boshlab <code>i</code> diapazondagi har bir raqamning qiymatini oladi. Birinchi takrorlashda <code>i</code> <code>0</code> qiymatini qabul qiladi, shuning uchun <code>if</code> ifodasi <code>0</code> indeksidagi <code>secretWord</code>dagi harfning <code>correctLetters</code>-da ekanligini tekshiradi. Buni tsikl har bir harf uchun, bir vaqtning o’zida bitta harf uchun bajaradi.</p>
+<p class="has-line-data" data-line-start="477" data-line-end="478">Keyingi bir necha satr bo’shliqlarning yangi qiymatini har bir harf orasidagi bo’shliqlar bilan bosib chiqaradi:</p>
+<pre><code class="has-line-data" data-line-start="480" data-line-end="484" class="language-python"><span class="hljs-number">60.</span> <span class="hljs-keyword">for</span> letter <span class="hljs-keyword">in</span> blanks: <span class="hljs-comment"># har bir harf orasidagi bo'shliqlar bilan maxfiy so'zni ko'rsating</span>
+<span class="hljs-number">61.</span>     print(letter, end=<span class="hljs-string">' '</span>)
+<span class="hljs-number">62.</span> print()
+</code></pre>
+<p class="has-line-data" data-line-start="485" data-line-end="486">E’tibor bering, 60-qatorda <code>for loop</code> <code>range()</code> funktsiyasini chaqirmaydi. Ushbu funktsiya chaqiruvi intervalli ob’ektida takrorlash o’rniga, <code>blanks</code> o’zgaruvchisidagi satr qiymatida takrorlanadi. Har bir takrorlashda harf o’zgaruvchisi <code>blanks</code>dagi <code>&quot;otter&quot;</code> qatoridan yangi belgini oladi.</p>
+<p class="has-line-data" data-line-start="487" data-line-end="488">Bo’shliqlar qo’shilgandan keyin bosma nashr <code>'_ t t _ r'</code> bo’ladi.</p>
+<h2 class="code-line" data-line-start=489 data-line-end=490 ><a id="Oyinchi_taxminini_olish_489"></a>O’yinchi taxminini olish</h2>
+<p class="has-line-data" data-line-start="491" data-line-end="492"><code>getGuess()</code> funktsiyasi chaqirilganda, o’yinchi taxmin qilish uchun harf kiritishi mumkin. Funksiya o’yinchining mag’lubiyat deb taxmin qilgan harfini qaytaradi. Bundan tashqari, <code>getGuess()</code> funktsiyadan qaytib kelguncha o’yinchi to’g’ri harfni yozishiga ishonch hosil qiladi.</p>
+<pre><code class="has-line-data" data-line-start="494" data-line-end="497" class="language-python"><span class="hljs-number">64.</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getGuess</span><span class="hljs-params">(alreadyGuessed)</span>:</span>
+<span class="hljs-number">65.</span>     <span class="hljs-comment"># O'yinchi kiritilgan xarfni qaytaradi. Ushbu funktsiya o'yinchining bitta harfni kiritganiga ishonch hosil qiladi, boshqa narsani emas.</span>
+</code></pre>
+<p class="has-line-data" data-line-start="498" data-line-end="499">O’yinchi taxmin qilgan harflar qatori <code>alreadyGuessed</code> parametri uchun argument sifatida qabul qilinadi. Keyin <code>getGuess()</code> funktsiyasi o’yinchidan bitta harfni taxmin qilishni so’raydi. Ushbu bitta harf <code>getGuess()</code> ning qaytish qiymati bo’ladi. Endi, Python kichik harflar sezgirligi sababli, biz o’yinchining taxminlari kichik harf ekanligiga ishonch hosil qilishimiz kerak, shunda biz uni maxfiy so’z bilan tekshirib ko’rishimiz mumkin. Bu erda <code>lower()</code> usuli to’g’ri keladi.</p>
+<pre><code class="has-line-data" data-line-start="501" data-line-end="506" class="language-python"><span class="hljs-number">66.</span>     <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+<span class="hljs-number">67.</span>        print(<span class="hljs-string">'Guess a letter.'</span>)
+<span class="hljs-number">68.</span>        guess = input()
+<span class="hljs-number">69.</span>        guess = guess.lower()
+</code></pre>
+<h3 class="code-line" data-line-start=508 data-line-end=509 ><a id="while_tsiklidan_chiqib_ketish_508"></a><code>while</code> tsiklidan chiqib ketish</h3>
+<p class="has-line-data" data-line-start="510" data-line-end="511">66-qator <code>while</code> esa ilgari taxmin qilinmagan bitta harfni kiritmaguncha o’yinchidan xarf so’raydi.</p>
+<p class="has-line-data" data-line-start="512" data-line-end="513"><code>while</code> tsiklining sharti shunchaki mantiqiy qiymati <code>True</code>. Bu shuni anglatadiki, ijro etilish ushbu tsiklni tark etishning yagona usuli bu loopdagi <code>break</code> operatorini yoki faqat loopni emas, balki butun funktsiyani yakunlaydigan <code>return</code> operatorini bajarishdir.</p>
+<p class="has-line-data" data-line-start="514" data-line-end="515">Tsikl ichidagi kod o’yinchidan o’zgaruvchini taxminida saqlanadigan harfni kiritishni so’raydi. Agar o’yinchi katta harfni kiritgan bo’lsa, unda 69-qatorda kichik harf bilan yozilgan bo’lar edi.</p>
+<h2 class="code-line" data-line-start=516 data-line-end=517 ><a id="elif_bayonotlari_516"></a>elif bayonotlari</h2>
+<p class="has-line-data" data-line-start="518" data-line-end="519">Hangman dasturining keyingi qismida elif so’zlari ishlatiladi. Siz elif yoki “else-if” so’zlarini “Agar bu haqiqat bo’lsa, buni qiling. Yoki agar bu keyingi shart to’g’ri bo’lsa, buni bajaring. Yoki agar ularning hech biri haqiqat bo’lmasa, oxirgi narsani qiling” deb tushunish mumkin. Quyidagi kodni ko’rib chiqing:</p>
+<pre><code class="has-line-data" data-line-start="521" data-line-end="528" class="language-python"><span class="hljs-keyword">if</span> catName == <span class="hljs-string">'Fuzzball'</span>:
+    print(<span class="hljs-string">'Your cat is fuzzy.'</span>)
+<span class="hljs-keyword">elif</span> catName == <span class="hljs-string">'Spots'</span>:
+    print(<span class="hljs-string">'Your cat is spotted.'</span>)
+<span class="hljs-keyword">else</span>:
+    print(<span class="hljs-string">'Your cat is not fuzzy or spotted.'</span>)
+</code></pre>
+<p class="has-line-data" data-line-start="529" data-line-end="530">Agar <code>catName</code> o’zgaruvchisi <code>'Fuzzball'</code> qatoriga teng bo’lsa, u holda if iborasining holati <code>True</code> va if bloki foydalanuvchiga ularning mushuklari loyqa ekanligini aytadi. Ammo, agar bu shart <code>False</code> bo’lsa, u holda Python <code>elif</code> bayonotining holatini keyinroq sinab ko’radi. Agar <code>catName &quot;Spots&quot;</code> bo’lsa, u holda <code>&quot;Sizning mushukingiz dog'.&quot;</code> ekranga chiqadi. Agar ikkalasi ham <code>False</code> bo’lsa, unda kod foydalanuvchiga ularning mushuklari loyqa yoki dog’ emasligini aytadi.</p>
+<p class="has-line-data" data-line-start="531" data-line-end="532">Siz xohlagancha elif bayonotlariga ega bo’lishingiz mumkin.</p>
+<p class="has-line-data" data-line-start="533" data-line-end="534"><code>elif</code> shartlaridan biri <code>True</code> bo’lsa, uning kodi bajariladi, so’ngra bajarilish <code>else</code> blokidan o’tib birinchi qatorga o’tadi. Shunday qilib <code>if-elif-else</code> iboralaridagi bloklardan bittasi va bittasi bajariladi. Agar sizga kerak bo’lmasa va faqat <code>if-elif</code> so’zlari bo’lsa, siz <code>else</code> blokini yozmasiligingiz ham mumkin.</p>
+<h2 class="code-line" data-line-start=535 data-line-end=536 ><a id="Oyinchi_aniq_taxminni_kiritganiga_ishonch_hosil_qilish_535"></a>O’yinchi aniq taxminni kiritganiga ishonch hosil qilish</h2>
+<p class="has-line-data" data-line-start="537" data-line-end="538"><code>guess</code> o’zgaruvchisi o’yinchining harf tahminini o’z ichiga oladi. Dastur ular to’g’ri taxminni kiritganligiga ishonch hosil qilishlari kerak: bitta va bitta, hali taxmin qilinmagan harf. Agar ular bunday qilmagan bo’lsalar, ijro etilishi orqaga qaytadi va ulardan yana harf so’raydi.</p>
+<pre><code class="has-line-data" data-line-start="540" data-line-end="549" class="language-python"><span class="hljs-number">70.</span>        <span class="hljs-keyword">if</span> len(guess) != <span class="hljs-number">1</span>:
+<span class="hljs-number">71.</span>            print(<span class="hljs-string">'Iltimos, bitta harfni kiriting.'</span>)
+<span class="hljs-number">72.</span>        <span class="hljs-keyword">elif</span> guess <span class="hljs-keyword">in</span> alreadyGuessed:
+<span class="hljs-number">73.</span>            print(<span class="hljs-string">'Siz allaqachon bu xatni taxmin qilgansiz. Qayta tanlang.'</span>)
+<span class="hljs-number">74.</span>        <span class="hljs-keyword">elif</span> guess <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> <span class="hljs-string">'abcdefghijklmnopqrstuvwxyz'</span>:
+<span class="hljs-number">75.</span>            print(<span class="hljs-string">'Iltimos, faqat harf kiriting.'</span>)
+<span class="hljs-number">76.</span>        <span class="hljs-keyword">else</span>:
+<span class="hljs-number">77.</span>            <span class="hljs-keyword">return</span> guess
+</code></pre>
+<p class="has-line-data" data-line-start="550" data-line-end="551">70-satrning sharti <code>guess</code> bir belgidan iborat emasligini, 72-satrning holati <code>alreadyGuessed</code> o’zgaruvchining ichida taxmin mavjudligini yoki 74-qatorning holati taxminiy ingliz alifbosidagi harf emasligini tekshiradi. Agar ushbu shartlarning birortasi <code>True</code> bo’lsa, o’yin o’yinchini yangi taxminni kiritishga undaydi.</p>
+<p class="has-line-data" data-line-start="552" data-line-end="553">Agar ushbu shartlarning barchasi <code>False</code> bo’lsa, <code>else</code> operatorining bloki bajariladi va <code>getGuess()</code> qiymati 77-satrda taxminiy qiymatni qaytaradi.</p>
+<p class="has-line-data" data-line-start="554" data-line-end="555">Esingizda bo’lsin, <code>if-elif-else</code> bayonotidagi bloklardan faqat bittasi bajariladi.</p>
+<h2 class="code-line" data-line-start=556 data-line-end=557 ><a id="Oyinchidan_yana_oynashni_sorash_556"></a>O’yinchidan yana o’ynashni so’rash</h2>
+<p class="has-line-data" data-line-start="558" data-line-end="559"><code>playAgain()</code> funktsiyasi faqat <code>print()</code> funktsiyasi chaqiruviga va qaytish bayonotiga ega:</p>
+<pre><code class="has-line-data" data-line-start="560" data-line-end="565" class="language-python">79. def playAgain():
+80.    # Agar o'yinchi yana o'ynashni xohlasa, bu funktsiya True qiymatini qaytaradi; aks holda, False qaytadi.
+81.    print('Yana o\'ynashni istaysizmi? (ha or yo'q)')
+82.    return input().lower().startswith('h')
+</code></pre>
+<p class="has-line-data" data-line-start="566" data-line-end="567"><code>playAgain()</code> funktsiyasining mohiyati shundaki, agar o’yinchi yana bir turda o’ynashni xohlasa, dasturga “ha” yoki “yo’q” kiritishi kerak. O’yinchi “HA”, “ha” degan ma’noni anglatishi uchun <code>HA</code>, <code>ha</code>, <code>H</code> yoki <code>h</code> bilan boshlanadigan boshqa narsalarni terishi kerak. Agar o’yinchi <code>HA</code> ga kirsa, u holda <code>input()</code> ning qaytish qiymati <code>'YES'</code> qatoridir. Va <code>&quot;HA&quot;.lower()</code> biriktirilgan qatorning kichik versiyasini qaytaradi. Shunday qilib <code>'HA'.lower()</code> ning qaytish qiymati <code>&quot;ha&quot;</code>dir.</p>
+<h2 class="code-line" data-line-start=568 data-line-end=569 ><a id="Oyinimizning_funktsiyalarni_korib_chiqamiz_568"></a>O’yinimizning funktsiyalarni ko’rib chiqamiz</h2>
+<p class="has-line-data" data-line-start="569" data-line-end="570">Quyidagilar ushbu o’yin uchun yaratadigan barcha funktsiyalar! Keling, ularni ko’rib chiqaylik:</p>
+<p class="has-line-data" data-line-start="571" data-line-end="572"><code>getRandomWord(wordList)</code> Unga berilgan satrlar ro’yxatini oladi va undan bitta qatorni qaytaradi. Shu tarzda o’yinchi taxmin qilishi uchun so’z tanlanadi.</p>
+<p class="has-line-data" data-line-start="573" data-line-end="574"><code>displayBoard(missedLetters, correctLetters, secretWord)</code> stolning hozirgi holatini, shu jumladan, o’yinchi shu paytgacha qancha maxfiy so’zni taxmin qilganini va noto’g’ri harflarni o’yinchi taxmin qilganligini ko’rsatadi. Ushbu funktsiya to’g’ri ishlashi uchun unga berilgan uchta parametr kerak. <code>correctLetters</code> and <code>missedLetters</code> - bu o’yinchi o’zboshimchalik bilan maxfiy so’zda emas, balki taxmin qilgan harflardan tashkil topgan satrlar. <code>secretWord</code> - bu o’yinchi taxmin qilmoqchi bo’lgan maxfiy so’z. Ushbu funktsiya qaytish qiymatiga ega emas.</p>
+<p class="has-line-data" data-line-start="575" data-line-end="576"><code>getGuess(alreadyGuessed)</code> O’yinchi allaqachon taxmin qilgan harflar qatorini oladi va o’yinchidan <code>alreadyGuessed</code>da bo’lmagan harfni so’rashda davom etadi.</p>
+<p class="has-line-data" data-line-start="577" data-line-end="578"><code>playAgain()</code> O’yinchi yana bir marta o’ynashni xohlashini deb so’raydi. Ushbu funktsiya o’yinchi bajarsa <code>True</code>, agar yo’q bo’lsa <code>False</code>-ni qaytaradi.</p>
+<h2 class="code-line" data-line-start=579 data-line-end=580 ><a id="Oyin_tsikli_579"></a>O’yin tsikli</h2>
+<p class="has-line-data" data-line-start="581" data-line-end="582"><code>Hangman</code> dasturining asosiy qismi o’yin nomini ko’rsatadi, ba’zi o’zgaruvchilarni o’rnatadi va <code>while</code> tsiklini bajaradi. Ushbu bo’lim dasturning qolgan qismini bosqichma-bosqich o’tib boradi.</p>
+<pre><code class="has-line-data" data-line-start="584" data-line-end="590" class="language-python"><span class="hljs-number">85.</span> print(<span class="hljs-string">'H A N G M A N'</span>)
+<span class="hljs-number">86.</span> missedLetters = <span class="hljs-string">''</span>
+<span class="hljs-number">87.</span> correctLetters = <span class="hljs-string">''</span>
+<span class="hljs-number">88.</span> secretWord = getRandomWord(words)
+<span class="hljs-number">89.</span> gameIsDone = <span class="hljs-keyword">False</span>
+</code></pre>
+<p class="has-line-data" data-line-start="591" data-line-end="593">85-qator - o’yin tugagandan so’ng amalga oshiriladigan birinchi <code>print()</code> chaqiruvi. Unda o’yin nomi ko’rsatiladi. Keyin bo’sh satrlar<br>
+o’yinchi hali o’tkazib yuborilgan yoki to’g’ri harflarni taxmin qilmaganligi sababli o’tkazib yuborilgan va to’g’ri harflar.</p>
+<p class="has-line-data" data-line-start="594" data-line-end="595">88-qatorda <code>getRandomWord(so'zlar)</code> chaqiruvi so’zlar ro’yxatidan tasodifiy tanlangan so’zga baho beradi.</p>
+<p class="has-line-data" data-line-start="596" data-line-end="597">89-qator <code>gameIsDone</code>ni “False”-ga o’rnatadi. Kod o’yinni tugatganligi to’g’risida signal berib, o’yinchidan yana o’ynashni xohlaysizmi, deb so’raganda, <code>gameIsDone</code>-ni True-ga o’rnatadi.</p>
+<h3 class="code-line" data-line-start=598 data-line-end=599 ><a id="displayBoard_funktsiyasini_chaqirish_598"></a><code>displayBoard()</code> funktsiyasini chaqirish</h3>
+<p class="has-line-data" data-line-start="600" data-line-end="601">Dasturning qolgan qismi <code>while</code> siklidan iborat. <code>Loop</code>ning holati har doim <code>True</code> bo’ladi, demak u <code>break</code> operatoriga duch kelguncha abadiy davom etadi. (Bu keyinchalik 126-satrda sodir bo’ladi.)</p>
+<pre><code class="has-line-data" data-line-start="603" data-line-end="606" class="language-python"><span class="hljs-number">91.</span> <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+<span class="hljs-number">92.</span> displayBoard(missedLetters, correctLetters, secretWord)
+</code></pre>
+<p class="has-line-data" data-line-start="607" data-line-end="608">92-qator <code>displayBoard()</code> funktsiyasini chaqiradi, unga 86, 87 va 88-qatorlarda o’rnatilgan uchta o’zgaruvchini uzatadi. Aktyor qancha harfni to’g’ri taxmin qilgani va o’tkazib yuborganiga asoslanib, ushbu funktsiya pleyerga tegishli Hangman taxtasini aks ettiradi.</p>
+<h3 class="code-line" data-line-start=609 data-line-end=610 ><a id="Oyinchining_oz_taxminiga_kirishiga_ruxsat_berish_609"></a>O’yinchining o’z taxminiga kirishiga ruxsat berish</h3>
+<p class="has-line-data" data-line-start="611" data-line-end="612">Keyin <code>getGuess()</code> funktsiyasi chaqiriladi, shuning uchun o’yinchi o’z taxminlarini kiritishi mumkin.</p>
+<pre><code class="has-line-data" data-line-start="614" data-line-end="617" class="language-python"><span class="hljs-number">94.</span> <span class="hljs-comment"># O'yinchinga xarf kirishiga ruxsat bering.</span>
+<span class="hljs-number">95.</span> guess = getGuess(missedLetters + correctLetters)
+</code></pre>
+<p class="has-line-data" data-line-start="617" data-line-end="618"><code>getGuess()</code> funktsiyasi <code>alreadyGuessed</code> parametrini talab qiladi, shuning uchun o’yinchi allaqachon taxmin qilgan harfni kiritadimi yoki yo’qligini tekshirishi mumkin. 95-qator <code>missedLetters</code> va <code>correctLetters</code> o’zgaruvchilar qatorlarini birlashtiradi va natijani <code>alreadyGuessed</code> parametri argumenti sifatida beradi.</p>
+<h3 class="code-line" data-line-start=619 data-line-end=620 ><a id="Harfning_maxfiy_sozda_ekanligini_tekshirish_619"></a>Harfning maxfiy so’zda ekanligini tekshirish</h3>
+<p class="has-line-data" data-line-start="621" data-line-end="622">Agar taxmin satri <code>secretWord</code>-da mavjud bo’lsa, u holda bu kod <code>correctLetters</code> satrining oxirigacha taxminni birlashtiradi:</p>
+<pre><code class="has-line-data" data-line-start="624" data-line-end="627" class="language-python"><span class="hljs-number">97.</span> <span class="hljs-keyword">if</span> guess <span class="hljs-keyword">in</span> secretWord:
+<span class="hljs-number">98.</span> correctLetters = correctLetters + guess
+</code></pre>
+<h3 class="code-line" data-line-start=628 data-line-end=629 ><a id="Oyinchining_galaba_qozonganligini_tekshirish_628"></a>O’yinchining g’alaba qozonganligini tekshirish</h3>
+<p class="has-line-data" data-line-start="630" data-line-end="631">Dastur qanday qilib o’yinchi maxfiy so’zdagi har bir harfni taxmin qilganligini biladi? Xullas, <code>correctLetters</code>-da o’yinchi to’g’ri taxmin qilgan har bir harf bor va <code>secretWord</code> bu maxfiy so’zning o’zi. Ammo shunchaki <code>correctLetters == secretWord</code> ekanligini tekshirib bo’lmaydi. Agar <code>secretWord</code> <code>&quot;otter&quot;</code> qatori va <code>correctLetters 'orte'</code> qatori bo’lgan bo’lsa, o’yinchi maxfiy so’zdagi har bir harfni taxmin qilgan bo’lsa ham, <code>to'g'riLetters == secretWord</code> yolg’on bo’ladi.</p>
+<p class="has-line-data" data-line-start="632" data-line-end="633">O’yinchining yutganiga ishonch hosil qilishning yagona usuli bu <code>secretWord</code>-dagi har bir harfni takrorlash va uning <code>correctLetters</code>-da mavjudligini ko’rishdir. Agar <code>secretWord</code>-dagi har bir harf to’g’ri harflarda bo’lsa, o’yinchi g’alaba qozongan bo’ladi.</p>
+<pre><code class="has-line-data" data-line-start="635" data-line-end="642" class="language-python"><span class="hljs-number">100.</span>    <span class="hljs-comment"># O'yinchining g'alaba qozonganligini tekshiring.</span>
+<span class="hljs-number">101.</span>    foundAllLetters = <span class="hljs-keyword">True</span>
+<span class="hljs-number">102.</span>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(secretWord)):
+<span class="hljs-number">103.</span>        <span class="hljs-keyword">if</span> secretWord[i] <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> correctLetters:
+<span class="hljs-number">104.</span>            foundAllLetters = <span class="hljs-keyword">False</span>
+<span class="hljs-number">105.</span>            <span class="hljs-keyword">break</span>
+</code></pre>
+<p class="has-line-data" data-line-start="643" data-line-end="644">Agar <code>correctLetters</code>-da mavjud bo’lmagan <code>secretWord</code>-da harf topsangiz, bilasizki, o’yinchi barcha harflarni taxmin qilmagan. Yangi <code>foundAllLetters</code> tsikl boshlanishidan oldin 101 satrda <code>True</code>ga o’rnatiladi. Ko’chadan maxfiy so’zdagi barcha harflar topilgan deb taxmin qilinadi. Ammo 104-satrdagi tsiklning kodi <code>foundAllLetters</code>-ni <code>False</code>-ga o’zgartiradi, birinchi marta <code>secretWord</code>-da <code>correctLetters</code>-da bo’lmagan harfni topganda.</p>
+<p class="has-line-data" data-line-start="645" data-line-end="646">Agar maxfiy so’zdagi barcha harflar topilgan bo’lsa, o’yinchiga ular g’olib bo’lganligi aytiladi va <code>gameIsDone True</code>-ga o’rnatiladi:</p>
+<pre><code class="has-line-data" data-line-start="648" data-line-end="652" class="language-python">        <span class="hljs-keyword">if</span> foundAllLetters:
+            print(<span class="hljs-string">'Ha! Mahfiy so\'z "'</span> + secretWord + <span class="hljs-string">'"! Siz yutdingiz!'</span>)
+            gameIsDone = <span class="hljs-keyword">True</span>
+</code></pre>
+<h3 class="code-line" data-line-start=653 data-line-end=654 ><a id="Notogri_taxminni_tekshirish_653"></a>Noto’g’ri taxminni tekshirish</h3>
+<p class="has-line-data" data-line-start="655" data-line-end="656">109-qator - bu <code>else</code> blokning boshlanishi.</p>
+<pre><code class="has-line-data" data-line-start="658" data-line-end="661" class="language-python"><span class="hljs-number">109.</span>    <span class="hljs-keyword">else</span>:
+<span class="hljs-number">110.</span>        missedLetters = missedLetters + guess
+</code></pre>
+<p class="has-line-data" data-line-start="662" data-line-end="663">Esingizda bo’lsa, agar ushbu shart noto’g’ri bo’lsa, ushbu blokdagi kod bajariladi. Ammo qaysi shart? Buni bilish uchun barmog’ingizni <code>else</code> kalit so’zining boshiga yo’naltiring va uni yuqoriga ko’taring.</p>
+<h3 class="code-line" data-line-start=664 data-line-end=665 ><a id="Oyinchining_yutqizganligini_tekshirish_664"></a>O’yinchining yutqizganligini tekshirish</h3>
+<p class="has-line-data" data-line-start="666" data-line-end="667">O’yinchi har safar noto’g’ri taxmin qilganda, kod <code>missedLetters</code>-dagi satrga noto’g’ri harfni biriktiradi. Shunday qilib, <code>missedLetters</code> uzunligi - yoki kodda <code>len(missedLetters)</code> - bu noto’g’ri taxminlarning soni.</p>
+<pre><code class="has-line-data" data-line-start="669" data-line-end="675" class="language-python">        <span class="hljs-comment"># O'yinchi juda ko'p marta taxmin qilgani va yutqazganligini tekshiring.</span>
+        <span class="hljs-keyword">if</span> len(missedLetters) == len(HANGMAN_PICS) - <span class="hljs-number">1</span>:
+            displayBoard(missedLetters, correctLetters, secretWord)
+            print(<span class="hljs-string">'Sizda taxminlar tugadi!\n'</span> str(len(missedLetters)) + <span class="hljs-string">' noto\'g\'ri tahminlardan keyin va '</span> + str(len(correctLetters)) + <span class="hljs-string">' to\'g\'ri tahminlardan keyin, mahfiy so\'z"'</span> + secretWord + <span class="hljs-string">'" edi'</span>)
+            gameIsDone = <span class="hljs-keyword">True</span>
+</code></pre>
+<p class="has-line-data" data-line-start="676" data-line-end="677"><code>HANGMAN_PICS</code> ro’yxatida yettita <code>ASCII</code> badiiy satrlari mavjud. Shunday qilib, missedLetters mag’lubiyatining uzunligi <code>len(HANGMAN_PICS) - 1</code> ga teng bo’lganda (ya’ni 6), o’yinchining taxminlari tugadi. Siz o’yinchi yutqazganini bilasiz, chunki osilgan odamning surati tugaydi. Esingizda bo’lsin, <code>HANGMAN_PICS[0]</code> ro’yxatdagi birinchi element, <code>HANGMAN_PICS[6]</code> esa oxirgisi.</p>
+<pre><code class="has-line-data" data-line-start="679" data-line-end="687" class="language-python">    <span class="hljs-comment"># O'yinchidan yana o'ynashni xohlashlarini so'rang (lekin agar o'yin tugagan bo'lsa).</span>
+        <span class="hljs-keyword">if</span> gameIsDone:
+            <span class="hljs-keyword">if</span> playAgain():
+                missedLetters = <span class="hljs-string">''</span>
+                correctLetters = <span class="hljs-string">''</span>
+                gameIsDone = <span class="hljs-keyword">False</span>
+                secretWord = getRandomWord(words)
+</code></pre></div>
+ </body>
+</html>
