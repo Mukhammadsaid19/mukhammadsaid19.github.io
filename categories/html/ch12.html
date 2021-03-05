@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    12. HTML stillari - CSS
+   </title>
+   <link href="../../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <div class="row">
+  <div class="table-of-contents col-sm-3">
+      <div class="bg-white border sticky-top">
+      <ul class="nav">
+        <li class="w-100"><a href="#pythonga_kirish">12. HTML stillari - CSS</a></li>
+      </ul>
+      </div>
+  </div>
+
+  <div class="col-sm-9">
+<h1 id="html-stillari-css">HTML stillari - CSS</h1>
+<p>CSS kaskadlashgan uslub varaqlari degan ma&#39;noni anglatadi.</p>
+<p>CSS ko&#39;p ishlarni tejaydi. U bir vaqtning o&#39;zida bir nechta veb-sahifalarning joylashishini boshqarishi mumkin.</p>
+<div style="position:relative;height:220px;margin-top:50px;">
+  <div style="opacity:0.5;position:absolute;left:50px;top:-30px;width:300px;height:150px;background-color:#40B3DF"></div>
+  <div class="w3-theme" style="opacity:0.3;position:absolute;left:120px;top:20px;width:100px;height:170px;"></div>
+  <div style="margin-top:30px;width:360px;height:130px;padding:20px;border-radius:10px;border:10px solid #EE872A;font-size:120%;">
+ <h1>CSS = Stillar va Ranglar</h1>
+ <div style="letter-spacing:12px;font-size:15px;position:relative;left:25px;top:10px;">Matnni o&#39;zgartirish</div>
+ <div style="color:#40B3DF;letter-spacing:12px;font-size:15px;position:relative;left:25px;top:20px;">Ranglar,
+ <span style="background-color:#B4009E;color:#ffffff;">&nbsp;Bloklar</span></div>
+ </div>
+</div>
+
+
+
+
+
+
+
+<h2 id="css-nima-">CSS nima?</h2>
+<p><strong>Cascading Style Sheets (CSS)</strong> veb-sahifaning joylashishini formatlash uchun ishlatiladi.</p>
+<p>CSS yordamida siz rang, shrift, matn hajmi, elementlar orasidagi masofa, elementlarning joylashuvi va joylashishi, qanday fon rasmlari yoki ranglarining ishlatilishi, turli qurilmalar uchun har xil displeylar va ekran o&#39;lchamlari kabilarni formatlashingiz mumkin!</p>
+<p><em>Maslahat: Kaskad so&#39;zi shuni anglatadiki, ota-ona elementiga qo&#39;llaniladigan uslub ota-ona tarkibidagi barcha bolalar elementlariga ham tegishlidir. Shunday qilib, agar siz asosiy matn rangini &quot;ko&#39;k&quot; ga qo&#39;ysangiz, tanadagi barcha sarlavhalar, xatboshilar va boshqa matn elementlari ham bir xil rangga ega bo&#39;ladi (agar siz boshqa narsani ko&#39;rsatmasangiz)!</em></p>
+<h2 id="css-dan-foydalanish">CSS-dan foydalanish</h2>
+<p>CSSni HTML hujjatlariga 3 usulda qo&#39;shish mumkin:</p>
+<ul>
+<li><strong>Inline</strong> - HTML elementlari ichida stil atributidan foydalanish</li>
+<li><strong>Internal</strong> <code>&lt;head&gt;</code> qismida <code>&lt;style&gt;</code> elementi yordamida</li>
+<li><strong>External</strong> - tashqi CSS fayliga ulanish uchun <code>&lt;link&gt;</code> elementi yordamida</li>
+</ul>
+<p>CSS qo&#39;shishning eng keng tarqalgan usuli bu – tashqi CSS fayllaridagi uslublarni saqlashdir. Biroq, ushbu qo&#39;llanmada biz ichki va ichki uslublardan foydalanamiz, chunki buni namoyish qilish osonroq va o&#39;zingiz sinab ko&#39;rishingiz osonroq.</p>
+<h2 id="inline-css">Inline CSS</h2>
+<p>Inline CSS yagona uslubdagi HTML elementiga noyob uslubni qo&#39;llash uchun ishlatiladi.</p>
+<p>Ichki CSS HTML elementining <code>&lt;style&gt;</code> atributidan foydalanadi.</p>
+<p>Quyidagi misol <h1> elementi matn rangini ko&#39;k rangga, <p> elementi matn rangini qizil rangga o&#39;rnatadi:</p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"color: blue;"</span>&gt;</span> Moviy sarlavha <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"color: red;"</span>&gt;</span> Qizil paragraf. <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<h1 style = "color: blue;"> Moviy sarlavha </h1>
+
+<p style = "color: red;"> qizil paragraf. </p>
+
+<h2 id="ichki-css">Ichki CSS</h2>
+<p>Ichki CSS bitta HTML-sahifa uchun uslubni aniqlash uchun ishlatiladi.</p>
+<p>Ichki CSS HTML-sahifaning <code>&lt;head&gt;</code> qismida, <code>&lt;style&gt;</code> elementi ichida aniqlanadi.</p>
+<p>Quyidagi misol BARCHA <code>&lt;h1&gt;</code> elementlari matn rangini (o&#39;sha sahifada) ko&#39;k rangga, BARCHA <code>&lt;p&gt;</code> elementlari matn rangini qizil rangga o&#39;rnatadi. Bundan tashqari, sahifa &quot;powderblue&quot; fon rangi bilan namoyish etiladi:</p>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bosh</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+<span class="hljs-selector-tag">tanasi</span> {<span class="hljs-attribute">background-color</span>: powderblue;}
+<span class="hljs-selector-tag">h1</span> {<span class="hljs-attribute">color</span>: blue;}
+<span class="hljs-selector-tag">p</span> {<span class="hljs-attribute">color</span>: red;}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span> Bu sarlavha <span class="hljs-tag">&lt;/ <span class="hljs-attr">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span> Bu xatboshi. <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<h2 id="tashqi-css">Tashqi CSS</h2>
+<p>Tashqi uslublar jadvali ko&#39;plab HTML-sahifalar uchun uslubni aniqlash uchun ishlatiladi.</p>
+<p>Tashqi uslublar jadvalidan foydalanish uchun har bir HTML-sahifaning <code>&lt;head&gt;</code> bo&#39;limiga havolani qo&#39;shing:</p>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bosh</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span> = <span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span> = <span class="hljs-string">"styles.css"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span> Bu sarlavha <span class="hljs-tag">&lt;/ <span class="hljs-attr">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span> Bu xatboshi. <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p>Tashqi uslublar jadvalini har qanday matn muharririda yozish mumkin. Faylda hech qanday HTML kod bo&#39;lmasligi kerak va <code>.css</code> kengaytmasi bilan saqlanishi lozim.</p>
+<p>&quot;styles.css&quot; fayli shunga o&#39;xshash bo&#39;lishi mumkin:</p>
+<h3 id="-styles-css-">&quot;styles.css&quot;:</h3>
+<pre><code class="lang-css"><span class="hljs-selector-tag">body</span> {
+  <span class="hljs-attribute">background-color</span>: powderblue;
+}
+<span class="hljs-selector-tag">h1</span> {
+  <span class="hljs-attribute">color</span>: blue;
+}
+<span class="hljs-selector-tag">p</span> {
+  <span class="hljs-attribute">color</span>: red;
+}
+</code></pre>
+<p>Maslahat: Tashqi uslublar jadvalida bitta faylni o&#39;zgartirish bilan, butun veb-sayt ko&#39;rinishini o&#39;zgartirishingiz mumkin!</p>
+<h2 id="css-ranglari-shriftlari-va-o-lchamlari">CSS ranglari, shriftlari va o&#39;lchamlari</h2>
+<p>Bu yerda biz tez-tez ishlatiladigan ba&#39;zi bir CSS xususiyatlarini namoyish etamiz. Keyinchalik ular haqida ko&#39;proq bilib olasiz.</p>
+<p>CSS rang xususiyati foydalaniladigan matn rangini belgilaydi.</p>
+<p>CSS shrift-oilaviy xususiyati foydalaniladigan shriftni belgilaydi.</p>
+<p>CSS shrift hajmi xususiyati foydalaniladigan matn hajmini belgilaydi.</p>
+<h3 id="misol">Misol</h3>
+<p>CSS rang, shrift turkumi va shrift kattaligi xususiyatlaridan foydalanish:</p>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+<span class="hljs-selector-tag">h1</span> {
+  <span class="hljs-attribute">color</span>: blue;
+  <span class="hljs-attribute">font-family</span>: verdana;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">300%</span>;
+}
+<span class="hljs-selector-tag">p</span> {
+  <span class="hljs-attribute">color</span>: red;
+  <span class="hljs-attribute">font-family</span>: courier;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">160%</span>;
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>This is a heading<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>This is a paragraph.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<h2 id="css-border">CSS Border</h2>
+<p>CSS <code>border</code> xususiyati HTML elementi atrofidagi chegarani belgilaydi.</p>
+<p>Izoh: Siz deyarli barcha HTML elementlari uchun chegarani belgilashingiz mumkin.</p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-css"><span class="hljs-selector-tag">p</span> {
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid powderblue;
+}
+</code></pre>
+<h2 id="css-padding">CSS Padding</h2>
+<p>CSS <code>padding</code> xususiyati matn va hoshiya orasidagi to&#39;ldirish (bo&#39;shliq)ni belgilaydi.</p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-css"><span class="hljs-selector-tag">p</span> {
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid powderblue;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">30px</span>;
+}
+</code></pre>
+<h2 id="css-margin">CSS margin</h2>
+<p>CSS <code>margin</code> xususiyati chegaradan tashqaridagi chegara (bo&#39;shliq)ni belgilaydi.</p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-css"><span class="hljs-selector-tag">p</span> {
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid powderblue;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">50px</span>;
+}
+</code></pre>
+<h2 id="tashqi-css-ga-havola">Tashqi CSS-ga havola</h2>
+<p>Tashqi uslublar jadvallariga to&#39;liq URL yoki joriy veb-sahifaga nisbatan yo&#39;l bilan murojaat qilish mumkin.</p>
+<h3 id="misol">Misol</h3>
+<p>Ushbu misol uslublar jadvaliga havola qilish uchun to&#39;liq URL manzilidan foydalanadi:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.w3schools.com/html/styles.css"</span>&gt;</span>
+</code></pre>
+<h3 id="misol">Misol</h3>
+<p>Ushbu misol joriy veb-saytdagi html papkasida joylashgan uslublar jadvaliga havola:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/html/styles.css"</span>&gt;</span>
+</code></pre>
+<h3 id="misol">Misol</h3>
+<p>Ushbu misol joriy sahifa bilan bir xil papkada joylashgan uslublar jadvaliga havola:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"styles.css"</span>&gt;</span>
+</code></pre>
+<p>Fayl yo&#39;llari haqida ko&#39;proq ma&#39;lumotni HTML fayl yo&#39;llari bo&#39;limida o&#39;qishingiz mumkin.</p>
+<h2 id="bo-limning-qisqacha-mazmuni">Bo&#39;limning qisqacha mazmuni</h2>
+<ul>
+<li>Ichki uslublar uchun HTML <code>&lt;style&gt;</code> atributidan foydalaning</li>
+<li>Ichki CSSni aniqlash uchun HTML <code>&lt;style&gt;</code> elementidan foydalaning</li>
+<li>Tashqi CSS-faylga murojaat qilish uchun HTML <code>&lt;link&gt;</code> elementidan foydalaning</li>
+<li><code>&lt;style&gt;</code> va <code>&lt;link&gt;</code> elementlarini saqlash uchun HTML <code>&lt;head&gt;</code> elementidan foydalaning</li>
+<li>Matn ranglari uchun CSS <code>color</code> xususiyatidan foydalaning</li>
+<li>Matn shriftlari uchun CSS <code>font-family</code> xususiyatidan foydalaning</li>
+<li>Matn o&#39;lchamlari uchun CSS <code>font-size</code> xususiyatidan foydalaning</li>
+<li>Chegaralar uchun CSS <code>border</code> xususiyatidan foydalaning</li>
+<li>Chegaradagi bo&#39;sh joy uchun CSS <code>padding</code> xususiyatidan foydalaning</li>
+<li>Chegaradan tashqarida bo&#39;sh joy uchun CSS <code>margin</code> xususiyatidan foydalaning</li>
+</ul>
+
+
+   </div>
+ </body>
+</html>

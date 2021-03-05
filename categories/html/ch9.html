@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    9. HTML matnini formatlash
+   </title>
+   <link href="../../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <div class="row">
+  <div class="table-of-contents col-sm-3">
+      <div class="bg-white border sticky-top">
+      <ul class="nav">
+        <li class="w-100"><a href="#pythonga_kirish">9. HTML matnini formatlash</a></li>
+      </ul>
+      </div>
+  </div>
+
+  <div class="col-sm-9">
+<h1 id="html-matnini-formatlash">HTML matnini formatlash</h1>
+<p>HTML tarkibida maxsus ma&#39;noga ega bo&#39;lgan matnni aniqlash uchun bir nechta element mavjud.</p>
+<p> <b> Ushbu matn qalin </b> </p>
+<p> <i> Ushbu matn kursiv </i> </p>
+<p> Bu <sub> subscript </sub> va <sup>superscript</sup> </p>
+
+<h2 id="html-formatlash-elementlari">HTML formatlash elementlari</h2>
+<p>Formatlash elementlari maxsus turdagi matnlarni ko&#39;rsatish uchun mo&#39;ljallangan:</p>
+<ul>
+<li><code>&lt;b&gt;</code> - Qalin matn</li>
+<li><code>&lt;strong&gt;</code> - Muhim matn</li>
+<li><code>&lt;i&gt;</code> - Kursiv matn</li>
+<li><code>&lt;em&gt;</code> - Ta&#39;kidlangan matn</li>
+<li><code>&lt;mark&gt;</code> - Belgilangan matn</li>
+<li><code>&lt;small&gt;</code> - Kichikroq matn</li>
+<li><code>&lt;del&gt;</code> - O&#39;chirilgan matn</li>
+<li><code>&lt;ins&gt;</code> - Kiritilgan matn</li>
+<li><code>&lt;sub&gt;</code> - Subscript matni</li>
+<li><code>&lt;sup&gt;</code> - Superscript matni</li>
+</ul>
+<h2 id="html-b-va-strong-elementlar">HTML <code>&lt;b&gt;</code> va <code>&lt;strong&gt;</code> Elementlar</h2>
+<p>HTML <code>&lt;b&gt;</code> elementi hech qanday qo&#39;shimcha ahamiyatga ega bo&#39;lmagan holda qalin matnni belgilaydi.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span> Ushbu matn qalin <span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+</code></pre>
+<p><b> Ushbu matn qalin </b></p>
+<p>HTML <code>&lt;strong&gt;</code> elementi matnning katta ahamiyatga egaligini belgilaydi. Ichidagi tarkib, odatda, qalin harflar bilan ko&#39;rsatiladi.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span> Ushbu matn muhim! <span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+</code></pre>
+<p><strong> Ushbu matn muhim! </strong></p>
+<h2 id="html-i-va-em-elementlari">HTML <code>&lt;i&gt;</code> va <code>&lt;em&gt;</code> elementlari</h2>
+<p>HTML <code>&lt;i&gt;</code> elementi matnning bir qismini muqobil ovoz yoki kayfiyatda belgilaydi. Ichidagi tarkib, odatda, kursiv bilan ko&#39;rsatiladi.</p>
+<p><strong>Maslahat:</strong> <code>&lt;i&gt;</code> tegi ko&#39;pincha texnik atama, boshqa tildan olingan ibora, fikr, kema nomi va boshqalarni ko&#39;rsatish uchun ishlatiladi.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">i</span>&gt;</span> Ushbu matn kursiv <span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+</code></pre>
+<p><i> Ushbu matn kursiv </i></p>
+<p>HTML <code>&lt;em&gt;</code> elementi ta&#39;kidlangan matnni belgilaydi. Ichidagi tarkib, odatda, kursiv bilan ko&#39;rsatiladi.</p>
+<p><strong>Maslahat:</strong> Ekranni o&#39;quvchi og&#39;zaki stress yordamida <code>&lt;em&gt;</code> dagi so&#39;zlarni diqqat bilan talaffuz qiladi.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span> Ushbu matn ta'kidlangan <span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span>
+</code></pre>
+<p><em> Ushbu matn ta&#39;kidlangan </em></p>
+<h2 id="html-small-elementi">HTML <code>&lt;small&gt;</code> elementi</h2>
+<p>HTML <code>&lt;small&gt;</code> elementi kichikroq matnni belgilaydi:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span> Bu kichikroq matn. <span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+</code></pre>
+<p><small> Bu kichikroq matn. </small></p>
+<h2 id="html-mark-elementi">HTML <code>&lt;mark&gt;</code> elementi</h2>
+<p>HTML <code>&lt;mark&gt;</code> elementi belgilanishi yoki ajratilishi kerak bo&#39;lgan matnni belgilaydi:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span> Bugun <span class="hljs-tag">&lt;<span class="hljs-name">mark</span>&gt;</span>sut<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> sotib olishni unutmang. <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<p> Bugun <mark>sut</mark> sotib olishni unutmang. </p>
+
+<h2 id="html-del-elementi">HTML <code>&lt;del&gt;</code> elementi</h2>
+<p>HTML <code>&lt;del&gt;</code> elementi hujjatdan o&#39;chirilgan matnni belgilaydi. Brauzerlar, odatda, o&#39;chirilgan matnlar qatoriga gorizontal chiziq bilan ko&#39;rsatadi:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span> Mening eng yaxshi ko'rgan rangim <span class="hljs-tag">&lt;<span class="hljs-name">del</span>&gt;</span>ko'k<span class="hljs-tag">&lt;/<span class="hljs-name">del</span>&gt;</span> qizil. <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<p> Mening eng yaxshi ko&#39;rgan rangim <del>ko&#39;k</del> qizil. </p>
+
+<h2 id="html-ins-elementi">HTML <code>&lt;ins&gt;</code> elementi</h2>
+<p>HTML <code>&lt;ins&gt;</code> elementi hujjatga kiritilgan matnni belgilaydi. Brauzerlar, odatda, kiritilgan matn ostiga chizishadi:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span> Mening eng yaxshi ko'rgan rangim <span class="hljs-tag">&lt;<span class="hljs-name">del</span>&gt;</span>ko'k<span class="hljs-tag">&lt;/<span class="hljs-name">del</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">ins</span>&gt;</span>qizil<span class="hljs-tag">&lt;/<span class="hljs-name">ins</span>&gt;</span>. <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<p> Mening eng yaxshi ko&#39;rgan rangim <del>ko&#39;k</del> <ins>qizil</ins>. </p>
+
+<h2 id="html-sub-elementi">HTML <code>&lt;sub&gt;</code> elementi</h2>
+<p>HTML <code>&lt;sub&gt;</code> elementi pastki yozuv matnini belgilaydi. Subscript matni odatdagi satrdan yarim belgi ostida ko&#39;rinadi va ba&#39;zida kichikroq shriftda ko&#39;rsatiladi. Subscript matni H<sub>2</sub>O kabi kimyoviy formulalar uchun ishlatilishi mumkin:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span> Bu <span class="hljs-tag">&lt;<span class="hljs-name">sub</span>&gt;</span>pastda yozilgan<span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span> matn. <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<p> Bu <sub>pastda yozilgan</sub> matn. </p>
+
+<h2 id="html-sup-elementi">HTML <code>&lt;sup&gt;</code> elementi</h2>
+<p>HTML <code>&lt;sup&gt;</code> elementi yuqorida yozilgan matnni belgilaydi. <strong>Superscript</strong> matni odatdagi satrdan yarim belgidan yuqori bo&#39;lib ko&#39;rinadi va ba&#39;zida kichikroq shriftda ko&#39;rsatiladi. Superscript matni shu kabi izohlar uchun ishlatilishi mumkin: WWW <sup>[1]</sup>:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span> Bu <span class="hljs-tag">&lt;<span class="hljs-name">sup</span>&gt;</span>yuqorida yozilgan<span class="hljs-tag">&lt;/<span class="hljs-name">sup</span>&gt;</span> matn.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<p> Bu <sup>yuqorida yozilgan</sup> matn.</p>
+
+
+
+   </div>
+ </body>
+</html>

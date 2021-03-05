@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    14. HTML rasmlari
+   </title>
+   <link href="../../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <div class="row">
+  <div class="table-of-contents col-sm-3">
+      <div class="bg-white border sticky-top">
+      <ul class="nav">
+        <li class="w-100"><a href="#pythonga_kirish">14. HTML rasmlari</a></li>
+      </ul>
+      </div>
+  </div>
+
+  <div class="col-sm-9">
+<h1 id="html-rasmlari">HTML rasmlari</h1>
+<p>Tasvirlar veb-sahifaning dizayni va ko&#39;rinishini yaxshilashi mumkin.</p>
+<p><img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli"></p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-html">&lt;<span class="hljs-selector-tag">img</span> src=<span class="hljs-string">"pic_trulli.jpg"</span> alt=<span class="hljs-string">"Italiyancha Trulli"</span>&gt;
+</code></pre>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-html">&lt;<span class="hljs-selector-tag">img</span> src=<span class="hljs-string">"img_chania.jpg"</span> alt=<span class="hljs-string">"Chaniyadagi Gullar"</span>&gt;
+</code></pre>
+<h2 id="html-rasmlari-sintaksisi">HTML Rasmlari sintaksisi</h2>
+<p>HTML <code>&lt;img&gt;</code> yorlig&#39;i veb-sahifaga rasm joylashtirish uchun ishlatiladi.</p>
+<p>Rasmlar veb-sahifaga texnik jihatdan kiritilmagan; rasmlar veb-sahifalarga bog&#39;langan. <code>&lt;img&gt;</code> yorlig&#39;i havola qilingan rasm uchun bo&#39;sh joy yaratadi.</p>
+<p><code>&lt;img&gt;</code> tegi bo&#39;sh, u faqat atributlarni o&#39;z ichiga oladi va yopilish yorlig&#39;iga ega emas.</p>
+<p><code>&lt;img&gt;</code> tegida ikkita zarur atribut mavjud:</p>
+<p><code>src</code> - rasmga olib boradigan yo&#39;lni belgilaydi
+<code>alt</code> - rasm uchun muqobil matnni belgilaydi</p>
+<h3 id="sintaksis">Sintaksis</h3>
+<pre><code class="lang-html">&lt;<span class="hljs-selector-tag">img</span> src=<span class="hljs-string">"url"</span> alt=<span class="hljs-string">"yozuv"</span>&gt;
+</code></pre>
+<h2 id="-src-atributi"><code>src</code> atributi</h2>
+<p>Majburiy <code>src</code> atributi rasmga yo&#39;lni (URL) belgilaydi.</p>
+<p><strong>Izoh:</strong> veb-sahifa yuklangan paytda brauzer veb-serverdan rasmni oladi va uni sahifaga qo&#39;shadi. Shuning uchun, rasm aslida veb-sahifaga nisbatan bir xil joyda turishiga ishonch hosil qiling, aks holda sizning tashrif buyuruvchilaringiz buzilgan havola belgisini olishadi. Agar brauzer rasmni topa olmasa, buzilgan havola belgisi va pastki matn ko&#39;rsatiladi.</p>
+<pre><code class="lang-html">&lt;<span class="hljs-selector-tag">img</span> src=<span class="hljs-string">"img_chania.jpg"</span> alt=<span class="hljs-string">"Chaniyadagi Gullar"</span>&gt;
+</code></pre>
+<h2 id="-alt-atributi"><code>alt</code> atributi</h2>
+<p>Kerakli <code>alt</code> atributi rasm uchun muqobil matnni taqdim etadi, agar foydalanuvchi biron sababga ko&#39;ra uni ko&#39;rib chiqa olmasa (ulanish sustligi, <code>src</code> atributidagi xato yoki foydalanuvchi ekran o&#39;quvchisidan foydalansa).</p>
+<p><code>alt</code> atributining qiymati tasvirni tavsiflashi kerak:</p>
+<pre><code class="lang-html">&lt;<span class="hljs-selector-tag">img</span> src=<span class="hljs-string">"img_chania.jpg"</span> alt=<span class="hljs-string">"Chaniyadagi Gullar"</span>&gt;
+</code></pre>
+<p>Agar brauzer rasm topa olmasa, u <code>alt</code> atributining qiymatini aks ettiradi:</p>
+<p><img src="#" alt="Chaniyadagi Gullar"></p>
+<h2 id="rasm-o-lchami-width-va-height-">Rasm o&#39;lchami - <code>width</code> va <code>height</code></h2>
+<p>Rasmning kengligi va balandligini ko&#39;rsatish uchun siz stil atributidan foydalanishingiz mumkin.</p>
+<pre><code class="lang-html">&lt;<span class="hljs-selector-tag">img</span> src=<span class="hljs-string">"img_girl.jpg"</span> alt=<span class="hljs-string">"Ko'ylagi kiygan qiz"</span> style=<span class="hljs-string">"width:500px;height:600px;"</span>&gt;
+</code></pre>
+<p>Shu bilan bir qatorda, <code>width</code> (kenglik) va <code>height</code> (balandlik) atributlaridan ham foydalanishingiz mumkin:</p>
+<pre><code class="lang-html">&lt;img <span class="hljs-attr">src</span> = <span class="hljs-string">"img_girl.jpg"</span> <span class="hljs-attr">alt</span> = <span class="hljs-string">"Ko'ylagi kiygan qiz"</span> <span class="hljs-attr">width</span> = <span class="hljs-string">"500"</span> <span class="hljs-attr">height</span> = <span class="hljs-string">"600"</span>&gt;
+</code></pre>
+<p><code>width</code> va <code>height</code> atributlari har doim rasm kengligi va balandligini piksel bilan belgilaydi.</p>
+<p><em>Izoh: Har doim rasmning kengligi va balandligini ko&#39;rsating. Agar kenglik va balandlik ko&#39;rsatilmagan bo&#39;lsa, rasm yuklanganda, veb-sahifa miltillashi mumkin.</em></p>
+<h2 id="kenglik-va-balandlikmi-yoki-stillarmi-">Kenglik va balandlikmi yoki stillarmi?</h2>
+<p><code>width</code>, <code>height</code> va <code>style</code> atributlari barchasi HTMLda amal qiladi.</p>
+<p>Biroq, <code>style</code> atributidan foydalanishni taklif qilamiz. Bu uslublar jadvallarini rasm hajmini o&#39;zgartirishga to&#39;sqinlik qiladi:</p>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+<span class="hljs-selector-tag">img</span> {
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"html5.gif"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"HTML5 Icon"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"128"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"128"</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"html5.gif"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"HTML5 Icon"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width:128px;height:128px;"</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<h2 id="boshqa-papkadagi-rasmlar">Boshqa papkadagi rasmlar</h2>
+<p>Agar rasmlaringiz pastki papkada bo&#39;lsa, <code>src</code> atributiga papka nomini kiritishingiz kerak:</p>
+<pre><code class="lang-html">&lt;<span class="hljs-selector-tag">img</span> src=<span class="hljs-string">"/images/html5.gif"</span> alt=<span class="hljs-string">"HTML5 Icon"</span> style=<span class="hljs-string">"width:128px;height:128px;"</span>&gt;
+</code></pre>
+<h2 id="boshqa-server-veb-saytdagi-rasmlar">Boshqa server/veb-saytdagi rasmlar</h2>
+<p>Ba&#39;zi veb-saytlar boshqa serverdagi rasmga ishora qiladi.</p>
+<p>Boshqa serverdagi rasmga ishora qilish uchun src atributida mutlaq (to&#39;liq) URL manzilini ko&#39;rsatishingiz kerak:</p>
+<pre><code class="lang-html">&lt;<span class="hljs-selector-tag">img</span> src=<span class="hljs-string">"https://www.w3schools.com/images/w3schools_green.jpg"</span> alt=<span class="hljs-string">"W3Schools.com"</span>&gt;
+</code></pre>
+<p>Tashqi rasmlarga oid eslatmalar: Tashqi rasmlar mualliflik huquqiga ega bo&#39;lishi mumkin. Agar siz undan foydalanishga ruxsat olmasangiz, mualliflik huquqi to&#39;g&#39;risidagi qonunlarni buzgan bo&#39;lishingiz mumkin. Bundan tashqari, siz tashqi tasvirlarni boshqarolmaysiz; uni to&#39;satdan olib tashlash yoki o&#39;zgartirish mumkin.</p>
+<h2 id="animatsiya-qilingan-rasmlar">Animatsiya qilingan rasmlar</h2>
+<p>HTML animatsion GIFlarni qo&#39;llab quvvatlaydi:</p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-html">&lt;<span class="hljs-selector-tag">img</span> src=<span class="hljs-string">"programming.gif"</span> alt=<span class="hljs-string">"Computer Man"</span> style=<span class="hljs-string">"width:48px;height:48px;"</span>&gt;
+</code></pre>
+<h3 id="rasm-joylashuvi">Rasm Joylashuvi</h3>
+<p>Joylashishi matnning o&#39;ng yoki chap tomoniga o&#39;tishi uchun CSS <code>float</code> xususiyatidan foydalaning:</p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span> = <span class="hljs-string">"smiley.gif"</span> <span class="hljs-attr">alt</span> = <span class="hljs-string">"Smiley face"</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"float: right; width: 42px; height: 42px;"</span>&gt;</span>
+Rasm matnning o'ng tomonida suzadi.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span> = <span class="hljs-string">"smiley.gif"</span> <span class="hljs-attr">alt</span> = <span class="hljs-string">"Smiley face"</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"float: left; width: 42px; height: 42px;"</span>&gt;</span>
+Rasm matnning chap tomonida suzadi.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<h2 id="ommabop-rasm-formatlari">Ommabop rasm formatlari</h2>
+<p>Barcha brauzerlarda (Chrome, Edge, Firefox, Safari, Opera) qo&#39;llab-quvvatlanadigan eng keng tarqalgan rasm fayl turlari:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Abbreviature</th>
+<th style="text-align:left">Fayl formati</th>
+<th style="text-align:left">Fayl Kengaytmasi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">APNG</td>
+<td style="text-align:left">Animated Portable Network Graphics</td>
+<td style="text-align:left">.apng</td>
+</tr>
+<tr>
+<td style="text-align:left">GIF</td>
+<td style="text-align:left">Graphics Interchange Format</td>
+<td style="text-align:left">.gif</td>
+</tr>
+<tr>
+<td style="text-align:left">ICO</td>
+<td style="text-align:left">Microsoft Icon</td>
+<td style="text-align:left">.ico, .cur</td>
+</tr>
+<tr>
+<td style="text-align:left">JPEG</td>
+<td style="text-align:left">Joint Photographic Expert Group image</td>
+<td style="text-align:left">.jpg, .jpeg, .jfif, .pjpeg, .pjp</td>
+</tr>
+<tr>
+<td style="text-align:left">PNG</td>
+<td style="text-align:left">Portable Network Graphics</td>
+<td style="text-align:left">.png</td>
+</tr>
+<tr>
+<td style="text-align:left">SVG</td>
+<td style="text-align:left">Scalable Vector Graphics</td>
+<td style="text-align:left">.svg</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bo-limning-qisqacha-mazmuni">Bo&#39;limning qisqacha mazmuni</h2>
+<ul>
+<li>Rasmni aniqlash uchun HTML <code>&lt;img&gt;</code> elementidan foydalaning</li>
+<li>Rasmning URL manzilini aniqlash uchun HTML <code>src</code> atributidan foydalaning</li>
+<li>HTML <code>alt</code> atributidan foydalanib, rasm uchun muqobil matnni aniqlang, agar uni ko&#39;rsatish mumkin bo&#39;lmasa</li>
+<li>Rasm hajmini aniqlash uchun HTML <code>width</code> va <code>height</code> atributlaridan yoki CSS <code>width</code>va <code>height</code> xususiyatlaridan foydalaning</li>
+<li>CSS <code>float</code> xususiyatidan foydalanib, rasmni chapga yoki o&#39;ngga joylashitiring</li>
+</ul>
+
+
+   </div>
+ </body>
+</html>

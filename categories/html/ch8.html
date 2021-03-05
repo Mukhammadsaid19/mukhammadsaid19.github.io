@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    8. HTML Stillar
+   </title>
+   <link href="../../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <div class="row">
+  <div class="table-of-contents col-sm-3">
+      <div class="bg-white border sticky-top">
+      <ul class="nav">
+        <li class="w-100"><a href="#pythonga_kirish">8. HTML Stillar</a></li>
+      </ul>
+      </div>
+  </div>
+
+  <div class="col-sm-9">
+      <h1 id="html-stillar">HTML Stillar</h1>
+<p>HTML <code>style</code> atributi elementga uslublar, masalan, rang, shrift, o&#39;lcham va boshqalarni qo&#39;shish uchun ishlatiladi.</p>
+<p> Men odatiyman </p>
+<p style = "color: red;"> Men qizilman </p>
+<p style = "color: blue;"> Men ko&#39;kman </p>
+<p style = "font-size: 50px;"> Men kattaman </p>
+
+<h2 id="html-style-atributi">HTML <code>style</code> atributi</h2>
+<p>HTML elementi uslubini sozlash <code>style</code> atributi bilan amalga oshirilishi mumkin.</p>
+<p>HTML <code>style</code> atributi quyidagi sintaksisga ega:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">tegnomi</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"property : value ;"</span>&gt;</span>
+</code></pre>
+<p><strong>property</strong> CSS xususiyatidir. <strong>value</strong> CSS qiymatidir.</p>
+<p><em>Ushbu qo&#39;llanmada CSS haqida ko&#39;proq ma&#39;lumotga ega bo&#39;lasiz.</em></p>
+<h2 id="fon-rangi">Fon rangi</h2>
+<p>CSS <code>background-color</code> xususiyati HTML elementi uchun fon rangini belgilaydi.</p>
+<h3 id="misol">Misol</h3>
+<p>Sahifa uchun fon rangini chang-ko&#39;k (powderblue) rangda o&#39;rnating:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"background-color: powderblue;"</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span> Bu sarlavha <span class="hljs-tag">&lt;/ <span class="hljs-attr">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span> Bu xatboshi. <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<h3 id="misol">Misol</h3>
+<p>Ikki xil element uchun fon rangini o&#39;rnating:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"background-color: powderblue;"</span>&gt;</span> Bu sarlavha <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"background-color: tomato;"</span>&gt;</span> Bu xatboshi. <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<h2 id="matn-rangi">Matn rangi</h2>
+<p>CSS <code>color</code> xususiyati HTML elementi uchun matn rangini belgilaydi:</p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"color: blue;"</span>&gt;</span> Bu sarlavha <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"color: red;"</span>&gt;</span> Bu paragraf. <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<p><h1 style = "color: blue;"> Bu sarlavha </h1></p>
+<p style = "color: red;"> Bu paragraf. </p>
+
+<h2 id="shriftlar">Shriftlar</h2>
+<p>CSS <code>font-family</code> atributi HTML elementi uchun ishlatiladigan shriftni belgilaydi:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"font-family: verdana;"</span>&gt;</span> Bu sarlavha <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"font-family: courier;"</span>&gt;</span> Bu paragraf. <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<p><h1 style = "font-family: verdana;"> Bu sarlavha </h1></p>
+<p style = "font-family: courier;"> Bu paragraf. </p>
+
+<h2 id="matn-hajmi">Matn hajmi</h2>
+<p>CSS <code>font-size</code> xususiyati HTML elementi uchun matn hajmini belgilaydi:</p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"font-size: 300%;"</span>&gt;</span> Bu sarlavha <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"font-size: 160%;"</span>&gt;</span> Bu paragraf. <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<p><h1 style = "font-size: 300%;"> Bu sarlavha </h1></p>
+<p style = "font-size: 160%;"> Bu paragraf. </p>
+
+<h2 id="matnni-joylashuvi">Matnni joylashuvi</h2>
+<p>CSS <code>text-align</code> xususiyati HTML elementi uchun gorizontal matn tekisligini belgilaydi:</p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"text-align: center;"</span>&gt;</span> Markazlashtirilgan sarlavha <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"text-align: center;"</span>&gt;</span> Markazlashtirilgan paragraf. <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<p><h1 style = "text-align: center;"> Markazlashtirilgan sarlavha </h1></p>
+<p style = "text-align: center;"> Markazlashtirilgan paragraf. </p>
+
+<h2 id="bo-limning-qisqacha-mazmuni">Bo&#39;limning qisqacha mazmuni</h2>
+<ul>
+<li>HTML elementlarini uslublash uchun <code>style</code> atributidan foydalaning</li>
+<li>Fon rangi uchun <code>background-color</code>dan foydalaning</li>
+<li>Matn ranglari uchun <code>color</code>dan foydalaning</li>
+<li>Matn shriftlari uchun <code>font-family</code>dan foydalaning</li>
+<li>Matn o&#39;lchamlari uchun <code>font-size</code>dan foydalaning</li>
+<li>Matnni tekislash uchun <code>text-align</code>dan foydalaning</li>
+</ul>
+
+   </div>
+ </body>
+</html>

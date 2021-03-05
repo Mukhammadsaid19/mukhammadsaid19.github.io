@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    13. HTML havolalari
+   </title>
+   <link href="../../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <div class="row">
+  <div class="table-of-contents col-sm-3">
+      <div class="bg-white border sticky-top">
+      <ul class="nav">
+        <li class="w-100"><a href="#pythonga_kirish">13. HTML havolalari</a></li>
+      </ul>
+      </div>
+  </div>
+
+  <div class="col-sm-9">
+<h1 id="html-havolalari">HTML havolalari</h1>
+<p>Havolalar deyarli barcha veb-sahifalarda joylashgan. Havolalar foydalanuvchilarga sahifadan sahifaga o&#39;tish imkonini beradi.</p>
+<h2 id="html-havolalari-giperhavolalar">HTML havolalari - giperhavolalar</h2>
+<p>HTML havolalari bu – giperhavolalardir.</p>
+<p>Siz havolani bosishingiz va boshqa hujjatga o&#39;tishingiz mumkin.</p>
+<p>Sichqonchani havola orqali siljitganda, sichqoncha o&#39;qi kichik qo&#39;lga aylanadi.</p>
+<p><em>Izoh: Havola matn bo&#39;lishi shart emas. Havola rasm yoki boshqa HTML element bo&#39;lishi ham mumkin!</em></p>
+<h2 id="html-havolalari-sintaksis">HTML havolalari - sintaksis</h2>
+<p>HTML <code>&lt;a&gt;</code> yorlig&#39;i ko&#39;prikni belgilaydi. U quyidagi sintaksisga ega:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"url"</span>&gt;</span>havola matni<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</code></pre>
+<p><code>&lt;a&gt;</code> elementining eng muhim atributi bu – href atributidir, u havolaning borishini ko&#39;rsatadi.</p>
+<p>Havola matni o&#39;quvchiga ko&#39;rinadigan qismdir.</p>
+<p>Havola matnini bosish orqali o&#39;quvchi ko&#39;rsatilgan URL manziliga yuboriladi.</p>
+<h3 id="misol">Misol</h3>
+<p>Ushbu misol dr.rtm.uz/coding-club saytida havolani qanday yaratishni ko&#39;rsatadi:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://dr.rtm.uz/coding-club/"</span>&gt;</span>Coding Club ga marhamat!<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</code></pre>
+<p>Odatiy bo&#39;lib, barcha brauzerlarda havolalar quyidagicha ko&#39;rinadi:</p>
+<ul>
+<li>Ko&#39;rinmagan havola chizilgan va ko&#39;k rangda</li>
+<li>Tashrif buyurilgan havola chizilgan va binafsha rangda</li>
+<li>Faol havola chizilgan va qizil rangda</li>
+</ul>
+<h2 id="html-havolalari-target-atributi">HTML havolalari - <code>target</code> atributi</h2>
+<p>Odatiy bo&#39;lib, bog&#39;langan sahifa joriy brauzer oynasida ko&#39;rsatiladi. Buni o&#39;zgartirish uchun siz havola uchun boshqa maqsadni belgilashingiz kerak.</p>
+<p><code>target</code> atributi bog&#39;langan hujjatni qaerda ochishni belgilaydi.</p>
+<p><code>target</code> atribut quyidagi qiymatlardan biriga ega bo&#39;lishi mumkin:</p>
+<ul>
+<li><code>_self</code> - Standart. Hujjatni xuddi shu oynada / yorliqda bosilganda ochadi</li>
+<li><code>_blank</code> - Hujjatni yangi oynada yoki yorliqda ochadi</li>
+<li><code>_parent</code> - Hujjatni ota-kadrda ochadi</li>
+<li><code>_top</code> - Hujjatni oynaning to&#39;liq qismida ochadi</li>
+</ul>
+<h3 id="misol">Misol</h3>
+<p>Bog&#39;langan hujjatni yangi brauzer oynasi yoki yorlig&#39;ida ochish uchun <code>target = &quot;_ blank&quot;</code> dan foydalaning:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://dr.rtm.uz/coding-club/"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span>&gt;</span>Coding Club ga marhamat!<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</code></pre>
+<h2 id="mutlaq-url-va-nisbiy-url-manzillari">Mutlaq URL va nisbiy URL manzillari</h2>
+<p>Yuqoridagi ikkala misol href atributida mutlaq URL (to&#39;liq veb-manzil) dan foydalanmoqda.</p>
+<p>Mahalliy havola (xuddi shu veb-saytdagi sahifaga havola) nisbiy URL bilan ko&#39;rsatilgan (&quot;https: // www&quot; qismisiz):</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Mutlaq URL manzillari<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://dr.rtm.uz/coding-club/"</span>&gt;</span>Coding Club<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.google.com/"</span>&gt;</span>Google<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Nisbiy URL manzillari<span class="hljs-tag">&lt;/ <span class="hljs-attr">h2</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"html_images.asp"</span>&gt;</span>HTML rasmlari<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/css/default.asp"</span>&gt;</span>CSS qo'llanmasi<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<h2 id="html-havolalari-tasvirni-havola-sifatida-foydalaning">HTML havolalari - Tasvirni Havola sifatida foydalaning</h2>
+<p>Tasvirni havola sifatida ishlatish uchun faqat <code>&lt;a&gt;</code> yorlig&#39;i ichiga <code>&lt;img&gt;</code> yorlig&#39;ini qo&#39;ying:</p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-html">&lt;<span class="hljs-selector-tag">a</span> href=<span class="hljs-string">"default.asp"</span>&gt;
+&lt;<span class="hljs-selector-tag">img</span> src=<span class="hljs-string">"smiley.gif"</span> alt=<span class="hljs-string">"HTML tutorial"</span> style=<span class="hljs-string">"width:42px;height:42px;"</span>&gt;
+&lt;/a&gt;
+</code></pre>
+<h2 id="elektron-pochta-manziliga-havola">Elektron pochta manziliga havola</h2>
+<p>Foydalanuvchining elektron pochta dasturini ochadigan havolani yaratish uchun (yangi elektron pochta xabarlarini yuborishlariga ruxsat berish uchun) <code>href</code> atributi ichida <code>mailto:</code> dan foydalaning:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"mailto:someone@example.com"</span>&gt;</span>Elektron pochta xabarlarini yuboring<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</code></pre>
+<h2 id="havola-sifatida-tugma">Havola sifatida tugma</h2>
+<p>HTML tugmachasini havola sifatida ishlatish uchun siz ba&#39;zi JavaScript kodlarini qo&#39;shishingiz kerak.</p>
+<p>JavaScript sizga ba&#39;zi bir voqealarda nima sodir bo&#39;lishini, masalan, tugmachani bosishni belgilash imkonini beradi:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onclick</span> = <span class="hljs-string">"document.location = 'default.asp'"</span>&gt;</span>HTML qo'llanmasi <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</code></pre>
+<h2 id="havolalar-sarlavhasi">Havolalar sarlavhasi</h2>
+<p><code>title</code> atributi element haqida qo&#39;shimcha ma&#39;lumotlarni aniqlaydi. Ma&#39;lumot ko&#39;pincha sichqoncha element ustida harakatlanayotganda ko&#39;rsatmalar matni sifatida ko&#39;rsatiladi.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://dr.rtm.uz/coding-club/"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Coding Club ga o'tish"</span> &gt;</span>Coding Club ga marhamat!<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</code></pre>
+<h2 id="bo-limning-qisqacha-mazmuni">Bo&#39;limning qisqacha mazmuni</h2>
+<ul>
+<li>Havolani qo&#39;shish uchun <code>&lt;a&gt;</code> elementidan foydalaning</li>
+<li>Havola manzilini belgilash uchun <code>href</code> atributidan foydalaning</li>
+<li>Bog&#39;langan hujjatni qayerda ochishni aniqlash uchun <code>target</code> atributidan foydalaning</li>
+<li>Tasvirni havola sifatida ishlatish uchun <code>&lt;img&gt;</code> elementidan foydalaning (ichida <code>&lt;a&gt;</code>)</li>
+<li>Foydalanuvchining elektron pochta dasturini ochadigan havola yaratish uchun <code>href</code> atributi ichidagi <code>mailto:</code> sxemasidan foydalaning</li>
+</ul>
+
+
+   </div>
+ </body>
+</html>

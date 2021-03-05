@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    11.1. HTML RGB va RGBA ranglari
+   </title>
+   <link href="../../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <div class="row">
+  <div class="table-of-contents col-sm-3">
+      <div class="bg-white border sticky-top">
+      <ul class="nav">
+        <li class="w-100"><a href="#pythonga_kirish">11.1. HTML RGB va RGBA ranglari</a></li>
+      </ul>
+      </div>
+  </div>
+
+  <div class="col-sm-9">
+
+<h1 id="html-rgb-va-rgba-ranglari">HTML RGB va RGBA ranglari</h1>
+<p>RGB rang qiymati RED, GREEN va BLUE yorug&#39;lik manbalarini aks ettiradi.</p>
+<p>RGBA rang qiymati - <strong>alfa</strong> kanali (xiralik) bilan RGB kengaytmasi.</p>
+<h2 id="rgb-rang-qiymatlari">RGB rang qiymatlari</h2>
+<p>HTMLda rang quyidagi formuladan foydalangan holda RGB qiymati sifatida ko&#39;rsatilishi mumkin:</p>
+<h4 id="-rgb-red-qizil-green-yashil-blue-ko-k-"><strong>rgb (red (qizil), green (yashil), blue (ko&#39;k))</strong></h4>
+<p>Har bir parametr (qizil, yashil va ko&#39;k) rangning qizg&#39;inligini 0 dan 255 gacha bo&#39;lgan qiymat bilan belgilaydi.</p>
+<p>Bu shuni anglatadiki, 256 x 256 x 256 = 16777216 rang bo&#39;lishi mumkin!</p>
+<p>Masalan, rgb (255, 0, 0) qizil rangda ko&#39;rsatiladi, chunki qizil eng yuqori qiymatiga (255), qolgan ikkitasi (yashil va ko&#39;k) 0 ga o&#39;rnatiladi.</p>
+<p>Yana bir misol, rgb (0, 255, 0) yashil rangda ko&#39;rsatiladi, chunki yashil eng yuqori qiymatiga (255), qolgan ikkitasi (qizil va ko&#39;k) 0 ga o&#39;rnatiladi.</p>
+<p>Qora rangni ko&#39;rsatish uchun barcha rang parametrlarini 0 ga qo&#39;ying, quyidagicha: rgb (0, 0, 0).</p>
+<p>Oq rangni ko&#39;rsatish uchun barcha rang parametrlarini quyidagicha o&#39;rnating: rgb (255, 255, 255).</p>
+<p>Quyidagi RGB qiymatlarini aralashtirib tajriba qiling:</p>
+<h3 id="misol">Misol</h3>
+<h1 style="background-color:rgb(255, 0, 0);color: white">rgb(255, 0, 0)</h1>
+<h1 style="background-color:rgb(0, 0, 255);color: white">rgb(0, 0, 255)</h1>
+<h1 style="background-color:rgb(60, 179, 113);color: white">rgb(60, 179, 113)</h1>
+<h1 style="background-color:rgb(238, 130, 238);color: white">rgb(238, 130, 238)</h1>
+<h1 style="background-color:rgb(255, 165, 0);color: white">rgb(255, 165, 0)</h1>
+<h1 style="background-color:rgb(106, 90, 205);color: white">rgb(106, 90, 205)</h1>
+
+<h2 id="kulrang-soyalar">Kulrang soyalar</h2>
+<p>Kulrang soyalar ko&#39;pincha uchta parametr uchun teng qiymatlar yordamida aniqlanadi:</p>
+<h3 id="misol">Misol</h3>
+<h1 style="background-color:rgb(60, 60, 60); color: white">rgb(60, 60, 60)</h1>
+<h1 style="background-color:rgb(100, 100, 100); color: white">rgb(100, 100, 100)</h1>
+<h1 style="background-color:rgb(140, 140, 140);color: white">rgb(140, 140, 140)</h1>
+<h1 style="background-color:rgb(180, 180, 180);color: white">rgb(180, 180, 180)</h1>
+<h1 style="background-color:rgb(200, 200, 200);">rgb(200, 200, 200)</h1>
+<h1 style="background-color:rgb(240, 240, 240);">rgb(240, 240, 240)</h1>
+
+
+
+<h2 id="rgba-rang-qiymatlari">RGBA rang qiymatlari</h2>
+<p><strong>RGBA</strong> rang qiymatlari - RGB rang qiymatlarining Alpha kanali bilan kengaytirilishi. Alpha kanal rangning xiralashishini belgilaydi.</p>
+<p>RGBA rang qiymati quyidagicha ko&#39;rsatilgan:</p>
+<h4 id="rgba-qizil-yashil-ko-k-alfa-">rgba (qizil, yashil, ko&#39;k, alfa)</h4>
+<p>Alfa parametri 0,0 (to&#39;liq shaffof) va 1,0 (umuman shaffof emas) orasidagi raqam:</p>
+<h1 style="background-color:rgba(255, 99, 71, 0);">rgba(255, 99, 71, 0)</h1>
+<h1 style="background-color:rgba(255, 99, 71, 0.2);">rgba(255, 99, 71, 0.2)</h1>
+<h1 style="background-color:rgba(255, 99, 71, 0.4); color: white">rgba(255, 99, 71, 0.4)</h1>
+<h1 style="background-color:rgba(255, 99, 71, 0.6);color: white">rgba(255, 99, 71, 0.6)</h1>
+<h1 style="background-color:rgba(255, 99, 71, 0.8);color: white">rgba(255, 99, 71, 0.8)</h1>
+<h1 style="background-color:rgba(255, 99, 71, 1);color: white">rgba(255, 99, 71, 1)</h1>
+
+
+   </div>
+ </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    15. HTML Fon Rasmlari 
+   </title>
+   <link href="../../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <div class="row">
+  <div class="table-of-contents col-sm-3">
+      <div class="bg-white border sticky-top">
+      <ul class="nav">
+        <li class="w-100"><a href="#pythonga_kirish">15. HTML Fon Rasmlari</a></li>
+      </ul>
+      </div>
+  </div>
+
+  <div class="col-sm-9">
+<h1 id="html-fon-rasmlari">HTML Fon Rasmlari</h1>
+<p>Fon rasmini deyarli har qanday HTML elementi uchun ko&#39;rsatish mumkin.</p>
+<h2 id="html-elementidagi-fon-rasmi">HTML elementidagi fon rasmi</h2>
+<p>HTML elementiga fon rasmini qo&#39;shish uchun HTML <code>style</code> atributi va CSS <code>background-color</code> xususiyatidan foydalaning:</p>
+<h3 id="misol">Misol</h3>
+<p>HTML elementiga fon rasmini qo&#39;shing:</p>
+<pre><code class="lang-html">&lt;<span class="hljs-selector-tag">div</span> style=<span class="hljs-string">"background-image: url('img_girl.jpg');"</span>&gt;
+</code></pre>
+<p>Siz <code>&lt;style&gt;</code> elementida <code>&lt;head&gt;</code> bo&#39;limida fon rasmini belgilashingiz mumkin:</p>
+<h3 id="misol">Misol</h3>
+<p><code>&lt;style&gt;</code> elementida fon rasmini ko&#39;rsating:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+<span class="hljs-selector-tag">div</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">'img_girl.jpg'</span>);
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+</code></pre>
+<h2 id="sahifadagi-orqa-fon-rasmi">Sahifadagi orqa fon rasmi</h2>
+<p>Agar siz butun sahifa fon rasmiga ega bo&#39;lishini istasangiz, <code>&lt;body&gt;</code> elementida fon rasmini ko&#39;rsatishingiz kerak:</p>
+<h3 id="misol">Misol</h3>
+<p>Butun sahifa uchun fon rasmining qo&#39;shilishi:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+<span class="hljs-selector-tag">body</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">'img_girl.jpg'</span>);
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+</code></pre>
+<h2 id="orqa-fonda-takrorlash">Orqa fonda takrorlash</h2>
+<p>Agar fon rasmi elementdan kichikroq bo&#39;lsa, rasm elementning oxirigacha gorizontal va vertikal ravishda takrorlanadi:</p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+<span class="hljs-selector-tag">body</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">'example_img_girl.jpg'</span>);
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+</code></pre>
+<p>Fon rasmining takrorlanishiga yo&#39;l qo&#39;ymaslik uchun, <code>background-repeat</code> xususiyatini <code>no-repeat</code> qilib o&#39;rnating.</p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+<span class="hljs-selector-tag">body</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">'example_img_girl.jpg'</span>);
+  <span class="hljs-attribute">background-repeat</span>: no-repeat;
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+</code></pre>
+<h2 id="orqa-fon-usti">Orqa fon usti</h2>
+<p>Agar siz fon rasmi butun elementni qamrab olishini istasangiz, siz <code>background-size</code> xususiyatini <code>cover</code> qilib o&#39;rnatishingiz mumkin.</p>
+<p>Bundan tashqari, butun element har doim yopiq ekanligiga ishonch hosil qilish uchun, <code>background-attachment</code> xususiyatini <code>fixed:</code> qilib qo&#39;ying:</p>
+<p>Shunday qilib, fon rasmi butun elementni qamrab oladi, hech qanday cho&#39;zilmasdan (rasm asl nisbatlarini saqlab qoladi):</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+<span class="hljs-selector-tag">body</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">'img_girl.jpg'</span>);
+  <span class="hljs-attribute">background-repeat</span>: no-repeat;
+  <span class="hljs-attribute">background-attachment</span>: fixed;
+  <span class="hljs-attribute">background-size</span>: cover;
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+</code></pre>
+<h2 id="orqa-fonni-cho-zish">Orqa fonni cho&#39;zish</h2>
+<p>Agar siz fon rasmini butun elementga mos kelishini xohlasangiz, siz <code>background-size</code> xususiyatini <code>100% 100%</code> ga o&#39;rnatishingiz mumkin:</p>
+<div style="height:300px;background-image:url('https://www.w3schools.com/html/img_girl.jpg');background-size:100% 100%;">
+</div>
+
+<p>Brauzer oynasining o&#39;lchamini o&#39;zgartirishga urinib ko&#39;ring, shunda rasm cho&#39;zilib ketishini ko&#39;rasiz, lekin har doim butun elementni qamrab olasiz.</p>
+
+
+   </div>
+ </body>
+</html>

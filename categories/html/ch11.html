@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    11. HTML ranglari 
+   </title>
+   <link href="../../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <div class="row">
+  <div class="table-of-contents col-sm-3">
+      <div class="bg-white border sticky-top">
+      <ul class="nav">
+        <li class="w-100"><a href="#pythonga_kirish">11. HTML ranglari</a></li>
+      </ul>
+      </div>
+  </div>
+
+  <div class="col-sm-9">
+<h1 id="html-ranglari">HTML ranglari</h1>
+<p>HTML ranglar oldindan belgilangan rang nomlari yoki RGB, HEX, HSL, RGBA yoki HSLA qiymatlari bilan belgilanadi.</p>
+<h2 id="rang-nomlari">Rang nomlari</h2>
+<p>HTMLda rangni rang nomi yordamida ko&#39;rsatish mumkin:</p>
+<h1 style="background-color:Tomato;">Tomato</h1>
+<h1 style="background-color:Orange;">Orange</h1>
+<h1 style="background-color:DodgerBlue;">DodgerBlue</h1>
+<h1 style="background-color:MediumSeaGreen;">MediumSeaGreen</h1>
+<h1 style="background-color:Gray;">Gray</h1>
+<h1 style="background-color:SlateBlue;">SlateBlue</h1>
+<h1 style="background-color:Violet;">Violet</h1>
+<h1 style="background-color:LightGray;">LightGray</h1>
+
+<p>HTML <a href="https://www.w3schools.com/colors/colors_names.asp">140 standart rang nomlarini</a> qo&#39;llab-quvvatlaydi.</p>
+<h2 id="fon-rangi">Fon rangi</h2>
+<p>HTML elementlari uchun fon rangini belgilashingiz mumkin:</p>
+<div style = "background-color: dodgerblue; text-align: center; color: white; font-size: 24px;"> Salom, Dunyo </div>
+
+<div class = "w3-container" style = "background-color: tomato; color: white; padding: 5px 10px"> <br>
+   Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+   Mening ehtiyojlarim uchun minnatdorchiligim yo&#39;q, chunki ular o&#39;zaro kelishuvni amalga oshiradilar. <br> <br>
+</div>
+
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"background-color: DodgerBlue;"</span>&gt;</span> Salom Dunyo <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"background-color: Tomato;"</span>&gt;</span> Lorem ipsum ... <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<h2 id="matn-rangi">Matn rangi</h2>
+<p>Matn rangini belgilashingiz mumkin:</p>
+<h3 style = "color: tomato"> Salom, Dunyo! </h3>
+
+<p style="color:dodgerblue">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+
+<p style="color:mediumseagreen">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+
+<h3 id="misol">Misol</h3>
+<h1 style = "color: Tomato;"> Salom, Dunyo! </h1>
+<p style = "color: DodgerBlue;"> Lorem ipsum ... </p>
+<p style = "color: MediumSeaGreen;"> Juda yaxshi ... </p>
+
+## Chegaraning rangi
+
+Chegaralarning rangini belgilashingiz mumkin:
+
+<h1 style = "border: 2px solid Tomato;"> Salom dunyo </h1>
+<h1 style = "border: 2px solid DodgerBlue;"> Salom dunyo </h1>
+<h1 style = "border: 2px solid Violet;"> Salom dunyo </h1>
+
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"border: 2px solid Tomato;"</span>&gt;</span> Salom dunyo <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"border: 2px solid DodgerBlue;"</span>&gt;</span> Salom dunyo <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"border: 2px solid Violet;"</span>&gt;</span> Salom dunyo <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+</code></pre>
+<h2 id="rang-qiymatlari">Rang qiymatlari</h2>
+<p>HTMLda ranglarni RGB qiymatlari, HEX qiymatlari, HSL qiymatlari, RGBA qiymatlari va HSLA qiymatlari yordamida ham ko&#39;rsatish mumkin.</p>
+<p>Quyidagi uchta <code>&lt;div&gt;</code> elementlari fon rangini RGB, HEX va HSL qiymatlari bilan o&#39;rnatgan:</p>
+<div style="background-color:rgb(255, 99, 71);margin:10px 0; color: #fff; text-align:center; height: 30px;">rgb(255, 99, 71)</div>
+
+<div style="background-color:rgb(255, 99, 71);margin:10px 0; color: #fff; text-align:center; height: 30px;">#ff6347</div>
+
+<div style="background-color:rgb(255, 99, 71);margin:10px 0; color: #fff; text-align:center; height: 30px;">hsl(9, 100%, 64%)</div>
+
+<p>Quyidagi ikkita <code>&lt;div&gt;</code> elementi fon rangini RGBA va HSLA qiymatlari bilan o&#39;rnatilgan, bu rangga <strong>alpha</strong> kanalini qo&#39;shadi (bu yerda bizda 50% shaffoflik mavjud):</p>
+<div style="background-color:#ffb1a3;margin:10px 0; color: #fff; text-align:center; height: 30px;">rgba(255, 99, 71, 0.5)</div>
+
+<div style="background-color:#ffb1a3;margin:10px 0; color: #fff; text-align:center; height: 30px;">hsla(9, 100%, 64%, 0.5)</div>
+
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"background-color: rgb (255, 99, 71);"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"background-color: # ff6347;"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"background-color: hsl (9, 100%, 64%);"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"background-color: rgba (255, 99, 71, 0.5);"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">style</span> = <span class="hljs-string">"background-color: hsla (9, 100%, 64%, 0.5);"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+</code></pre>
+<hr>
+<h4 id="rang-qiymatlari-haqida-ko-proq-bilib-oling">Rang qiymatlari haqida ko&#39;proq bilib oling</h4>
+<p>RGB, HEX va HSL haqida keyingi boblarda bilib olasiz.</p>
+
+
+   </div>
+ </body>
+</html>

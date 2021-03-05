@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    16. HTML Jadvallari
+   </title>
+   <link href="../../css/handout-style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   </link>
+  </meta>
+ </head>
+ <body>
+  <div class="row">
+  <div class="table-of-contents col-sm-3">
+      <div class="bg-white border sticky-top">
+      <ul class="nav">
+        <li class="w-100"><a href="#pythonga_kirish">16. HTML Jadvallari</a></li>
+      </ul>
+      </div>
+  </div>
+
+  <div class="col-sm-9">
+<h1 id="html-jadvallari">HTML Jadvallari</h1>
+<p>HTML jadvallari veb-dasturchilarga ma&#39;lumotlarni satr va ustunlar bo&#39;yicha tartibga solish imkonini beradi.</p>
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>Ernst Handel</td>
+    <td>Roland Mendel</td>
+    <td>Austria</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>Helen Bennett</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Laughing Bacchus Winecellars</td>
+    <td>Yoshi Tannamuri</td>
+    <td>Canada</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Giovanni Rovelli</td>
+    <td>Italy</td>
+  </tr>
+</table>
+
+
+<h2 id="html-jadvalini-belgilang">HTML jadvalini belgilang</h2>
+<p><code>&lt;table&gt;</code> yorlig&#39;i HTML jadvalini belgilaydi.</p>
+<p>Har bir jadval satri <code>&lt;tr&gt;</code> yorlig&#39;i bilan aniqlanadi. Har bir jadval sarlavhasi <code>&lt;th&gt;</code> yorlig&#39;i bilan aniqlanadi. Har bir jadval ma&#39;lumotlari / katakchasi <code>&lt;td&gt;</code> yorlig&#39;i bilan aniqlanadi.</p>
+<p>Odatda, <code>&lt;th&gt;</code> elementlaridagi matn qalin va o&#39;rtada joylashgan.</p>
+<p>Odatda, <code>&lt;td&gt;</code> elementlaridagi matn muntazam va chapga tekislangan.</p>
+<h3 id="misol">Misol</h3>
+<p>Oddiy HTML jadval:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width:100%"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Firstname<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Lastname<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Age<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Jill<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Smith<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>50<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Eve<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Jackson<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>94<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</code></pre>
+<p><em>Izoh:</em> <code>&lt;td&gt;</code> elementlari – jadvalning ma&#39;lumotlar konteynerlari.
+Ular har xil HTML elementlarini o&#39;z ichiga olishi mumkin; matn, rasm, ro&#39;yxat, jadval va boshqalar.</p>
+<h2 id="html-jadvali-chegarani-qo-shish">HTML jadvali - Chegarani qo&#39;shish</h2>
+<p>Jadvalga chegara qo&#39;shish uchun CSS <code>border</code> xususiyatidan foydalaning:</p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-css"><span class="hljs-selector-tag">table</span>, <span class="hljs-selector-tag">th</span>, <span class="hljs-selector-tag">td</span> {
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid black;
+}
+</code></pre>
+<p><em>Ham jadval, ham jadval kataklari uchun chegaralarni belgilashni unutmang.</em></p>
+<h2 id="html-jadvali-yig-ilgan-chegaralar">HTML jadvali - Yig&#39;ilgan chegaralar</h2>
+<p>Chegaralarning bitta chegaraga tushishiga ruxsat berish uchun CSS <code>border-collapse</code> xususiyatini qo&#39;shing:</p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-css"><span class="hljs-selector-tag">table</span>, <span class="hljs-selector-tag">th</span>, <span class="hljs-selector-tag">td</span> {
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid black;
+  <span class="hljs-attribute">border-collapse</span>: collapse;
+}
+</code></pre>
+<h2 id="html-jadvali-katakchani-to-ldirilishini-qo-shish">HTML jadvali - Katakchani to&#39;ldirilishini qo&#39;shish</h2>
+<p>Katakcha to&#39;ldirilishi katak tarkibi va uning chegaralari orasidagi bo&#39;shliqni aniqlaydi.</p>
+<p>Agar siz to&#39;ldirishni ko&#39;rsatmasangiz, jadval katakchalari to&#39;ldirilmasdan ko&#39;rsatiladi.</p>
+<p>To&#39;ldirishni o&#39;rnatish uchun CSS <code>padding</code> xususiyatidan foydalaning:</p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-css"><span class="hljs-selector-tag">th</span>, <span class="hljs-selector-tag">td</span> {
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">15px</span>;
+}
+</code></pre>
+<h2 id="html-jadvali-chapga-tekislangan-sarlavhalar">HTML jadvali - chapga tekislangan sarlavhalar</h2>
+<p>Odatda, jadval sarlavhalari qalin va markazlashtirilgan.</p>
+<p>Jadval sarlavhalarini chapga tekislash uchun CSS <code>text-align</code> xususiyatidan foydalaning:</p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-css"><span class="hljs-selector-tag">th</span> {
+  <span class="hljs-attribute">text-align</span>: left;
+}
+</code></pre>
+<h2 id="html-jadvali-chegara-oralig-ini-qo-shish">HTML jadvali - chegara oralig&#39;ini qo&#39;shish</h2>
+<p>Chegaralar oralig&#39;i kataklar orasidagi bo&#39;shliqni aniqlaydi.</p>
+<p>Jadval uchun chegara oralig&#39;ini o&#39;rnatish uchun <code>border-spacing</code> CSS xususiyatidan foydalaning:</p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-css"><span class="hljs-selector-tag">table</span> {
+  <span class="hljs-attribute">border-spacing</span>: <span class="hljs-number">5px</span>;
+}
+</code></pre>
+<p><strong>Eslatma:</strong> Agar jadval chegaralari <code>border-collapse</code> bo&#39;lsa, chegara oralig&#39;i hech qanday ta&#39;sir qilmaydi.</p>
+<h2 id="html-jadvali-ko-plab-ustunlarni-qamrab-oluvchi-katak">HTML jadvali - ko&#39;plab ustunlarni qamrab oluvchi katak</h2>
+<p>Katakni bitta ustundan ko&#39;proq qilish uchun <code>colspan</code> atributidan foydalaning:</p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width:100%"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">"2"</span>&gt;</span>Telephone<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Bill Gates<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>55577854<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>55577855<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</code></pre>
+<table style="width:100%">  <tr>    <th>Name</th>    <th colspan="2">Telephone</th>  </tr>  <tr>    <td>Bill Gates</td>    <td>55577854</td>    <td>55577855</td>  </tr></table>
+
+<h2 id="html-jadvali-ko-p-qatorlarni-o-z-ichiga-olgan-katak">HTML jadvali - ko&#39;p qatorlarni o&#39;z ichiga olgan katak</h2>
+<p>Katakni bir qatordan ko&#39;proq qilish uchun <code>rowspan</code> atributidan foydalaning:</p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width:100%"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Name:<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Bill Gates<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">"2"</span>&gt;</span>Telephone:<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>55577854<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>55577855<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</code></pre>
+<table style="width:100%">  <tr>    <th>Name:</th>    <td>Bill Gates</td>  </tr>  <tr>    <th rowspan="2">Telephone:</th>    <td>55577854</td>  </tr>  <tr>    <td>55577855</td>  </tr></table>
+
+<h2 id="html-jadvali-sarlavha-qo-shish">HTML jadvali - sarlavha qo&#39;shish</h2>
+<p>Jadvalga sarlavha qo&#39;shish uchun <code>&lt;caption&gt;</code> tegidan foydalaning:</p>
+<h3 id="misol">Misol</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width:100%"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">caption</span>&gt;</span>Monthly savings<span class="hljs-tag">&lt;/<span class="hljs-name">caption</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Month<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Savings<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>January<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>$100<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>February<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>$50<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</code></pre>
+<table style="width:100%">  <caption>Monthly savings</caption>  <tr>    <th>Month</th>    <th>Savings</th>  </tr>  <tr>    <td>January</td>    <td>$100</td>  </tr>  <tr>    <td>February</td>    <td>$50</td>  </tr></table>
+
+<p><strong>Eslatma:</strong> <code>&lt;caption&gt;</code> yorlig&#39;i <code>&lt;table&gt;</code> tegidan so&#39;ng darhol kiritilishi kerak.</p>
+<h2 id="bitta-jadval-uchun-maxsus-stillar">Bitta jadval uchun maxsus stillar</h2>
+<p>Muayyan jadval uchun maxsus uslubni aniqlash uchun jadvalga <code>id</code> atributini qo&#39;shing:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"t01"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Firstname<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Lastname<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Age<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Eve<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Jackson<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>94<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</code></pre>
+<table id="t01">  <tr>    <th>Firstname</th>    <th>Lastname</th>    <th>Age</th>  </tr>  <tr>    <td>Eve</td>    <td>Jackson</td>    <td>94</td>  </tr></table>
+
+<p>Endi ushbu jadval uchun maxsus uslubni belgilashingiz mumkin:</p>
+<pre><code class="lang-css"><span class="hljs-selector-id">#t01</span> {
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#f1f1c1</span>;
+}
+</code></pre>
+<p>Va ko&#39;proq stillarni qo&#39;shing:</p>
+<pre><code class="lang-css"><span class="hljs-selector-id">#t01</span> <span class="hljs-selector-tag">tr</span><span class="hljs-selector-pseudo">:nth-child(even)</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#eee</span>;
+}
+<span class="hljs-selector-id">#t01</span> <span class="hljs-selector-tag">tr</span><span class="hljs-selector-pseudo">:nth-child(odd)</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;
+}
+<span class="hljs-selector-id">#t01</span> <span class="hljs-selector-tag">th</span> {
+  <span class="hljs-attribute">color</span>: white;
+  <span class="hljs-attribute">background-color</span>: black;
+}
+</code></pre>
+<hr>
+<h2 id="bo-limning-qisqacha-mazmuni">Bo&#39;limning qisqacha mazmuni</h2>
+<ul>
+<li>Jadvalni aniqlash uchun HTML <code>&lt;table&gt;</code> elementidan foydalaning</li>
+<li>Jadval qatorini aniqlash uchun HTML <code>&lt;tr&gt;</code> elementidan foydalaning</li>
+<li>Jadval ma&#39;lumotlarini aniqlash uchun HTML <code>&lt;td&gt;</code> elementidan foydalaning</li>
+<li>Jadval sarlavhasini aniqlash uchun HTML <code>&lt;th&gt;</code> elementidan foydalaning</li>
+<li>Jadval sarlavhasini aniqlash uchun HTML <code>&lt;caption&gt;</code> elementidan foydalaning</li>
+<li>Chegarani aniqlash uchun CSS <code>border</code> xususiyatidan foydalaning</li>
+<li>Kataklar chegaralarini yig&#39;ish uchun CSS <code>border-collapse</code> xususiyatidan foydalaning</li>
+<li>Kataklarga to&#39;ldirish qo&#39;shish uchun CSS <code>padding</code> xususiyatidan foydalaning</li>
+<li>Katak matnini tekislash uchun CSS <code>text-align</code> xususiyatidan foydalaning</li>
+<li>Kataklar orasidagi masofani o&#39;rnatish uchun CSS-ning <code>border-spacing</code> xususiyatidan foydalaning</li>
+<li>Katakchani ko&#39;p ustunlarga bo&#39;lish uchun<code>colspan</code> atributidan foydalaning</li>
+<li>Bir qatorni ko&#39;p qatorlarga ajratish uchun <code>rowspan</code> atributidan foydalaning</li>
+<li>Bitta jadvalni noyob tarzda aniqlash uchun <code>id</code> atributidan foydalaning</li>
+</ul>
+
+
+   </div>
+ </body>
+</html>
